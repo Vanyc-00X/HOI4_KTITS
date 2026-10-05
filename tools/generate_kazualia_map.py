@@ -324,6 +324,32 @@ def nearest_board_tag(col: int, row: int) -> str:
     return best
 
 
+def terrain_for_cell(gx: int, gy: int) -> str:
+    ridge_x = 12 + gy // 2
+    ridge_distance = abs(gx - ridge_x)
+    if 4 <= gy <= 18 and ridge_distance <= 1:
+        return "mountain"
+    if ridge_distance <= 4:
+        return "hills"
+    if (gx <= 11 and gy <= 8) or (gx >= 34 and gy <= 14):
+        return "forest"
+    if 18 <= gx <= 25 and 10 <= gy <= 16:
+        return "marsh"
+    if gx >= 39 and gy >= 16:
+        return "desert"
+    return "plains"
+
+
+TERRAIN_HEIGHT = {
+    "mountain": 205,
+    "hills": 155,
+    "forest": 112,
+    "marsh": 76,
+    "desert": 92,
+    "plains": 100,
+}
+
+
 def main() -> None:
     map_dir = ROOT / "map"
     states_dir = ROOT / "history" / "states"
@@ -409,6 +435,7 @@ def main() -> None:
                     "cx": cx,
                     "cy": cy,
                     "type": "land",
+                    "terrain": terrain_for_cell(gx, gy),
                     "coastal": coastal,
                     "gx": gx,
                     "gy": gy,
@@ -499,7 +526,17 @@ def main() -> None:
     for y in range(LAND_Y0, land_y1):
         for x in range(LAND_X0, land_x1):
             tpx[x, y] = 0
-            hpx[x, y] = 120
+            gx, gy = (x - LAND_X0) // CELL, (y - LAND_Y0) // CELL
+            hpx[x, y] = TERRAIN_HEIGHT[terrain_for_cell(gx, gy)]
+
+    # Preserve the game's indexed river segments rather than drawing arbitrary colors.
+    vanilla_rivers = Image.open(VANILLA_MAP / "rivers.bmp").convert("P")
+    if vanilla_rivers.width < land_x1 - LAND_X0 or vanilla_rivers.height < land_y1 - LAND_Y0:
+        raise RuntimeError("Vanilla rivers.bmp is too small to provide a river network")
+    river_indices = Image.frombytes("L", vanilla_rivers.size, vanilla_rivers.tobytes())
+    river_patch = river_indices.crop((0, 0, land_x1 - LAND_X0, land_y1 - LAND_Y0))
+    rivers_idx.paste(river_patch, (LAND_X0, LAND_Y0))
+
     for tag, pid in capital_province.items():
         cx, cy = int(provinces[pid]["cx"]), int(provinces[pid]["cy"])
         for dy in range(-2, 3):
@@ -512,7 +549,6 @@ def main() -> None:
     print("Writing BMPs...")
     save_bmp_rgb(map_dir / "provinces.bmp", prov_img)
     save_bmp_indexed(map_dir / "terrain.bmp", terrain_idx, terrain_pal)
-    # rivers: copy vanilla palette bytes via PIL from vanilla file, fill 254
     save_bmp_indexed(map_dir / "rivers.bmp", rivers_idx, rivers_pal)
     gray_pal = [v for i in range(256) for v in (i, i, i)]
     save_bmp_indexed(map_dir / "heightmap.bmp", height_idx, gray_pal)
@@ -520,9 +556,6 @@ def main() -> None:
     save_bmp_rgb(map_dir / "world_normal.bmp", Image.new("RGB", (NORMAL_W, NORMAL_H), (128, 128, 255)))
     tw, th = max(64, WIDTH * 1650 // 5632), max(64, HEIGHT * 600 // 2048)
     save_bmp_indexed(map_dir / "trees.bmp", Image.new("L", (tw, th), 0), load_vanilla_palette("trees.bmp"))
-
-    # Also overwrite rivers by resizing vanilla empty-ish: copy palette from file header directly
-    _copy_rivers_exact(map_dir / "rivers.bmp")
 
     lines = ["0;0;0;0;land;false;unknown;0"]
     for pid in sorted(provinces):
@@ -532,7 +565,7 @@ def main() -> None:
             lines.append(f"{pid};{r};{g};{b};sea;false;ocean;0")
         else:
             coastal = "true" if p["coastal"] else "false"
-            terr = "urban" if pid in capital_province.values() else "plains"
+            terr = "urban" if pid in capital_province.values() else p["terrain"]
             lines.append(f"{pid};{r};{g};{b};land;{coastal};{terr};1")
     (map_dir / "definition.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -675,45 +708,6 @@ tree = { 3 4 7 10 }
     print(f"provinces={len(provinces)} land={sum(1 for p in provinces.values() if p['type']=='land')} sea={len(sea_ids)}")
     print(f"states={len(state_provinces)} sr={sr_id-1}")
     print("DONE")
-
-
-def _copy_rivers_exact(dest: Path) -> None:
-    """Build rivers.bmp with palette copied raw from vanilla BMP file."""
-    src = VANILLA_MAP / "rivers.bmp"
-    data = src.read_bytes()
-    # BMP palette starts at offset 54 for 8-bit with header 40
-    off = int.from_bytes(data[10:14], "little")
-    pal = data[54:54 + 1024]  # BGRX * 256
-    w, h = WIDTH, HEIGHT
-    row_stride = (w + 3) & ~3
-    # fill index 254
-    body = bytearray()
-    row = bytes([254] * w + [0] * (row_stride - w))
-    for _ in range(h):
-        body.extend(row)
-    # bottom-up already in loop order if we write first row as bottom: BMP is bottom-up so first stored row is y=h-1
-    # our fill is uniform so order irrelevant
-    header = struct.pack(
-        "<2sIHHIIiiHHIIiiii",
-        b"BM",
-        54 + 1024 + len(body),
-        0,
-        0,
-        54 + 1024,
-        40,
-        w,
-        h,
-        1,
-        8,
-        0,
-        len(body),
-        2835,
-        2835,
-        256,
-        256,
-    )
-    dest.write_bytes(header + pal + body)
-    print("rivers.bmp exact vanilla palette, fill=254")
 
 
 if __name__ == "__main__":
