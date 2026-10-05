@@ -21,6 +21,10 @@ state={
 			arms_factory = 1
 		}
 		add_core_of = ZLD
+		1939.1.1 = {
+			owner = VCI
+			add_core_of = VCI
+		}
 	}
 	provinces={
 		324 325 326 327 328 329 330 331

@@ -88,6 +88,8 @@ Works if **all players**:
 - Cosmetic renames/flags on political courses
 - AI strategy plans / areas / theaters
 - Resources scattered on all states: steel / oil / aluminium / rubber / tungsten / chromium + **coal** (1.19 energy), also as focus rewards
+- Railway links and tiered supply hubs, plus artillery, cavalry and motorized national army templates with named commanders
+- 1939 **Border Crisis** bookmark with changed ownership and governments, active wars, and two new infantry weapon technologies
 
 Version in `descriptor.mod` / `tools/register_mod.py`: **0.14.0**
 

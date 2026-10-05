@@ -123,6 +123,44 @@ for pid, d in defs.items():
     if (d["coastal"] == "true") != touches_sea:
         bad(f"DEF {pid} coastal={d['coastal']} but touches_sea={touches_sea}")
 
+# ---------- supply hubs and railways ----------
+seen_supply_nodes = set()
+for ln, line in enumerate(read(MAP / "supply_nodes.txt").splitlines(), 1):
+    f = line.split()
+    if not f:
+        continue
+    if len(f) != 2 or not all(x.isdigit() for x in f):
+        bad(f"SUPPLY line {ln}: expected 'level province_id'")
+        continue
+    level, pid = map(int, f)
+    if not 1 <= level <= 5:
+        bad(f"SUPPLY line {ln}: level {level} outside 1..5")
+    if pid not in defs or defs[pid]["type"] != "land":
+        bad(f"SUPPLY line {ln}: province {pid} is not land")
+    if pid in seen_supply_nodes:
+        bad(f"SUPPLY line {ln}: duplicate node at province {pid}")
+    seen_supply_nodes.add(pid)
+
+for ln, line in enumerate(read(MAP / "railways.txt").splitlines(), 1):
+    f = line.split()
+    if not f:
+        continue
+    if len(f) < 4 or not all(x.isdigit() for x in f):
+        bad(f"RAILWAY line {ln}: expected 'level path_length province_ids...'")
+        continue
+    level, path_length, *path = map(int, f)
+    if not 1 <= level <= 5:
+        bad(f"RAILWAY line {ln}: level {level} outside 1..5")
+    if path_length != len(path) or path_length < 2:
+        bad(f"RAILWAY line {ln}: path length does not match province list")
+        continue
+    for pid in path:
+        if pid not in defs or defs[pid]["type"] != "land":
+            bad(f"RAILWAY line {ln}: province {pid} is not land")
+    for left, right in zip(path, path[1:]):
+        if right not in adj.get(left, set()):
+            bad(f"RAILWAY line {ln}: provinces {left} and {right} are not adjacent")
+
 # ---------- X-crossings (4 provinces meeting at a point) ----------
 a, b, c, dd = idmap[:-1, :-1], idmap[:-1, 1:], idmap[1:, :-1], idmap[1:, 1:]
 xc = (a != b) & (a != c) & (a != dd) & (b != c) & (b != dd) & (c != dd)
@@ -274,7 +312,7 @@ for sub in ("common", "events", "history/units", "map/strategicregions"):
             continue
         brace_balance(p)
 
-print(f"provinces={len(ids)-1} land={sum(1 for d in defs.values() if d['type']=='land')} "
+print(f"provinces={len(ids)-1} land={sum(1 for pid, d in defs.items() if pid and d['type']=='land')} "
       f"states={len(state_ids)} SR-provinces={len(sr_of)} tags={len(tags)} owners={len(owners)}")
 cnt = Counter(m.split()[0] for m in problems)
 print("summary:", dict(cnt))

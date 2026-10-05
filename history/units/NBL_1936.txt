@@ -1,9 +1,8 @@
-##### NBL 1936 OOB #####
 division_template = {
-	name = "Infantry Division"
+	name = "NBL Field Division"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 	}
@@ -16,25 +15,25 @@ units = {
 	division = {
 		division_name = { is_name_ordered = yes name_order = 1 }
 		location = 843
-		division_template = "Infantry Division"
+		division_template = "NBL Field Division"
 		start_experience_factor = 0.2
 	}
 	division = {
 		division_name = { is_name_ordered = yes name_order = 2 }
 		location = 843
-		division_template = "Infantry Division"
+		division_template = "NBL Field Division"
 		start_experience_factor = 0.2
 	}
 	division = {
 		division_name = { is_name_ordered = yes name_order = 3 }
 		location = 843
-		division_template = "Infantry Division"
+		division_template = "NBL Field Division"
 		start_experience_factor = 0.2
 	}
 	division = {
 		division_name = { is_name_ordered = yes name_order = 4 }
 		location = 843
-		division_template = "Infantry Division"
+		division_template = "NBL Field Division"
 		start_experience_factor = 0.2
 	}
 }
@@ -42,4 +41,6 @@ units = {
 instant_effect = {
 	add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = NBL }
 	add_equipment_to_stockpile = { type = support_equipment_1 amount = 200 producer = NBL }
+	add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 500 producer = NBL }
+	add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 500 producer = NBL }
 }

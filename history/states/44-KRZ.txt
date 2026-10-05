@@ -21,6 +21,10 @@ state={
 			arms_factory = 1
 		}
 		add_core_of = KRZ
+		1939.1.1 = {
+			owner = BTR
+			add_core_of = BTR
+		}
 	}
 	provinces={
 		155 156 157 158 159 160 161 162 163 164 165 166

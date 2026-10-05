@@ -11,6 +11,9 @@ set_technology = {
 	infantry_weapons = 1
 	tech_support = 1
 	tech_engineers = 1
+
+	artillery = 1
+	motorised_infantry = 1
 }
 
 set_convoys = 25
@@ -35,6 +38,7 @@ add_ideas = {
 
 recruit_character = KMS_gilyazov_kamil_ildarovich
 
+recruit_character = KMS_mk_general
 # Party names (TZ local ideology labels via localisation)
 set_party_name = {
 	ideology = democratic

@@ -620,10 +620,56 @@ tree = { 3 4 7 10 }
             for i in range(n):
                 buildings.append(f"{sid};{btype};{x+i*0.3:.2f};12.00;{y+i*0.2:.2f};{i*0.4:.2f};0")
         if sid == cap:
-            supply.append(f"1 {pid} ")
+            level = {"large": 3, "medium": 2, "small": 1}[size]
+            supply.append(f"{level} {pid}")
     (map_dir / "buildings.txt").write_text("\n".join(buildings) + "\n", encoding="utf-8")
     (map_dir / "supply_nodes.txt").write_text("\n".join(supply) + "\n", encoding="utf-8")
-    (map_dir / "railways.txt").write_text("", encoding="utf-8")
+
+    land_neighbors: dict[int, set[int]] = defaultdict(set)
+    state_by_province = {
+        pid: sid for sid, provs in state_provinces.items() for pid in provs
+    }
+    country_by_province = {
+        pid: state_owner[sid] for pid, sid in state_by_province.items()
+    }
+    country_borders: set[tuple[str, str]] = set()
+    for (gx, gy), pid in cell_pid.items():
+        for neighbor_cell in ((gx + 1, gy), (gx, gy + 1)):
+            neighbor_pid = cell_pid.get(neighbor_cell)
+            if neighbor_pid is None:
+                continue
+            land_neighbors[pid].add(neighbor_pid)
+            land_neighbors[neighbor_pid].add(pid)
+            tag, neighbor_tag = country_by_province[pid], country_by_province[neighbor_pid]
+            if neighbor_tag is not None and neighbor_tag != tag:
+                country_borders.add(tuple(sorted((tag, neighbor_tag))))
+
+    capital_by_country = {
+        tag: capital_province[tag] for tag, _, _, _ in COUNTRIES
+    }
+    railways = []
+    for left, right in sorted(country_borders):
+        start, goal = capital_by_country[left], capital_by_country[right]
+        queue = [start]
+        previous = {start: None}
+        for current in queue:
+            if current == goal:
+                break
+            for neighbor in sorted(land_neighbors[current]):
+                if neighbor not in previous:
+                    previous[neighbor] = current
+                    queue.append(neighbor)
+        if goal not in previous:
+            raise RuntimeError(f"No land railway route between {left} and {right}")
+        path = []
+        current = goal
+        while current is not None:
+            path.append(current)
+            current = previous[current]
+        path.reverse()
+        level = 3 if left in {"VCI", "KRZ", "SHF"} or right in {"VCI", "KRZ", "SHF"} else 2
+        railways.append(f"{level} {len(path)} " + " ".join(map(str, path)))
+    (map_dir / "railways.txt").write_text("\n\n".join(railways) + "\n", encoding="utf-8")
 
     loc_states = ["l_russian:"]
     for sid in sorted(state_provinces):

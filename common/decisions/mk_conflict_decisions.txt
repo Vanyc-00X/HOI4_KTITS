@@ -1,0 +1,68 @@
+mk_cat_border_crises = {
+	mk_dec_border_crisis = {
+		icon = generic_claim_state
+		cost = 50
+		fire_only_once = no
+		days_re_enable = 180
+		targets = { VCI SOY BTR KRZ KZS MUS TRF ZLD ISL CLB ADL DMK FDP CRE SVA ART KMS ZNS ZKR ZML NBL ISG HRL SHF }
+		target_trigger = {
+			FROM = {
+				is_mk_country = yes
+				NOT = { tag = ROOT }
+				has_war = no
+				is_in_faction = no
+				any_owned_state = {
+					any_neighbor_state = {
+						is_owned_by = ROOT
+					}
+				}
+			}
+		}
+		target_root_trigger = {
+			is_mk_country = yes
+			has_war = no
+			is_in_faction = no
+			mk_absurd_high = yes
+		}
+		visible = {
+			is_mk_country = yes
+			mk_absurd_high = yes
+		}
+		available = {
+			has_political_power > 49
+			has_war = no
+			FROM = {
+				has_war = no
+				is_in_faction = no
+			}
+		}
+		complete_effect = {
+			FROM = {
+				every_owned_state = {
+					limit = {
+						any_neighbor_state = {
+							is_owned_by = ROOT
+						}
+					}
+					add_state_claim = ROOT
+				}
+			}
+			create_wargoal = {
+				type = mk_border_revision
+				target = FROM
+			}
+			add_war_support = 0.05
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+			custom_effect_tooltip = mk_tt_border_crisis
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				mk_absurd_critical = yes
+				has_war_support > 0.6
+			}
+		}
+	}
+}

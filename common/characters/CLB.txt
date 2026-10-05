@@ -35,4 +35,23 @@ characters = {
 			traits = { mk_ruler_clb }
 		}
 	}
+
+	CLB_mk_general = {
+		name = CLB_mk_general
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
 }
