@@ -15,7 +15,7 @@ state={
 	state_category = city
 	history={
 		owner = ZML
-		victory_points = { 791 12 }
+		victory_points = { 1059 12 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -25,7 +25,7 @@ state={
 		add_core_of = ZML
 	}
 	provinces={
-		790 791 792 793 794 795 796 797
+		1058 1059 1060 1061 1062 1063 1064 1065 1066 1067
 	}
 	local_supplies=0.0
 }

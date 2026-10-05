@@ -15,7 +15,7 @@ state={
 	state_category = town
 	history={
 		owner = KMS
-		victory_points = { 718 3 }
+		victory_points = { 962 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
@@ -24,7 +24,7 @@ state={
 		add_core_of = KMS
 	}
 	provinces={
-		718
+		962 963 964 965
 	}
 	local_supplies=0.0
 }

@@ -2,8 +2,8 @@
 
 ```
 WIDTH=2048 HEIGHT=1024
-land_provinces=982
-sea_provinces=1066
+land_provinces=1308
+sea_provinces=740
 total_provinces=2048
 states=127
 strategic_regions=43

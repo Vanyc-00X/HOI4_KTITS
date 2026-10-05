@@ -1619,7 +1619,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			activate_character = BTR_grandfather_akhtyamov
+			recruit_character = BTR_grandfather_akhtyamov
 			set_country_flag = mk_unlocked_character_btr_grandfather_akhtyamov
 			army_experience = 25
 			add_manpower = 12000

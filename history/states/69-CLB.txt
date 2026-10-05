@@ -15,19 +15,25 @@ state={
 	state_category = town
 	history={
 		owner = CLB
-		victory_points = { 362 3 }
+		victory_points = { 506 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
 			arms_factory = 1
-			362 = {
-				naval_base = 2
+			506 = {
+				naval_base = 1
+			}
+			507 = {
+				naval_base = 1
+			}
+			508 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = CLB
 	}
 	provinces={
-		362 363 364 365 366 367 368 369 370 371 372 373
+		506 507 508 509 510 511 512 513 514 515 516 517 518 519 520
 	}
 	local_supplies=0.0
 }

@@ -15,7 +15,7 @@ state={
 	state_category = city
 	history={
 		owner = ISG
-		victory_points = { 834 12 }
+		victory_points = { 1112 12 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -25,7 +25,7 @@ state={
 		add_core_of = ISG
 	}
 	provinces={
-		834 835 836 837 838 839 840 841
+		1112 1113 1114 1115 1116 1117 1118 1119 1120 1121 1122 1123 1124 1125 1126
 	}
 	local_supplies=0.0
 }

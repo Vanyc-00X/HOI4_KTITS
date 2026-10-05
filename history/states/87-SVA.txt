@@ -15,19 +15,28 @@ state={
 	state_category = town
 	history={
 		owner = SVA
-		victory_points = { 554 3 }
+		victory_points = { 751 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
 			arms_factory = 1
-			554 = {
-				naval_base = 2
+			751 = {
+				naval_base = 1
+			}
+			752 = {
+				naval_base = 1
+			}
+			753 = {
+				naval_base = 1
+			}
+			754 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = SVA
 	}
 	provinces={
-		554 555 556 557 558 559 560 561 562 563 564 565 566 567 568 569
+		751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766 767 768 769
 	}
 	local_supplies=0.0
 }

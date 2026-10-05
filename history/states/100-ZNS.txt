@@ -15,7 +15,7 @@ state={
 	state_category = town
 	history={
 		owner = ZNS
-		victory_points = { 742 3 }
+		victory_points = { 990 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
@@ -24,7 +24,7 @@ state={
 		add_core_of = ZNS
 	}
 	provinces={
-		742 743 744 745 746 747 748 749 750 751 752 753
+		990 991 992 993 994 995 996 997 998 999 1000 1001
 	}
 	local_supplies=0.0
 }

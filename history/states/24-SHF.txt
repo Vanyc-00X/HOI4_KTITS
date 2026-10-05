@@ -15,20 +15,23 @@ state={
 	state_category = metropolis
 	history={
 		owner = SHF
-		victory_points = { 883 30 }
+		victory_points = { 1178 30 }
 		buildings = {
 			infrastructure = 4
 			industrial_complex = 3
 			arms_factory = 2
 			air_base = 1
-			894 = {
-				naval_base = 2
+			1191 = {
+				naval_base = 1
+			}
+			1192 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = SHF
 	}
 	provinces={
-		882 883 884 885 886 887 888 889 890 891 892 893 894
+		1177 1178 1179 1180 1181 1182 1183 1184 1185 1186 1187 1188 1189 1190 1191 1192
 	}
 	local_supplies=0.0
 }

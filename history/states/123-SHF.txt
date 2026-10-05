@@ -15,19 +15,22 @@ state={
 	state_category = large_town
 	history={
 		owner = SHF
-		victory_points = { 951 3 }
+		victory_points = { 1257 3 }
 		buildings = {
 			infrastructure = 4
 			industrial_complex = 2
 			arms_factory = 1
-			961 = {
-				naval_base = 2
+			1271 = {
+				naval_base = 1
+			}
+			1272 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = SHF
 	}
 	provinces={
-		951 952 953 954 955 956 957 958 959 960 961
+		1257 1258 1259 1260 1261 1262 1263 1264 1265 1266 1267 1268 1269 1270 1271 1272
 	}
 	local_supplies=0.0
 }

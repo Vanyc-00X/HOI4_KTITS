@@ -15,20 +15,29 @@ state={
 	state_category = large_city
 	history={
 		owner = KMS
-		victory_points = { 679 20 }
+		victory_points = { 925 20 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 2
 			arms_factory = 2
 			air_base = 1
-			671 = {
-				naval_base = 2
+			914 = {
+				naval_base = 1
+			}
+			917 = {
+				naval_base = 1
+			}
+			920 = {
+				naval_base = 1
+			}
+			923 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = KMS
 	}
 	provinces={
-		671 672 673 674 675 676 677 678 679 680 681
+		914 915 916 917 918 919 920 921 922 923 924 925
 	}
 	local_supplies=0.0
 }

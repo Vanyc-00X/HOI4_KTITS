@@ -2249,7 +2249,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			activate_character = SOY_joe_biden_guest_diplomat
+			recruit_character = SOY_joe_biden_guest_diplomat
 			set_country_flag = mk_unlocked_character_soy_joe_biden_guest_diplomat
 			add_political_power = 50
 			add_stability = 0.03

@@ -15,20 +15,29 @@ state={
 	state_category = large_city
 	history={
 		owner = ART
-		victory_points = { 622 20 }
+		victory_points = { 846 20 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 2
 			arms_factory = 2
 			air_base = 1
-			610 = {
-				naval_base = 2
+			830 = {
+				naval_base = 1
+			}
+			831 = {
+				naval_base = 1
+			}
+			832 = {
+				naval_base = 1
+			}
+			833 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = ART
 	}
 	provinces={
-		610 611 612 613 614 615 616 617 618 619 620 621 622 623 624 625
+		830 831 832 833 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849
 	}
 	local_supplies=0.0
 }

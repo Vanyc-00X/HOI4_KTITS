@@ -15,7 +15,7 @@ state={
 	state_category = rural
 	history={
 		owner = ISG
-		victory_points = { 842 3 }
+		victory_points = { 1127 3 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
@@ -24,7 +24,7 @@ state={
 		add_core_of = ISG
 	}
 	provinces={
-		842 843 844 845 846 847 848 849
+		1127 1128 1129 1130 1131 1132 1133 1134 1135 1136 1137 1138 1139 1140 1141
 	}
 	local_supplies=0.0
 }

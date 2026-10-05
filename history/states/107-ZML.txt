@@ -15,7 +15,7 @@ state={
 	state_category = rural
 	history={
 		owner = ZML
-		victory_points = { 798 3 }
+		victory_points = { 1068 3 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
@@ -24,7 +24,7 @@ state={
 		add_core_of = ZML
 	}
 	provinces={
-		798 799 800 801 802 803 804 805
+		1068 1069 1070 1071 1072 1073 1074 1075 1076 1077
 	}
 	local_supplies=0.0
 }

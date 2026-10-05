@@ -15,7 +15,7 @@ state={
 	state_category = large_city
 	history={
 		owner = ZLD
-		victory_points = { 308 20 }
+		victory_points = { 433 20 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 2
@@ -25,7 +25,7 @@ state={
 		add_core_of = ZLD
 	}
 	provinces={
-		303 304 305 306 307 308 309
+		428 429 430 431 432 433 434
 	}
 	local_supplies=0.0
 }

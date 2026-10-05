@@ -1,4 +1,4 @@
-mk_cat_border_crises = {
+mk_cat_border_crises_category = {
 	mk_dec_border_crisis = {
 		icon = generic_claim_state
 		cost = 50
@@ -44,7 +44,7 @@ mk_cat_border_crises = {
 							is_owned_by = ROOT
 						}
 					}
-					add_state_claim = ROOT
+					add_claim_by = ROOT
 				}
 			}
 			create_wargoal = {

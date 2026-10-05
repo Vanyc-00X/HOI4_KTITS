@@ -15,7 +15,7 @@ state={
 	state_category = town
 	history={
 		owner = FDP
-		victory_points = { 489 3 }
+		victory_points = { 675 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
@@ -24,7 +24,7 @@ state={
 		add_core_of = FDP
 	}
 	provinces={
-		489 490 491 492 493 494
+		675 676 677 678 679 680 681 682
 	}
 	local_supplies=0.0
 }

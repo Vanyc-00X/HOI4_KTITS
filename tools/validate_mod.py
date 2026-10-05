@@ -119,6 +119,16 @@ for pid, d in defs.items():
 land_terrain_counts = Counter(
     d["terrain"] for pid, d in defs.items() if pid and d["type"] == "land"
 )
+land_province_count = sum(
+    1 for pid, d in defs.items() if pid and d["type"] == "land"
+)
+sea_province_count = sum(
+    1 for pid, d in defs.items() if pid and d["type"] == "sea"
+)
+if land_province_count <= 1200:
+    bad(f"MAP has only {land_province_count} land provinces; expected more than 1200")
+if land_province_count <= sea_province_count:
+    bad(f"MAP has fewer land provinces ({land_province_count}) than sea ({sea_province_count})")
 for terrain in ("plains", "forest", "hills", "mountain", "marsh", "desert", "jungle"):
     if land_terrain_counts[terrain] == 0:
         bad(f"MAP has no land provinces of terrain {terrain}")
@@ -292,6 +302,7 @@ for p in (ROOT / "common/country_tags").glob("*.txt"):
 state_of: dict[int, int] = {}
 state_owner: dict[int, str] = {}
 state_ids = Counter()
+naval_base_provinces: set[int] = set()
 for p in sorted((ROOT / "history/states").glob("*.txt")):
     brace_balance(p)
     t = strip_comments(read(p))
@@ -339,8 +350,10 @@ for p in sorted((ROOT / "history/states").glob("*.txt")):
     for pr, _inner in re.findall(r"\b(\d+)\s*=\s*\{([^}]*)\}", bl):
         if int(pr) not in provs:
             bad(f"STATE {sid} province building on {pr} not in state")
-        if "naval_base" in _inner and defs.get(int(pr), {}).get("coastal") != "true":
-            bad(f"STATE {sid} naval_base on non-coastal {pr}")
+        if "naval_base" in _inner:
+            naval_base_provinces.add(int(pr))
+            if defs.get(int(pr), {}).get("coastal") != "true":
+                bad(f"STATE {sid} naval_base on non-coastal {pr}")
 for sid, n in state_ids.items():
     if n > 1:
         bad(f"STATE id {sid} defined {n} times")
@@ -349,6 +362,14 @@ if state_ids and sorted(state_ids) != list(range(1, max(state_ids) + 1)):
 for pid, d in defs.items():
     if pid and d["type"] == "land" and pid not in state_of:
         bad(f"STATE land province {pid} not in any state")
+coastal_provinces = {
+    pid for pid, d in defs.items()
+    if pid and d["type"] == "land" and d["coastal"] == "true"
+}
+if naval_base_provinces != coastal_provinces:
+    missing = sorted(coastal_provinces - naval_base_provinces)
+    extra = sorted(naval_base_provinces - coastal_provinces)
+    bad(f"STATE naval bases do not match coastal provinces (missing={missing}, extra={extra})")
 
 # ---------- strategic regions ----------
 sr_of: dict[int, int] = {}
@@ -404,6 +425,7 @@ if weather_region_ids != strategic_region_ids:
     bad(f"WEATHER regions do not match strategic regions (missing={missing}, extra={extra})")
 
 # ---------- buildings.txt ----------
+port_spawn_count = 0
 for ln, line in enumerate(read(MAP / "buildings.txt").splitlines(), 1):
     f = line.split(";")
     if len(f) < 7:
@@ -411,10 +433,21 @@ for ln, line in enumerate(read(MAP / "buildings.txt").splitlines(), 1):
     sid, btype = int(f[0]), f[1]
     if sid not in state_ids:
         bad(f"BUILDINGS line {ln}: state {sid} unknown")
+    if btype == "infrastructure":
+        bad(f"BUILDINGS line {ln}: infrastructure has no map building mesh")
     if btype == "naval_base_spawn":
+        port_spawn_count += 1
         sea = int(f[6])
         if sea and defs.get(sea, {}).get("type") != "sea":
             bad(f"BUILDINGS line {ln}: naval_base adjacent {sea} is not sea")
+coastal_province_count = sum(
+    1 for pid, d in defs.items() if pid and d["type"] == "land" and d["coastal"] == "true"
+)
+if port_spawn_count != coastal_province_count:
+    bad(
+        f"BUILDINGS has {port_spawn_count} naval-base spawn points for "
+        f"{coastal_province_count} coastal provinces"
+    )
 
 # ---------- unitstacks ----------
 unitstack_slots: dict[int, set[int]] = defaultdict(set)
@@ -527,9 +560,9 @@ for tag, characters in FOCUS_UNLOCKED_CHARACTERS.items():
         focus = focus_by_id.get(focus_id, "")
         if not focus:
             bad(f"CHARACTER {character_id} unlock focus {focus_id} missing")
-        elif (f"activate_character = {character_id}" not in focus
+        elif (f"recruit_character = {character_id}" not in focus
               or f"set_country_flag = {unlock_flag}" not in focus):
-            bad(f"CHARACTER {character_id} focus {focus_id} must activate it and set {unlock_flag}")
+            bad(f"CHARACTER {character_id} focus {focus_id} must recruit it and set {unlock_flag}")
         matching_hooks = [
             hook for hook in script_blocks(capture_actions, "if")
             if f"original_tag = {tag}" in hook

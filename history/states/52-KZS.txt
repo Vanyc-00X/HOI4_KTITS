@@ -15,19 +15,25 @@ state={
 	state_category = rural
 	history={
 		owner = KZS
-		victory_points = { 207 3 }
+		victory_points = { 299 3 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 0
-			215 = {
-				naval_base = 2
+			308 = {
+				naval_base = 1
+			}
+			309 = {
+				naval_base = 1
+			}
+			310 = {
+				naval_base = 1
 			}
 		}
 		add_core_of = KZS
 	}
 	provinces={
-		207 208 209 210 211 212 213 214 215 216 217 218
+		299 300 301 302 303 304 305 306 307 308 309 310
 	}
 	local_supplies=0.0
 }
