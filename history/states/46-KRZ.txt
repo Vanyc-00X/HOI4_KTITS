@@ -1,9 +1,7 @@
 state={
 	id=46
 	name="STATE_46"
-	manpower = 1500000
-	state_category = large_town
-		resources={
+	resources={
 		steel=20
 		oil=8
 		aluminium=6
@@ -12,25 +10,24 @@ state={
 		chromium=8
 		coal=26
 	}
+
+	manpower = 1600000
+	state_category = large_town
 	history={
 		owner = KRZ
-		victory_points = { 179 3 }
+		victory_points = { 172 3 }
 		buildings = {
-			179 = { naval_base = 1 }
-			180 = { naval_base = 1 }
-			181 = { naval_base = 1 }
-			182 = { naval_base = 1 }
-			183 = { naval_base = 1 }
-			184 = { naval_base = 1 }
-			185 = { naval_base = 1 }
 			infrastructure = 4
 			industrial_complex = 2
 			arms_factory = 1
+			172 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = KRZ
 	}
 	provinces={
-		179 180 181 182 183 184 185
+		172 173 174 175 176 177 178
 	}
 	local_supplies=0.0
 }

@@ -96,7 +96,7 @@
 
 | Система | Переменные / ID (черновик) | Где живёт |
 |---------|---------------------------|-----------|
-| Температура Абсурда | `global.mk_absurd_temp` (0–100) | on_actions, scripted_effects, decisions |
+| Шкала Абсурда | `global.mk_absurd_temp` (0–100) | on_actions, scripted_effects, decisions |
 | 24 Голоса Мира | `mk_world_voice` (per country), Конгресс | decisions + events |
 | НПТ | `mk_npt_influence`, идеи/фокусы | ideas, focuses, BTR secret |
 | Идеологические альянсы | фракции + `mk_ideo_alliance_*` | focuses, decisions |

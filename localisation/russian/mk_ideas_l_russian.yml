@@ -58,7 +58,7 @@
  mk_idea_npt_network:0 "Сеть НПТ"
  mk_idea_npt_network_desc:0 "Подпольная сеть Национал-Программистов связана сквозь границы."
  mk_idea_absurd_calm:0 "Абсурд: штиль"
- mk_idea_absurd_calm_desc:0 "Температура Абсурда низкая. Мир почти нормальный."
+ mk_idea_absurd_calm_desc:0 "Шкала Абсурда на низком уровне. Мир почти нормальный."
  mk_idea_absurd_warm:0 "Абсурд: нагрев"
  mk_idea_absurd_warm_desc:0 "Политика становится страннее обычного."
  mk_idea_absurd_hot:0 "Абсурд: кипение"

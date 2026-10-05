@@ -11,28 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = DMK_sidorov_dmitriy_rustamovich_desc
-			traits = { mk_ruler_dmk }
+			traits = { mk_ruler_dmk_fascism }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = DMK_sidorov_dmitriy_rustamovich_desc
-			traits = { mk_ruler_dmk }
+			traits = { mk_ruler_dmk_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = DMK_sidorov_dmitriy_rustamovich_desc
-			traits = { mk_ruler_dmk }
+			traits = { mk_ruler_dmk_communism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = DMK_sidorov_dmitriy_rustamovich_desc
-			traits = { mk_ruler_dmk }
+			traits = { mk_ruler_dmk_neutrality }
 		}
 	}
 

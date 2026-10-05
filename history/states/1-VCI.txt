@@ -1,9 +1,7 @@
 state={
 	id=1
 	name="STATE_1"
-	manpower = 1950000
-	state_category = metropolis
-		resources={
+	resources={
 		steel=18
 		oil=10
 		aluminium=5
@@ -12,9 +10,12 @@ state={
 		chromium=4
 		coal=39
 	}
+
+	manpower = 2080000
+	state_category = metropolis
 	history={
 		owner = VCI
-		victory_points = { 7 30 }
+		victory_points = { 10 30 }
 		buildings = {
 			infrastructure = 4
 			industrial_complex = 3

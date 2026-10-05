@@ -11,28 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = MUS_musina_alina_maratovna_desc
-			traits = { mk_ruler_mus }
+			traits = { mk_ruler_mus_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = MUS_musina_alina_maratovna_desc
-			traits = { mk_ruler_mus }
+			traits = { mk_ruler_mus_communism }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = MUS_musina_alina_maratovna_desc
-			traits = { mk_ruler_mus }
+			traits = { mk_ruler_mus_fascism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = MUS_musina_alina_maratovna_desc
-			traits = { mk_ruler_mus }
+			traits = { mk_ruler_mus_neutrality }
 		}
 	}
 

@@ -11,28 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = SOY_efimov_aleksandr_andreevich_desc
-			traits = { mk_ruler_soy }
+			traits = { mk_ruler_soy_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = SOY_efimov_aleksandr_andreevich_desc
-			traits = { mk_ruler_soy }
+			traits = { mk_ruler_soy_communism }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = SOY_efimov_aleksandr_andreevich_desc
-			traits = { mk_ruler_soy }
+			traits = { mk_ruler_soy_fascism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = SOY_efimov_aleksandr_andreevich_desc
-			traits = { mk_ruler_soy }
+			traits = { mk_ruler_soy_neutrality }
 		}
 	}
 
@@ -52,6 +52,25 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 2
 			legacy_id = -1
+		}
+	}
+
+	SOY_joe_biden_guest_diplomat = {
+		name = SOY_joe_biden_guest_diplomat
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOY_joe_biden_guest_diplomat
+			allowed = {
+				original_tag = SOY
+			}
+			traits = {
+				silent_workhorse
+			}
 		}
 	}
 }

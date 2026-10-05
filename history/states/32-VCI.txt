@@ -1,9 +1,7 @@
 state={
 	id=32
 	name="STATE_32"
-	manpower = 1500000
-	state_category = large_town
-		resources={
+	resources={
 		steel=28
 		oil=10
 		aluminium=12
@@ -12,6 +10,9 @@ state={
 		chromium=6
 		coal=40
 	}
+
+	manpower = 1600000
+	state_category = large_town
 	history={
 		owner = VCI
 		victory_points = { 58 3 }

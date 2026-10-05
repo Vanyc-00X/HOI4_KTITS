@@ -1,9 +1,7 @@
 state={
 	id=104
 	name="STATE_104"
-	manpower = 750000
-	state_category = town
-		resources={
+	resources={
 		steel=15
 		oil=10
 		aluminium=16
@@ -12,21 +10,24 @@ state={
 		chromium=7
 		coal=26
 	}
+
+	manpower = 800000
+	state_category = town
 	history={
 		owner = ZKR
-		victory_points = { 801 3 }
+		victory_points = { 775 3 }
 		buildings = {
-			807 = { naval_base = 1 }
-			808 = { naval_base = 1 }
-			809 = { naval_base = 1 }
 			infrastructure = 3
 			industrial_complex = 1
 			arms_factory = 1
+			781 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ZKR
 	}
 	provinces={
-		801 802 803 804 805 806 807 808 809
+		775 776 777 778 779 780 781 782
 	}
 	local_supplies=0.0
 }

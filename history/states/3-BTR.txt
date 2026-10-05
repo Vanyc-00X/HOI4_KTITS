@@ -1,9 +1,7 @@
 state={
 	id=3
 	name="STATE_3"
-	manpower = 975000
-	state_category = large_city
-		resources={
+	resources={
 		steel=14
 		oil=20
 		aluminium=3
@@ -12,17 +10,20 @@ state={
 		chromium=9
 		coal=37
 	}
+
+	manpower = 1040000
+	state_category = large_city
 	history={
 		owner = BTR
-		victory_points = { 82 20 }
+		victory_points = { 78 20 }
 		buildings = {
-			84 = { naval_base = 1 }
-			85 = { naval_base = 1 }
-			86 = { naval_base = 1 }
 			infrastructure = 3
 			industrial_complex = 2
 			arms_factory = 2
 			air_base = 1
+			84 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = BTR
 	}

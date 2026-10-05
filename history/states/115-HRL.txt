@@ -1,9 +1,7 @@
 state={
 	id=115
 	name="STATE_115"
-	manpower = 750000
-	state_category = town
-		resources={
+	resources={
 		steel=10
 		oil=11
 		aluminium=7
@@ -12,9 +10,12 @@ state={
 		chromium=5
 		coal=14
 	}
+
+	manpower = 800000
+	state_category = town
 	history={
 		owner = HRL
-		victory_points = { 895 3 }
+		victory_points = { 865 3 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
@@ -23,7 +24,7 @@ state={
 		add_core_of = HRL
 	}
 	provinces={
-		895 896 897 898 899 900 901
+		865 866 867 868 869 870 871
 	}
 	local_supplies=0.0
 }

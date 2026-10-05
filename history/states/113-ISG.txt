@@ -1,9 +1,7 @@
 state={
 	id=113
 	name="STATE_113"
-	manpower = 400000
-	state_category = rural
-		resources={
+	resources={
 		steel=6
 		oil=4
 		aluminium=5
@@ -12,9 +10,12 @@ state={
 		chromium=6
 		coal=19
 	}
+
+	manpower = 400000
+	state_category = rural
 	history={
 		owner = ISG
-		victory_points = { 872 3 }
+		victory_points = { 842 3 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
@@ -23,7 +24,7 @@ state={
 		add_core_of = ISG
 	}
 	provinces={
-		872 873 874 875 876 877 878 879
+		842 843 844 845 846 847 848 849
 	}
 	local_supplies=0.0
 }

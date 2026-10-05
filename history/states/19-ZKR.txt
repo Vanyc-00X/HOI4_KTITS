@@ -1,9 +1,7 @@
 state={
 	id=19
 	name="STATE_19"
-	manpower = 975000
-	state_category = large_city
-		resources={
+	resources={
 		steel=13
 		oil=13
 		aluminium=11
@@ -12,23 +10,25 @@ state={
 		chromium=6
 		coal=32
 	}
+
+	manpower = 1040000
+	state_category = large_city
 	history={
 		owner = ZKR
-		victory_points = { 788 20 }
+		victory_points = { 765 20 }
 		buildings = {
-			784 = { naval_base = 1 }
-			787 = { naval_base = 1 }
-			790 = { naval_base = 1 }
-			791 = { naval_base = 1 }
 			infrastructure = 3
 			industrial_complex = 2
 			arms_factory = 2
 			air_base = 1
+			763 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ZKR
 	}
 	provinces={
-		784 785 786 787 788 789 790 791
+		763 764 765 766 767
 	}
 	local_supplies=0.0
 }

@@ -1,9 +1,7 @@
 state={
 	id=17
 	name="STATE_17"
-	manpower = 975000
-	state_category = large_city
-		resources={
+	resources={
 		steel=9
 		oil=9
 		aluminium=5
@@ -12,23 +10,25 @@ state={
 		chromium=7
 		coal=22
 	}
+
+	manpower = 1040000
+	state_category = large_city
 	history={
 		owner = KMS
-		victory_points = { 697 20 }
+		victory_points = { 679 20 }
 		buildings = {
-			692 = { naval_base = 1 }
-			695 = { naval_base = 1 }
-			698 = { naval_base = 1 }
-			701 = { naval_base = 1 }
 			infrastructure = 3
 			industrial_complex = 2
 			arms_factory = 2
 			air_base = 1
+			671 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = KMS
 	}
 	provinces={
-		692 693 694 695 696 697 698 699 700 701 702
+		671 672 673 674 675 676 677 678 679 680 681
 	}
 	local_supplies=0.0
 }

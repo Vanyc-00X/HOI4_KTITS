@@ -1,9 +1,7 @@
 state={
 	id=20
 	name="STATE_20"
-	manpower = 520000
-	state_category = city
-		resources={
+	resources={
 		steel=10
 		oil=7
 		aluminium=9
@@ -12,9 +10,12 @@ state={
 		chromium=5
 		coal=16
 	}
+
+	manpower = 520000
+	state_category = city
 	history={
 		owner = ZML
-		victory_points = { 824 12 }
+		victory_points = { 791 12 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -24,7 +25,7 @@ state={
 		add_core_of = ZML
 	}
 	provinces={
-		820 821 822 823 824 825 826 827
+		790 791 792 793 794 795 796 797
 	}
 	local_supplies=0.0
 }

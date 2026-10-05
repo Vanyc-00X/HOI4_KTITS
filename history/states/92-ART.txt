@@ -1,9 +1,7 @@
 state={
 	id=92
 	name="STATE_92"
-	manpower = 750000
-	state_category = town
-		resources={
+	resources={
 		steel=8
 		oil=5
 		aluminium=8
@@ -12,22 +10,24 @@ state={
 		chromium=4
 		coal=20
 	}
+
+	manpower = 800000
+	state_category = town
 	history={
 		owner = ART
-		victory_points = { 656 3 }
+		victory_points = { 642 3 }
 		buildings = {
-			656 = { naval_base = 1 }
-			657 = { naval_base = 1 }
-			658 = { naval_base = 1 }
-			659 = { naval_base = 1 }
 			infrastructure = 3
 			industrial_complex = 1
 			arms_factory = 1
+			642 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ART
 	}
 	provinces={
-		656 657 658 659 660 661 662 663 664 665 666 667 668 669 670 671
+		642 643 644 645 646 647 648 649 650 651 652 653 654 655 656 657
 	}
 	local_supplies=0.0
 }

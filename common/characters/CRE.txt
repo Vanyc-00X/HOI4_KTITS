@@ -11,28 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = CRE_khasanov_damir_yurevich_desc
-			traits = { mk_ruler_cre }
+			traits = { mk_ruler_cre_fascism }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = CRE_khasanov_damir_yurevich_desc
-			traits = { mk_ruler_cre }
+			traits = { mk_ruler_cre_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = CRE_khasanov_damir_yurevich_desc
-			traits = { mk_ruler_cre }
+			traits = { mk_ruler_cre_communism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = CRE_khasanov_damir_yurevich_desc
-			traits = { mk_ruler_cre }
+			traits = { mk_ruler_cre_neutrality }
 		}
 	}
 
@@ -51,6 +51,82 @@ characters = {
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	CRE_adolf_hitler_guest_instructor = {
+		name = CRE_adolf_hitler_guest_instructor
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	CRE_hermann_goering_guest_instructor = {
+		name = CRE_hermann_goering_guest_instructor
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	CRE_erwin_rommel_guest_instructor = {
+		name = CRE_erwin_rommel_guest_instructor
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
+			legacy_id = -1
+		}
+	}
+
+	CRE_heinz_guderian_guest_instructor = {
+		name = CRE_heinz_guderian_guest_instructor
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 5
+			logistics_skill = 4
 			legacy_id = -1
 		}
 	}

@@ -1,9 +1,7 @@
 state={
 	id=5
 	name="STATE_5"
-	manpower = 520000
-	state_category = city
-		resources={
+	resources={
 		steel=13
 		oil=16
 		aluminium=4
@@ -12,23 +10,25 @@ state={
 		chromium=8
 		coal=21
 	}
+
+	manpower = 520000
+	state_category = city
 	history={
 		owner = KZS
-		victory_points = { 196 12 }
+		victory_points = { 183 12 }
 		buildings = {
-			198 = { naval_base = 1 }
-			199 = { naval_base = 1 }
-			200 = { naval_base = 1 }
-			201 = { naval_base = 1 }
 			infrastructure = 2
 			industrial_complex = 2
 			arms_factory = 1
 			air_base = 1
+			191 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = KZS
 	}
 	provinces={
-		190 191 192 193 194 195 196 197 198 199 200 201
+		183 184 185 186 187 188 189 190 191 192 193 194
 	}
 	local_supplies=0.0
 }

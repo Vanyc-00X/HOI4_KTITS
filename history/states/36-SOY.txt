@@ -1,9 +1,7 @@
 state={
 	id=36
 	name="STATE_36"
-	manpower = 750000
-	state_category = town
-		resources={
+	resources={
 		steel=10
 		oil=4
 		aluminium=4
@@ -12,6 +10,9 @@ state={
 		chromium=2
 		coal=15
 	}
+
+	manpower = 800000
+	state_category = town
 	history={
 		owner = SOY
 		victory_points = { 76 3 }

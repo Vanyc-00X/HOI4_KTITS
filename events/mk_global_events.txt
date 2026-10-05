@@ -181,6 +181,8 @@ country_event = {
 				clr_country_flag = mk_congress_target
 			}
 			news_event = { id = mk_global.12 hours = 2 }
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_sub_absurd = yes
 		}
 		else = {
 			every_country = {
@@ -197,6 +199,8 @@ country_event = {
 				clr_country_flag = mk_congress_target
 			}
 			news_event = { id = mk_global.13 hours = 2 }
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
 		}
 		clr_global_flag = mk_congress_active
 		clr_global_flag = mk_congress_resolution_passed

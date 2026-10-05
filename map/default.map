@@ -10,4 +10,5 @@ adjacency_rules = "adjacency_rules.txt"
 adjacencies = "adjacencies.csv"
 ambient_object = "ambient_object.txt"
 seasons = "seasons.txt"
+
 tree = { 3 4 7 10 }

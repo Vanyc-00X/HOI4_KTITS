@@ -1,9 +1,7 @@
 state={
 	id=22
 	name="STATE_22"
-	manpower = 520000
-	state_category = city
-		resources={
+	resources={
 		steel=6
 		oil=4
 		aluminium=5
@@ -12,9 +10,12 @@ state={
 		chromium=2
 		coal=22
 	}
+
+	manpower = 520000
+	state_category = city
 	history={
 		owner = ISG
-		victory_points = { 868 12 }
+		victory_points = { 834 12 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -24,7 +25,7 @@ state={
 		add_core_of = ISG
 	}
 	provinces={
-		864 865 866 867 868 869 870 871
+		834 835 836 837 838 839 840 841
 	}
 	local_supplies=0.0
 }

@@ -1056,3 +1056,1727 @@ country_event = {
 		ai_chance = { factor = 35 }
 	}
 }
+
+country_event = {
+	id = mk_ruler.25
+	title = mk_ruler.25.t
+	desc = mk_ruler.25.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.25.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_vci_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_vci_commander } }
+			set_country_flag = mk_has_mk_exile_general_vci_commander
+			generate_character = {
+				token_base = mk_exile_general_vci
+				name = VCI_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_vci
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.25.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_vci_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_vci_advisor } }
+			set_country_flag = mk_has_mk_exile_general_vci_advisor
+			generate_character = {
+				token_base = mk_exile_general_vci_advisor
+				name = VCI_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_vci }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_vci_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.25.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.26
+	title = mk_ruler.26.t
+	desc = mk_ruler.26.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.26.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_soy_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_soy_commander } }
+			set_country_flag = mk_has_mk_exile_general_soy_commander
+			generate_character = {
+				token_base = mk_exile_general_soy
+				name = SOY_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_soy
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.26.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_soy_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_soy_advisor } }
+			set_country_flag = mk_has_mk_exile_general_soy_advisor
+			generate_character = {
+				token_base = mk_exile_general_soy_advisor
+				name = SOY_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_soy }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_soy_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.26.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.27
+	title = mk_ruler.27.t
+	desc = mk_ruler.27.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.27.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_btr_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_btr_commander } }
+			set_country_flag = mk_has_mk_exile_general_btr_commander
+			generate_character = {
+				token_base = mk_exile_general_btr
+				name = BTR_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_btr
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.27.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_btr_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_btr_advisor } }
+			set_country_flag = mk_has_mk_exile_general_btr_advisor
+			generate_character = {
+				token_base = mk_exile_general_btr_advisor
+				name = BTR_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_btr }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_btr_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.27.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.28
+	title = mk_ruler.28.t
+	desc = mk_ruler.28.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.28.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_krz_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_krz_commander } }
+			set_country_flag = mk_has_mk_exile_general_krz_commander
+			generate_character = {
+				token_base = mk_exile_general_krz
+				name = KRZ_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_krz
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.28.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_krz_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_krz_advisor } }
+			set_country_flag = mk_has_mk_exile_general_krz_advisor
+			generate_character = {
+				token_base = mk_exile_general_krz_advisor
+				name = KRZ_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_krz }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_krz_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.28.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.29
+	title = mk_ruler.29.t
+	desc = mk_ruler.29.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.29.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_kzs_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_kzs_commander } }
+			set_country_flag = mk_has_mk_exile_general_kzs_commander
+			generate_character = {
+				token_base = mk_exile_general_kzs
+				name = KZS_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_kzs
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.29.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_kzs_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_kzs_advisor } }
+			set_country_flag = mk_has_mk_exile_general_kzs_advisor
+			generate_character = {
+				token_base = mk_exile_general_kzs_advisor
+				name = KZS_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_kzs }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_kzs_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.29.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.30
+	title = mk_ruler.30.t
+	desc = mk_ruler.30.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.30.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_mus_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_mus_commander } }
+			set_country_flag = mk_has_mk_exile_general_mus_commander
+			generate_character = {
+				token_base = mk_exile_general_mus
+				name = MUS_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_mus
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.30.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_mus_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_mus_advisor } }
+			set_country_flag = mk_has_mk_exile_general_mus_advisor
+			generate_character = {
+				token_base = mk_exile_general_mus_advisor
+				name = MUS_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_mus }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_mus_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.30.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.31
+	title = mk_ruler.31.t
+	desc = mk_ruler.31.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.31.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_trf_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_trf_commander } }
+			set_country_flag = mk_has_mk_exile_general_trf_commander
+			generate_character = {
+				token_base = mk_exile_general_trf
+				name = TRF_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_trf
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.31.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_trf_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_trf_advisor } }
+			set_country_flag = mk_has_mk_exile_general_trf_advisor
+			generate_character = {
+				token_base = mk_exile_general_trf_advisor
+				name = TRF_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_trf }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_trf_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.31.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.32
+	title = mk_ruler.32.t
+	desc = mk_ruler.32.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.32.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zld_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zld_commander } }
+			set_country_flag = mk_has_mk_exile_general_zld_commander
+			generate_character = {
+				token_base = mk_exile_general_zld
+				name = ZLD_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_zld
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.32.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zld_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zld_advisor } }
+			set_country_flag = mk_has_mk_exile_general_zld_advisor
+			generate_character = {
+				token_base = mk_exile_general_zld_advisor
+				name = ZLD_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_zld }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_zld_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.32.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.33
+	title = mk_ruler.33.t
+	desc = mk_ruler.33.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.33.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_isl_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_isl_commander } }
+			set_country_flag = mk_has_mk_exile_general_isl_commander
+			generate_character = {
+				token_base = mk_exile_general_isl
+				name = ISL_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_isl
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.33.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_isl_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_isl_advisor } }
+			set_country_flag = mk_has_mk_exile_general_isl_advisor
+			generate_character = {
+				token_base = mk_exile_general_isl_advisor
+				name = ISL_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_isl }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_isl_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.33.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.34
+	title = mk_ruler.34.t
+	desc = mk_ruler.34.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.34.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_clb_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_clb_commander } }
+			set_country_flag = mk_has_mk_exile_general_clb_commander
+			generate_character = {
+				token_base = mk_exile_general_clb
+				name = CLB_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_clb
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.34.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_clb_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_clb_advisor } }
+			set_country_flag = mk_has_mk_exile_general_clb_advisor
+			generate_character = {
+				token_base = mk_exile_general_clb_advisor
+				name = CLB_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_clb }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_clb_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.34.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.35
+	title = mk_ruler.35.t
+	desc = mk_ruler.35.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.35.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_adl_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_adl_commander } }
+			set_country_flag = mk_has_mk_exile_general_adl_commander
+			generate_character = {
+				token_base = mk_exile_general_adl
+				name = ADL_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_adl
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.35.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_adl_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_adl_advisor } }
+			set_country_flag = mk_has_mk_exile_general_adl_advisor
+			generate_character = {
+				token_base = mk_exile_general_adl_advisor
+				name = ADL_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_adl }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_adl_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.35.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.36
+	title = mk_ruler.36.t
+	desc = mk_ruler.36.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.36.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_dmk_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_dmk_commander } }
+			set_country_flag = mk_has_mk_exile_general_dmk_commander
+			generate_character = {
+				token_base = mk_exile_general_dmk
+				name = DMK_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_dmk
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.36.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_dmk_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_dmk_advisor } }
+			set_country_flag = mk_has_mk_exile_general_dmk_advisor
+			generate_character = {
+				token_base = mk_exile_general_dmk_advisor
+				name = DMK_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_dmk }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_dmk_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.36.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.37
+	title = mk_ruler.37.t
+	desc = mk_ruler.37.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.37.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_fdp_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_fdp_commander } }
+			set_country_flag = mk_has_mk_exile_general_fdp_commander
+			generate_character = {
+				token_base = mk_exile_general_fdp
+				name = FDP_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_fdp
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.37.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_fdp_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_fdp_advisor } }
+			set_country_flag = mk_has_mk_exile_general_fdp_advisor
+			generate_character = {
+				token_base = mk_exile_general_fdp_advisor
+				name = FDP_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_fdp }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_fdp_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.37.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.38
+	title = mk_ruler.38.t
+	desc = mk_ruler.38.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.38.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_cre_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_cre_commander } }
+			set_country_flag = mk_has_mk_exile_general_cre_commander
+			generate_character = {
+				token_base = mk_exile_general_cre
+				name = CRE_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_cre
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.38.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_cre_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_cre_advisor } }
+			set_country_flag = mk_has_mk_exile_general_cre_advisor
+			generate_character = {
+				token_base = mk_exile_general_cre_advisor
+				name = CRE_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_cre }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_cre_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.38.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.39
+	title = mk_ruler.39.t
+	desc = mk_ruler.39.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.39.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_sva_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_sva_commander } }
+			set_country_flag = mk_has_mk_exile_general_sva_commander
+			generate_character = {
+				token_base = mk_exile_general_sva
+				name = SVA_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_sva
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.39.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_sva_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_sva_advisor } }
+			set_country_flag = mk_has_mk_exile_general_sva_advisor
+			generate_character = {
+				token_base = mk_exile_general_sva_advisor
+				name = SVA_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_sva }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_sva_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.39.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.40
+	title = mk_ruler.40.t
+	desc = mk_ruler.40.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.40.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_art_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_art_commander } }
+			set_country_flag = mk_has_mk_exile_general_art_commander
+			generate_character = {
+				token_base = mk_exile_general_art
+				name = ART_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_art
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.40.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_art_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_art_advisor } }
+			set_country_flag = mk_has_mk_exile_general_art_advisor
+			generate_character = {
+				token_base = mk_exile_general_art_advisor
+				name = ART_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_art }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_art_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.40.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.41
+	title = mk_ruler.41.t
+	desc = mk_ruler.41.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.41.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_kms_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_kms_commander } }
+			set_country_flag = mk_has_mk_exile_general_kms_commander
+			generate_character = {
+				token_base = mk_exile_general_kms
+				name = KMS_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_kms
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.41.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_kms_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_kms_advisor } }
+			set_country_flag = mk_has_mk_exile_general_kms_advisor
+			generate_character = {
+				token_base = mk_exile_general_kms_advisor
+				name = KMS_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_kms }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_kms_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.41.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.42
+	title = mk_ruler.42.t
+	desc = mk_ruler.42.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.42.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zns_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zns_commander } }
+			set_country_flag = mk_has_mk_exile_general_zns_commander
+			generate_character = {
+				token_base = mk_exile_general_zns
+				name = ZNS_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_zns
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.42.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zns_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zns_advisor } }
+			set_country_flag = mk_has_mk_exile_general_zns_advisor
+			generate_character = {
+				token_base = mk_exile_general_zns_advisor
+				name = ZNS_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_zns }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_zns_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.42.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.43
+	title = mk_ruler.43.t
+	desc = mk_ruler.43.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.43.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zkr_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zkr_commander } }
+			set_country_flag = mk_has_mk_exile_general_zkr_commander
+			generate_character = {
+				token_base = mk_exile_general_zkr
+				name = ZKR_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_zkr
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.43.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zkr_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zkr_advisor } }
+			set_country_flag = mk_has_mk_exile_general_zkr_advisor
+			generate_character = {
+				token_base = mk_exile_general_zkr_advisor
+				name = ZKR_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_zkr }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_zkr_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.43.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.44
+	title = mk_ruler.44.t
+	desc = mk_ruler.44.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.44.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zml_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zml_commander } }
+			set_country_flag = mk_has_mk_exile_general_zml_commander
+			generate_character = {
+				token_base = mk_exile_general_zml
+				name = ZML_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_zml
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.44.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_zml_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_zml_advisor } }
+			set_country_flag = mk_has_mk_exile_general_zml_advisor
+			generate_character = {
+				token_base = mk_exile_general_zml_advisor
+				name = ZML_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_zml }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_zml_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.44.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.45
+	title = mk_ruler.45.t
+	desc = mk_ruler.45.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.45.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_nbl_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_nbl_commander } }
+			set_country_flag = mk_has_mk_exile_general_nbl_commander
+			generate_character = {
+				token_base = mk_exile_general_nbl
+				name = NBL_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_nbl
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.45.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_nbl_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_nbl_advisor } }
+			set_country_flag = mk_has_mk_exile_general_nbl_advisor
+			generate_character = {
+				token_base = mk_exile_general_nbl_advisor
+				name = NBL_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_nbl }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_nbl_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.45.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.46
+	title = mk_ruler.46.t
+	desc = mk_ruler.46.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.46.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_isg_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_isg_commander } }
+			set_country_flag = mk_has_mk_exile_general_isg_commander
+			generate_character = {
+				token_base = mk_exile_general_isg
+				name = ISG_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_isg
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.46.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_isg_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_isg_advisor } }
+			set_country_flag = mk_has_mk_exile_general_isg_advisor
+			generate_character = {
+				token_base = mk_exile_general_isg_advisor
+				name = ISG_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_isg }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_isg_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.46.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.47
+	title = mk_ruler.47.t
+	desc = mk_ruler.47.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.47.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_hrl_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_hrl_commander } }
+			set_country_flag = mk_has_mk_exile_general_hrl_commander
+			generate_character = {
+				token_base = mk_exile_general_hrl
+				name = HRL_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_hrl
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.47.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_hrl_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_hrl_advisor } }
+			set_country_flag = mk_has_mk_exile_general_hrl_advisor
+			generate_character = {
+				token_base = mk_exile_general_hrl_advisor
+				name = HRL_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_hrl }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_hrl_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.47.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.48
+	title = mk_ruler.48.t
+	desc = mk_ruler.48.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.48.a
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_shf_commander }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_shf_commander } }
+			set_country_flag = mk_has_mk_exile_general_shf_commander
+			generate_character = {
+				token_base = mk_exile_general_shf
+				name = SHF_mk_general
+			}
+		}
+		add_corps_commander_role = {
+			character = mk_exile_general_shf
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		army_experience = 10
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = mk_ruler.48.b
+		trigger = {
+			NOT = { has_country_flag = mk_has_mk_exile_general_shf_advisor }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = mk_has_mk_exile_general_shf_advisor } }
+			set_country_flag = mk_has_mk_exile_general_shf_advisor
+			generate_character = {
+				token_base = mk_exile_general_shf_advisor
+				name = SHF_mk_general
+				advisor = {
+					slot = high_command
+					cost = 0
+					idea_token = army
+					ledger = army
+					traits = { mk_ruler_shf }
+					allowed = { always = yes }
+				}
+			}
+		}
+		activate_advisor = mk_exile_general_shf_advisor_army
+		army_experience = 10
+		ai_chance = { factor = 30 }
+	}
+	option = {
+		name = mk_ruler.48.c
+		add_political_power = 10
+		ai_chance = { factor = 5 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.49
+	title = mk_ruler.49.t
+	desc = mk_ruler.49.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.49.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_soy_joe_biden_guest_diplomat } }
+			set_country_flag = mk_recruited_character_soy_joe_biden_guest_diplomat
+			generate_character = {
+				token_base = mk_capture_soy_joe_biden_guest_diplomat
+				name = SOY_joe_biden_guest_diplomat
+				advisor = {
+					slot = political_advisor
+					cost = 0
+					idea_token = political
+					traits = { silent_workhorse }
+					allowed = { always = yes }
+				}
+			}
+			activate_advisor = mk_capture_soy_joe_biden_guest_diplomat_political
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.49.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.50
+	title = mk_ruler.50.t
+	desc = mk_ruler.50.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.50.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_btr_grandfather_akhtyamov } }
+			set_country_flag = mk_recruited_character_btr_grandfather_akhtyamov
+			generate_character = {
+				token_base = mk_capture_btr_grandfather_akhtyamov
+				name = BTR_grandfather_akhtyamov
+			}
+			add_field_marshal_role = {
+				character = mk_capture_btr_grandfather_akhtyamov
+				skill = 8
+				attack_skill = 8
+				defense_skill = 8
+				planning_skill = 8
+				logistics_skill = 7
+				traits = { infantry_officer }
+			}
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.50.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.51
+	title = mk_ruler.51.t
+	desc = mk_ruler.51.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.51.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_zld_grigory_yavlinsky } }
+			set_country_flag = mk_recruited_character_zld_grigory_yavlinsky
+			generate_character = {
+				token_base = mk_capture_zld_grigory_yavlinsky
+				name = ZLD_grigory_yavlinsky
+				advisor = {
+					slot = political_advisor
+					cost = 0
+					idea_token = political
+					traits = { silent_workhorse }
+					allowed = { always = yes }
+				}
+			}
+			activate_advisor = mk_capture_zld_grigory_yavlinsky_political
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.51.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.52
+	title = mk_ruler.52.t
+	desc = mk_ruler.52.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.52.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_cre_adolf_hitler_guest_instructor } }
+			set_country_flag = mk_recruited_character_cre_adolf_hitler_guest_instructor
+			generate_character = {
+				token_base = mk_capture_cre_adolf_hitler_guest_instructor
+				name = CRE_adolf_hitler_guest_instructor
+			}
+			add_corps_commander_role = {
+				character = mk_capture_cre_adolf_hitler_guest_instructor
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				traits = { infantry_officer }
+			}
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.52.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.53
+	title = mk_ruler.53.t
+	desc = mk_ruler.53.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.53.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_cre_hermann_goering_guest_instructor } }
+			set_country_flag = mk_recruited_character_cre_hermann_goering_guest_instructor
+			generate_character = {
+				token_base = mk_capture_cre_hermann_goering_guest_instructor
+				name = CRE_hermann_goering_guest_instructor
+			}
+			add_corps_commander_role = {
+				character = mk_capture_cre_hermann_goering_guest_instructor
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+				traits = { infantry_officer }
+			}
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.53.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.54
+	title = mk_ruler.54.t
+	desc = mk_ruler.54.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.54.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_cre_erwin_rommel_guest_instructor } }
+			set_country_flag = mk_recruited_character_cre_erwin_rommel_guest_instructor
+			generate_character = {
+				token_base = mk_capture_cre_erwin_rommel_guest_instructor
+				name = CRE_erwin_rommel_guest_instructor
+			}
+			add_corps_commander_role = {
+				character = mk_capture_cre_erwin_rommel_guest_instructor
+				skill = 5
+				attack_skill = 5
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 2
+				traits = { infantry_officer }
+			}
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.54.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = {
+	id = mk_ruler.55
+	title = mk_ruler.55.t
+	desc = mk_ruler.55.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_ruler.55.a
+		if = {
+			limit = { NOT = { has_country_flag = mk_recruited_character_cre_heinz_guderian_guest_instructor } }
+			set_country_flag = mk_recruited_character_cre_heinz_guderian_guest_instructor
+			generate_character = {
+				token_base = mk_capture_cre_heinz_guderian_guest_instructor
+				name = CRE_heinz_guderian_guest_instructor
+			}
+			add_corps_commander_role = {
+				character = mk_capture_cre_heinz_guderian_guest_instructor
+				skill = 5
+				attack_skill = 5
+				defense_skill = 3
+				planning_skill = 5
+				logistics_skill = 4
+				traits = { infantry_officer }
+			}
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = {
+		name = mk_ruler.55.b
+		add_political_power = 10
+		ai_chance = { factor = 20 }
+	}
+}

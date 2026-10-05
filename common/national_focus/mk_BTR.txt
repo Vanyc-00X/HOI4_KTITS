@@ -194,10 +194,359 @@ focus_tree = {
 	}
 
 	focus = {
+		id = BTR_start_08
+		icon = GFX_goal_generic_scientific_exchange
+		x = 13
+		y = 5
+		cost = 3
+		prerequisite = { focus = BTR_start_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_start_09
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 17
+		y = 5
+		cost = 3
+		prerequisite = { focus = BTR_start_07 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_start_10
+		icon = GFX_goal_generic_propaganda
+		x = 13
+		y = 6
+		cost = 3
+		prerequisite = { focus = BTR_start_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 8000
+			army_experience = 5
+		}
+	}
+
+	focus = {
+		id = BTR_start_11
+		icon = GFX_goal_generic_dangerous_deal
+		x = 17
+		y = 6
+		cost = 3
+		prerequisite = { focus = BTR_start_09 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_start_12
+		icon = GFX_goal_generic_national_unity
+		x = 13
+		y = 7
+		cost = 3
+		prerequisite = { focus = BTR_start_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.03 }
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = BTR_start_13
+		icon = GFX_goal_generic_political_pressure
+		x = 17
+		y = 7
+		cost = 3
+		prerequisite = { focus = BTR_start_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_start_14
+		icon = GFX_goal_generic_scientific_exchange
+		x = 13
+		y = 8
+		cost = 3
+		prerequisite = { focus = BTR_start_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			add_political_power = 20
+		}
+	}
+
+	focus = {
+		id = BTR_start_15
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 17
+		y = 8
+		cost = 3
+		prerequisite = { focus = BTR_start_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_absurd_delta = 1 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_start_16
+		icon = GFX_goal_generic_propaganda
+		x = 13
+		y = 9
+		cost = 3
+		prerequisite = { focus = BTR_start_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 5000
+		}
+	}
+
+	focus = {
+		id = BTR_start_17
+		icon = GFX_goal_generic_dangerous_deal
+		x = 17
+		y = 9
+		cost = 3
+		prerequisite = { focus = BTR_start_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_start_18
+		icon = GFX_goal_generic_national_unity
+		x = 13
+		y = 10
+		cost = 3
+		prerequisite = { focus = BTR_start_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_start_19
+		icon = GFX_goal_generic_political_pressure
+		x = 17
+		y = 10
+		cost = 3
+		prerequisite = { focus = BTR_start_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 6 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_start_20
+		icon = GFX_goal_generic_scientific_exchange
+		x = 13
+		y = 11
+		cost = 3
+		prerequisite = { focus = BTR_start_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.02
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_start_21
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 17
+		y = 11
+		cost = 3
+		prerequisite = { focus = BTR_start_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 8
+			add_manpower = 4000
+		}
+	}
+
+	focus = {
+		id = BTR_start_22
+		icon = GFX_goal_generic_propaganda
+		x = 13
+		y = 12
+		cost = 3
+		prerequisite = { focus = BTR_start_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 30
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_start_23
+		icon = GFX_goal_generic_dangerous_deal
+		x = 17
+		y = 12
+		cost = 3
+		prerequisite = { focus = BTR_start_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
 		id = BTR_eco_00
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 1
-		y = 6
+		y = 14
 		cost = 3
 		prerequisite = { focus = BTR_start_01 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -220,7 +569,7 @@ focus_tree = {
 		id = BTR_eco_01
 		icon = GFX_goal_generic_production
 		x = 0
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_eco_00 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -245,7 +594,7 @@ focus_tree = {
 		id = BTR_eco_02
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 2
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_eco_00 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -267,7 +616,7 @@ focus_tree = {
 		id = BTR_eco_03
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 0
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_eco_01 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -290,7 +639,7 @@ focus_tree = {
 		id = BTR_eco_04
 		icon = GFX_goal_generic_consumer_goods
 		x = 2
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_eco_02 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -315,7 +664,7 @@ focus_tree = {
 		id = BTR_eco_05
 		icon = GFX_goal_generic_production2
 		x = 0
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_eco_03 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -338,7 +687,7 @@ focus_tree = {
 		id = BTR_eco_06
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 2
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_eco_04 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -362,7 +711,7 @@ focus_tree = {
 		id = BTR_eco_07
 		icon = GFX_goal_generic_production
 		x = 0
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_eco_05 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -388,11 +737,428 @@ focus_tree = {
 	focus = {
 		id = BTR_eco_08
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 1
-		y = 11
+		x = 2
+		y = 18
+		cost = 3
+		prerequisite = { focus = BTR_eco_06 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_09
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_eco_07 }
-		prerequisite = { focus = BTR_eco_06 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 8 }
+				add_resource = { type = oil amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_10
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_eco_08 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_eco_late_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+			add_political_power = 20
+		}
+	}
+
+	focus = {
+		id = BTR_eco_11
+		icon = GFX_goal_generic_production2
+		x = 0
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_eco_09 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_12
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_eco_10 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_13
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_eco_11 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_eco_14
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 2
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_eco_12 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_eco_late_build_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_eco_15
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_eco_13 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = aluminium amount = 6 }
+				add_resource = { type = tungsten amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_16
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_eco_14 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_eco_17
+		icon = GFX_goal_generic_production2
+		x = 0
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_eco_15 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_eco_18
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_eco_16 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_19
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_eco_17 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_eco_20
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 2
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_eco_18 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_eco_late_2_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_21
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_eco_19 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = oil amount = 8 }
+				add_resource = { type = rubber amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_22
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_eco_20 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_eco_23
+		icon = GFX_goal_generic_production2
+		x = 0
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_eco_21 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_manpower = 4000
+		}
+	}
+
+	focus = {
+		id = BTR_eco_24
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_eco_22 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_eco_25
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_eco_23 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 30
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_eco_26
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 1
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_eco_25 }
+		prerequisite = { focus = BTR_eco_24 }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = {
 			factor = 7
@@ -417,7 +1183,7 @@ focus_tree = {
 		id = BTR_army_00
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 5
-		y = 6
+		y = 14
 		cost = 3
 		prerequisite = { focus = BTR_start_01 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -438,7 +1204,7 @@ focus_tree = {
 		id = BTR_army_01
 		icon = GFX_goal_generic_small_arms
 		x = 4
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_army_00 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -463,7 +1229,7 @@ focus_tree = {
 		id = BTR_army_02
 		icon = GFX_goal_generic_army_doctrines
 		x = 6
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_army_00 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -488,7 +1254,7 @@ focus_tree = {
 		id = BTR_army_03
 		icon = GFX_goal_generic_position_armies
 		x = 4
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_army_01 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -516,7 +1282,7 @@ focus_tree = {
 		id = BTR_army_04
 		icon = GFX_goal_generic_army_artillery
 		x = 6
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_army_02 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -541,7 +1307,7 @@ focus_tree = {
 		id = BTR_army_05
 		icon = GFX_goal_generic_special_forces
 		x = 4
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_army_03 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -563,7 +1329,7 @@ focus_tree = {
 		id = BTR_army_06
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 6
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_army_04 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -588,7 +1354,7 @@ focus_tree = {
 		id = BTR_army_07
 		icon = GFX_goal_generic_small_arms
 		x = 4
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_army_05 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -614,11 +1380,420 @@ focus_tree = {
 	focus = {
 		id = BTR_army_08
 		icon = GFX_goal_generic_army_doctrines
-		x = 5
-		y = 11
+		x = 6
+		y = 18
+		cost = 3
+		prerequisite = { focus = BTR_army_06 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 18
+			add_manpower = 7000
+		}
+	}
+
+	focus = {
+		id = BTR_army_09
+		icon = GFX_goal_generic_position_armies
+		x = 4
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_army_07 }
-		prerequisite = { focus = BTR_army_06 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_army_late_inf_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_army_10
+		icon = GFX_goal_generic_army_artillery
+		x = 6
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_army_08 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 10000
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_army_11
+		icon = GFX_goal_generic_special_forces
+		x = 4
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_army_09 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_army_12
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_army_10 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_army_late_art_tech
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_army_13
+		icon = GFX_goal_generic_small_arms
+		x = 4
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_army_11 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_army_14
+		icon = GFX_goal_generic_army_doctrines
+		x = 6
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_army_12 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 12000
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_army_15
+		icon = GFX_goal_generic_position_armies
+		x = 4
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_army_13 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = BTR_army_late_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_army_16
+		icon = GFX_goal_generic_army_artillery
+		x = 6
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_army_14 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 20
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_army_17
+		icon = GFX_goal_generic_special_forces
+		x = 4
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_army_15 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_army_18
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_army_16 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			activate_character = BTR_grandfather_akhtyamov
+			set_country_flag = mk_unlocked_character_btr_grandfather_akhtyamov
+			army_experience = 25
+			add_manpower = 12000
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = BTR_army_19
+		icon = GFX_goal_generic_small_arms
+		x = 4
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_army_17 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_army_late_2_inf_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_army_20
+		icon = GFX_goal_generic_army_doctrines
+		x = 6
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_army_18 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 20
+			add_manpower = 10000
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_army_21
+		icon = GFX_goal_generic_position_armies
+		x = 4
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_army_19 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 15
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_army_22
+		icon = GFX_goal_generic_army_artillery
+		x = 6
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_army_20 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 25
+			add_war_support = 0.05
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_army_23
+		icon = GFX_goal_generic_special_forces
+		x = 4
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_army_21 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_army_24
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_army_22 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_army_25
+		icon = GFX_goal_generic_small_arms
+		x = 4
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_army_23 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 9000
+			army_experience = 12
+		}
+	}
+
+	focus = {
+		id = BTR_army_26
+		icon = GFX_goal_generic_army_doctrines
+		x = 5
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_army_25 }
+		prerequisite = { focus = BTR_army_24 }
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		ai_will_do = {
 			factor = 6
@@ -643,7 +1818,7 @@ focus_tree = {
 		id = BTR_diplo_00
 		icon = GFX_goal_generic_improve_relations
 		x = 9
-		y = 6
+		y = 14
 		cost = 3
 		prerequisite = { focus = BTR_start_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -664,7 +1839,7 @@ focus_tree = {
 		id = BTR_diplo_01
 		icon = GFX_goal_generic_alliance
 		x = 8
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_diplo_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -688,7 +1863,7 @@ focus_tree = {
 		id = BTR_diplo_02
 		icon = GFX_goal_generic_positive_trade_relations
 		x = 10
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_diplo_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -716,7 +1891,7 @@ focus_tree = {
 		id = BTR_diplo_03
 		icon = GFX_goal_generic_trade
 		x = 8
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_diplo_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -738,7 +1913,7 @@ focus_tree = {
 		id = BTR_diplo_04
 		icon = GFX_goal_generic_major_alliance
 		x = 10
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_diplo_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -761,7 +1936,7 @@ focus_tree = {
 		id = BTR_diplo_05
 		icon = GFX_goal_generic_forceful_treaty
 		x = 8
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_diplo_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -785,7 +1960,7 @@ focus_tree = {
 		id = BTR_diplo_06
 		icon = GFX_goal_generic_improve_relations
 		x = 10
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_diplo_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -810,7 +1985,7 @@ focus_tree = {
 		id = BTR_diplo_07
 		icon = GFX_goal_generic_alliance
 		x = 8
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_diplo_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -834,11 +2009,419 @@ focus_tree = {
 	focus = {
 		id = BTR_diplo_08
 		icon = GFX_goal_generic_positive_trade_relations
-		x = 9
-		y = 11
+		x = 10
+		y = 18
+		cost = 3
+		prerequisite = { focus = BTR_diplo_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_09
+		icon = GFX_goal_generic_trade
+		x = 8
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_diplo_07 }
-		prerequisite = { focus = BTR_diplo_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			add_political_power = 35
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_10
+		icon = GFX_goal_generic_major_alliance
+		x = 10
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_diplo_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_in_faction = no has_war = no }
+				mk_form_ideology_faction_effect = yes
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_11
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_diplo_09 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes has_war = no }
+				ROOT = { give_guarantee = PREV }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_12
+		icon = GFX_goal_generic_improve_relations
+		x = 10
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_diplo_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_13
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_diplo_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_diplo_late_elec_tech
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_14
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 10
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_diplo_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_15
+		icon = GFX_goal_generic_trade
+		x = 8
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_diplo_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_16
+		icon = GFX_goal_generic_major_alliance
+		x = 10
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_diplo_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 45
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_17
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_diplo_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 6000
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_18
+		icon = GFX_goal_generic_improve_relations
+		x = 10
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_diplo_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes is_subject = no has_war = no }
+				ROOT = { give_guarantee = PREV }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_19
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_diplo_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.04
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_20
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 10
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_diplo_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_popularity = { ideology = democratic popularity = 0.02 }
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_21
+		icon = GFX_goal_generic_trade
+		x = 8
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_diplo_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_faction_leader = yes has_war = no }
+				every_other_country = { limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no } ROOT = { add_to_faction = PREV } }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_22
+		icon = GFX_goal_generic_major_alliance
+		x = 10
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_diplo_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_23
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_diplo_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_24
+		icon = GFX_goal_generic_improve_relations
+		x = 10
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_diplo_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_diplo_late_build_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_25
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_diplo_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.02
+			add_political_power = 35
+		}
+	}
+
+	focus = {
+		id = BTR_diplo_26
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 9
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_diplo_25 }
+		prerequisite = { focus = BTR_diplo_24 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 8
@@ -862,9 +2445,9 @@ focus_tree = {
 		id = BTR_keep_00
 		icon = GFX_goal_support_fascism
 		x = 13
-		y = 6
+		y = 14
 		cost = 3
-		prerequisite = { focus = BTR_start_07 }
+		prerequisite = { focus = BTR_start_23 }
 		mutually_exclusive = { focus = BTR_a_00 focus = BTR_b_00 focus = BTR_c_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
@@ -898,7 +2481,7 @@ focus_tree = {
 		id = BTR_keep_01
 		icon = GFX_goal_generic_propaganda
 		x = 12
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_keep_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -921,7 +2504,7 @@ focus_tree = {
 		id = BTR_keep_02
 		icon = GFX_goal_generic_political_pressure
 		x = 14
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_keep_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -944,7 +2527,7 @@ focus_tree = {
 		id = BTR_keep_03
 		icon = GFX_goal_generic_national_unity
 		x = 12
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_keep_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -969,7 +2552,7 @@ focus_tree = {
 		id = BTR_keep_04
 		icon = GFX_goal_generic_scientific_exchange
 		x = 14
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_keep_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -994,7 +2577,7 @@ focus_tree = {
 		id = BTR_keep_05
 		icon = GFX_goal_generic_trade
 		x = 12
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_keep_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1015,7 +2598,7 @@ focus_tree = {
 		id = BTR_keep_06
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 14
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_keep_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1038,7 +2621,7 @@ focus_tree = {
 		id = BTR_keep_07
 		icon = GFX_goal_generic_military_sphere
 		x = 12
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_keep_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1063,7 +2646,7 @@ focus_tree = {
 		id = BTR_keep_08
 		icon = GFX_goal_generic_propaganda
 		x = 14
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_keep_06 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1087,7 +2670,7 @@ focus_tree = {
 		id = BTR_keep_09
 		icon = GFX_goal_generic_political_pressure
 		x = 12
-		y = 11
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_keep_07 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1115,12 +2698,495 @@ focus_tree = {
 
 	focus = {
 		id = BTR_keep_10
-		icon = GFX_goal_support_fascism
-		x = 13
-		y = 12
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_keep_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_keep_11
+		icon = GFX_goal_generic_scientific_exchange
+		x = 12
+		y = 20
 		cost = 3
 		prerequisite = { focus = BTR_keep_09 }
-		prerequisite = { focus = BTR_keep_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_12
+		icon = GFX_goal_generic_trade
+		x = 14
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_keep_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			add_stability = -0.01
+		}
+	}
+
+	focus = {
+		id = BTR_keep_13
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 12
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_keep_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_14
+		icon = GFX_goal_generic_military_sphere
+		x = 14
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_keep_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 30
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_15
+		icon = GFX_goal_generic_propaganda
+		x = 12
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_keep_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_keep_late_inf_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_16
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_keep_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_17
+		icon = GFX_goal_generic_national_unity
+		x = 12
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_keep_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 5 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_18
+		icon = GFX_goal_generic_scientific_exchange
+		x = 14
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_keep_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+			add_war_support = 0.04
+		}
+	}
+
+	focus = {
+		id = BTR_keep_19
+		icon = GFX_goal_generic_trade
+		x = 12
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_keep_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 12000
+			army_experience = 8
+		}
+	}
+
+	focus = {
+		id = BTR_keep_20
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 14
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_keep_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes has_war = no NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = puppet_wargoal_focus target = PREV } }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_21
+		icon = GFX_goal_generic_military_sphere
+		x = 12
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_keep_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_keep_22
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_keep_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 45
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_23
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_keep_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = mk_idea_faction_member
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_keep_24
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_keep_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 9000
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_25
+		icon = GFX_goal_generic_scientific_exchange
+		x = 12
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_keep_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_26
+		icon = GFX_goal_generic_trade
+		x = 14
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_keep_24 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_27
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 12
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_keep_25 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.04 }
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_keep_28
+		icon = GFX_goal_generic_military_sphere
+		x = 14
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_keep_26 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_keep_29
+		icon = GFX_goal_generic_propaganda
+		x = 12
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_keep_27 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_keep_30
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_keep_28 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			add_stability = -0.01
+		}
+	}
+
+	focus = {
+		id = BTR_keep_31
+		icon = GFX_goal_generic_national_unity
+		x = 12
+		y = 30
+		cost = 3
+		prerequisite = { focus = BTR_keep_29 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_keep_32
+		icon = GFX_goal_support_fascism
+		x = 13
+		y = 31
+		cost = 3
+		prerequisite = { focus = BTR_keep_31 }
+		prerequisite = { focus = BTR_keep_30 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 4
@@ -1150,9 +3216,9 @@ focus_tree = {
 		id = BTR_a_00
 		icon = GFX_goal_support_fascism
 		x = 17
-		y = 6
+		y = 14
 		cost = 3
-		prerequisite = { focus = BTR_start_07 }
+		prerequisite = { focus = BTR_start_23 }
 		mutually_exclusive = { focus = BTR_keep_00 focus = BTR_b_00 focus = BTR_c_00 }
 		available = {
 			mk_great_turn_unlocked = yes
@@ -1189,7 +3255,7 @@ focus_tree = {
 		id = BTR_a_01
 		icon = GFX_goal_generic_propaganda
 		x = 16
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_a_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1212,7 +3278,7 @@ focus_tree = {
 		id = BTR_a_02
 		icon = GFX_goal_generic_political_pressure
 		x = 18
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_a_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1235,7 +3301,7 @@ focus_tree = {
 		id = BTR_a_03
 		icon = GFX_goal_generic_national_unity
 		x = 16
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_a_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1260,7 +3326,7 @@ focus_tree = {
 		id = BTR_a_04
 		icon = GFX_goal_generic_scientific_exchange
 		x = 18
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_a_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1285,7 +3351,7 @@ focus_tree = {
 		id = BTR_a_05
 		icon = GFX_goal_generic_trade
 		x = 16
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_a_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1306,7 +3372,7 @@ focus_tree = {
 		id = BTR_a_06
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 18
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_a_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1329,7 +3395,7 @@ focus_tree = {
 		id = BTR_a_07
 		icon = GFX_goal_generic_military_sphere
 		x = 16
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_a_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1354,7 +3420,7 @@ focus_tree = {
 		id = BTR_a_08
 		icon = GFX_goal_generic_propaganda
 		x = 18
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_a_06 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1378,7 +3444,7 @@ focus_tree = {
 		id = BTR_a_09
 		icon = GFX_goal_generic_political_pressure
 		x = 16
-		y = 11
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_a_07 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1406,12 +3472,495 @@ focus_tree = {
 
 	focus = {
 		id = BTR_a_10
-		icon = GFX_goal_support_fascism
-		x = 17
-		y = 12
+		icon = GFX_goal_generic_national_unity
+		x = 18
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_a_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_a_11
+		icon = GFX_goal_generic_scientific_exchange
+		x = 16
+		y = 20
 		cost = 3
 		prerequisite = { focus = BTR_a_09 }
-		prerequisite = { focus = BTR_a_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_12
+		icon = GFX_goal_generic_trade
+		x = 18
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_a_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			add_stability = -0.01
+		}
+	}
+
+	focus = {
+		id = BTR_a_13
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_a_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_14
+		icon = GFX_goal_generic_military_sphere
+		x = 18
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_a_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 30
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_15
+		icon = GFX_goal_generic_propaganda
+		x = 16
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_a_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_a_late_inf_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_16
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_a_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_17
+		icon = GFX_goal_generic_national_unity
+		x = 16
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_a_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 5 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_18
+		icon = GFX_goal_generic_scientific_exchange
+		x = 18
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_a_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+			add_war_support = 0.04
+		}
+	}
+
+	focus = {
+		id = BTR_a_19
+		icon = GFX_goal_generic_trade
+		x = 16
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_a_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 12000
+			army_experience = 8
+		}
+	}
+
+	focus = {
+		id = BTR_a_20
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 18
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_a_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes has_war = no NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = puppet_wargoal_focus target = PREV } }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_21
+		icon = GFX_goal_generic_military_sphere
+		x = 16
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_a_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_a_22
+		icon = GFX_goal_generic_propaganda
+		x = 18
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_a_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 45
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_23
+		icon = GFX_goal_generic_political_pressure
+		x = 16
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_a_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = mk_idea_faction_member
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_a_24
+		icon = GFX_goal_generic_national_unity
+		x = 18
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_a_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 9000
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_25
+		icon = GFX_goal_generic_scientific_exchange
+		x = 16
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_a_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_26
+		icon = GFX_goal_generic_trade
+		x = 18
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_a_24 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_27
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_a_25 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.04 }
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_a_28
+		icon = GFX_goal_generic_military_sphere
+		x = 18
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_a_26 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_a_29
+		icon = GFX_goal_generic_propaganda
+		x = 16
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_a_27 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = BTR_a_30
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_a_28 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			add_stability = -0.01
+		}
+	}
+
+	focus = {
+		id = BTR_a_31
+		icon = GFX_goal_generic_national_unity
+		x = 16
+		y = 30
+		cost = 3
+		prerequisite = { focus = BTR_a_29 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_a_32
+		icon = GFX_goal_support_fascism
+		x = 17
+		y = 31
+		cost = 3
+		prerequisite = { focus = BTR_a_31 }
+		prerequisite = { focus = BTR_a_30 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 4
@@ -1441,9 +3990,9 @@ focus_tree = {
 		id = BTR_b_00
 		icon = GFX_goal_support_communism
 		x = 21
-		y = 6
+		y = 14
 		cost = 3
-		prerequisite = { focus = BTR_start_07 }
+		prerequisite = { focus = BTR_start_23 }
 		mutually_exclusive = { focus = BTR_keep_00 focus = BTR_a_00 focus = BTR_c_00 }
 		available = {
 			mk_great_turn_unlocked = yes
@@ -1478,7 +4027,7 @@ focus_tree = {
 		id = BTR_b_01
 		icon = GFX_goal_generic_propaganda
 		x = 20
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_b_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1499,7 +4048,7 @@ focus_tree = {
 		id = BTR_b_02
 		icon = GFX_goal_generic_political_pressure
 		x = 22
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_b_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1520,7 +4069,7 @@ focus_tree = {
 		id = BTR_b_03
 		icon = GFX_goal_generic_national_unity
 		x = 20
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_b_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1548,7 +4097,7 @@ focus_tree = {
 		id = BTR_b_04
 		icon = GFX_goal_generic_scientific_exchange
 		x = 22
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_b_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1573,7 +4122,7 @@ focus_tree = {
 		id = BTR_b_05
 		icon = GFX_goal_generic_trade
 		x = 20
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_b_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1596,7 +4145,7 @@ focus_tree = {
 		id = BTR_b_06
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 22
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_b_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1619,7 +4168,7 @@ focus_tree = {
 		id = BTR_b_07
 		icon = GFX_goal_generic_military_sphere
 		x = 20
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_b_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1642,7 +4191,7 @@ focus_tree = {
 		id = BTR_b_08
 		icon = GFX_goal_generic_propaganda
 		x = 22
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_b_06 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1667,7 +4216,7 @@ focus_tree = {
 		id = BTR_b_09
 		icon = GFX_goal_generic_political_pressure
 		x = 20
-		y = 11
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_b_07 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1689,12 +4238,503 @@ focus_tree = {
 
 	focus = {
 		id = BTR_b_10
-		icon = GFX_goal_support_communism
-		x = 21
-		y = 12
+		icon = GFX_goal_generic_national_unity
+		x = 22
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_b_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.05 }
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_b_11
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 20
 		cost = 3
 		prerequisite = { focus = BTR_b_09 }
-		prerequisite = { focus = BTR_b_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_12
+		icon = GFX_goal_generic_trade
+		x = 22
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_b_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_13
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 20
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_b_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_14
+		icon = GFX_goal_generic_military_sphere
+		x = 22
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_b_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 10
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_b_15
+		icon = GFX_goal_generic_propaganda
+		x = 20
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_b_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_b_late_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_16
+		icon = GFX_goal_generic_political_pressure
+		x = 22
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_b_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 12000
+			add_stability = -0.01
+		}
+	}
+
+	focus = {
+		id = BTR_b_17
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_b_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes }
+				add_popularity = { ideology = communism popularity = 0.02 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_18
+		icon = GFX_goal_generic_scientific_exchange
+		x = 22
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_b_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 6 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_19
+		icon = GFX_goal_generic_trade
+		x = 20
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_b_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_20
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 22
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_b_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_21
+		icon = GFX_goal_generic_military_sphere
+		x = 20
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_b_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_22
+		icon = GFX_goal_generic_propaganda
+		x = 22
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_b_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_mech_delta = 7 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_23
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_b_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 10000
+			army_experience = 8
+		}
+	}
+
+	focus = {
+		id = BTR_b_24
+		icon = GFX_goal_generic_national_unity
+		x = 22
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_b_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_b_late_build_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_25
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_b_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = communism }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_26
+		icon = GFX_goal_generic_trade
+		x = 22
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_b_24 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			add_political_power = 20
+		}
+	}
+
+	focus = {
+		id = BTR_b_27
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 20
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_b_25 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.04 }
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_b_28
+		icon = GFX_goal_generic_military_sphere
+		x = 22
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_b_26 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.05 }
+			add_manpower = 8000
+		}
+	}
+
+	focus = {
+		id = BTR_b_29
+		icon = GFX_goal_generic_propaganda
+		x = 20
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_b_27 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_30
+		icon = GFX_goal_generic_political_pressure
+		x = 22
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_b_28 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_b_31
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 30
+		cost = 3
+		prerequisite = { focus = BTR_b_29 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_b_32
+		icon = GFX_goal_support_communism
+		x = 21
+		y = 31
+		cost = 3
+		prerequisite = { focus = BTR_b_31 }
+		prerequisite = { focus = BTR_b_30 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 4
@@ -1722,9 +4762,9 @@ focus_tree = {
 		id = BTR_c_00
 		icon = GFX_goal_support_democracy
 		x = 25
-		y = 6
+		y = 14
 		cost = 3
-		prerequisite = { focus = BTR_start_07 }
+		prerequisite = { focus = BTR_start_23 }
 		mutually_exclusive = { focus = BTR_keep_00 focus = BTR_a_00 focus = BTR_b_00 }
 		available = {
 			mk_great_turn_unlocked = yes
@@ -1759,7 +4799,7 @@ focus_tree = {
 		id = BTR_c_01
 		icon = GFX_goal_generic_propaganda
 		x = 24
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_c_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1780,7 +4820,7 @@ focus_tree = {
 		id = BTR_c_02
 		icon = GFX_goal_generic_political_pressure
 		x = 26
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_c_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1801,7 +4841,7 @@ focus_tree = {
 		id = BTR_c_03
 		icon = GFX_goal_generic_national_unity
 		x = 24
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_c_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1823,7 +4863,7 @@ focus_tree = {
 		id = BTR_c_04
 		icon = GFX_goal_generic_scientific_exchange
 		x = 26
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_c_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1848,7 +4888,7 @@ focus_tree = {
 		id = BTR_c_05
 		icon = GFX_goal_generic_trade
 		x = 24
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_c_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1876,7 +4916,7 @@ focus_tree = {
 		id = BTR_c_06
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 26
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_c_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1899,7 +4939,7 @@ focus_tree = {
 		id = BTR_c_07
 		icon = GFX_goal_generic_military_sphere
 		x = 24
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_c_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1921,7 +4961,7 @@ focus_tree = {
 		id = BTR_c_08
 		icon = GFX_goal_generic_propaganda
 		x = 26
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_c_06 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1945,7 +4985,7 @@ focus_tree = {
 		id = BTR_c_09
 		icon = GFX_goal_generic_political_pressure
 		x = 24
-		y = 11
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_c_07 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1966,12 +5006,503 @@ focus_tree = {
 
 	focus = {
 		id = BTR_c_10
-		icon = GFX_goal_support_democracy
-		x = 25
-		y = 12
+		icon = GFX_goal_generic_national_unity
+		x = 26
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_c_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_11
+		icon = GFX_goal_generic_scientific_exchange
+		x = 24
+		y = 20
 		cost = 3
 		prerequisite = { focus = BTR_c_09 }
-		prerequisite = { focus = BTR_c_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_popularity = { ideology = democratic popularity = 0.03 }
+		}
+	}
+
+	focus = {
+		id = BTR_c_12
+		icon = GFX_goal_generic_trade
+		x = 26
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_c_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_13
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 24
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_c_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_14
+		icon = GFX_goal_generic_military_sphere
+		x = 26
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_c_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_c_15
+		icon = GFX_goal_generic_propaganda
+		x = 24
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_c_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_c_late_elec_tech
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_16
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_c_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_17
+		icon = GFX_goal_generic_national_unity
+		x = 24
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_c_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes has_war = no }
+				ROOT = { give_guarantee = PREV }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_18
+		icon = GFX_goal_generic_scientific_exchange
+		x = 26
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_c_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+			set_temp_variable = { mk_mech_delta = 7 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_19
+		icon = GFX_goal_generic_trade
+		x = 24
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_c_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 8000
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_c_20
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 26
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_c_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_21
+		icon = GFX_goal_generic_military_sphere
+		x = 24
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_c_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.02
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_22
+		icon = GFX_goal_generic_propaganda
+		x = 26
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_c_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = democratic }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_23
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_c_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 45
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_24
+		icon = GFX_goal_generic_national_unity
+		x = 26
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_c_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_popularity = { ideology = democratic popularity = 0.03 }
+		}
+	}
+
+	focus = {
+		id = BTR_c_25
+		icon = GFX_goal_generic_scientific_exchange
+		x = 24
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_c_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 5 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_26
+		icon = GFX_goal_generic_trade
+		x = 26
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_c_24 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_c_late_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_27
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 24
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_c_25 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 7000
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_c_28
+		icon = GFX_goal_generic_military_sphere
+		x = 26
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_c_26 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_c_29
+		icon = GFX_goal_generic_propaganda
+		x = 24
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_c_27 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_popularity = { ideology = democratic popularity = 0.03 }
+		}
+	}
+
+	focus = {
+		id = BTR_c_30
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 29
+		cost = 3
+		prerequisite = { focus = BTR_c_28 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_31
+		icon = GFX_goal_generic_national_unity
+		x = 24
+		y = 30
+		cost = 3
+		prerequisite = { focus = BTR_c_29 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_c_32
+		icon = GFX_goal_support_democracy
+		x = 25
+		y = 31
+		cost = 3
+		prerequisite = { focus = BTR_c_31 }
+		prerequisite = { focus = BTR_c_30 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 4
@@ -1997,9 +5528,9 @@ focus_tree = {
 		id = BTR_secret_00
 		icon = GFX_goal_generic_secret_weapon
 		x = 29
-		y = 6
+		y = 14
 		cost = 3
-		prerequisite = { focus = BTR_start_07 }
+		prerequisite = { focus = BTR_start_23 }
 		available = {
 			check_variable = { mk_npt > 3 }
 			check_variable = { global.mk_absurd_temp > 39 }
@@ -2029,7 +5560,7 @@ focus_tree = {
 		id = BTR_secret_01
 		icon = GFX_goal_generic_radar
 		x = 28
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_secret_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2059,7 +5590,7 @@ focus_tree = {
 		id = BTR_secret_02
 		icon = GFX_goal_generic_dangerous_deal
 		x = 30
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_secret_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2080,7 +5611,7 @@ focus_tree = {
 		id = BTR_secret_03
 		icon = GFX_goal_generic_scientific_exchange
 		x = 28
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_secret_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2102,7 +5633,7 @@ focus_tree = {
 		id = BTR_secret_04
 		icon = GFX_goal_generic_wolf_pack
 		x = 30
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_secret_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2122,7 +5653,7 @@ focus_tree = {
 		id = BTR_secret_05
 		icon = GFX_goal_generic_more_territorial_claims
 		x = 28
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_secret_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2144,7 +5675,7 @@ focus_tree = {
 		id = BTR_secret_06
 		icon = GFX_goal_generic_secret_weapon
 		x = 30
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_secret_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2167,7 +5698,7 @@ focus_tree = {
 		id = BTR_secret_07
 		icon = GFX_goal_generic_radar
 		x = 28
-		y = 10
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_secret_05 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2188,11 +5719,423 @@ focus_tree = {
 	focus = {
 		id = BTR_secret_08
 		icon = GFX_goal_generic_dangerous_deal
-		x = 29
-		y = 11
+		x = 30
+		y = 18
+		cost = 3
+		prerequisite = { focus = BTR_secret_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 45
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_09
+		icon = GFX_goal_generic_scientific_exchange
+		x = 28
+		y = 19
 		cost = 3
 		prerequisite = { focus = BTR_secret_07 }
-		prerequisite = { focus = BTR_secret_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_secret_comms_tech
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_10
+		icon = GFX_goal_generic_wolf_pack
+		x = 30
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_secret_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 7000
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = BTR_secret_11
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 28
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_secret_09 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = aluminium amount = 5 }
+				add_resource = { type = tungsten amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_secret_12
+		icon = GFX_goal_generic_secret_weapon
+		x = 30
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_secret_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_13
+		icon = GFX_goal_generic_radar
+		x = 28
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_secret_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 1 }
+				mk_add_npt = yes
+			}
+			add_tech_bonus = {
+				name = BTR_secret_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_secret_14
+		icon = GFX_goal_generic_dangerous_deal
+		x = 30
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_secret_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.04
+			add_political_power = 30
+		}
+	}
+
+	focus = {
+		id = BTR_secret_15
+		icon = GFX_goal_generic_scientific_exchange
+		x = 28
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_secret_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 10
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_16
+		icon = GFX_goal_generic_wolf_pack
+		x = 30
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_secret_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_17
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 28
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_secret_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 9000
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_18
+		icon = GFX_goal_generic_secret_weapon
+		x = 30
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_secret_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 6 }
+				add_resource = { type = oil amount = 3 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_secret_19
+		icon = GFX_goal_generic_radar
+		x = 28
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_secret_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = BTR_secret_build_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_secret_20
+		icon = GFX_goal_generic_dangerous_deal
+		x = 30
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_secret_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 55
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_secret_21
+		icon = GFX_goal_generic_scientific_exchange
+		x = 28
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_secret_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_22
+		icon = GFX_goal_generic_wolf_pack
+		x = 30
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_secret_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+
+	focus = {
+		id = BTR_secret_23
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 28
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_secret_21 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 12
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 1 }
+				mk_add_npt = yes
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_secret_24
+		icon = GFX_goal_generic_secret_weapon
+		x = 30
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_secret_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 8000
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_secret_25
+		icon = GFX_goal_generic_radar
+		x = 28
+		y = 27
+		cost = 3
+		prerequisite = { focus = BTR_secret_23 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_secret_26
+		icon = GFX_goal_generic_dangerous_deal
+		x = 29
+		y = 28
+		cost = 3
+		prerequisite = { focus = BTR_secret_25 }
+		prerequisite = { focus = BTR_secret_24 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 3
@@ -2219,7 +6162,7 @@ focus_tree = {
 		id = BTR_absurd_00
 		icon = GFX_goal_generic_improve_relations
 		x = 33
-		y = 6
+		y = 14
 		cost = 3
 		prerequisite = { focus = BTR_start_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2247,7 +6190,7 @@ focus_tree = {
 		id = BTR_absurd_01
 		icon = GFX_goal_generic_alliance
 		x = 32
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_absurd_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2275,7 +6218,7 @@ focus_tree = {
 		id = BTR_absurd_02
 		icon = GFX_goal_generic_positive_trade_relations
 		x = 34
-		y = 7
+		y = 15
 		cost = 3
 		prerequisite = { focus = BTR_absurd_00 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2301,7 +6244,7 @@ focus_tree = {
 		id = BTR_absurd_03
 		icon = GFX_goal_generic_trade
 		x = 32
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_absurd_01 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2327,7 +6270,7 @@ focus_tree = {
 		id = BTR_absurd_04
 		icon = GFX_goal_generic_major_alliance
 		x = 34
-		y = 8
+		y = 16
 		cost = 3
 		prerequisite = { focus = BTR_absurd_02 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2350,7 +6293,7 @@ focus_tree = {
 		id = BTR_absurd_05
 		icon = GFX_goal_generic_forceful_treaty
 		x = 32
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_absurd_03 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2382,7 +6325,7 @@ focus_tree = {
 		id = BTR_absurd_06
 		icon = GFX_goal_generic_improve_relations
 		x = 34
-		y = 9
+		y = 17
 		cost = 3
 		prerequisite = { focus = BTR_absurd_04 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2407,14 +6350,394 @@ focus_tree = {
 	focus = {
 		id = BTR_absurd_07
 		icon = GFX_goal_generic_alliance
-		x = 33
-		y = 10
+		x = 32
+		y = 18
 		cost = 3
 		prerequisite = { focus = BTR_absurd_05 }
-		prerequisite = { focus = BTR_absurd_06 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes is_subject = no has_war = no }
+				ROOT = { give_guarantee = PREV }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+			add_ideas = mk_idea_collective_security
+			add_political_power = 100
+			add_stability = 0.05
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_08
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 34
+		y = 18
+		cost = 3
+		prerequisite = { focus = BTR_absurd_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_09
+		icon = GFX_goal_generic_trade
+		x = 32
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_absurd_07 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 35
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_10
+		icon = GFX_goal_generic_major_alliance
+		x = 34
+		y = 19
+		cost = 3
+		prerequisite = { focus = BTR_absurd_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes is_subject = no }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_11
+		icon = GFX_goal_generic_forceful_treaty
+		x = 32
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_absurd_09 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 9000
+			army_experience = 8
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_12
+		icon = GFX_goal_generic_improve_relations
+		x = 34
+		y = 20
+		cost = 3
+		prerequisite = { focus = BTR_absurd_10 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = BTR_absurd_ind_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_13
+		icon = GFX_goal_generic_alliance
+		x = 32
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_absurd_11 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_14
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 34
+		y = 21
+		cost = 3
+		prerequisite = { focus = BTR_absurd_12 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes is_subject = no has_war = no NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+			}
+			add_war_support = 0.05
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_15
+		icon = GFX_goal_generic_trade
+		x = 32
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_absurd_13 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 8 }
+				add_resource = { type = oil amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_16
+		icon = GFX_goal_generic_major_alliance
+		x = 34
+		y = 22
+		cost = 3
+		prerequisite = { focus = BTR_absurd_14 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 60
+			set_temp_variable = { mk_mech_delta = 8 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_17
+		icon = GFX_goal_generic_forceful_treaty
+		x = 32
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_absurd_15 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+				ROOT = { add_to_faction = PREV }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_18
+		icon = GFX_goal_generic_improve_relations
+		x = 34
+		y = 23
+		cost = 3
+		prerequisite = { focus = BTR_absurd_16 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.04
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_19
+		icon = GFX_goal_generic_alliance
+		x = 32
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_absurd_17 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_20
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 34
+		y = 24
+		cost = 3
+		prerequisite = { focus = BTR_absurd_18 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 10000
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_21
+		icon = GFX_goal_generic_trade
+		x = 32
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_absurd_19 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes has_war = no }
+				ROOT = { give_guarantee = PREV }
+			}
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_22
+		icon = GFX_goal_generic_major_alliance
+		x = 34
+		y = 25
+		cost = 3
+		prerequisite = { focus = BTR_absurd_20 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 50
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = BTR_absurd_23
+		icon = GFX_goal_generic_forceful_treaty
+		x = 33
+		y = 26
+		cost = 3
+		prerequisite = { focus = BTR_absurd_21 }
+		prerequisite = { focus = BTR_absurd_22 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
 			modifier = {
 				factor = 2
 				mk_absurd_high = yes

@@ -1,9 +1,7 @@
 state={
 	id=14
 	name="STATE_14"
-	manpower = 975000
-	state_category = large_city
-		resources={
+	resources={
 		steel=9
 		oil=8
 		aluminium=6
@@ -12,9 +10,12 @@ state={
 		chromium=6
 		coal=44
 	}
+
+	manpower = 1040000
+	state_category = large_city
 	history={
 		owner = CRE
-		victory_points = { 509 20 }
+		victory_points = { 497 20 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 2
@@ -24,7 +25,7 @@ state={
 		add_core_of = CRE
 	}
 	provinces={
-		504 505 506 507 508 509 510 511 512 513 514
+		497 498 499 500 501 502 503 504 505 506 507
 	}
 	local_supplies=0.0
 }

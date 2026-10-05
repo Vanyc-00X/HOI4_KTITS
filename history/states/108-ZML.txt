@@ -1,9 +1,7 @@
 state={
 	id=108
 	name="STATE_108"
-	manpower = 400000
-	state_category = rural
-		resources={
+	resources={
 		steel=11
 		oil=5
 		aluminium=3
@@ -12,9 +10,12 @@ state={
 		chromium=3
 		coal=17
 	}
+
+	manpower = 400000
+	state_category = rural
 	history={
 		owner = ZML
-		victory_points = { 836 3 }
+		victory_points = { 806 3 }
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
@@ -23,7 +24,7 @@ state={
 		add_core_of = ZML
 	}
 	provinces={
-		836 837 838 839
+		806 807 808 809
 	}
 	local_supplies=0.0
 }

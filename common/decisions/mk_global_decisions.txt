@@ -117,6 +117,39 @@ mk_cat_congress = {
 		}
 	}
 
+	mk_dec_congress_deescalation = {
+		icon = generic_political_discourse
+		cost = 50
+		fire_only_once = no
+		days_re_enable = 120
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			is_mk_country = yes
+			is_subject = no
+			check_variable = { mk_world_votes > 1 }
+			check_variable = { global.mk_absurd_temp > 25 }
+			has_political_power > 49
+		}
+		complete_effect = {
+			mk_congress_deescalation_effect = yes
+			custom_effect_tooltip = mk_tt_congress_deescalation
+		}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 3
+				check_variable = { global.mk_absurd_temp > 59 }
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
 	mk_dec_lobby_votes = {
 		icon = generic_political_discourse
 		cost = 20

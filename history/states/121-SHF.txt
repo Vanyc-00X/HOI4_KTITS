@@ -1,9 +1,7 @@
 state={
 	id=121
 	name="STATE_121"
-	manpower = 1500000
-	state_category = large_town
-		resources={
+	resources={
 		steel=14
 		oil=11
 		aluminium=6
@@ -12,20 +10,24 @@ state={
 		chromium=6
 		coal=24
 	}
+
+	manpower = 1600000
+	state_category = large_town
 	history={
 		owner = SHF
-		victory_points = { 953 3 }
+		victory_points = { 923 3 }
 		buildings = {
-			965 = { naval_base = 1 }
-			966 = { naval_base = 1 }
 			infrastructure = 4
 			industrial_complex = 2
 			arms_factory = 1
+			935 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = SHF
 	}
 	provinces={
-		953 954 955 956 957 958 959 960 961 962 963 964 965 966
+		923 924 925 926 927 928 929 930 931 932 933 934 935 936
 	}
 	local_supplies=0.0
 }

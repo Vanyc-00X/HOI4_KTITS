@@ -4,6 +4,7 @@ tools/country_data_*.py specs.
 
 Usage: python tools/build_countries.py            # every spec found
        python tools/build_countries.py VCI SOY    # selected tags
+       python tools/build_countries.py --focus-only  # trees and localisation only
 """
 from __future__ import annotations
 
@@ -18,7 +19,7 @@ TOOLS = ROOT / "tools"
 # Stage 11 cosmetics + Stage 13 focus expansion
 sys.path.insert(0, str(TOOLS))
 from country_cosmetics import CHARS, COSMETICS, cosmetic_tag  # noqa: E402
-from focus_flavor import expand_spec, target_sizes  # noqa: E402
+from focus_flavor import character_unlock_flag, expand_spec, target_sizes  # noqa: E402
 
 IDEOLOGY_RU = {"democratic": "демократия", "communism": "коммунизм",
                "fascism": "фашизм", "neutrality": "неприсоединение"}
@@ -48,6 +49,38 @@ TECH_LABELS = {
     "eco2_tech": "Вторая волна индустрии", "eco_ev_tech": "Инженерные бюро",
     "build_tech": "Строительные технологии",
     "inf_tech": "Стрелковое оружие", "art_tech": "Артиллерия", "doc_bonus": "Сухопутная доктрина",
+}
+CHARACTER_LOC = {
+    "BTR": {
+        "BTR_grandfather_akhtyamov": (
+            "Дед Ахтямов",
+            "Полевой маршал, который лично проверяет каждый приказ, каждую карту и каждую дверь штаба."
+        ),
+    },
+    "CRE": {
+        "CRE_adolf_hitler_guest_instructor": (
+            "Адольф Гитлер (приглашённый инструктор)",
+            "Спорный иностранный инструктор; его курс по стратегической самоизоляции включён в штабную программу как предостережение."
+        ),
+        "CRE_hermann_goering_guest_instructor": (
+            "Герман Геринг (приглашённый инструктор)",
+            "Гость военной миссии, обещавший авиацию в смете и оставивший штаб разбираться с мелким шрифтом."
+        ),
+        "CRE_erwin_rommel_guest_instructor": (
+            "Эрвин Роммель (приглашённый инструктор)",
+            "Иностранный инструктор по манёврам; его карта оказалась точнее, чем местный компас."
+        ),
+        "CRE_heinz_guderian_guest_instructor": (
+            "Хайнц Гудериан (приглашённый инструктор)",
+            "Иностранный инструктор по подвижным соединениям, которому выдали карту без масштаба."
+        ),
+    },
+    "ZLD": {
+        "ZLD_grigory_yavlinsky": (
+            "Григорий Явлинский",
+            "Политик и экономист, приглашённый в Зеленодольск только после одобрения специальной коалиционной комиссии."
+        ),
+    },
 }
 SECTION_BASE_X = {"eco": 1, "army": 5, "diplo": 9, "keep": 13, "a": 17, "b": 21, "c": 25, "secret": 29, "absurd": 33}
 SECTION_ICONS = {
@@ -182,10 +215,16 @@ class Country:
         t, s = self.tag, self.s
         self.L(f"{t}_focus", s["tree_name"])
         focuses: list[str] = []
+        for char_id, (char_name, char_desc) in CHARACTER_LOC.get(t, {}).items():
+            self.L(char_id, char_name)
+            self.L(char_id + "_desc", char_desc)
         start_n = len(s["start"]["names"])
         start_ids = [f"{t}_start_{i:02d}" for i in range(start_n)]
-        start_pos = [(15, 0), (13, 1), (17, 1), (13, 2), (17, 2), (15, 3), (13, 4), (17, 4)][:start_n]
-        start_pre = [[], [0], [0], [1], [2], [3, 4], [5], [5]][:start_n]
+        start_pos = [(15, 0), (13, 1), (17, 1), (13, 2), (17, 2), (15, 3), (13, 4), (17, 4)]
+        start_pre = [[], [0], [0], [1], [2], [3, 4], [5], [5]]
+        for i in range(8, start_n):
+            start_pos.append((13 if (i - 8) % 2 == 0 else 17, 5 + (i - 8) // 2))
+            start_pre.append([i - 2])
         for i, fid in enumerate(start_ids):
             x, y = start_pos[i]
             pre = [[start_ids[p]] for p in start_pre[i]]
@@ -250,6 +289,8 @@ class Country:
                     filt = {"eco": "FOCUS_FILTER_INDUSTRY", "army": "FOCUS_FILTER_ARMY_XP",
                             "diplo": "FOCUS_FILTER_POLITICAL"}[sec]
                     extra["ai"] = {"eco": 7, "army": 6, "diplo": 8}[sec]
+                if t == "ZLD" and sec == "diplo" and i == 18:
+                    extra["available"] = "has_completed_focus = ZLD_diplo_16"
                 name = data["names"][i]
                 # NPT only for fascist branches / fascist government (Stage 11)
                 if "НПТ" in name:
@@ -301,7 +342,26 @@ class Country:
             "add_political_power = 40\n" + absurd(2) + f"\ncountry_event = {{ id = {self.ev(15)} days = 2 }}",
             build("random_owned_controlled_state", "infrastructure") + "\nadd_manpower = 5000",
         ]
-        return table[i] if i < len(table) else table[-1]
+        extra = [
+            "add_political_power = 35\nadd_stability = 0.02",
+            "add_war_support = 0.03\n" + votes(1),
+            "add_manpower = 8000\narmy_experience = 5",
+            build("capital_scope", "industrial_complex"),
+            popularity(self.s["start_ideology"], 0.03) + "\nadd_political_power = 25",
+            "add_research_slot = 1\nadd_stability = 0.02",
+            build("random_owned_controlled_state", "infrastructure") + "\nadd_political_power = 20",
+            "add_stability = 0.03\n" + absurd(1),
+            "add_war_support = 0.04\nadd_manpower = 5000",
+            build("capital_scope", "arms_factory"),
+            "add_political_power = 40\n" + votes(1),
+            "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 6 }\n"
+            "\tadd_resource = { type = oil amount = 3 }\n}",
+            "add_stability = 0.02\n" + mech(5),
+            "army_experience = 8\nadd_manpower = 4000",
+            "add_political_power = 30\n" + absurd(2),
+            "add_war_support = 0.03\nadd_stability = 0.02",
+        ]
+        return table[i] if i < len(table) else extra[(i - len(table)) % len(extra)]
 
     def apply_course_cosmetic(self, ideo: str) -> str:
         """Rename country + leader when the political course is chosen."""
@@ -363,6 +423,8 @@ class Country:
             else:
                 finale += "add_stability = 0.05\n"
             return finale + absurd(3 if br == "keep" else 5)
+        if i >= 10:
+            return self.extended_branch_reward(br, i - 10)
         slot = (i - 1) % 9
         wargoal = (
             "random_neighbor_country = {\n"
@@ -442,6 +504,106 @@ class Country:
         }
         return table[ideo][slot]
 
+    def extended_branch_reward(self, br, index):
+        t, b = self.tag, self.s[br]
+        ideo = b["ideology"]
+        phases = {
+            "fascism": [
+                "add_war_support = 0.04\nadd_manpower = 8000",
+                popularity(ideo, 0.05) + "\n" + npt_fascist_branch(1),
+                "army_experience = 12\nadd_stability = -0.01",
+                build("random_owned_controlled_state", "arms_factory"),
+                "add_political_power = 30\n" + absurd(2),
+                tech("infantry_weapons", f"{t}_{br}_late_inf_tech"),
+                "add_war_support = 0.03\n" + mech(8),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 5 }\n"
+                "\tadd_resource = { type = oil amount = 3 }\n}",
+                npt_fascist_branch(1) + "\nadd_war_support = 0.04",
+                "add_manpower = 12000\narmy_experience = 8",
+                "random_neighbor_country = {\n\tlimit = { is_mk_country = yes has_war = no "
+                "NOT = { is_in_faction_with = ROOT } }\n"
+                "\tROOT = { create_wargoal = { type = puppet_wargoal_focus target = PREV } }\n}",
+                "add_stability = 0.03\nadd_war_support = 0.02",
+                "add_political_power = 45\n" + votes(1),
+                "add_ideas = mk_idea_faction_member\nadd_war_support = 0.03",
+                "add_manpower = 9000\n" + npt_fascist_branch(1),
+                "add_political_power = 35\n" + mech(10),
+                build("random_owned_controlled_state", "infrastructure", 2),
+                popularity(ideo, 0.04) + "\nadd_stability = 0.02",
+            ],
+            "communism": [
+                popularity(ideo, 0.05) + "\nadd_manpower = 8000",
+                "add_stability = 0.03\n" + votes(1),
+                build("random_owned_controlled_state", "industrial_complex"),
+                "add_political_power = 35\n" + mech(8),
+                "army_experience = 10\nadd_war_support = 0.03",
+                tech("industry", f"{t}_{br}_late_ind_tech"),
+                "add_manpower = 12000\nadd_stability = -0.01",
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes }\n"
+                "\tadd_popularity = { ideology = communism popularity = 0.02 }\n}",
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 6 }\n"
+                "\tadd_resource = { type = oil amount = 3 }\n}",
+                "add_political_power = 40\n" + votes(1),
+                "add_war_support = 0.04\n" + absurd(2),
+                build("random_owned_controlled_state", "arms_factory"),
+                "add_stability = 0.03\n" + mech(7),
+                "add_manpower = 10000\narmy_experience = 8",
+                tech("construction_tech", f"{t}_{br}_late_build_tech"),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes has_government = communism }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }\n}",
+                build("random_owned_controlled_state", "infrastructure") + "\nadd_political_power = 20",
+                popularity(ideo, 0.04) + "\nadd_stability = 0.02",
+            ],
+            "democratic": [
+                "add_stability = 0.03\n" + votes(1),
+                "add_political_power = 40\n" + popularity(ideo, 0.03),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n}",
+                build("random_owned_controlled_state", "industrial_complex"),
+                "add_research_slot = 1\nadd_stability = 0.02",
+                tech("electronics", f"{t}_{br}_late_elec_tech"),
+                "add_war_support = 0.03\n" + votes(1),
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes has_war = no }\n"
+                "\tROOT = { give_guarantee = PREV }\n}",
+                "add_political_power = 35\n" + mech(7),
+                "add_manpower = 8000\nadd_stability = 0.02",
+                build("random_owned_controlled_state", "infrastructure", 2),
+                "add_war_support = 0.02\n" + absurd(2),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes has_government = democratic }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }\n}",
+                "add_political_power = 45\n" + votes(1),
+                "add_stability = 0.03\n" + popularity(ideo, 0.03),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 5 }\n"
+                "\tadd_resource = { type = oil amount = 3 }\n}",
+                tech("industry", f"{t}_{br}_late_ind_tech"),
+                "add_manpower = 7000\nadd_stability = 0.02",
+            ],
+            "neutrality": [
+                "add_stability = 0.04\nadd_political_power = 25",
+                "add_manpower = 7000\n" + mech(7),
+                build("random_owned_controlled_state", "infrastructure", 2),
+                "add_political_power = 45\n" + votes(1),
+                "add_war_support = 0.03\nadd_stability = 0.02",
+                tech("construction_tech", f"{t}_{br}_late_build_tech"),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 5 }\n"
+                "\tadd_resource = { type = oil amount = 3 }\n}",
+                build("random_owned_controlled_state", "industrial_complex"),
+                "add_political_power = 35\n" + absurd(1),
+                "add_research_slot = 1\nadd_stability = 0.02",
+                "add_manpower = 9000\narmy_experience = 8",
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes has_war = no }\n"
+                "\tROOT = { give_guarantee = PREV }\n}",
+                build("random_owned_controlled_state", "arms_factory"),
+                "add_stability = 0.03\n" + votes(1),
+                tech("industry", f"{t}_{br}_late_ind_tech"),
+                "add_political_power = 50\n" + mech(5),
+                "add_war_support = 0.02\nadd_manpower = 6000",
+                "add_stability = 0.04\n" + popularity(ideo, 0.03),
+            ],
+        }
+        rewards = phases[ideo]
+        return rewards[index % len(rewards)]
+
     def absurd_reward(self, i, n):
         """Country-specific absurd-diplomacy branch: industry, CBs, guarantees, votes and blocs."""
         t = self.tag
@@ -496,6 +658,38 @@ class Country:
                 "\tROOT = { create_wargoal = { type = topple_government target = PREV } }\n}\n"
                 + votes(1) + "\nadd_war_support = 0.05"
             )
+        if i >= 8 and i < n - 1:
+            extra = [
+                build("random_owned_controlled_state", "arms_factory") + "\n" + votes(1),
+                "add_stability = 0.03\nadd_political_power = 35\n" + absurd(2),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes is_subject = no }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n}",
+                "add_manpower = 9000\narmy_experience = 8",
+                "add_research_slot = 1\n" + tech("industry", f"{t}_absurd_ind_tech"),
+                build("random_owned_controlled_state", "infrastructure", 2) + "\n" + votes(1),
+                "add_war_support = 0.04\nadd_stability = 0.02",
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 8 }\n"
+                "\tadd_resource = { type = oil amount = 4 }\n}",
+                "add_political_power = 60\n" + mech(8),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes has_government = ROOT "
+                "is_in_faction = no is_subject = no has_war = no }\n"
+                "\tROOT = { add_to_faction = PREV }\n}",
+                "add_stability = 0.04\n" + votes(1),
+                build("random_owned_controlled_state", "industrial_complex"),
+                "add_manpower = 10000\nadd_war_support = 0.03",
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes has_war = no }\n"
+                "\tROOT = { give_guarantee = PREV }\n}",
+                "add_political_power = 50\n" + absurd(3),
+            ]
+            if i == 14:
+                return (
+                    "every_neighbor_country = {\n"
+                    "\tlimit = { is_mk_country = yes is_subject = no has_war = no "
+                    "NOT = { is_in_faction_with = ROOT } }\n"
+                    "\tROOT = { create_wargoal = { type = annex_everything target = PREV } }\n}\n"
+                    "add_war_support = 0.05\n" + votes(1) + "\n" + absurd(3)
+                )
+            return extra[i - 8]
         return (
             "every_other_country = {\n"
             "\tlimit = { is_mk_country = yes is_subject = no has_war = no }\n"
@@ -514,6 +708,30 @@ class Country:
         if i == n - 1:
             return (f"add_ideas = {t}_sp_secret\nadd_war_support = 0.1\n{npt(2)}\n{absurd(8)}\n"
                     f"news_event = {{ id = {self.ev(13)} hours = 6 }}")
+        if i >= 8:
+            extra = [
+                "add_political_power = 45\n" + votes(1),
+                tech("electronics", f"{t}_secret_comms_tech") + "\n" + mech(8),
+                "add_manpower = 7000\nadd_stability = 0.02",
+                "random_owned_controlled_state = {\n\tadd_resource = { type = aluminium amount = 5 }\n"
+                "\tadd_resource = { type = tungsten amount = 4 }\n}",
+                "add_research_slot = 1\n" + absurd(2),
+                npt(1) + "\n" + tech("industry", f"{t}_secret_ind_tech"),
+                "add_war_support = 0.04\nadd_political_power = 30",
+                "army_experience = 10\n" + mech(8),
+                "add_stability = 0.03\n" + votes(1),
+                "add_manpower = 9000\n" + absurd(2),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 6 }\n"
+                "\tadd_resource = { type = oil amount = 3 }\n}",
+                tech("construction_tech", f"{t}_secret_build_tech"),
+                "add_political_power = 55\nadd_war_support = 0.03",
+                "add_research_slot = 1\n" + mech(5),
+                "add_stability = 0.02\n" + popularity("fascism", 0.02),
+                "army_experience = 12\n" + npt(1),
+                "add_manpower = 8000\nadd_war_support = 0.03",
+                "add_political_power = 40\n" + absurd(3),
+            ]
+            return extra[i - 8]
         mid = [
             npt(1) + "\n" + tech("electronics", f"{t}_secret_tech"),
             mech(15),
@@ -532,6 +750,31 @@ class Country:
             return (build("capital_scope", "industrial_complex", 2) +
                     f"\ncountry_event = {{ id = {self.ev(10)} days = 1 }}\n"
                     "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 10 }\n}")
+        if i >= 8:
+            extra = [
+                build("random_owned_controlled_state", "industrial_complex"),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = steel amount = 8 }\n"
+                "\tadd_resource = { type = oil amount = 4 }\n}",
+                tech("industry", f"{t}_eco_late_ind_tech") + "\nadd_political_power = 20",
+                build("capital_scope", "arms_factory"),
+                build("random_owned_controlled_state", "infrastructure", 2),
+                "add_political_power = 35\nadd_stability = 0.02",
+                tech("construction_tech", f"{t}_eco_late_build_tech") + "\n" + mech(5),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = aluminium amount = 6 }\n"
+                "\tadd_resource = { type = tungsten amount = 4 }\n}",
+                build("random_owned_controlled_state", "industrial_complex") + "\n" + votes(1),
+                "add_research_slot = 1\nadd_stability = 0.02",
+                build("random_owned_controlled_state", "arms_factory"),
+                "add_political_power = 40\n" + mech(5),
+                tech("industry", f"{t}_eco_late_2_ind_tech"),
+                "random_owned_controlled_state = {\n\tadd_resource = { type = oil amount = 8 }\n"
+                "\tadd_resource = { type = rubber amount = 4 }\n}",
+                build("capital_scope", "industrial_complex", 2),
+                "add_stability = 0.03\nadd_manpower = 4000",
+                build("random_owned_controlled_state", "infrastructure", 2) + "\n" + votes(1),
+                "add_political_power = 30\n" + absurd(2),
+            ]
+            return extra[i - 8]
         return [
             build("capital_scope", "industrial_complex"),
             tech("industry", f"{t}_eco_tech"),
@@ -546,6 +789,24 @@ class Country:
 
     def army_reward(self, i, n):
         t = self.tag
+        if t == "CRE" and i in (17, 19, 21, 23):
+            character = {
+                17: "CRE_adolf_hitler_guest_instructor",
+                19: "CRE_hermann_goering_guest_instructor",
+                21: "CRE_erwin_rommel_guest_instructor",
+                23: "CRE_heinz_guderian_guest_instructor",
+            }[i]
+            return (f"activate_character = {character}\n"
+                    f"set_country_flag = {character_unlock_flag(character)}\n"
+                    "army_experience = 15\nadd_war_support = 0.02")
+        if t == "BTR" and i == 18:
+            return ("activate_character = BTR_grandfather_akhtyamov\n"
+                    f"set_country_flag = {character_unlock_flag('BTR_grandfather_akhtyamov')}\n"
+                    "army_experience = 25\nadd_manpower = 12000\nadd_war_support = 0.05")
+        if t == "BTR" and i == 20:
+            return "army_experience = 20\nadd_manpower = 10000\nadd_stability = 0.03"
+        if t == "BTR" and i == 22:
+            return "army_experience = 25\nadd_war_support = 0.05\n" + mech(10)
         if i == n - 1:
             return (
                 "army_experience = 25\n"
@@ -555,6 +816,29 @@ class Country:
                 f"country_event = {{ id = {self.ev(11)} days = 1 }}\n"
                 + absurd(4)
             )
+        if i >= 8:
+            extra = [
+                "army_experience = 18\nadd_manpower = 7000",
+                tech("infantry_weapons", f"{t}_army_late_inf_tech"),
+                "add_manpower = 10000\nadd_war_support = 0.03",
+                "army_experience = 12\n" + absurd(2),
+                tech("artillery", f"{t}_army_late_art_tech"),
+                build("random_owned_controlled_state", "arms_factory"),
+                "add_manpower = 12000\nadd_stability = 0.02",
+                "add_doctrine_cost_reduction = {\n\tname = " + f"{t}_army_late_doc_bonus\n"
+                "\tcost_reduction = 0.5\n\tuses = 1\n\tcategory = land_doctrine\n}",
+                "army_experience = 20\n" + votes(1),
+                "add_war_support = 0.04\nadd_manpower = 8000",
+                build("random_owned_controlled_state", "infrastructure") + "\narmy_experience = 8",
+                tech("infantry_weapons", f"{t}_army_late_2_inf_tech"),
+                "add_manpower = 15000\nadd_war_support = 0.03",
+                "army_experience = 15\n" + mech(10),
+                tech("artillery", f"{t}_army_late_2_art_tech"),
+                build("random_owned_controlled_state", "arms_factory") + "\n" + absurd(2),
+                "add_stability = 0.03\nadd_war_support = 0.03",
+                "add_manpower = 9000\narmy_experience = 12",
+            ]
+            return extra[i - 8]
         justify = (
             "random_neighbor_country = {\n"
             "\tlimit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } has_war = no }\n"
@@ -577,12 +861,52 @@ class Country:
 
     def diplo_reward(self, i, n):
         t = self.tag
+        if t == "SOY" and i == 18:
+            character = "SOY_joe_biden_guest_diplomat"
+            return (f"activate_character = {character}\n"
+                    f"set_country_flag = {character_unlock_flag(character)}\n"
+                    "add_political_power = 50\nadd_stability = 0.03\n" + votes(1))
+        if t == "ZLD" and i == 18:
+            return ("set_politics = { ruling_party = democratic elections_allowed = yes }\n"
+                    "activate_character = ZLD_grigory_yavlinsky\n"
+                    f"set_country_flag = {character_unlock_flag('ZLD_grigory_yavlinsky')}\n"
+                    "add_stability = 0.05\nadd_political_power = 75\n" + votes(1))
         if i == n - 1:
             return (
                 votes(2) + "\n"
                 "if = {\n\tlimit = { is_in_faction = no }\n\tmk_form_ideology_faction_effect = yes\n}\n"
                 f"country_event = {{ id = {self.ev(12)} days = 1 }}"
             )
+        if i >= 8:
+            extra = [
+                "every_other_country = {\n\tlimit = { is_mk_country = yes }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n}",
+                votes(1) + "\nadd_political_power = 35",
+                "if = {\n\tlimit = { is_in_faction = no has_war = no }\n"
+                "\tmk_form_ideology_faction_effect = yes\n}",
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes has_war = no }\n"
+                "\tROOT = { give_guarantee = PREV }\n}",
+                "add_stability = 0.03\nadd_political_power = 25",
+                tech("electronics", f"{t}_diplo_late_elec_tech") + "\n" + votes(1),
+                "add_war_support = 0.03\n" + absurd(2),
+                "every_other_country = {\n\tlimit = { is_mk_country = yes has_government = ROOT }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }\n}",
+                "add_political_power = 45\nadd_stability = 0.02",
+                "add_manpower = 6000\n" + votes(1),
+                "every_neighbor_country = {\n\tlimit = { is_mk_country = yes is_subject = no has_war = no }\n"
+                "\tROOT = { give_guarantee = PREV }\n}",
+                "add_stability = 0.04\n" + mech(5),
+                "add_political_power = 40\n" + popularity("democratic", 0.02),
+                "if = {\n\tlimit = { is_faction_leader = yes has_war = no }\n"
+                "\tevery_other_country = { limit = { is_mk_country = yes has_government = ROOT "
+                "is_in_faction = no is_subject = no has_war = no } ROOT = { add_to_faction = PREV } }\n}",
+                votes(2) + "\nadd_stability = 0.02",
+                "every_other_country = {\n\tlimit = { is_mk_country = yes }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n}",
+                tech("construction_tech", f"{t}_diplo_late_build_tech") + "\nadd_political_power = 25",
+                "add_war_support = 0.02\nadd_political_power = 35",
+            ]
+            return extra[i - 8]
         kin = ("every_other_country = {\n\tlimit = { is_mk_country = yes has_government = ROOT }\n"
                "\tadd_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }\n"
                "\treverse_add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }\n}")
@@ -872,41 +1196,46 @@ def write(path: Path, text: str, bom: bool = False) -> None:
 
 def main() -> None:
     specs = load_specs()
-    tags = sys.argv[1:] or list(specs)
+    focus_only = "--focus-only" in sys.argv[1:]
+    tags = [arg for arg in sys.argv[1:] if arg != "--focus-only"] or list(specs)
     all_specs = specs  # glue covers every built country, not only the selected ones
     for tag in tags:
         s = specs[tag]
         validate(tag, s)
         c = Country(tag, s)
-        write(ROOT / f"common/ideas/mk_{tag}_ideas.txt", c.ideas())
-        write(ROOT / f"common/national_focus/mk_{tag}.txt", c.focus_tree())
+        ideas_txt = c.ideas()
+        focus_txt = c.focus_tree()
         cat, dec = c.decisions()
-        write(ROOT / f"common/decisions/categories/mk_{tag}_categories.txt", cat)
-        write(ROOT / f"common/decisions/mk_{tag}_decisions.txt", dec)
+        if not focus_only:
+            write(ROOT / f"common/ideas/mk_{tag}_ideas.txt", ideas_txt)
+            write(ROOT / f"common/decisions/categories/mk_{tag}_categories.txt", cat)
+            write(ROOT / f"common/decisions/mk_{tag}_decisions.txt", dec)
         events_txt = c.events()
-        write(ROOT / f"events/mk_{tag}_events.txt", events_txt)
+        if not focus_only:
+            write(ROOT / f"events/mk_{tag}_events.txt", events_txt)
         c.L(f"{tag}_focus_desc", s["tree_name"])
-        generated = "\n".join(
-            (ROOT / p).read_text(encoding="utf-8") for p in (f"common/national_focus/mk_{tag}.txt",)) + events_txt
+        generated = focus_txt + events_txt
         for bonus in sorted(set(re.findall(rf"\bname = ({tag}_\w*(?:tech|doc_bonus))\b", generated))):
             c.L(bonus, TECH_LABELS.get(bonus[len(tag) + 1:], s["tree_name"]))
+        write(ROOT / f"common/national_focus/mk_{tag}.txt", focus_txt)
         write(ROOT / f"localisation/russian/mk_{tag}_l_russian.yml", c.loc_file(), bom=True)
         nf = sum(len(s[k]["names"]) for k in ("start", "keep", "a", "b", "c", "secret", "eco", "army", "diplo", "absurd"))
         print(f"{tag}: {nf} focuses, 19 events, 8 decisions, 12 ideas, {len(c.loc)} loc keys")
 
-    built = [Country(t, all_specs[t]) for t in all_specs]
-    glue = ("# Generated by tools/build_countries.py — national mechanic variable mk_mech (0..100)\n\n"
-            "mk_mech_add = {\n\tadd_to_variable = { mk_mech = mk_mech_delta }\n"
-            "\tclamp_variable = { var = mk_mech min = 0 max = 100 }\n\tmk_mech_refresh = yes\n}\n\n"
-            "mk_mech_sub = {\n\tsubtract_from_variable = { mk_mech = mk_mech_delta }\n"
-            "\tclamp_variable = { var = mk_mech min = 0 max = 100 }\n\tmk_mech_refresh = yes\n}\n\n"
-            "mk_mech_refresh = {\n" + "\n".join(ind(c.refresh_block(), 1) for c in built) + "\n}\n\n"
-            "mk_mech_init = {\n" + "\n".join(ind(c.init_block(), 1) for c in built) +
-            "\n\tif = {\n\t\tlimit = { has_variable = mk_mech }\n\t\tmk_mech_refresh = yes\n\t}\n}\n\n"
-            "mk_mech_monthly = {\n\tif = {\n\t\tlimit = { has_variable = mk_mech }\n" +
-            "\n".join(ind(c.monthly_block(), 2) for c in built) + "\n\t}\n}\n")
-    write(ROOT / "common/scripted_effects/mk_mech_effects.txt", glue)
-    print("glue for:", ", ".join(all_specs))
+    if not focus_only:
+        built = [Country(t, all_specs[t]) for t in all_specs]
+        glue = ("# Generated by tools/build_countries.py — national mechanic variable mk_mech (0..100)\n\n"
+                "mk_mech_add = {\n\tadd_to_variable = { mk_mech = mk_mech_delta }\n"
+                "\tclamp_variable = { var = mk_mech min = 0 max = 100 }\n\tmk_mech_refresh = yes\n}\n\n"
+                "mk_mech_sub = {\n\tsubtract_from_variable = { mk_mech = mk_mech_delta }\n"
+                "\tclamp_variable = { var = mk_mech min = 0 max = 100 }\n\tmk_mech_refresh = yes\n}\n\n"
+                "mk_mech_refresh = {\n" + "\n".join(ind(c.refresh_block(), 1) for c in built) + "\n}\n\n"
+                "mk_mech_init = {\n" + "\n".join(ind(c.init_block(), 1) for c in built) +
+                "\n\tif = {\n\t\tlimit = { has_variable = mk_mech }\n\t\tmk_mech_refresh = yes\n\t}\n}\n\n"
+                "mk_mech_monthly = {\n\tif = {\n\t\tlimit = { has_variable = mk_mech }\n" +
+                "\n".join(ind(c.monthly_block(), 2) for c in built) + "\n\t}\n}\n")
+        write(ROOT / "common/scripted_effects/mk_mech_effects.txt", glue)
+        print("glue for:", ", ".join(all_specs))
 
 
 if __name__ == "__main__":
