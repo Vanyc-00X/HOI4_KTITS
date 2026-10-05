@@ -34,6 +34,14 @@ VCI_keep_plan = {
 		VCI_start_05
 		VCI_start_06
 		VCI_start_07
+		VCI_absurd_00
+		VCI_absurd_01
+		VCI_absurd_02
+		VCI_absurd_03
+		VCI_absurd_04
+		VCI_absurd_05
+		VCI_absurd_06
+		VCI_absurd_07
 		VCI_eco_00
 		VCI_eco_01
 		VCI_eco_02
@@ -90,6 +98,10 @@ VCI_keep_plan = {
 		VCI_c_00 = 0.2
 		VCI_secret_00 = 0.5
 		VCI_eco_00 = 8
+		VCI_absurd_00 = 10
+		VCI_absurd_03 = 9
+		VCI_absurd_04 = 11
+		VCI_absurd_07 = 8
 		VCI_diplo_00 = 7
 		VCI_army_00 = 6
 	}
@@ -154,6 +166,14 @@ VCI_radical_plan = {
 		VCI_start_05
 		VCI_start_06
 		VCI_start_07
+		VCI_absurd_00
+		VCI_absurd_01
+		VCI_absurd_02
+		VCI_absurd_03
+		VCI_absurd_04
+		VCI_absurd_05
+		VCI_absurd_06
+		VCI_absurd_07
 		VCI_eco_00
 		VCI_eco_01
 		VCI_eco_02
@@ -208,6 +228,10 @@ VCI_radical_plan = {
 		VCI_keep_00 = 0.3
 		VCI_secret_00 = 2.0
 		VCI_army_00 = 10
+		VCI_absurd_00 = 9
+		VCI_absurd_02 = 8
+		VCI_absurd_04 = 10
+		VCI_absurd_07 = 10
 		VCI_diplo_00 = 9
 		VCI_eco_00 = 7
 	}
@@ -279,6 +303,14 @@ SOY_keep_plan = {
 		SOY_start_05
 		SOY_start_06
 		SOY_start_07
+		SOY_absurd_00
+		SOY_absurd_01
+		SOY_absurd_02
+		SOY_absurd_03
+		SOY_absurd_04
+		SOY_absurd_05
+		SOY_absurd_06
+		SOY_absurd_07
 		SOY_eco_00
 		SOY_eco_01
 		SOY_eco_02
@@ -335,6 +367,10 @@ SOY_keep_plan = {
 		SOY_c_00 = 0.2
 		SOY_secret_00 = 0.5
 		SOY_eco_00 = 8
+		SOY_absurd_00 = 10
+		SOY_absurd_03 = 9
+		SOY_absurd_04 = 11
+		SOY_absurd_07 = 8
 		SOY_diplo_00 = 7
 		SOY_army_00 = 6
 	}
@@ -399,6 +435,14 @@ SOY_radical_plan = {
 		SOY_start_05
 		SOY_start_06
 		SOY_start_07
+		SOY_absurd_00
+		SOY_absurd_01
+		SOY_absurd_02
+		SOY_absurd_03
+		SOY_absurd_04
+		SOY_absurd_05
+		SOY_absurd_06
+		SOY_absurd_07
 		SOY_eco_00
 		SOY_eco_01
 		SOY_eco_02
@@ -453,6 +497,10 @@ SOY_radical_plan = {
 		SOY_keep_00 = 0.3
 		SOY_secret_00 = 2.0
 		SOY_army_00 = 10
+		SOY_absurd_00 = 9
+		SOY_absurd_02 = 8
+		SOY_absurd_04 = 10
+		SOY_absurd_07 = 10
 		SOY_diplo_00 = 9
 		SOY_eco_00 = 7
 	}
@@ -524,6 +572,14 @@ BTR_keep_plan = {
 		BTR_start_05
 		BTR_start_06
 		BTR_start_07
+		BTR_absurd_00
+		BTR_absurd_01
+		BTR_absurd_02
+		BTR_absurd_03
+		BTR_absurd_04
+		BTR_absurd_05
+		BTR_absurd_06
+		BTR_absurd_07
 		BTR_eco_00
 		BTR_eco_01
 		BTR_eco_02
@@ -580,6 +636,10 @@ BTR_keep_plan = {
 		BTR_c_00 = 0.2
 		BTR_secret_00 = 0.5
 		BTR_eco_00 = 8
+		BTR_absurd_00 = 10
+		BTR_absurd_03 = 9
+		BTR_absurd_04 = 11
+		BTR_absurd_07 = 8
 		BTR_diplo_00 = 7
 		BTR_army_00 = 6
 	}
@@ -644,6 +704,14 @@ BTR_radical_plan = {
 		BTR_start_05
 		BTR_start_06
 		BTR_start_07
+		BTR_absurd_00
+		BTR_absurd_01
+		BTR_absurd_02
+		BTR_absurd_03
+		BTR_absurd_04
+		BTR_absurd_05
+		BTR_absurd_06
+		BTR_absurd_07
 		BTR_eco_00
 		BTR_eco_01
 		BTR_eco_02
@@ -698,6 +766,10 @@ BTR_radical_plan = {
 		BTR_keep_00 = 0.3
 		BTR_secret_00 = 2.0
 		BTR_army_00 = 10
+		BTR_absurd_00 = 9
+		BTR_absurd_02 = 8
+		BTR_absurd_04 = 10
+		BTR_absurd_07 = 10
 		BTR_diplo_00 = 9
 		BTR_eco_00 = 7
 	}
@@ -769,6 +841,14 @@ KRZ_keep_plan = {
 		KRZ_start_05
 		KRZ_start_06
 		KRZ_start_07
+		KRZ_absurd_00
+		KRZ_absurd_01
+		KRZ_absurd_02
+		KRZ_absurd_03
+		KRZ_absurd_04
+		KRZ_absurd_05
+		KRZ_absurd_06
+		KRZ_absurd_07
 		KRZ_eco_00
 		KRZ_eco_01
 		KRZ_eco_02
@@ -825,6 +905,10 @@ KRZ_keep_plan = {
 		KRZ_c_00 = 0.2
 		KRZ_secret_00 = 0.5
 		KRZ_eco_00 = 8
+		KRZ_absurd_00 = 10
+		KRZ_absurd_03 = 9
+		KRZ_absurd_04 = 11
+		KRZ_absurd_07 = 8
 		KRZ_diplo_00 = 7
 		KRZ_army_00 = 6
 	}
@@ -889,6 +973,14 @@ KRZ_radical_plan = {
 		KRZ_start_05
 		KRZ_start_06
 		KRZ_start_07
+		KRZ_absurd_00
+		KRZ_absurd_01
+		KRZ_absurd_02
+		KRZ_absurd_03
+		KRZ_absurd_04
+		KRZ_absurd_05
+		KRZ_absurd_06
+		KRZ_absurd_07
 		KRZ_eco_00
 		KRZ_eco_01
 		KRZ_eco_02
@@ -943,6 +1035,10 @@ KRZ_radical_plan = {
 		KRZ_keep_00 = 0.3
 		KRZ_secret_00 = 2.0
 		KRZ_army_00 = 10
+		KRZ_absurd_00 = 9
+		KRZ_absurd_02 = 8
+		KRZ_absurd_04 = 10
+		KRZ_absurd_07 = 10
 		KRZ_diplo_00 = 9
 		KRZ_eco_00 = 7
 	}
@@ -1013,6 +1109,14 @@ KZS_keep_plan = {
 		KZS_start_04
 		KZS_start_05
 		KZS_start_06
+		KZS_absurd_00
+		KZS_absurd_01
+		KZS_absurd_02
+		KZS_absurd_03
+		KZS_absurd_04
+		KZS_absurd_05
+		KZS_absurd_06
+		KZS_absurd_07
 		KZS_eco_00
 		KZS_eco_01
 		KZS_eco_02
@@ -1064,6 +1168,10 @@ KZS_keep_plan = {
 		KZS_c_00 = 0.2
 		KZS_secret_00 = 0.5
 		KZS_eco_00 = 8
+		KZS_absurd_00 = 10
+		KZS_absurd_03 = 9
+		KZS_absurd_04 = 11
+		KZS_absurd_07 = 8
 		KZS_diplo_00 = 7
 		KZS_army_00 = 6
 	}
@@ -1127,6 +1235,14 @@ KZS_radical_plan = {
 		KZS_start_04
 		KZS_start_05
 		KZS_start_06
+		KZS_absurd_00
+		KZS_absurd_01
+		KZS_absurd_02
+		KZS_absurd_03
+		KZS_absurd_04
+		KZS_absurd_05
+		KZS_absurd_06
+		KZS_absurd_07
 		KZS_eco_00
 		KZS_eco_01
 		KZS_eco_02
@@ -1175,6 +1291,10 @@ KZS_radical_plan = {
 		KZS_keep_00 = 0.3
 		KZS_secret_00 = 2.0
 		KZS_army_00 = 10
+		KZS_absurd_00 = 9
+		KZS_absurd_02 = 8
+		KZS_absurd_04 = 10
+		KZS_absurd_07 = 10
 		KZS_diplo_00 = 9
 		KZS_eco_00 = 7
 	}
@@ -1245,6 +1365,14 @@ MUS_keep_plan = {
 		MUS_start_04
 		MUS_start_05
 		MUS_start_06
+		MUS_absurd_00
+		MUS_absurd_01
+		MUS_absurd_02
+		MUS_absurd_03
+		MUS_absurd_04
+		MUS_absurd_05
+		MUS_absurd_06
+		MUS_absurd_07
 		MUS_eco_00
 		MUS_eco_01
 		MUS_eco_02
@@ -1296,6 +1424,10 @@ MUS_keep_plan = {
 		MUS_c_00 = 0.2
 		MUS_secret_00 = 0.5
 		MUS_eco_00 = 8
+		MUS_absurd_00 = 10
+		MUS_absurd_03 = 9
+		MUS_absurd_04 = 11
+		MUS_absurd_07 = 8
 		MUS_diplo_00 = 7
 		MUS_army_00 = 6
 	}
@@ -1359,6 +1491,14 @@ MUS_radical_plan = {
 		MUS_start_04
 		MUS_start_05
 		MUS_start_06
+		MUS_absurd_00
+		MUS_absurd_01
+		MUS_absurd_02
+		MUS_absurd_03
+		MUS_absurd_04
+		MUS_absurd_05
+		MUS_absurd_06
+		MUS_absurd_07
 		MUS_eco_00
 		MUS_eco_01
 		MUS_eco_02
@@ -1407,6 +1547,10 @@ MUS_radical_plan = {
 		MUS_keep_00 = 0.3
 		MUS_secret_00 = 2.0
 		MUS_army_00 = 10
+		MUS_absurd_00 = 9
+		MUS_absurd_02 = 8
+		MUS_absurd_04 = 10
+		MUS_absurd_07 = 10
 		MUS_diplo_00 = 9
 		MUS_eco_00 = 7
 	}
@@ -1477,6 +1621,14 @@ TRF_keep_plan = {
 		TRF_start_04
 		TRF_start_05
 		TRF_start_06
+		TRF_absurd_00
+		TRF_absurd_01
+		TRF_absurd_02
+		TRF_absurd_03
+		TRF_absurd_04
+		TRF_absurd_05
+		TRF_absurd_06
+		TRF_absurd_07
 		TRF_eco_00
 		TRF_eco_01
 		TRF_eco_02
@@ -1528,6 +1680,10 @@ TRF_keep_plan = {
 		TRF_c_00 = 0.2
 		TRF_secret_00 = 0.5
 		TRF_eco_00 = 8
+		TRF_absurd_00 = 10
+		TRF_absurd_03 = 9
+		TRF_absurd_04 = 11
+		TRF_absurd_07 = 8
 		TRF_diplo_00 = 7
 		TRF_army_00 = 6
 	}
@@ -1591,6 +1747,14 @@ TRF_radical_plan = {
 		TRF_start_04
 		TRF_start_05
 		TRF_start_06
+		TRF_absurd_00
+		TRF_absurd_01
+		TRF_absurd_02
+		TRF_absurd_03
+		TRF_absurd_04
+		TRF_absurd_05
+		TRF_absurd_06
+		TRF_absurd_07
 		TRF_eco_00
 		TRF_eco_01
 		TRF_eco_02
@@ -1639,6 +1803,10 @@ TRF_radical_plan = {
 		TRF_keep_00 = 0.3
 		TRF_secret_00 = 2.0
 		TRF_army_00 = 10
+		TRF_absurd_00 = 9
+		TRF_absurd_02 = 8
+		TRF_absurd_04 = 10
+		TRF_absurd_07 = 10
 		TRF_diplo_00 = 9
 		TRF_eco_00 = 7
 	}
@@ -1709,6 +1877,14 @@ ZLD_keep_plan = {
 		ZLD_start_04
 		ZLD_start_05
 		ZLD_start_06
+		ZLD_absurd_00
+		ZLD_absurd_01
+		ZLD_absurd_02
+		ZLD_absurd_03
+		ZLD_absurd_04
+		ZLD_absurd_05
+		ZLD_absurd_06
+		ZLD_absurd_07
 		ZLD_eco_00
 		ZLD_eco_01
 		ZLD_eco_02
@@ -1760,6 +1936,10 @@ ZLD_keep_plan = {
 		ZLD_c_00 = 0.2
 		ZLD_secret_00 = 0.5
 		ZLD_eco_00 = 8
+		ZLD_absurd_00 = 10
+		ZLD_absurd_03 = 9
+		ZLD_absurd_04 = 11
+		ZLD_absurd_07 = 8
 		ZLD_diplo_00 = 7
 		ZLD_army_00 = 6
 	}
@@ -1823,6 +2003,14 @@ ZLD_radical_plan = {
 		ZLD_start_04
 		ZLD_start_05
 		ZLD_start_06
+		ZLD_absurd_00
+		ZLD_absurd_01
+		ZLD_absurd_02
+		ZLD_absurd_03
+		ZLD_absurd_04
+		ZLD_absurd_05
+		ZLD_absurd_06
+		ZLD_absurd_07
 		ZLD_eco_00
 		ZLD_eco_01
 		ZLD_eco_02
@@ -1871,6 +2059,10 @@ ZLD_radical_plan = {
 		ZLD_keep_00 = 0.3
 		ZLD_secret_00 = 2.0
 		ZLD_army_00 = 10
+		ZLD_absurd_00 = 9
+		ZLD_absurd_02 = 8
+		ZLD_absurd_04 = 10
+		ZLD_absurd_07 = 10
 		ZLD_diplo_00 = 9
 		ZLD_eco_00 = 7
 	}
@@ -1941,6 +2133,14 @@ ISL_keep_plan = {
 		ISL_start_04
 		ISL_start_05
 		ISL_start_06
+		ISL_absurd_00
+		ISL_absurd_01
+		ISL_absurd_02
+		ISL_absurd_03
+		ISL_absurd_04
+		ISL_absurd_05
+		ISL_absurd_06
+		ISL_absurd_07
 		ISL_eco_00
 		ISL_eco_01
 		ISL_eco_02
@@ -1992,6 +2192,10 @@ ISL_keep_plan = {
 		ISL_c_00 = 0.2
 		ISL_secret_00 = 0.5
 		ISL_eco_00 = 8
+		ISL_absurd_00 = 10
+		ISL_absurd_03 = 9
+		ISL_absurd_04 = 11
+		ISL_absurd_07 = 8
 		ISL_diplo_00 = 7
 		ISL_army_00 = 6
 	}
@@ -2055,6 +2259,14 @@ ISL_radical_plan = {
 		ISL_start_04
 		ISL_start_05
 		ISL_start_06
+		ISL_absurd_00
+		ISL_absurd_01
+		ISL_absurd_02
+		ISL_absurd_03
+		ISL_absurd_04
+		ISL_absurd_05
+		ISL_absurd_06
+		ISL_absurd_07
 		ISL_eco_00
 		ISL_eco_01
 		ISL_eco_02
@@ -2103,6 +2315,10 @@ ISL_radical_plan = {
 		ISL_keep_00 = 0.3
 		ISL_secret_00 = 2.0
 		ISL_army_00 = 10
+		ISL_absurd_00 = 9
+		ISL_absurd_02 = 8
+		ISL_absurd_04 = 10
+		ISL_absurd_07 = 10
 		ISL_diplo_00 = 9
 		ISL_eco_00 = 7
 	}
@@ -2174,6 +2390,14 @@ CLB_keep_plan = {
 		CLB_start_05
 		CLB_start_06
 		CLB_start_07
+		CLB_absurd_00
+		CLB_absurd_01
+		CLB_absurd_02
+		CLB_absurd_03
+		CLB_absurd_04
+		CLB_absurd_05
+		CLB_absurd_06
+		CLB_absurd_07
 		CLB_eco_00
 		CLB_eco_01
 		CLB_eco_02
@@ -2230,6 +2454,10 @@ CLB_keep_plan = {
 		CLB_c_00 = 0.2
 		CLB_secret_00 = 0.5
 		CLB_eco_00 = 8
+		CLB_absurd_00 = 10
+		CLB_absurd_03 = 9
+		CLB_absurd_04 = 11
+		CLB_absurd_07 = 8
 		CLB_diplo_00 = 7
 		CLB_army_00 = 6
 	}
@@ -2294,6 +2522,14 @@ CLB_radical_plan = {
 		CLB_start_05
 		CLB_start_06
 		CLB_start_07
+		CLB_absurd_00
+		CLB_absurd_01
+		CLB_absurd_02
+		CLB_absurd_03
+		CLB_absurd_04
+		CLB_absurd_05
+		CLB_absurd_06
+		CLB_absurd_07
 		CLB_eco_00
 		CLB_eco_01
 		CLB_eco_02
@@ -2348,6 +2584,10 @@ CLB_radical_plan = {
 		CLB_keep_00 = 0.3
 		CLB_secret_00 = 2.0
 		CLB_army_00 = 10
+		CLB_absurd_00 = 9
+		CLB_absurd_02 = 8
+		CLB_absurd_04 = 10
+		CLB_absurd_07 = 10
 		CLB_diplo_00 = 9
 		CLB_eco_00 = 7
 	}
@@ -2418,6 +2658,14 @@ ADL_keep_plan = {
 		ADL_start_04
 		ADL_start_05
 		ADL_start_06
+		ADL_absurd_00
+		ADL_absurd_01
+		ADL_absurd_02
+		ADL_absurd_03
+		ADL_absurd_04
+		ADL_absurd_05
+		ADL_absurd_06
+		ADL_absurd_07
 		ADL_eco_00
 		ADL_eco_01
 		ADL_eco_02
@@ -2469,6 +2717,10 @@ ADL_keep_plan = {
 		ADL_c_00 = 0.2
 		ADL_secret_00 = 0.5
 		ADL_eco_00 = 8
+		ADL_absurd_00 = 10
+		ADL_absurd_03 = 9
+		ADL_absurd_04 = 11
+		ADL_absurd_07 = 8
 		ADL_diplo_00 = 7
 		ADL_army_00 = 6
 	}
@@ -2532,6 +2784,14 @@ ADL_radical_plan = {
 		ADL_start_04
 		ADL_start_05
 		ADL_start_06
+		ADL_absurd_00
+		ADL_absurd_01
+		ADL_absurd_02
+		ADL_absurd_03
+		ADL_absurd_04
+		ADL_absurd_05
+		ADL_absurd_06
+		ADL_absurd_07
 		ADL_eco_00
 		ADL_eco_01
 		ADL_eco_02
@@ -2580,6 +2840,10 @@ ADL_radical_plan = {
 		ADL_keep_00 = 0.3
 		ADL_secret_00 = 2.0
 		ADL_army_00 = 10
+		ADL_absurd_00 = 9
+		ADL_absurd_02 = 8
+		ADL_absurd_04 = 10
+		ADL_absurd_07 = 10
 		ADL_diplo_00 = 9
 		ADL_eco_00 = 7
 	}
@@ -2651,6 +2915,14 @@ DMK_keep_plan = {
 		DMK_start_05
 		DMK_start_06
 		DMK_start_07
+		DMK_absurd_00
+		DMK_absurd_01
+		DMK_absurd_02
+		DMK_absurd_03
+		DMK_absurd_04
+		DMK_absurd_05
+		DMK_absurd_06
+		DMK_absurd_07
 		DMK_eco_00
 		DMK_eco_01
 		DMK_eco_02
@@ -2707,6 +2979,10 @@ DMK_keep_plan = {
 		DMK_c_00 = 0.2
 		DMK_secret_00 = 0.5
 		DMK_eco_00 = 8
+		DMK_absurd_00 = 10
+		DMK_absurd_03 = 9
+		DMK_absurd_04 = 11
+		DMK_absurd_07 = 8
 		DMK_diplo_00 = 7
 		DMK_army_00 = 6
 	}
@@ -2771,6 +3047,14 @@ DMK_radical_plan = {
 		DMK_start_05
 		DMK_start_06
 		DMK_start_07
+		DMK_absurd_00
+		DMK_absurd_01
+		DMK_absurd_02
+		DMK_absurd_03
+		DMK_absurd_04
+		DMK_absurd_05
+		DMK_absurd_06
+		DMK_absurd_07
 		DMK_eco_00
 		DMK_eco_01
 		DMK_eco_02
@@ -2825,6 +3109,10 @@ DMK_radical_plan = {
 		DMK_keep_00 = 0.3
 		DMK_secret_00 = 2.0
 		DMK_army_00 = 10
+		DMK_absurd_00 = 9
+		DMK_absurd_02 = 8
+		DMK_absurd_04 = 10
+		DMK_absurd_07 = 10
 		DMK_diplo_00 = 9
 		DMK_eco_00 = 7
 	}
@@ -2896,6 +3184,14 @@ FDP_keep_plan = {
 		FDP_start_05
 		FDP_start_06
 		FDP_start_07
+		FDP_absurd_00
+		FDP_absurd_01
+		FDP_absurd_02
+		FDP_absurd_03
+		FDP_absurd_04
+		FDP_absurd_05
+		FDP_absurd_06
+		FDP_absurd_07
 		FDP_eco_00
 		FDP_eco_01
 		FDP_eco_02
@@ -2952,6 +3248,10 @@ FDP_keep_plan = {
 		FDP_c_00 = 0.2
 		FDP_secret_00 = 0.5
 		FDP_eco_00 = 8
+		FDP_absurd_00 = 10
+		FDP_absurd_03 = 9
+		FDP_absurd_04 = 11
+		FDP_absurd_07 = 8
 		FDP_diplo_00 = 7
 		FDP_army_00 = 6
 	}
@@ -3016,6 +3316,14 @@ FDP_radical_plan = {
 		FDP_start_05
 		FDP_start_06
 		FDP_start_07
+		FDP_absurd_00
+		FDP_absurd_01
+		FDP_absurd_02
+		FDP_absurd_03
+		FDP_absurd_04
+		FDP_absurd_05
+		FDP_absurd_06
+		FDP_absurd_07
 		FDP_eco_00
 		FDP_eco_01
 		FDP_eco_02
@@ -3070,6 +3378,10 @@ FDP_radical_plan = {
 		FDP_keep_00 = 0.3
 		FDP_secret_00 = 2.0
 		FDP_army_00 = 10
+		FDP_absurd_00 = 9
+		FDP_absurd_02 = 8
+		FDP_absurd_04 = 10
+		FDP_absurd_07 = 10
 		FDP_diplo_00 = 9
 		FDP_eco_00 = 7
 	}
@@ -3141,6 +3453,14 @@ CRE_keep_plan = {
 		CRE_start_05
 		CRE_start_06
 		CRE_start_07
+		CRE_absurd_00
+		CRE_absurd_01
+		CRE_absurd_02
+		CRE_absurd_03
+		CRE_absurd_04
+		CRE_absurd_05
+		CRE_absurd_06
+		CRE_absurd_07
 		CRE_eco_00
 		CRE_eco_01
 		CRE_eco_02
@@ -3197,6 +3517,10 @@ CRE_keep_plan = {
 		CRE_c_00 = 0.2
 		CRE_secret_00 = 0.5
 		CRE_eco_00 = 8
+		CRE_absurd_00 = 10
+		CRE_absurd_03 = 9
+		CRE_absurd_04 = 11
+		CRE_absurd_07 = 8
 		CRE_diplo_00 = 7
 		CRE_army_00 = 6
 	}
@@ -3261,6 +3585,14 @@ CRE_radical_plan = {
 		CRE_start_05
 		CRE_start_06
 		CRE_start_07
+		CRE_absurd_00
+		CRE_absurd_01
+		CRE_absurd_02
+		CRE_absurd_03
+		CRE_absurd_04
+		CRE_absurd_05
+		CRE_absurd_06
+		CRE_absurd_07
 		CRE_eco_00
 		CRE_eco_01
 		CRE_eco_02
@@ -3315,6 +3647,10 @@ CRE_radical_plan = {
 		CRE_keep_00 = 0.3
 		CRE_secret_00 = 2.0
 		CRE_army_00 = 10
+		CRE_absurd_00 = 9
+		CRE_absurd_02 = 8
+		CRE_absurd_04 = 10
+		CRE_absurd_07 = 10
 		CRE_diplo_00 = 9
 		CRE_eco_00 = 7
 	}
@@ -3385,6 +3721,14 @@ SVA_keep_plan = {
 		SVA_start_04
 		SVA_start_05
 		SVA_start_06
+		SVA_absurd_00
+		SVA_absurd_01
+		SVA_absurd_02
+		SVA_absurd_03
+		SVA_absurd_04
+		SVA_absurd_05
+		SVA_absurd_06
+		SVA_absurd_07
 		SVA_eco_00
 		SVA_eco_01
 		SVA_eco_02
@@ -3436,6 +3780,10 @@ SVA_keep_plan = {
 		SVA_c_00 = 0.2
 		SVA_secret_00 = 0.5
 		SVA_eco_00 = 8
+		SVA_absurd_00 = 10
+		SVA_absurd_03 = 9
+		SVA_absurd_04 = 11
+		SVA_absurd_07 = 8
 		SVA_diplo_00 = 7
 		SVA_army_00 = 6
 	}
@@ -3499,6 +3847,14 @@ SVA_radical_plan = {
 		SVA_start_04
 		SVA_start_05
 		SVA_start_06
+		SVA_absurd_00
+		SVA_absurd_01
+		SVA_absurd_02
+		SVA_absurd_03
+		SVA_absurd_04
+		SVA_absurd_05
+		SVA_absurd_06
+		SVA_absurd_07
 		SVA_eco_00
 		SVA_eco_01
 		SVA_eco_02
@@ -3547,6 +3903,10 @@ SVA_radical_plan = {
 		SVA_keep_00 = 0.3
 		SVA_secret_00 = 2.0
 		SVA_army_00 = 10
+		SVA_absurd_00 = 9
+		SVA_absurd_02 = 8
+		SVA_absurd_04 = 10
+		SVA_absurd_07 = 10
 		SVA_diplo_00 = 9
 		SVA_eco_00 = 7
 	}
@@ -3617,6 +3977,14 @@ ART_keep_plan = {
 		ART_start_04
 		ART_start_05
 		ART_start_06
+		ART_absurd_00
+		ART_absurd_01
+		ART_absurd_02
+		ART_absurd_03
+		ART_absurd_04
+		ART_absurd_05
+		ART_absurd_06
+		ART_absurd_07
 		ART_eco_00
 		ART_eco_01
 		ART_eco_02
@@ -3668,6 +4036,10 @@ ART_keep_plan = {
 		ART_c_00 = 0.2
 		ART_secret_00 = 0.5
 		ART_eco_00 = 8
+		ART_absurd_00 = 10
+		ART_absurd_03 = 9
+		ART_absurd_04 = 11
+		ART_absurd_07 = 8
 		ART_diplo_00 = 7
 		ART_army_00 = 6
 	}
@@ -3731,6 +4103,14 @@ ART_radical_plan = {
 		ART_start_04
 		ART_start_05
 		ART_start_06
+		ART_absurd_00
+		ART_absurd_01
+		ART_absurd_02
+		ART_absurd_03
+		ART_absurd_04
+		ART_absurd_05
+		ART_absurd_06
+		ART_absurd_07
 		ART_eco_00
 		ART_eco_01
 		ART_eco_02
@@ -3779,6 +4159,10 @@ ART_radical_plan = {
 		ART_keep_00 = 0.3
 		ART_secret_00 = 2.0
 		ART_army_00 = 10
+		ART_absurd_00 = 9
+		ART_absurd_02 = 8
+		ART_absurd_04 = 10
+		ART_absurd_07 = 10
 		ART_diplo_00 = 9
 		ART_eco_00 = 7
 	}
@@ -3849,6 +4233,14 @@ KMS_keep_plan = {
 		KMS_start_04
 		KMS_start_05
 		KMS_start_06
+		KMS_absurd_00
+		KMS_absurd_01
+		KMS_absurd_02
+		KMS_absurd_03
+		KMS_absurd_04
+		KMS_absurd_05
+		KMS_absurd_06
+		KMS_absurd_07
 		KMS_eco_00
 		KMS_eco_01
 		KMS_eco_02
@@ -3900,6 +4292,10 @@ KMS_keep_plan = {
 		KMS_c_00 = 0.2
 		KMS_secret_00 = 0.5
 		KMS_eco_00 = 8
+		KMS_absurd_00 = 10
+		KMS_absurd_03 = 9
+		KMS_absurd_04 = 11
+		KMS_absurd_07 = 8
 		KMS_diplo_00 = 7
 		KMS_army_00 = 6
 	}
@@ -3963,6 +4359,14 @@ KMS_radical_plan = {
 		KMS_start_04
 		KMS_start_05
 		KMS_start_06
+		KMS_absurd_00
+		KMS_absurd_01
+		KMS_absurd_02
+		KMS_absurd_03
+		KMS_absurd_04
+		KMS_absurd_05
+		KMS_absurd_06
+		KMS_absurd_07
 		KMS_eco_00
 		KMS_eco_01
 		KMS_eco_02
@@ -4011,6 +4415,10 @@ KMS_radical_plan = {
 		KMS_keep_00 = 0.3
 		KMS_secret_00 = 2.0
 		KMS_army_00 = 10
+		KMS_absurd_00 = 9
+		KMS_absurd_02 = 8
+		KMS_absurd_04 = 10
+		KMS_absurd_07 = 10
 		KMS_diplo_00 = 9
 		KMS_eco_00 = 7
 	}
@@ -4081,6 +4489,14 @@ ZNS_keep_plan = {
 		ZNS_start_04
 		ZNS_start_05
 		ZNS_start_06
+		ZNS_absurd_00
+		ZNS_absurd_01
+		ZNS_absurd_02
+		ZNS_absurd_03
+		ZNS_absurd_04
+		ZNS_absurd_05
+		ZNS_absurd_06
+		ZNS_absurd_07
 		ZNS_eco_00
 		ZNS_eco_01
 		ZNS_eco_02
@@ -4132,6 +4548,10 @@ ZNS_keep_plan = {
 		ZNS_c_00 = 0.2
 		ZNS_secret_00 = 0.5
 		ZNS_eco_00 = 8
+		ZNS_absurd_00 = 10
+		ZNS_absurd_03 = 9
+		ZNS_absurd_04 = 11
+		ZNS_absurd_07 = 8
 		ZNS_diplo_00 = 7
 		ZNS_army_00 = 6
 	}
@@ -4195,6 +4615,14 @@ ZNS_radical_plan = {
 		ZNS_start_04
 		ZNS_start_05
 		ZNS_start_06
+		ZNS_absurd_00
+		ZNS_absurd_01
+		ZNS_absurd_02
+		ZNS_absurd_03
+		ZNS_absurd_04
+		ZNS_absurd_05
+		ZNS_absurd_06
+		ZNS_absurd_07
 		ZNS_eco_00
 		ZNS_eco_01
 		ZNS_eco_02
@@ -4243,6 +4671,10 @@ ZNS_radical_plan = {
 		ZNS_keep_00 = 0.3
 		ZNS_secret_00 = 2.0
 		ZNS_army_00 = 10
+		ZNS_absurd_00 = 9
+		ZNS_absurd_02 = 8
+		ZNS_absurd_04 = 10
+		ZNS_absurd_07 = 10
 		ZNS_diplo_00 = 9
 		ZNS_eco_00 = 7
 	}
@@ -4313,6 +4745,14 @@ ZKR_keep_plan = {
 		ZKR_start_04
 		ZKR_start_05
 		ZKR_start_06
+		ZKR_absurd_00
+		ZKR_absurd_01
+		ZKR_absurd_02
+		ZKR_absurd_03
+		ZKR_absurd_04
+		ZKR_absurd_05
+		ZKR_absurd_06
+		ZKR_absurd_07
 		ZKR_eco_00
 		ZKR_eco_01
 		ZKR_eco_02
@@ -4364,6 +4804,10 @@ ZKR_keep_plan = {
 		ZKR_c_00 = 0.2
 		ZKR_secret_00 = 0.5
 		ZKR_eco_00 = 8
+		ZKR_absurd_00 = 10
+		ZKR_absurd_03 = 9
+		ZKR_absurd_04 = 11
+		ZKR_absurd_07 = 8
 		ZKR_diplo_00 = 7
 		ZKR_army_00 = 6
 	}
@@ -4427,6 +4871,14 @@ ZKR_radical_plan = {
 		ZKR_start_04
 		ZKR_start_05
 		ZKR_start_06
+		ZKR_absurd_00
+		ZKR_absurd_01
+		ZKR_absurd_02
+		ZKR_absurd_03
+		ZKR_absurd_04
+		ZKR_absurd_05
+		ZKR_absurd_06
+		ZKR_absurd_07
 		ZKR_eco_00
 		ZKR_eco_01
 		ZKR_eco_02
@@ -4475,6 +4927,10 @@ ZKR_radical_plan = {
 		ZKR_keep_00 = 0.3
 		ZKR_secret_00 = 2.0
 		ZKR_army_00 = 10
+		ZKR_absurd_00 = 9
+		ZKR_absurd_02 = 8
+		ZKR_absurd_04 = 10
+		ZKR_absurd_07 = 10
 		ZKR_diplo_00 = 9
 		ZKR_eco_00 = 7
 	}
@@ -4545,6 +5001,14 @@ ZML_keep_plan = {
 		ZML_start_04
 		ZML_start_05
 		ZML_start_06
+		ZML_absurd_00
+		ZML_absurd_01
+		ZML_absurd_02
+		ZML_absurd_03
+		ZML_absurd_04
+		ZML_absurd_05
+		ZML_absurd_06
+		ZML_absurd_07
 		ZML_eco_00
 		ZML_eco_01
 		ZML_eco_02
@@ -4596,6 +5060,10 @@ ZML_keep_plan = {
 		ZML_c_00 = 0.2
 		ZML_secret_00 = 0.5
 		ZML_eco_00 = 8
+		ZML_absurd_00 = 10
+		ZML_absurd_03 = 9
+		ZML_absurd_04 = 11
+		ZML_absurd_07 = 8
 		ZML_diplo_00 = 7
 		ZML_army_00 = 6
 	}
@@ -4659,6 +5127,14 @@ ZML_radical_plan = {
 		ZML_start_04
 		ZML_start_05
 		ZML_start_06
+		ZML_absurd_00
+		ZML_absurd_01
+		ZML_absurd_02
+		ZML_absurd_03
+		ZML_absurd_04
+		ZML_absurd_05
+		ZML_absurd_06
+		ZML_absurd_07
 		ZML_eco_00
 		ZML_eco_01
 		ZML_eco_02
@@ -4707,6 +5183,10 @@ ZML_radical_plan = {
 		ZML_keep_00 = 0.3
 		ZML_secret_00 = 2.0
 		ZML_army_00 = 10
+		ZML_absurd_00 = 9
+		ZML_absurd_02 = 8
+		ZML_absurd_04 = 10
+		ZML_absurd_07 = 10
 		ZML_diplo_00 = 9
 		ZML_eco_00 = 7
 	}
@@ -4778,6 +5258,14 @@ NBL_keep_plan = {
 		NBL_start_05
 		NBL_start_06
 		NBL_start_07
+		NBL_absurd_00
+		NBL_absurd_01
+		NBL_absurd_02
+		NBL_absurd_03
+		NBL_absurd_04
+		NBL_absurd_05
+		NBL_absurd_06
+		NBL_absurd_07
 		NBL_eco_00
 		NBL_eco_01
 		NBL_eco_02
@@ -4834,6 +5322,10 @@ NBL_keep_plan = {
 		NBL_c_00 = 0.2
 		NBL_secret_00 = 0.5
 		NBL_eco_00 = 8
+		NBL_absurd_00 = 10
+		NBL_absurd_03 = 9
+		NBL_absurd_04 = 11
+		NBL_absurd_07 = 8
 		NBL_diplo_00 = 7
 		NBL_army_00 = 6
 	}
@@ -4898,6 +5390,14 @@ NBL_radical_plan = {
 		NBL_start_05
 		NBL_start_06
 		NBL_start_07
+		NBL_absurd_00
+		NBL_absurd_01
+		NBL_absurd_02
+		NBL_absurd_03
+		NBL_absurd_04
+		NBL_absurd_05
+		NBL_absurd_06
+		NBL_absurd_07
 		NBL_eco_00
 		NBL_eco_01
 		NBL_eco_02
@@ -4952,6 +5452,10 @@ NBL_radical_plan = {
 		NBL_keep_00 = 0.3
 		NBL_secret_00 = 2.0
 		NBL_army_00 = 10
+		NBL_absurd_00 = 9
+		NBL_absurd_02 = 8
+		NBL_absurd_04 = 10
+		NBL_absurd_07 = 10
 		NBL_diplo_00 = 9
 		NBL_eco_00 = 7
 	}
@@ -5022,6 +5526,14 @@ ISG_keep_plan = {
 		ISG_start_04
 		ISG_start_05
 		ISG_start_06
+		ISG_absurd_00
+		ISG_absurd_01
+		ISG_absurd_02
+		ISG_absurd_03
+		ISG_absurd_04
+		ISG_absurd_05
+		ISG_absurd_06
+		ISG_absurd_07
 		ISG_eco_00
 		ISG_eco_01
 		ISG_eco_02
@@ -5073,6 +5585,10 @@ ISG_keep_plan = {
 		ISG_c_00 = 0.2
 		ISG_secret_00 = 0.5
 		ISG_eco_00 = 8
+		ISG_absurd_00 = 10
+		ISG_absurd_03 = 9
+		ISG_absurd_04 = 11
+		ISG_absurd_07 = 8
 		ISG_diplo_00 = 7
 		ISG_army_00 = 6
 	}
@@ -5136,6 +5652,14 @@ ISG_radical_plan = {
 		ISG_start_04
 		ISG_start_05
 		ISG_start_06
+		ISG_absurd_00
+		ISG_absurd_01
+		ISG_absurd_02
+		ISG_absurd_03
+		ISG_absurd_04
+		ISG_absurd_05
+		ISG_absurd_06
+		ISG_absurd_07
 		ISG_eco_00
 		ISG_eco_01
 		ISG_eco_02
@@ -5184,6 +5708,10 @@ ISG_radical_plan = {
 		ISG_keep_00 = 0.3
 		ISG_secret_00 = 2.0
 		ISG_army_00 = 10
+		ISG_absurd_00 = 9
+		ISG_absurd_02 = 8
+		ISG_absurd_04 = 10
+		ISG_absurd_07 = 10
 		ISG_diplo_00 = 9
 		ISG_eco_00 = 7
 	}
@@ -5254,6 +5782,14 @@ HRL_keep_plan = {
 		HRL_start_04
 		HRL_start_05
 		HRL_start_06
+		HRL_absurd_00
+		HRL_absurd_01
+		HRL_absurd_02
+		HRL_absurd_03
+		HRL_absurd_04
+		HRL_absurd_05
+		HRL_absurd_06
+		HRL_absurd_07
 		HRL_eco_00
 		HRL_eco_01
 		HRL_eco_02
@@ -5305,6 +5841,10 @@ HRL_keep_plan = {
 		HRL_c_00 = 0.2
 		HRL_secret_00 = 0.5
 		HRL_eco_00 = 8
+		HRL_absurd_00 = 10
+		HRL_absurd_03 = 9
+		HRL_absurd_04 = 11
+		HRL_absurd_07 = 8
 		HRL_diplo_00 = 7
 		HRL_army_00 = 6
 	}
@@ -5368,6 +5908,14 @@ HRL_radical_plan = {
 		HRL_start_04
 		HRL_start_05
 		HRL_start_06
+		HRL_absurd_00
+		HRL_absurd_01
+		HRL_absurd_02
+		HRL_absurd_03
+		HRL_absurd_04
+		HRL_absurd_05
+		HRL_absurd_06
+		HRL_absurd_07
 		HRL_eco_00
 		HRL_eco_01
 		HRL_eco_02
@@ -5416,6 +5964,10 @@ HRL_radical_plan = {
 		HRL_keep_00 = 0.3
 		HRL_secret_00 = 2.0
 		HRL_army_00 = 10
+		HRL_absurd_00 = 9
+		HRL_absurd_02 = 8
+		HRL_absurd_04 = 10
+		HRL_absurd_07 = 10
 		HRL_diplo_00 = 9
 		HRL_eco_00 = 7
 	}
@@ -5487,6 +6039,14 @@ SHF_keep_plan = {
 		SHF_start_05
 		SHF_start_06
 		SHF_start_07
+		SHF_absurd_00
+		SHF_absurd_01
+		SHF_absurd_02
+		SHF_absurd_03
+		SHF_absurd_04
+		SHF_absurd_05
+		SHF_absurd_06
+		SHF_absurd_07
 		SHF_eco_00
 		SHF_eco_01
 		SHF_eco_02
@@ -5543,6 +6103,10 @@ SHF_keep_plan = {
 		SHF_c_00 = 0.2
 		SHF_secret_00 = 0.5
 		SHF_eco_00 = 8
+		SHF_absurd_00 = 10
+		SHF_absurd_03 = 9
+		SHF_absurd_04 = 11
+		SHF_absurd_07 = 8
 		SHF_diplo_00 = 7
 		SHF_army_00 = 6
 	}
@@ -5607,6 +6171,14 @@ SHF_radical_plan = {
 		SHF_start_05
 		SHF_start_06
 		SHF_start_07
+		SHF_absurd_00
+		SHF_absurd_01
+		SHF_absurd_02
+		SHF_absurd_03
+		SHF_absurd_04
+		SHF_absurd_05
+		SHF_absurd_06
+		SHF_absurd_07
 		SHF_eco_00
 		SHF_eco_01
 		SHF_eco_02
@@ -5661,6 +6233,10 @@ SHF_radical_plan = {
 		SHF_keep_00 = 0.3
 		SHF_secret_00 = 2.0
 		SHF_army_00 = 10
+		SHF_absurd_00 = 9
+		SHF_absurd_02 = 8
+		SHF_absurd_04 = 10
+		SHF_absurd_07 = 10
 		SHF_diplo_00 = 9
 		SHF_eco_00 = 7
 	}

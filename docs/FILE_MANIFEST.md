@@ -1,4 +1,4 @@
-# Манифест файлов мода «Мир Казуальности»
+﻿# Манифест файлов мода «Мир Казуальности»
 
 Статусы: `done` | `stub` | `todo`
 
@@ -55,3 +55,16 @@
 | tools/add_coal_focus_rewards.py | done |
 | tools/validate_mod.py (resources check) | done |
 | docs/ETAP_14_COAL.md | done |
+
+
+## Этап 15
+| Файл / группа | Статус |
+|---------------|--------|
+| common/country_leader/mk_ruler_traits.txt (24 профиля) | done |
+| common/characters/* × 24 (traits всех 4 вариантов лидера) | done |
+| common/on_actions/mk_on_actions.txt (capitulation / uncaptitulation / war) | done |
+| events/mk_ruler_events.txt + localization | done |
+| common/national_focus/mk_* × 24 (8 персональных абсурдных фокусов) | done |
+| Конгресс: голосование, кворум, военный мандат, решение осуждённой страны | done |
+| tools/build_ruler_content.py, tools/build_countries.py, tools/build_ai.py | done |
+| docs/ETAP_15_WORLD_ORDER.md | done |

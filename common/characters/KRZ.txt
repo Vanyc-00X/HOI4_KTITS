@@ -11,24 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = KRZ_pimenov_ioann_pavlovich_desc
+			traits = { mk_ruler_krz }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = KRZ_pimenov_ioann_pavlovich_desc
+			traits = { mk_ruler_krz }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = KRZ_pimenov_ioann_pavlovich_desc
+			traits = { mk_ruler_krz }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = KRZ_pimenov_ioann_pavlovich_desc
+			traits = { mk_ruler_krz }
 		}
 	}
 }

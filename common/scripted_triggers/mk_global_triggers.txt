@@ -58,9 +58,21 @@ mk_can_condemn_revisionism = {
 	}
 }
 
+mk_has_congress_target = {
+	any_other_country = {
+		is_mk_country = yes
+		is_subject = no
+		NOT = { has_capitulated = yes }
+		check_variable = { mk_misconduct > 0 }
+	}
+}
+
 mk_can_call_world_congress = {
 	is_mk_country = yes
+	is_subject = no
+	NOT = { has_capitulated = yes }
 	check_variable = { mk_world_votes > 2 }
+	mk_has_congress_target = yes
 	NOT = { has_global_flag = mk_congress_cooldown }
 	NOT = { has_global_flag = mk_congress_active }
 }

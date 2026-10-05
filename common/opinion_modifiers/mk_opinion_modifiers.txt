@@ -6,4 +6,8 @@ opinion_modifiers = {
 		value = 15
 		decay = 0.1
 	}
+	mk_congress_condemnation = {
+		value = -50
+		decay = 0.05
+	}
 }
