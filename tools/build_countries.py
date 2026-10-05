@@ -49,7 +49,7 @@ TECH_LABELS = {
     "build_tech": "Строительные технологии",
     "inf_tech": "Стрелковое оружие", "art_tech": "Артиллерия", "doc_bonus": "Сухопутная доктрина",
 }
-SECTION_BASE_X = {"eco": 1, "army": 5, "diplo": 9, "keep": 13, "a": 17, "b": 21, "c": 25, "secret": 29}
+SECTION_BASE_X = {"eco": 1, "army": 5, "diplo": 9, "keep": 13, "a": 17, "b": 21, "c": 25, "secret": 29, "absurd": 33}
 SECTION_ICONS = {
     "start": ["GFX_goal_generic_national_unity", "GFX_goal_generic_political_pressure",
               "GFX_goal_generic_scientific_exchange", "GFX_goal_generic_construct_infrastructure",
@@ -196,7 +196,7 @@ class Country:
         gate = start_ids[-1]
         y0 = start_pos[-1][1] + 2
         heads = {br: f"{t}_{br}_00" for br in POLITICAL}
-        for sec in ("eco", "army", "diplo", "keep", "a", "b", "c", "secret"):
+        for sec in ("eco", "army", "diplo", "keep", "a", "b", "c", "secret", "absurd"):
             data = s[sec]
             n = len(data["names"])
             ids = [f"{t}_{sec}_{i:02d}" for i in range(n)]
@@ -207,7 +207,7 @@ class Country:
                 extra = {}
                 if i == 0:
                     x, y = base, y0
-                    pre = [[start_ids[1]]] if sec in ("eco", "army", "diplo") else [[gate]]
+                    pre = [[start_ids[1]]] if sec in ("eco", "army", "diplo", "absurd") else [[gate]]
                 elif i < n - 1:
                     col, row = (i - 1) % 2, (i - 1) // 2 + 1
                     x, y = (base - 1 if col == 0 else base + 1), y0 + row
@@ -239,6 +239,11 @@ class Country:
                     else:
                         extra["ai"] = 3
                     filt = "FOCUS_FILTER_POLITICAL"
+                elif sec == "absurd":
+                    icon = SECTION_ICONS["diplo"][i % 6]
+                    reward = self.absurd_reward(i, n)
+                    filt = "FOCUS_FILTER_POLITICAL"
+                    extra["ai"] = 7 if i not in (2, 7) else 4
                 else:
                     icon = SECTION_ICONS[sec][i % 6]
                     reward = getattr(self, f"{sec}_reward")(i, n)
@@ -436,6 +441,70 @@ class Country:
             ],
         }
         return table[ideo][slot]
+
+    def absurd_reward(self, i, n):
+        """Country-specific absurd-diplomacy branch: industry, CBs, guarantees, votes and blocs."""
+        t = self.tag
+        if i == 0:
+            return (build("capital_scope", "industrial_complex") + "\n"
+                    + build("capital_scope", "infrastructure") + "\n"
+                    + "add_political_power = 40\nadd_stability = 0.03")
+        if i == 1:
+            return (build("random_owned_controlled_state", "industrial_complex") + "\n"
+                    "random_owned_controlled_state = {\n"
+                    "\tadd_resource = { type = steel amount = 8 }\n"
+                    "\tadd_resource = { type = oil amount = 4 }\n}\n"
+                    "add_research_slot = 1")
+        if i == 2:
+            return (
+                "random_other_country = {\n"
+                "\tlimit = { is_mk_country = yes is_subject = no NOT = { is_in_faction_with = ROOT } }\n"
+                "\tROOT = { create_wargoal = { type = topple_government target = PREV } }\n}\n"
+                "add_war_support = 0.06\n" + absurd(4)
+            )
+        if i == 3:
+            return (
+                "random_neighbor_country = {\n"
+                "\tlimit = { is_mk_country = yes is_subject = no has_war = no }\n"
+                "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n"
+                "\tROOT = { give_guarantee = PREV }\n}\n"
+                "add_political_power = 35\nadd_stability = 0.03"
+            )
+        if i == 4:
+            return votes(2) + "\nadd_political_power = 50\nadd_stability = 0.02"
+        if i == 5:
+            return (
+                "if = {\n\tlimit = { is_in_faction = no }\n"
+                "\tmk_form_ideology_faction_effect = yes\n}\n"
+                "else_if = {\n\tlimit = { is_faction_leader = yes }\n"
+                "\tevery_other_country = {\n"
+                "\t\tlimit = { is_mk_country = yes has_government = ROOT is_in_faction = no "
+                "is_subject = no has_war = no }\n"
+                "\t\tROOT = { add_to_faction = PREV }\n"
+                "\t\tadd_ideas = mk_idea_faction_member\n"
+                "\t}\n}\n"
+                "else = { every_other_country = { limit = { is_mk_country = yes } "
+                "add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin } } }"
+            )
+        if i == 6:
+            return (
+                "random_other_country = {\n"
+                "\tlimit = { is_mk_country = yes is_subject = no "
+                "check_variable = { mk_misconduct > 0 } "
+                "NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } "
+                "NOT = { has_war_with = ROOT } }\n"
+                "\tROOT = { create_wargoal = { type = topple_government target = PREV } }\n}\n"
+                + votes(1) + "\nadd_war_support = 0.05"
+            )
+        return (
+            "every_other_country = {\n"
+            "\tlimit = { is_mk_country = yes is_subject = no has_war = no }\n"
+            "\tROOT = { give_guarantee = PREV }\n"
+            "\tadd_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }\n}\n"
+            "add_ideas = mk_idea_collective_security\n"
+            "add_political_power = 100\nadd_stability = 0.05\n"
+            + votes(2) + "\n" + absurd(3)
+        )
 
     def secret_reward(self, i, n):
         t = self.tag
@@ -822,7 +891,7 @@ def main() -> None:
         for bonus in sorted(set(re.findall(rf"\bname = ({tag}_\w*(?:tech|doc_bonus))\b", generated))):
             c.L(bonus, TECH_LABELS.get(bonus[len(tag) + 1:], s["tree_name"]))
         write(ROOT / f"localisation/russian/mk_{tag}_l_russian.yml", c.loc_file(), bom=True)
-        nf = sum(len(s[k]["names"]) for k in ("start", "keep", "a", "b", "c", "secret", "eco", "army", "diplo"))
+        nf = sum(len(s[k]["names"]) for k in ("start", "keep", "a", "b", "c", "secret", "eco", "army", "diplo", "absurd"))
         print(f"{tag}: {nf} focuses, 19 events, 8 decisions, 12 ideas, {len(c.loc)} loc keys")
 
     built = [Country(t, all_specs[t]) for t in all_specs]

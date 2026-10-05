@@ -11,24 +11,28 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = ISG_ismagilov_bulat_maratovich_desc
+			traits = { mk_ruler_isg }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = ISG_ismagilov_bulat_maratovich_desc
+			traits = { mk_ruler_isg }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = ISG_ismagilov_bulat_maratovich_desc
+			traits = { mk_ruler_isg }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = ISG_ismagilov_bulat_maratovich_desc
+			traits = { mk_ruler_isg }
 		}
 	}
 }

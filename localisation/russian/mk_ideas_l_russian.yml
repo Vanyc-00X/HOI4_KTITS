@@ -97,3 +97,12 @@
  mk_idea_victory_absurd_desc:0 "Победа через критический Абсурд."
  mk_idea_victory_integration:0 "Интеграционный триумф"
  mk_idea_victory_integration_desc:0 "Земли собраны миром — насколько это вообще мир."
+
+ mk_idea_collective_security:0 "Пакт коллективной безопасности"
+ mk_idea_collective_security_desc:0 "Странная, но действующая договорённость о взаимной защите и дипломатической солидарности."
+ mk_idea_congress_mandate:0 "Мандат Всемирного Конгресса"
+ mk_idea_congress_mandate_desc:0 "Ваша страна проголосовала за резолюцию и получила полномочия принудить нарушителя к соблюдению решения."
+ mk_idea_congress_obstruction:0 "Препятствование Конгрессу"
+ mk_idea_congress_obstruction_desc:0 "Вы выступили против принятого решения; дипломатические отношения и международная репутация пострадали."
+ mk_idea_congress_condemned:0 "Осуждение Всемирного Конгресса"
+ mk_idea_congress_condemned_desc:0 "Конгресс признал вашу страну нарушителем и санкционировал совместное военное принуждение."

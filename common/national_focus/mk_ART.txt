@@ -358,7 +358,6 @@ focus_tree = {
 			}
 			country_event = { id = mk_art.10 days = 1 }
 			random_owned_controlled_state = {
-				add_resource = { type = coal amount = 15 }
 				add_resource = { type = steel amount = 10 }
 			}
 		}
@@ -967,7 +966,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_resource = { type = coal amount = 12 }
 				add_resource = { type = steel amount = 8 }
 				add_resource = { type = oil amount = 4 }
 			}
@@ -1899,6 +1897,227 @@ focus_tree = {
 			set_temp_variable = { mk_absurd_delta = 8 }
 			mk_add_absurd = yes
 			news_event = { id = mk_art.13 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = ART_absurd_00
+		icon = GFX_goal_generic_improve_relations
+		x = 33
+		y = 6
+		cost = 3
+		prerequisite = { focus = ART_start_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			capital_scope = {
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			add_political_power = 40
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = ART_absurd_01
+		icon = GFX_goal_generic_alliance
+		x = 32
+		y = 7
+		cost = 3
+		prerequisite = { focus = ART_absurd_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 8 }
+				add_resource = { type = oil amount = 4 }
+			}
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = ART_absurd_02
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 34
+		y = 7
+		cost = 3
+		prerequisite = { focus = ART_absurd_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_other_country = {
+				limit = { is_mk_country = yes is_subject = no NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = topple_government target = PREV } }
+			}
+			add_war_support = 0.06
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = ART_absurd_03
+		icon = GFX_goal_generic_trade
+		x = 32
+		y = 8
+		cost = 3
+		prerequisite = { focus = ART_absurd_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes is_subject = no has_war = no }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+				ROOT = { give_guarantee = PREV }
+			}
+			add_political_power = 35
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = ART_absurd_04
+		icon = GFX_goal_generic_major_alliance
+		x = 34
+		y = 8
+		cost = 3
+		prerequisite = { focus = ART_absurd_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			add_political_power = 50
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = ART_absurd_05
+		icon = GFX_goal_generic_forceful_treaty
+		x = 32
+		y = 9
+		cost = 3
+		prerequisite = { focus = ART_absurd_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			else_if = {
+				limit = { is_faction_leader = yes }
+				every_other_country = {
+					limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+					ROOT = { add_to_faction = PREV }
+					add_ideas = mk_idea_faction_member
+				}
+			}
+			else = { every_other_country = { limit = { is_mk_country = yes } add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin } } }
+		}
+	}
+
+	focus = {
+		id = ART_absurd_06
+		icon = GFX_goal_generic_improve_relations
+		x = 34
+		y = 9
+		cost = 3
+		prerequisite = { focus = ART_absurd_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_other_country = {
+				limit = { is_mk_country = yes is_subject = no check_variable = { mk_misconduct > 0 } NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { has_war_with = ROOT } }
+				ROOT = { create_wargoal = { type = topple_government target = PREV } }
+			}
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ART_absurd_07
+		icon = GFX_goal_generic_alliance
+		x = 33
+		y = 10
+		cost = 3
+		prerequisite = { focus = ART_absurd_05 }
+		prerequisite = { focus = ART_absurd_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes is_subject = no has_war = no }
+				ROOT = { give_guarantee = PREV }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+			add_ideas = mk_idea_collective_security
+			add_political_power = 100
+			add_stability = 0.05
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
 		}
 	}
 }
