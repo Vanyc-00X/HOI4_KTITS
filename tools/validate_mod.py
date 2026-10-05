@@ -495,6 +495,9 @@ for tag in owners:
 for tag, p in hist_files.items():
     brace_balance(p)
     t = strip_comments(read(p))
+    technology = block(t, "set_technology")
+    if technology and re.search(r"^\s*artillery\s*=", technology, re.M):
+        bad(f"COUNTRY {tag} has invalid technology id 'artillery' in set_technology")
     for oob in re.findall(r'\boob\s*=\s*"?([\w]+)"?', t):
         if oob not in oob_names:
             bad(f"COUNTRY {tag} oob {oob} missing")
