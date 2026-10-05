@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = Path.home() / "Documents" / "Paradox Interactive" / "Hearts of Iron IV"
 DOCS_MOD = DOCS / "mod"
-MOD_VERSION = "0.12.0"
+MOD_VERSION = "0.13.0"
 GAME_VERSION = "1.19.*"
 # Prefer Documents junction layout
 MOD_PATH = "mod/Mir_Kazualnosti"

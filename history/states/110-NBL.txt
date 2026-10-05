@@ -10,6 +10,7 @@ state={
 		rubber=4
 		tungsten=9
 		chromium=9
+		coal=17
 	}
 	history={
 		owner = NBL

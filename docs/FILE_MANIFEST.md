@@ -45,3 +45,13 @@
 
 ## Этап 4+
 См. `ETAP_01_ARCHITECTURE.md`.
+
+## Этап 14
+| Файл / группа | Статус |
+|---------------|--------|
+| history/states/* × 127 (coal) | done |
+| common/national_focus/mk_* × 24 (coal rewards, +78) | done |
+| tools/build_resources.py | done |
+| tools/add_coal_focus_rewards.py | done |
+| tools/validate_mod.py (resources check) | done |
+| docs/ETAP_14_COAL.md | done |

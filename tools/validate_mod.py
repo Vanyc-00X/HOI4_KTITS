@@ -70,6 +70,7 @@ if ids != list(range(len(ids))):
 n_cont = len(re.findall(r"^\s*\w+\s*$", block(read(MAP / "continent.txt"), "continents") or "", re.M))
 valid_terrain = {"unknown", "ocean", "lakes", "forest", "hills", "mountain", "plains", "urban", "jungle",
                  "marsh", "desert", "water_fjords", "water_shallow_sea", "water_deep_ocean"}
+KNOWN_RESOURCES = {"steel", "oil", "aluminium", "rubber", "tungsten", "chromium", "coal"}
 for pid, d in defs.items():
     if pid == 0:
         continue
@@ -160,6 +161,18 @@ for p in sorted((ROOT / "history/states").glob("*.txt")):
             bad(f"STATE {sid} owner {om.group(1)} not in country_tags")
     if not re.search(r"\bstate_category\s*=", t):
         bad(f"STATE {sid} no state_category")
+    res = block(t, "resources")
+    if res is None:
+        bad(f"STATE {sid} has no resources block")
+    else:
+        found: dict[str, int] = {}
+        for key, val in re.findall(r"([a-z_]+)\s*=\s*(\d+)", res):
+            if key not in KNOWN_RESOURCES:
+                bad(f"STATE {sid} unknown resource '{key}'")
+            found[key] = int(val)
+        for key in sorted(KNOWN_RESOURCES):
+            if key not in found:
+                bad(f"STATE {sid} missing resource '{key}'")
     if not re.search(r"\bmanpower\s*=", t):
         bad(f"STATE {sid} no manpower")
     hist = block(t, "history") or ""

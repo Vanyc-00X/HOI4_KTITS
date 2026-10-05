@@ -10,6 +10,7 @@ state={
 		rubber=16
 		tungsten=2
 		chromium=2
+		coal=9
 	}
 	history={
 		owner = TRF

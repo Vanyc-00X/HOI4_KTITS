@@ -10,6 +10,7 @@ state={
 		rubber=2
 		tungsten=7
 		chromium=3
+		coal=46
 	}
 	history={
 		owner = VCI
