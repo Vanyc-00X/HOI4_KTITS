@@ -1,0 +1,34 @@
+characters = {
+	ADL_aydov_matvey = {
+		name = ADL_aydov_matvey
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			expire = "2099.1.1"
+			id = -1
+			desc = ADL_aydov_matvey_desc
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2099.1.1"
+			id = -1
+			desc = ADL_aydov_matvey_desc
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			expire = "2099.1.1"
+			id = -1
+			desc = ADL_aydov_matvey_desc
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "2099.1.1"
+			id = -1
+			desc = ADL_aydov_matvey_desc
+		}
+	}
+}

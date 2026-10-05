@@ -1,0 +1,6 @@
+mk_cat_MUS = {
+	icon = GFX_decision_category_generic_monarchism
+	priority = 110
+	allowed = { original_tag = MUS }
+	visible = { tag = MUS }
+}

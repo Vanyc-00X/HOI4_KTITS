@@ -1,0 +1,6 @@
+mk_cat_TRF = {
+	icon = GFX_decision_category_generic_communism
+	priority = 110
+	allowed = { original_tag = TRF }
+	visible = { tag = TRF }
+}

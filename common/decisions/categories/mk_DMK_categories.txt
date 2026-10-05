@@ -1,0 +1,6 @@
+mk_cat_DMK = {
+	icon = GFX_decision_category_generic_political_actions
+	priority = 110
+	allowed = { original_tag = DMK }
+	visible = { tag = DMK }
+}

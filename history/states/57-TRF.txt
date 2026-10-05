@@ -1,0 +1,28 @@
+state={
+	id=57
+	name="STATE_57"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=4
+		oil=2
+		aluminium=5
+		rubber=14
+		tungsten=1
+		chromium=1
+	}
+	history={
+		owner = TRF
+		victory_points = { 273 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = TRF
+	}
+	provinces={
+		273 274 275 276 277 278 279 280 281 282 283 284
+	}
+	local_supplies=0.0
+}

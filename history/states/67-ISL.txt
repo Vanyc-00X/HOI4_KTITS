@@ -1,0 +1,28 @@
+state={
+	id=67
+	name="STATE_67"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=8
+		oil=16
+		aluminium=4
+		rubber=6
+		tungsten=4
+		chromium=6
+	}
+	history={
+		owner = ISL
+		victory_points = { 356 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = ISL
+	}
+	provinces={
+		356
+	}
+	local_supplies=0.0
+}

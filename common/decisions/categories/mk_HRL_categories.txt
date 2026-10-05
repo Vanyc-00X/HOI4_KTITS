@@ -1,0 +1,6 @@
+mk_cat_HRL = {
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 110
+	allowed = { original_tag = HRL }
+	visible = { tag = HRL }
+}

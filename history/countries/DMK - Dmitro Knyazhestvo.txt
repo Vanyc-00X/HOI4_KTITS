@@ -1,0 +1,60 @@
+capital = 12
+
+oob = "DMK_1936"
+
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.45
+
+# Minimal techs until army pass
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+}
+
+set_convoys = 25
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 10
+	communism = 5
+	fascism = 65
+	neutrality = 20
+}
+
+add_ideas = {
+	DMK_integratsionnyy_kurs
+}
+
+recruit_character = DMK_sidorov_dmitriy_rustamovich
+
+# Party names (TZ local ideology labels via localisation)
+set_party_name = {
+	ideology = democratic
+	long_name = DMK_democratic_party_long
+	name = DMK_democratic_party
+}
+set_party_name = {
+	ideology = communism
+	long_name = DMK_communism_party_long
+	name = DMK_communism_party
+}
+set_party_name = {
+	ideology = fascism
+	long_name = DMK_fascism_party_long
+	name = DMK_fascism_party
+}
+set_party_name = {
+	ideology = neutrality
+	long_name = DMK_neutrality_party_long
+	name = DMK_neutrality_party
+}
+
+set_variable = { mk_boot = 1 }

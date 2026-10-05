@@ -1,0 +1,34 @@
+characters = {
+	CLB_ivanov_konstantin_alekseevich = {
+		name = CLB_ivanov_konstantin_alekseevich
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		country_leader = {
+			ideology = oligarchism
+			expire = "2099.1.1"
+			id = -1
+			desc = CLB_ivanov_konstantin_alekseevich_desc
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "2099.1.1"
+			id = -1
+			desc = CLB_ivanov_konstantin_alekseevich_desc
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2099.1.1"
+			id = -1
+			desc = CLB_ivanov_konstantin_alekseevich_desc
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			expire = "2099.1.1"
+			id = -1
+			desc = CLB_ivanov_konstantin_alekseevich_desc
+		}
+	}
+}

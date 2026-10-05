@@ -1,0 +1,6 @@
+mk_cat_CRE = {
+	icon = GFX_decision_category_generic_fascism
+	priority = 110
+	allowed = { original_tag = CRE }
+	visible = { tag = CRE }
+}

@@ -1,0 +1,1903 @@
+focus_tree = {
+	id = SVA_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = SVA
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+
+	initial_show_position = { focus = SVA_start_00 }
+
+	focus = {
+		id = SVA_start_00
+		icon = GFX_goal_generic_national_unity
+		x = 15
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 75
+			country_event = { id = mk_sva.1 days = 1 }
+		}
+	}
+
+	focus = {
+		id = SVA_start_01
+		icon = GFX_goal_generic_political_pressure
+		x = 13
+		y = 1
+		cost = 3
+		prerequisite = { focus = SVA_start_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = SVA_start_02
+		icon = GFX_goal_generic_scientific_exchange
+		x = 17
+		y = 1
+		cost = 3
+		prerequisite = { focus = SVA_start_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = SVA_start_03
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 13
+		y = 2
+		cost = 3
+		prerequisite = { focus = SVA_start_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_start_04
+		icon = GFX_goal_generic_propaganda
+		x = 17
+		y = 2
+		cost = 3
+		prerequisite = { focus = SVA_start_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = SVA_start_05
+		icon = GFX_goal_generic_dangerous_deal
+		x = 15
+		y = 3
+		cost = 3
+		prerequisite = { focus = SVA_start_03 }
+		prerequisite = { focus = SVA_start_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 50
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+			set_country_flag = SVA_start_done
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = SVA_start_06
+		icon = GFX_goal_generic_national_unity
+		x = 13
+		y = 4
+		cost = 3
+		prerequisite = { focus = SVA_start_05 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 40
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+			country_event = { id = mk_sva.15 days = 2 }
+		}
+	}
+
+	focus = {
+		id = SVA_eco_00
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_01 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_01
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_eco_00 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_eco_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_02
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 2
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_eco_00 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_03
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_eco_01 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_04
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_eco_02 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_build_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_05
+		icon = GFX_goal_generic_production2
+		x = 0
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_eco_03 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = oil amount = 6 }
+				add_resource = { type = rubber amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_eco_06
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_eco_04 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = SVA_eco_07
+		icon = GFX_goal_generic_production
+		x = 1
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_eco_05 }
+		prerequisite = { focus = SVA_eco_06 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			}
+			country_event = { id = mk_sva.10 days = 1 }
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 10 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_army_00
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 5
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_01 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 15
+			add_manpower = 5000
+		}
+	}
+
+	focus = {
+		id = SVA_army_01
+		icon = GFX_goal_generic_small_arms
+		x = 4
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_army_00 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_inf_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_army_02
+		icon = GFX_goal_generic_army_doctrines
+		x = 6
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_army_00 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = SVA_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_army_03
+		icon = GFX_goal_generic_position_armies
+		x = 4
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_army_01 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } has_war = no }
+				ROOT = {
+					create_wargoal = { type = puppet_wargoal_focus target = PREV }
+					add_war_support = 0.03
+				}
+			}
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_army_04
+		icon = GFX_goal_generic_army_artillery
+		x = 6
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_army_02 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_art_tech
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_army_05
+		icon = GFX_goal_generic_special_forces
+		x = 4
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_army_03 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 12000
+			army_experience = 10
+			add_war_support = 0.04
+		}
+	}
+
+	focus = {
+		id = SVA_army_06
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_army_04 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_army_07
+		icon = GFX_goal_generic_small_arms
+		x = 5
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_army_05 }
+		prerequisite = { focus = SVA_army_06 }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = {
+			factor = 6
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			army_experience = 25
+			random_neighbor_country = {
+				limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = topple_government target = PREV } }
+			}
+			country_event = { id = mk_sva.11 days = 1 }
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_00
+		icon = GFX_goal_generic_improve_relations
+		x = 9
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_01
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_diplo_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = ROOT }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+				reverse_add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_02
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 10
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_diplo_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_faction_leader = yes has_war = no }
+				every_other_country = {
+					limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+					ROOT = { add_to_faction = PREV }
+					add_ideas = mk_idea_faction_member
+				}
+				country_event = { id = mk_sva.14 days = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_03
+		icon = GFX_goal_generic_trade
+		x = 8
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_diplo_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_04
+		icon = GFX_goal_generic_major_alliance
+		x = 10
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_diplo_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_05
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_diplo_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_other_country = {
+				limit = { is_mk_country = yes has_government = ROOT NOT = { tag = ROOT } has_war = no }
+				ROOT = { give_guarantee = PREV }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_06
+		icon = GFX_goal_generic_improve_relations
+		x = 10
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_diplo_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_in_faction = no has_war = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_diplo_07
+		icon = GFX_goal_generic_alliance
+		x = 9
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_diplo_05 }
+		prerequisite = { focus = SVA_diplo_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			country_event = { id = mk_sva.12 days = 1 }
+		}
+	}
+
+	focus = {
+		id = SVA_keep_00
+		icon = GFX_goal_support_democracy
+		x = 13
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_06 }
+		mutually_exclusive = { focus = SVA_a_00 focus = SVA_b_00 focus = SVA_c_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = SVA_democratic
+			set_character_name = {
+				character = SVA_arifullin_said_askarovich
+				name = SVA_leader_democratic
+			}
+			custom_effect_tooltip = SVA_tt_course_democratic
+			add_popularity = { ideology = democratic popularity = 0.2 }
+			add_ideas = SVA_sp_keep
+			set_country_flag = SVA_branch_keep
+			country_event = { id = mk_sva.2 days = 1 }
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = SVA_keep_01
+		icon = GFX_goal_generic_propaganda
+		x = 12
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_keep_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.1 }
+			add_stability = 0.04
+		}
+	}
+
+	focus = {
+		id = SVA_keep_02
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_keep_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = SVA_keep_03
+		icon = GFX_goal_generic_national_unity
+		x = 12
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_keep_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SVA_keep_04
+		icon = GFX_goal_generic_scientific_exchange
+		x = 14
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_keep_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_keep_tech
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_keep_05
+		icon = GFX_goal_generic_trade
+		x = 12
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_keep_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_faction_leader = yes has_war = no }
+				every_other_country = {
+					limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+					ROOT = { add_to_faction = PREV }
+					add_ideas = mk_idea_faction_member
+				}
+				country_event = { id = mk_sva.14 days = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_keep_06
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 14
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_keep_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_mk_country = yes }
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_keep_07
+		icon = GFX_goal_generic_military_sphere
+		x = 12
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_keep_05 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.03
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = SVA_keep_08
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_keep_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 8 }
+				add_resource = { type = oil amount = 4 }
+			}
+			add_political_power = 30
+		}
+	}
+
+	focus = {
+		id = SVA_keep_09
+		icon = GFX_goal_support_democracy
+		x = 13
+		y = 11
+		cost = 3
+		prerequisite = { focus = SVA_keep_07 }
+		prerequisite = { focus = SVA_keep_08 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = SVA_sp_keep add_idea = SVA_sp_keep_2 }
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_grant_votes = yes
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_a_00
+		icon = GFX_goal_generic_neutrality_focus
+		x = 17
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_06 }
+		mutually_exclusive = { focus = SVA_keep_00 focus = SVA_b_00 focus = SVA_c_00 }
+		available = {
+			mk_great_turn_unlocked = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_politics = { ruling_party = neutrality elections_allowed = no }
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = SVA_neutrality
+			set_character_name = {
+				character = SVA_arifullin_said_askarovich
+				name = SVA_leader_neutrality
+			}
+			custom_effect_tooltip = SVA_tt_course_neutrality
+			add_popularity = { ideology = neutrality popularity = 0.2 }
+			add_ideas = SVA_sp_a
+			set_country_flag = SVA_branch_a
+			country_event = { id = mk_sva.3 days = 1 }
+			set_temp_variable = { mk_absurd_delta = 6 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_a_01
+		icon = GFX_goal_generic_propaganda
+		x = 16
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_a_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = neutrality popularity = 0.1 }
+			add_political_power = 60
+		}
+	}
+
+	focus = {
+		id = SVA_a_02
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_a_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = SVA_a_03
+		icon = GFX_goal_generic_national_unity
+		x = 16
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_a_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = SVA_a_04
+		icon = GFX_goal_generic_scientific_exchange
+		x = 18
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_a_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_a_tech
+				bonus = 1.0
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_a_05
+		icon = GFX_goal_generic_trade
+		x = 16
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_a_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_a_06
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 18
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_a_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = SVA_a_07
+		icon = GFX_goal_generic_military_sphere
+		x = 16
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_a_05 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_faction_leader = yes has_war = no }
+				every_other_country = {
+					limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+					ROOT = { add_to_faction = PREV }
+					add_ideas = mk_idea_faction_member
+				}
+				country_event = { id = mk_sva.14 days = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_a_08
+		icon = GFX_goal_generic_neutrality_focus
+		x = 17
+		y = 11
+		cost = 3
+		prerequisite = { focus = SVA_a_07 }
+		prerequisite = { focus = SVA_a_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = SVA_sp_a add_idea = SVA_sp_a_2 }
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			add_stability = 0.05
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_b_00
+		icon = GFX_goal_support_communism
+		x = 21
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_06 }
+		mutually_exclusive = { focus = SVA_keep_00 focus = SVA_a_00 focus = SVA_c_00 }
+		available = {
+			mk_great_turn_unlocked = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_politics = { ruling_party = communism elections_allowed = no }
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = SVA_communism
+			set_character_name = {
+				character = SVA_arifullin_said_askarovich
+				name = SVA_leader_communism
+			}
+			custom_effect_tooltip = SVA_tt_course_communism
+			add_popularity = { ideology = communism popularity = 0.2 }
+			add_ideas = SVA_sp_b
+			set_country_flag = SVA_branch_b
+			country_event = { id = mk_sva.4 days = 1 }
+			set_temp_variable = { mk_absurd_delta = 6 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_b_01
+		icon = GFX_goal_generic_propaganda
+		x = 20
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_b_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.12 }
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = SVA_b_02
+		icon = GFX_goal_generic_political_pressure
+		x = 22
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_b_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = SVA_b_03
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_b_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { is_faction_leader = yes has_war = no }
+				every_other_country = {
+					limit = { is_mk_country = yes has_government = ROOT is_in_faction = no is_subject = no has_war = no }
+					ROOT = { add_to_faction = PREV }
+					add_ideas = mk_idea_faction_member
+				}
+				country_event = { id = mk_sva.14 days = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_b_04
+		icon = GFX_goal_generic_scientific_exchange
+		x = 22
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_b_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_b_tech
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_b_05
+		icon = GFX_goal_generic_trade
+		x = 20
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_b_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_b_06
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 22
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_b_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_stability = -0.02
+			add_war_support = 0.06
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_b_07
+		icon = GFX_goal_generic_military_sphere
+		x = 20
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_b_05 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = { is_mk_country = yes }
+				add_popularity = { ideology = communism popularity = 0.03 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_b_08
+		icon = GFX_goal_support_communism
+		x = 21
+		y = 11
+		cost = 3
+		prerequisite = { focus = SVA_b_07 }
+		prerequisite = { focus = SVA_b_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = SVA_sp_b add_idea = SVA_sp_b_2 }
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			every_other_country = {
+				limit = { is_mk_country = yes has_government = communism NOT = { tag = ROOT } }
+				add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+			}
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_c_00
+		icon = GFX_goal_support_fascism
+		x = 25
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_06 }
+		mutually_exclusive = { focus = SVA_keep_00 focus = SVA_a_00 focus = SVA_b_00 }
+		available = {
+			mk_great_turn_unlocked = yes
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_politics = { ruling_party = fascism elections_allowed = no }
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = SVA_fascism
+			set_character_name = {
+				character = SVA_arifullin_said_askarovich
+				name = SVA_leader_fascism
+			}
+			custom_effect_tooltip = SVA_tt_course_fascism
+			add_popularity = { ideology = fascism popularity = 0.2 }
+			add_ideas = SVA_sp_c
+			set_country_flag = SVA_branch_c
+			country_event = { id = mk_sva.5 days = 1 }
+			set_temp_variable = { mk_absurd_delta = 6 }
+			mk_add_absurd = yes
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = SVA_c_01
+		icon = GFX_goal_generic_propaganda
+		x = 24
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_c_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.1 }
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = SVA_c_02
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_c_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_sub = yes
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = SVA_c_03
+		icon = GFX_goal_generic_national_unity
+		x = 24
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_c_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } has_war = no }
+				ROOT = { create_wargoal = { type = topple_government target = PREV } }
+			}
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_c_04
+		icon = GFX_goal_generic_scientific_exchange
+		x = 26
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_c_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SVA_c_tech
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_c_05
+		icon = GFX_goal_generic_trade
+		x = 24
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_c_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_manpower = 15000
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = SVA_c_06
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 26
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_c_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_c_07
+		icon = GFX_goal_generic_military_sphere
+		x = 24
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_c_05 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_neighbor_country = {
+				limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } has_war = no }
+				ROOT = { create_wargoal = { type = puppet_wargoal_focus target = PREV } }
+			}
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+	}
+
+	focus = {
+		id = SVA_c_08
+		icon = GFX_goal_support_fascism
+		x = 25
+		y = 11
+		cost = 3
+		prerequisite = { focus = SVA_c_07 }
+		prerequisite = { focus = SVA_c_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = SVA_sp_c add_idea = SVA_sp_c_2 }
+			if = {
+				limit = { is_in_faction = no }
+				mk_form_ideology_faction_effect = yes
+			}
+			random_neighbor_country = {
+				limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } }
+				ROOT = { create_wargoal = { type = puppet_wargoal_focus target = PREV } }
+			}
+			set_temp_variable = { mk_npt_delta = 2 }
+			mk_add_npt = yes
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_secret_00
+		icon = GFX_goal_generic_secret_weapon
+		x = 29
+		y = 6
+		cost = 3
+		prerequisite = { focus = SVA_start_06 }
+		available = {
+			check_variable = { mk_mech > 79 }
+			check_variable = { mk_npt > 2 }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_country_flag = SVA_secret
+			country_event = { id = mk_sva.6 days = 1 }
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 2 }
+				mk_add_npt = yes
+			}
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+		}
+	}
+
+	focus = {
+		id = SVA_secret_01
+		icon = GFX_goal_generic_radar
+		x = 28
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_secret_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 1 }
+				mk_add_npt = yes
+			}
+			add_tech_bonus = {
+				name = SVA_secret_tech
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 2 }
+				mk_add_npt = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_secret_02
+		icon = GFX_goal_generic_dangerous_deal
+		x = 30
+		y = 7
+		cost = 3
+		prerequisite = { focus = SVA_secret_00 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_mech_delta = 15 }
+			mk_mech_add = yes
+		}
+	}
+
+	focus = {
+		id = SVA_secret_03
+		icon = GFX_goal_generic_scientific_exchange
+		x = 28
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_secret_01 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 100
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+		}
+	}
+
+	focus = {
+		id = SVA_secret_04
+		icon = GFX_goal_generic_wolf_pack
+		x = 30
+		y = 8
+		cost = 3
+		prerequisite = { focus = SVA_secret_02 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = SVA_secret_05
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 28
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_secret_03 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = SVA_secret_06
+		icon = GFX_goal_generic_secret_weapon
+		x = 30
+		y = 9
+		cost = 3
+		prerequisite = { focus = SVA_secret_04 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = aluminium amount = 6 }
+				add_resource = { type = tungsten amount = 4 }
+			}
+		}
+	}
+
+	focus = {
+		id = SVA_secret_07
+		icon = GFX_goal_generic_radar
+		x = 29
+		y = 10
+		cost = 3
+		prerequisite = { focus = SVA_secret_05 }
+		prerequisite = { focus = SVA_secret_06 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				mk_absurd_high = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = SVA_sp_secret
+			add_war_support = 0.1
+			if = {
+				limit = { has_government = fascism }
+				set_temp_variable = { mk_npt_delta = 2 }
+				mk_add_npt = yes
+			}
+			set_temp_variable = { mk_absurd_delta = 8 }
+			mk_add_absurd = yes
+			news_event = { id = mk_sva.13 hours = 6 }
+		}
+	}
+}

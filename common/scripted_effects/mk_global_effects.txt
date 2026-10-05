@@ -1,0 +1,463 @@
+# Mir Kazualnosti — global effects (stages 4 + 9)
+
+mk_init_global_mechanics = {
+	if = {
+		limit = { NOT = { has_global_flag = mk_globals_initialized } }
+		set_global_flag = mk_globals_initialized
+		set_variable = { global.mk_absurd_temp = 12 }
+		set_variable = { global.mk_congress_count = 0 }
+		set_variable = { global.mk_revisionism_cases = 0 }
+		set_variable = { global.mk_condemn_votes = 0 }
+		set_variable = { global.mk_same_ideology_count = 1 }
+		clr_global_flag = mk_congress_active
+		clr_global_flag = mk_congress_cooldown
+		clr_global_flag = mk_great_political_turn
+		every_country = {
+			limit = { is_mk_country = yes }
+			mk_init_country_mechanics = yes
+		}
+		news_event = { id = mk_global.1 hours = 2 }
+		news_event = { id = mk_plot.1 days = 30 }
+		news_event = { id = mk_flavor.6 days = 55 }
+		every_country = {
+			limit = { is_mk_country = yes }
+			country_event = { id = mk_plot.2 days = 32 }
+			country_event = { id = mk_flavor.2 days = 45 }
+		}
+	}
+}
+
+# Stage 13: monthly world flavor from VCI host scope
+mk_monthly_flavor_pulse = {
+	random_list = {
+		20 = {
+			random_country = {
+				limit = { is_mk_country = yes }
+				country_event = { id = mk_flavor.2 days = 3 }
+			}
+		}
+		15 = {
+			random_country = {
+				limit = { is_mk_country = yes has_war = no }
+				country_event = { id = mk_flavor.3 days = 5 }
+			}
+		}
+		15 = {
+			random_country = {
+				limit = { is_mk_country = yes }
+				country_event = { id = mk_flavor.4 days = 4 }
+			}
+		}
+		15 = {
+			random_country = {
+				limit = { is_mk_country = yes }
+				country_event = { id = mk_flavor.5 days = 6 }
+			}
+		}
+		10 = {
+			random_country = {
+				limit = { is_mk_country = yes check_variable = { mk_mech > 40 } }
+				country_event = { id = mk_flavor.7 days = 7 }
+			}
+		}
+		15 = {
+			random_country = {
+				limit = { is_mk_country = yes }
+				country_event = { id = mk_flavor.8 days = 5 }
+			}
+		}
+		10 = { }
+	}
+}
+
+mk_init_country_mechanics = {
+	set_variable = { mk_world_votes = 1 }
+	set_variable = { mk_npt = 0 }
+	set_variable = { mk_revisionism = 0 }
+	clr_country_flag = mk_revisionist_cooldown
+	clr_country_flag = mk_npt_surge
+	clr_country_flag = mk_condemned_revisionism
+	clr_country_flag = mk_victory_claimed
+	add_ideas = mk_idea_world_vote
+	mk_mech_init = yes
+	if = {
+		limit = { original_tag = VCI }
+		set_variable = { mk_world_votes = 3 }
+		add_ideas = mk_idea_vci_host
+	}
+	# Stage 11: NPT seed only for fascist starting governments
+	if = {
+		limit = {
+			OR = {
+				original_tag = BTR
+				original_tag = CRE
+			}
+		}
+		set_variable = { mk_npt = 2 }
+		add_ideas = mk_idea_npt_seed
+	}
+}
+
+mk_add_absurd = {
+	add_to_variable = { global.mk_absurd_temp = mk_absurd_delta }
+	clamp_variable = {
+		var = global.mk_absurd_temp
+		min = 0
+		max = 100
+	}
+	mk_refresh_absurd_ideas = yes
+	if = {
+		limit = {
+			check_variable = { global.mk_absurd_temp > 39 }
+			NOT = { has_global_flag = mk_great_political_turn }
+		}
+		mk_fire_great_turn = yes
+	}
+	if = {
+		limit = {
+			check_variable = { global.mk_absurd_temp > 84 }
+			NOT = { has_global_flag = mk_absurd_critical_fired }
+		}
+		set_global_flag = mk_absurd_critical_fired
+		news_event = { id = mk_global.5 hours = 1 }
+	}
+}
+
+mk_sub_absurd = {
+	subtract_from_variable = { global.mk_absurd_temp = mk_absurd_delta }
+	clamp_variable = {
+		var = global.mk_absurd_temp
+		min = 0
+		max = 100
+	}
+	mk_refresh_absurd_ideas = yes
+}
+
+mk_refresh_absurd_ideas = {
+	every_country = {
+		limit = { is_mk_country = yes }
+		remove_ideas = mk_idea_absurd_calm
+		remove_ideas = mk_idea_absurd_warm
+		remove_ideas = mk_idea_absurd_hot
+		remove_ideas = mk_idea_absurd_critical
+		if = {
+			limit = { check_variable = { global.mk_absurd_temp < 25 } }
+			add_ideas = mk_idea_absurd_calm
+		}
+		else_if = {
+			limit = { check_variable = { global.mk_absurd_temp < 50 } }
+			add_ideas = mk_idea_absurd_warm
+		}
+		else_if = {
+			limit = { check_variable = { global.mk_absurd_temp < 75 } }
+			add_ideas = mk_idea_absurd_hot
+		}
+		else = {
+			add_ideas = mk_idea_absurd_critical
+		}
+	}
+}
+
+mk_monthly_absurd_tick = {
+	if = {
+		limit = { has_global_flag = mk_globals_initialized }
+		set_temp_variable = { mk_absurd_delta = 1 }
+		if = {
+			limit = { has_global_flag = mk_congress_active }
+			set_temp_variable = { mk_absurd_delta = 2 }
+		}
+		if = {
+			limit = { check_variable = { global.mk_revisionism_cases > 2 } }
+			add_to_temp_variable = { mk_absurd_delta = 1 }
+		}
+		mk_add_absurd = yes
+		mk_count_same_ideology = yes
+		mk_fire_timeline_events = yes
+	}
+}
+
+mk_count_same_ideology = {
+	set_variable = { global.mk_same_ideology_count = 0 }
+	every_country = {
+		limit = {
+			is_mk_country = yes
+			has_government = ROOT
+		}
+		add_to_variable = { global.mk_same_ideology_count = 1 }
+	}
+}
+
+mk_fire_timeline_events = {
+	if = {
+		limit = {
+			mk_era_blocs = yes
+			NOT = { has_global_flag = mk_era_blocs_fired }
+		}
+		set_global_flag = mk_era_blocs_fired
+		news_event = { id = mk_global.54 hours = 6 }
+		news_event = { id = mk_plot.5 hours = 10 }
+		every_country = {
+			limit = { is_mk_country = yes }
+			country_event = { id = mk_global.55 hours = 12 }
+		}
+	}
+	if = {
+		limit = {
+			mk_era_crises = yes
+			NOT = { has_global_flag = mk_era_crises_fired }
+		}
+		set_global_flag = mk_era_crises_fired
+		news_event = { id = mk_global.56 hours = 6 }
+		news_event = { id = mk_plot.6 hours = 10 }
+		news_event = { id = mk_plot.8 hours = 20 }
+		set_temp_variable = { mk_absurd_delta = 5 }
+		mk_add_absurd = yes
+		every_country = {
+			limit = { is_mk_country = yes }
+			country_event = { id = mk_global.57 hours = 18 }
+			country_event = { id = mk_plot.7 hours = 24 }
+			country_event = { id = mk_plot.9 hours = 28 }
+			country_event = { id = mk_plot.10 hours = 28 }
+		}
+	}
+	if = {
+		limit = {
+			mk_era_finale = yes
+			NOT = { has_global_flag = mk_era_finale_fired }
+		}
+		set_global_flag = mk_era_finale_fired
+		news_event = { id = mk_global.58 hours = 6 }
+		set_temp_variable = { mk_absurd_delta = 8 }
+		mk_add_absurd = yes
+		every_country = {
+			limit = { is_mk_country = yes }
+			country_event = { id = mk_global.59 hours = 24 }
+		}
+	}
+}
+
+mk_fire_great_turn = {
+	if = {
+		limit = { NOT = { has_global_flag = mk_great_political_turn } }
+		set_global_flag = mk_great_political_turn
+		add_to_variable = { global.mk_absurd_temp = 8 }
+		clamp_variable = {
+			var = global.mk_absurd_temp
+			min = 0
+			max = 100
+		}
+		mk_refresh_absurd_ideas = yes
+		news_event = { id = mk_global.4 hours = 2 }
+		news_event = { id = mk_global.50 hours = 8 }
+		news_event = { id = mk_plot.3 hours = 12 }
+		every_country = {
+			limit = { is_mk_country = yes }
+			country_event = { id = mk_global.40 hours = 4 }
+			country_event = { id = mk_plot.4 hours = 16 }
+		}
+	}
+}
+
+mk_grant_votes = {
+	add_to_variable = { mk_world_votes = mk_votes_delta }
+	clamp_variable = {
+		var = mk_world_votes
+		min = 0
+		max = 8
+	}
+}
+
+mk_spend_votes = {
+	subtract_from_variable = { mk_world_votes = mk_votes_delta }
+	clamp_variable = {
+		var = mk_world_votes
+		min = 0
+		max = 8
+	}
+}
+
+mk_add_npt = {
+	# Stage 11: only fascist states may accumulate NPT
+	if = {
+		limit = { has_government = fascism }
+		add_to_variable = { mk_npt = mk_npt_delta }
+		clamp_variable = {
+			var = mk_npt
+			min = 0
+			max = 10
+		}
+		if = {
+			limit = { check_variable = { mk_npt > 4 } }
+			set_country_flag = mk_npt_surge
+			add_ideas = mk_idea_npt_network
+		}
+	}
+}
+
+mk_refresh_faction_member_idea = {
+	if = {
+		limit = {
+			is_mk_country = yes
+			is_in_faction = yes
+		}
+		if = {
+			limit = { NOT = { has_idea = mk_idea_faction_member } }
+			add_ideas = mk_idea_faction_member
+		}
+	}
+	else = {
+		remove_ideas = mk_idea_faction_member
+	}
+}
+
+# Accuser leaves the alliance and gains wargoals on all remaining members (TZ §5.1)
+mk_accuse_revisionism_effect = {
+	add_to_variable = { mk_revisionism = 1 }
+	add_to_variable = { global.mk_revisionism_cases = 1 }
+	set_variable = { global.mk_condemn_votes = 0 }
+	set_country_flag = { flag = mk_revisionist_cooldown days = 180 }
+	add_timed_idea = { idea = mk_idea_revisionist days = 180 }
+	add_political_power = 40
+	add_war_support = 0.08
+	set_temp_variable = { mk_absurd_delta = 10 }
+	mk_add_absurd = yes
+	every_country = {
+		limit = {
+			is_in_faction_with = ROOT
+			NOT = { tag = ROOT }
+		}
+		ROOT = {
+			create_wargoal = {
+				type = mk_revisionist_aggression
+				target = PREV
+			}
+		}
+		create_wargoal = {
+			type = mk_revisionist_aggression
+			target = ROOT
+		}
+		add_timed_idea = { idea = mk_idea_revision_hesitation days = 100 }
+		clr_country_flag = mk_condemned_revisionism
+		country_event = { id = mk_global.23 hours = 6 }
+	}
+	leave_faction = yes
+	remove_ideas = mk_idea_faction_member
+	news_event = { id = mk_global.22 hours = 2 }
+	country_event = { id = mk_global.20 hours = 4 }
+}
+
+mk_condemn_revisionism_effect = {
+	set_country_flag = mk_condemned_revisionism
+	add_to_variable = { global.mk_condemn_votes = 1 }
+	add_political_power = 20
+	add_war_support = 0.05
+	add_timed_idea = { idea = mk_idea_condemn_revisionism days = 90 }
+	if = {
+		limit = { check_variable = { global.mk_condemn_votes > 2 } }
+		if = {
+			limit = { NOT = { has_global_flag = mk_condemn_majority } }
+			set_global_flag = mk_condemn_majority
+			every_country = {
+				limit = {
+					is_mk_country = yes
+					is_in_faction = yes
+					has_country_flag = mk_condemned_revisionism
+				}
+				add_political_power = 30
+				add_stability = 0.03
+				country_event = { id = mk_global.24 hours = 4 }
+			}
+		}
+	}
+}
+
+mk_form_ideology_faction_effect = {
+	if = {
+		limit = { has_government = democratic }
+		create_faction = MK_FACTION_LIBERAL
+	}
+	else_if = {
+		limit = { has_government = communism }
+		create_faction = MK_FACTION_COLLECTIVE
+	}
+	else_if = {
+		limit = { has_government = fascism }
+		create_faction = MK_FACTION_ORDER
+	}
+	else = {
+		create_faction = MK_FACTION_NEUTRAL
+	}
+	add_ideas = mk_idea_faction_member
+	add_political_power = -50
+	set_temp_variable = { mk_absurd_delta = 3 }
+	mk_add_absurd = yes
+	# Stage 13: instantly invite every peaceful same-ideology MK country
+	if = {
+		limit = { has_war = no }
+		every_other_country = {
+			limit = {
+				is_mk_country = yes
+				has_government = ROOT
+				is_in_faction = no
+				is_subject = no
+				has_war = no
+			}
+			ROOT = { add_to_faction = PREV }
+			add_ideas = mk_idea_faction_member
+			country_event = { id = mk_global.30 hours = 4 }
+		}
+	}
+	news_event = { id = mk_global.3 hours = 4 }
+	news_event = { id = mk_flavor.1 hours = 8 }
+}
+
+mk_form_npt_protocol_effect = {
+	create_faction = MK_FACTION_NPT
+	add_ideas = mk_idea_faction_member
+	add_ideas = mk_idea_npt_protocol
+	add_political_power = -40
+	set_temp_variable = { mk_absurd_delta = 4 }
+	mk_add_absurd = yes
+	# Fascist peers get the Protocol invite immediately
+	if = {
+		limit = { has_war = no }
+		every_other_country = {
+			limit = {
+				is_mk_country = yes
+				has_government = fascism
+				is_in_faction = no
+				is_subject = no
+				has_war = no
+			}
+			ROOT = { add_to_faction = PREV }
+			add_ideas = mk_idea_faction_member
+			add_ideas = mk_idea_npt_protocol
+			country_event = { id = mk_global.30 hours = 4 }
+		}
+	}
+	news_event = { id = mk_global.69 hours = 4 }
+}
+
+mk_mediate_conflict_effect = {
+	FROM = {
+		add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+		add_stability = 0.02
+	}
+	add_opinion_modifier = { target = FROM modifier = mk_kazual_goodwill }
+	set_temp_variable = { mk_votes_delta = 1 }
+	mk_grant_votes = yes
+	set_temp_variable = { mk_absurd_delta = 2 }
+	mk_sub_absurd = yes
+	FROM = {
+		country_event = { id = mk_global.70 hours = 6 }
+	}
+}
+
+mk_claim_victory_effect = {
+	set_country_flag = mk_victory_claimed
+	add_political_power = 100
+	add_stability = 0.1
+	add_war_support = 0.1
+	set_temp_variable = { mk_votes_delta = 2 }
+	mk_grant_votes = yes
+}

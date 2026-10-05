@@ -1,0 +1,3 @@
+# Vanilla country-specific raids target real-world provinces that don't exist on the Kazualia map.
+types = {
+}

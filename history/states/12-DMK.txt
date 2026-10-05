@@ -1,0 +1,29 @@
+state={
+	id=12
+	name="STATE_12"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=20
+		oil=9
+		aluminium=6
+		rubber=4
+		tungsten=9
+		chromium=9
+	}
+	history={
+		owner = DMK
+		victory_points = { 454 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = DMK
+	}
+	provinces={
+		450 451 452 453 454 455 456 457
+	}
+	local_supplies=0.0
+}

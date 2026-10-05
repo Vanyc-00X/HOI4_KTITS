@@ -1,0 +1,62 @@
+mk_cat_absurd = {
+	icon = GFX_decision_category_generic_crisis
+	priority = 100
+	visible = {
+		is_mk_country = yes
+	}
+}
+
+mk_cat_congress = {
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 95
+	visible = {
+		is_mk_country = yes
+	}
+}
+
+mk_cat_npt = {
+	icon = GFX_decision_category_generic_industry
+	priority = 90
+	visible = {
+		is_mk_country = yes
+		has_government = fascism
+	}
+}
+
+mk_cat_alliances = {
+	icon = GFX_decision_category_generic_political_actions
+	priority = 85
+	visible = {
+		is_mk_country = yes
+	}
+}
+
+mk_cat_revisionism = {
+	icon = GFX_decision_category_generic_propaganda
+	priority = 80
+	visible = {
+		is_mk_country = yes
+		OR = {
+			is_in_faction = yes
+			has_idea = mk_idea_revisionist
+		}
+	}
+}
+
+mk_cat_diplomacy = {
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 75
+	visible = {
+		is_mk_country = yes
+	}
+}
+
+mk_cat_finales = {
+	icon = GFX_decision_category_generic_formable_nations
+	priority = 110
+	visible = {
+		is_mk_country = yes
+		mk_era_finale = yes
+		NOT = { has_country_flag = mk_victory_claimed }
+	}
+}

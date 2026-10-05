@@ -1,0 +1,30 @@
+state={
+	id=24
+	name="STATE_24"
+	manpower = 1950000
+	state_category = metropolis
+		resources={
+		steel=20
+		oil=9
+		aluminium=7
+		rubber=5
+		tungsten=7
+		chromium=7
+	}
+	history={
+		owner = SHF
+		victory_points = { 918 30 }
+		buildings = {
+			924 = { naval_base = 1 }
+			infrastructure = 4
+			industrial_complex = 3
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = SHF
+	}
+	provinces={
+		912 913 914 915 916 917 918 919 920 921 922 923 924
+	}
+	local_supplies=0.0
+}

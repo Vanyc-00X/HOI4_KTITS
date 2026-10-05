@@ -1,0 +1,60 @@
+capital = 21
+
+oob = "NBL_1936"
+
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.45
+
+# Minimal techs until army pass
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+}
+
+set_convoys = 25
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 20
+	communism = 10
+	fascism = 10
+	neutrality = 60
+}
+
+add_ideas = {
+	NBL_risk_peregreva
+}
+
+recruit_character = NBL_iskhanov_bulat_eduardovich
+
+# Party names (TZ local ideology labels via localisation)
+set_party_name = {
+	ideology = democratic
+	long_name = NBL_democratic_party_long
+	name = NBL_democratic_party
+}
+set_party_name = {
+	ideology = communism
+	long_name = NBL_communism_party_long
+	name = NBL_communism_party
+}
+set_party_name = {
+	ideology = fascism
+	long_name = NBL_fascism_party_long
+	name = NBL_fascism_party
+}
+set_party_name = {
+	ideology = neutrality
+	long_name = NBL_neutrality_party_long
+	name = NBL_neutrality_party
+}
+
+set_variable = { mk_boot = 1 }

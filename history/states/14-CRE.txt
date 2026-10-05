@@ -1,0 +1,29 @@
+state={
+	id=14
+	name="STATE_14"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=9
+		oil=8
+		aluminium=6
+		rubber=1
+		tungsten=5
+		chromium=6
+	}
+	history={
+		owner = CRE
+		victory_points = { 509 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = CRE
+	}
+	provinces={
+		504 505 506 507 508 509 510 511 512 513 514
+	}
+	local_supplies=0.0
+}

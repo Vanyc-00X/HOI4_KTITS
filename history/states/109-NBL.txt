@@ -1,0 +1,28 @@
+state={
+	id=109
+	name="STATE_109"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=16
+		oil=14
+		aluminium=6
+		rubber=4
+		tungsten=8
+		chromium=8
+	}
+	history={
+		owner = NBL
+		victory_points = { 847 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = NBL
+	}
+	provinces={
+		847 848 849 850 851 852 853
+	}
+	local_supplies=0.0
+}

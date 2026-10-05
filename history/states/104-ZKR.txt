@@ -1,0 +1,31 @@
+state={
+	id=104
+	name="STATE_104"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=15
+		oil=10
+		aluminium=16
+		rubber=5
+		tungsten=7
+		chromium=7
+	}
+	history={
+		owner = ZKR
+		victory_points = { 801 3 }
+		buildings = {
+			807 = { naval_base = 1 }
+			808 = { naval_base = 1 }
+			809 = { naval_base = 1 }
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = ZKR
+	}
+	provinces={
+		801 802 803 804 805 806 807 808 809
+	}
+	local_supplies=0.0
+}

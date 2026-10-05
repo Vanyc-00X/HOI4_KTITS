@@ -1,0 +1,712 @@
+# Mir Kazualnosti — global decisions (stages 4 + 9)
+
+mk_cat_absurd = {
+
+	mk_dec_check_absurd = {
+		icon = generic_research
+		cost = 0
+		fire_only_once = no
+		days_re_enable = 7
+		visible = {
+			is_mk_country = yes
+		}
+		complete_effect = {
+			custom_effect_tooltip = mk_tt_absurd_status
+		}
+	}
+
+	mk_dec_stir_absurd = {
+		icon = generic_nationalism
+		cost = 35
+		days_remove = 14
+		fire_only_once = no
+		days_re_enable = 30
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			has_political_power > 34
+		}
+		complete_effect = {
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+			custom_effect_tooltip = mk_tt_stir_absurd
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_idea = mk_idea_turn_chaos
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	mk_dec_calm_absurd = {
+		icon = generic_break_treaty
+		cost = 40
+		days_remove = 21
+		fire_only_once = no
+		days_re_enable = 45
+		visible = {
+			is_mk_country = yes
+			check_variable = { global.mk_absurd_temp > 20 }
+		}
+		available = {
+			has_political_power > 39
+		}
+		complete_effect = {
+			set_temp_variable = { mk_absurd_delta = 6 }
+			mk_sub_absurd = yes
+			custom_effect_tooltip = mk_tt_calm_absurd
+		}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 3
+				OR = {
+					original_tag = ADL
+					original_tag = KMS
+					original_tag = ZLD
+				}
+			}
+		}
+	}
+}
+
+mk_cat_congress = {
+
+	mk_dec_call_congress = {
+		icon = generic_political_discourse
+		cost = 25
+		fire_only_once = no
+		days_re_enable = 1
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			mk_can_call_world_congress = yes
+			has_political_power > 24
+		}
+		complete_effect = {
+			set_temp_variable = { mk_votes_delta = 3 }
+			mk_spend_votes = yes
+			set_global_flag = mk_congress_active
+			set_global_flag = mk_congress_cooldown
+			set_variable = { global.mk_congress_cooldown_months = 3 }
+			add_to_variable = { global.mk_congress_count = 1 }
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+			news_event = { id = mk_global.2 hours = 2 }
+			country_event = { id = mk_global.10 hours = 8 }
+			custom_effect_tooltip = mk_tt_call_congress
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 2
+				check_variable = { mk_world_votes > 4 }
+			}
+		}
+	}
+
+	mk_dec_lobby_votes = {
+		icon = generic_political_discourse
+		cost = 20
+		days_remove = 20
+		fire_only_once = no
+		days_re_enable = 40
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			has_political_power > 19
+			check_variable = { mk_world_votes < 6 }
+		}
+		complete_effect = {
+			set_temp_variable = { mk_votes_delta = 1 }
+			mk_grant_votes = yes
+			custom_effect_tooltip = mk_tt_lobby_votes
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+	mk_dec_emergency_congress = {
+		icon = generic_political_discourse
+		cost = 15
+		fire_only_once = no
+		days_re_enable = 90
+		visible = {
+			is_mk_country = yes
+			mk_absurd_critical = yes
+		}
+		available = {
+			check_variable = { mk_world_votes > 1 }
+			NOT = { has_global_flag = mk_congress_active }
+			has_political_power > 14
+		}
+		complete_effect = {
+			set_temp_variable = { mk_votes_delta = 2 }
+			mk_spend_votes = yes
+			set_global_flag = mk_congress_active
+			set_global_flag = mk_congress_cooldown
+			set_variable = { global.mk_congress_cooldown_months = 2 }
+			add_to_variable = { global.mk_congress_count = 1 }
+			news_event = { id = mk_global.2 hours = 2 }
+			country_event = { id = mk_global.10 hours = 6 }
+			custom_effect_tooltip = mk_tt_emergency_congress
+		}
+
+		ai_will_do = {
+			factor = 8
+			modifier = {
+				factor = 2
+				mk_absurd_critical = yes
+			}
+		}
+	}
+}
+
+mk_cat_npt = {
+
+	mk_dec_fund_npt = {
+		icon = generic_construction
+		cost = 30
+		days_remove = 25
+		fire_only_once = no
+		days_re_enable = 35
+		visible = {
+			mk_can_use_npt = yes
+		}
+		available = {
+			mk_can_use_npt = yes
+			has_political_power > 29
+			check_variable = { mk_npt < 10 }
+		}
+		complete_effect = {
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+			add_timed_idea = { idea = mk_idea_npt_funding days = 60 }
+			custom_effect_tooltip = mk_tt_fund_npt
+		}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 4
+				OR = {
+					original_tag = BTR
+					original_tag = CRE
+				}
+			}
+		}
+	}
+
+	mk_dec_npt_propaganda = {
+		icon = generic_nationalism
+		cost = 15
+		days_remove = 14
+		fire_only_once = no
+		days_re_enable = 28
+		visible = {
+			mk_can_use_npt = yes
+			check_variable = { mk_npt > 1 }
+		}
+		available = {
+			mk_can_use_npt = yes
+			has_political_power > 14
+		}
+		complete_effect = {
+			add_stability = 0.03
+			add_war_support = 0.02
+			set_temp_variable = { mk_absurd_delta = 1 }
+			mk_add_absurd = yes
+		}
+	}
+
+	mk_dec_form_npt_protocol = {
+		icon = generic_form_nation
+		cost = 45
+		fire_only_once = yes
+		visible = {
+			mk_can_use_npt = yes
+			is_in_faction = no
+			check_variable = { mk_npt > 3 }
+		}
+		available = {
+			mk_can_form_npt_protocol = yes
+			has_political_power > 44
+		}
+		complete_effect = {
+			mk_form_npt_protocol_effect = yes
+			custom_effect_tooltip = mk_tt_form_npt
+		}
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 3
+				check_variable = { mk_npt > 6 }
+			}
+		}
+	}
+}
+
+mk_cat_alliances = {
+
+	mk_dec_form_ideology_faction = {
+		icon = generic_form_nation
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			is_mk_country = yes
+			is_in_faction = no
+		}
+		available = {
+			mk_can_form_ideology_faction = yes
+			has_political_power > 49
+			OR = {
+				has_government = democratic
+				has_government = communism
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		complete_effect = {
+			mk_form_ideology_faction_effect = yes
+			custom_effect_tooltip = mk_tt_form_faction
+		}
+
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 2
+				mk_era_blocs = yes
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = mk_great_political_turn
+			}
+			modifier = {
+				factor = 0.2
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	mk_dec_invite_same_ideology = {
+		icon = generic_operation
+		cost = 20
+		fire_only_once = no
+		days_re_enable = 30
+		target_trigger = {
+			FROM = {
+				is_mk_country = yes
+				is_in_faction = no
+				is_subject = no
+				has_war = no
+				NOT = { tag = ROOT }
+				OR = {
+					has_government = ROOT
+					AND = {
+						ROOT = { has_idea = mk_idea_npt_protocol }
+						check_variable = { mk_npt > 1 }
+					}
+				}
+			}
+		}
+		targets = { VCI SOY BTR KRZ KZS MUS TRF ZLD ISL CLB ADL DMK FDP CRE SVA ART KMS ZNS ZKR ZML NBL ISG HRL SHF }
+		target_root_trigger = {
+			is_mk_country = yes
+			is_faction_leader = yes
+			has_war = no
+		}
+		visible = {
+			is_mk_country = yes
+			is_faction_leader = yes
+		}
+		available = {
+			has_political_power > 19
+			has_war = no
+			FROM = {
+				is_in_faction = no
+				has_war = no
+			}
+		}
+		complete_effect = {
+			add_to_faction = FROM
+			FROM = {
+				add_ideas = mk_idea_faction_member
+				country_event = { id = mk_global.30 hours = 4 }
+			}
+			set_temp_variable = { mk_absurd_delta = 2 }
+			mk_add_absurd = yes
+		}
+
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				factor = 0
+				OR = {
+					has_war = yes
+					FROM = { has_war = yes }
+				}
+			}
+		}
+	}
+}
+
+mk_cat_revisionism = {
+
+	# TZ §5.1: any faction member may accuse, leave, and gain wargoals vs remaining members
+	mk_dec_accuse_revisionism = {
+		icon = generic_civil_support
+		cost = 30
+		fire_only_once = no
+		days_re_enable = 180
+		visible = {
+			mk_can_accuse_revisionism = yes
+		}
+		available = {
+			mk_can_accuse_revisionism = yes
+			has_political_power > 29
+		}
+		complete_effect = {
+			mk_accuse_revisionism_effect = yes
+			custom_effect_tooltip = mk_tt_accuse_revisionism
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 5
+				mk_absurd_high = yes
+				has_war_support > 0.5
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	mk_dec_condemn_revisionism = {
+		icon = generic_nationalism
+		cost = 15
+		fire_only_once = yes
+		visible = {
+			mk_can_condemn_revisionism = yes
+		}
+		available = {
+			mk_can_condemn_revisionism = yes
+			has_political_power > 14
+		}
+		complete_effect = {
+			mk_condemn_revisionism_effect = yes
+			custom_effect_tooltip = mk_tt_condemn_revisionism
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+
+	mk_dec_purge_revisionist = {
+		icon = generic_independence
+		cost = 40
+		fire_only_once = no
+		days_re_enable = 90
+		targets = { VCI SOY BTR KRZ KZS MUS TRF ZLD ISL CLB ADL DMK FDP CRE SVA ART KMS ZNS ZKR ZML NBL ISG HRL SHF }
+		target_trigger = {
+			FROM = {
+				is_mk_country = yes
+				has_idea = mk_idea_revisionist
+				NOT = { tag = ROOT }
+			}
+		}
+		target_root_trigger = {
+			is_mk_country = yes
+			is_faction_leader = yes
+		}
+		visible = {
+			is_faction_leader = yes
+			any_other_country = { has_idea = mk_idea_revisionist }
+		}
+		available = {
+			has_political_power > 39
+			FROM = {
+				has_idea = mk_idea_revisionist
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_timed_idea = { idea = mk_idea_expelled_revisionist days = 180 }
+				country_event = { id = mk_global.21 hours = 4 }
+			}
+			create_wargoal = {
+				type = mk_revisionist_aggression
+				target = FROM
+			}
+			set_temp_variable = { mk_absurd_delta = 5 }
+			mk_add_absurd = yes
+			custom_effect_tooltip = mk_tt_purge_revisionist
+		}
+
+		ai_will_do = {
+			factor = 12
+		}
+	}
+}
+
+mk_cat_diplomacy = {
+
+	mk_dec_goodwill_mission = {
+		icon = generic_operation
+		cost = 20
+		fire_only_once = no
+		days_re_enable = 45
+		targets = { VCI SOY BTR KRZ KZS MUS TRF ZLD ISL CLB ADL DMK FDP CRE SVA ART KMS ZNS ZKR ZML NBL ISG HRL SHF }
+		target_trigger = {
+			FROM = {
+				is_mk_country = yes
+				NOT = { tag = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		target_root_trigger = {
+			is_mk_country = yes
+		}
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			has_political_power > 19
+			FROM = {
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			add_opinion_modifier = { target = FROM modifier = mk_kazual_goodwill }
+			FROM = {
+				add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+			}
+			set_temp_variable = { mk_absurd_delta = 1 }
+			mk_sub_absurd = yes
+		}
+
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				factor = 2
+				OR = {
+					original_tag = ADL
+					original_tag = KMS
+					original_tag = HRL
+				}
+			}
+		}
+	}
+
+	mk_dec_mediate_neighbors = {
+		icon = generic_political_discourse
+		cost = 25
+		fire_only_once = no
+		days_re_enable = 60
+		targets = { VCI SOY BTR KRZ KZS MUS TRF ZLD ISL CLB ADL DMK FDP CRE SVA ART KMS ZNS ZKR ZML NBL ISG HRL SHF }
+		target_trigger = {
+			FROM = {
+				is_mk_country = yes
+				NOT = { tag = ROOT }
+				has_war = yes
+			}
+		}
+		target_root_trigger = {
+			mk_can_mediate = yes
+		}
+		visible = {
+			mk_can_mediate = yes
+		}
+		available = {
+			has_political_power > 24
+			has_war = no
+			FROM = {
+				has_war = yes
+			}
+		}
+		complete_effect = {
+			mk_mediate_conflict_effect = yes
+			custom_effect_tooltip = mk_tt_mediate
+		}
+
+		ai_will_do = {
+			factor = 6
+		}
+	}
+
+	mk_dec_prepare_war = {
+		icon = generic_nationalism
+		cost = 30
+		days_remove = 30
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			is_mk_country = yes
+			OR = {
+				mk_absurd_high = yes
+				has_idea = mk_idea_revisionist
+			}
+		}
+		available = {
+			has_political_power > 29
+		}
+		complete_effect = {
+			add_war_support = 0.05
+			army_experience = 10
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+			custom_effect_tooltip = mk_tt_prepare_war
+		}
+
+		ai_will_do = {
+			factor = 3
+			modifier = {
+				factor = 3
+				mk_absurd_high = yes
+			}
+		}
+	}
+}
+
+mk_cat_finales = {
+
+	mk_dec_win_diplomatic = {
+		icon = generic_form_nation
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_diplomatic = yes
+		}
+		available = {
+			mk_can_win_diplomatic = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_diplomatic
+			news_event = { id = mk_global.66 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_diplomatic
+		}
+
+		ai_will_do = { factor = 100 }
+	}
+
+	mk_dec_win_ideological = {
+		icon = generic_political_discourse
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_ideological = yes
+		}
+		available = {
+			mk_can_win_ideological = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_ideological
+			news_event = { id = mk_global.72 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_ideological
+		}
+
+		ai_will_do = { factor = 100 }
+	}
+
+	mk_dec_win_economic = {
+		icon = generic_construction
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_economic = yes
+		}
+		available = {
+			mk_can_win_economic = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_economic
+			news_event = { id = mk_global.71 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_economic
+		}
+
+		ai_will_do = { factor = 100 }
+	}
+
+	mk_dec_win_npt = {
+		icon = generic_research
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_npt = yes
+		}
+		available = {
+			mk_can_win_npt = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_npt
+			news_event = { id = mk_global.63 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_npt
+		}
+
+		ai_will_do = { factor = 100 }
+	}
+
+	mk_dec_win_absurd = {
+		icon = generic_civil_support
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_absurd = yes
+		}
+		available = {
+			mk_can_win_absurd = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_absurd
+			news_event = { id = mk_global.65 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_absurd
+		}
+
+		ai_will_do = { factor = 80 }
+	}
+
+	mk_dec_win_integration = {
+		icon = generic_form_nation
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			mk_can_win_integration = yes
+		}
+		available = {
+			mk_can_win_integration = yes
+		}
+		complete_effect = {
+			mk_claim_victory_effect = yes
+			add_ideas = mk_idea_victory_integration
+			news_event = { id = mk_global.64 hours = 2 }
+			custom_effect_tooltip = mk_tt_win_integration
+		}
+
+		ai_will_do = { factor = 100 }
+	}
+}

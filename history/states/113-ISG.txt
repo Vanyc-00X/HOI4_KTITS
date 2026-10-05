@@ -1,0 +1,28 @@
+state={
+	id=113
+	name="STATE_113"
+	manpower = 400000
+	state_category = rural
+		resources={
+		steel=6
+		oil=4
+		aluminium=5
+		rubber=5
+		tungsten=2
+		chromium=6
+	}
+	history={
+		owner = ISG
+		victory_points = { 872 3 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 0
+		}
+		add_core_of = ISG
+	}
+	provinces={
+		872 873 874 875 876 877 878 879
+	}
+	local_supplies=0.0
+}

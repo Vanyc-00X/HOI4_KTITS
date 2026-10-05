@@ -1,0 +1,6 @@
+mk_cat_SOY = {
+	icon = GFX_decision_category_generic_industry
+	priority = 110
+	allowed = { original_tag = SOY }
+	visible = { tag = SOY }
+}

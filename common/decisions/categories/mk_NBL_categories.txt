@@ -1,0 +1,6 @@
+mk_cat_NBL = {
+	icon = GFX_decision_category_generic_industry
+	priority = 110
+	allowed = { original_tag = NBL }
+	visible = { tag = NBL }
+}

@@ -1,0 +1,29 @@
+state={
+	id=2
+	name="STATE_2"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=7
+		oil=4
+		aluminium=8
+		rubber=14
+		tungsten=3
+		chromium=3
+	}
+	history={
+		owner = SOY
+		victory_points = { 62 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = SOY
+	}
+	provinces={
+		60 61 62 63 64
+	}
+	local_supplies=0.0
+}

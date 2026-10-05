@@ -1,0 +1,34 @@
+characters = {
+	DMK_sidorov_dmitriy_rustamovich = {
+		name = DMK_sidorov_dmitriy_rustamovich
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		country_leader = {
+			ideology = falangism
+			expire = "2099.1.1"
+			id = -1
+			desc = DMK_sidorov_dmitriy_rustamovich_desc
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "2099.1.1"
+			id = -1
+			desc = DMK_sidorov_dmitriy_rustamovich_desc
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2099.1.1"
+			id = -1
+			desc = DMK_sidorov_dmitriy_rustamovich_desc
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "2099.1.1"
+			id = -1
+			desc = DMK_sidorov_dmitriy_rustamovich_desc
+		}
+	}
+}

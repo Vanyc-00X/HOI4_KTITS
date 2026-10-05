@@ -1,0 +1,164 @@
+# Mir Kazualnosti — global triggers (stages 4 + 9)
+
+is_mk_country = {
+	OR = {
+		original_tag = VCI
+		original_tag = SOY
+		original_tag = BTR
+		original_tag = KRZ
+		original_tag = KZS
+		original_tag = MUS
+		original_tag = TRF
+		original_tag = ZLD
+		original_tag = ISL
+		original_tag = CLB
+		original_tag = ADL
+		original_tag = DMK
+		original_tag = FDP
+		original_tag = CRE
+		original_tag = SVA
+		original_tag = ART
+		original_tag = KMS
+		original_tag = ZNS
+		original_tag = ZKR
+		original_tag = ZML
+		original_tag = NBL
+		original_tag = ISG
+		original_tag = HRL
+		original_tag = SHF
+	}
+}
+
+mk_has_faction = {
+	is_in_faction = yes
+	is_mk_country = yes
+}
+
+mk_can_form_ideology_faction = {
+	is_mk_country = yes
+	is_in_faction = no
+	is_subject = no
+	has_war = no
+}
+
+mk_can_accuse_revisionism = {
+	is_mk_country = yes
+	is_in_faction = yes
+	is_subject = no
+	NOT = { has_country_flag = mk_revisionist_cooldown }
+	NOT = { has_idea = mk_idea_revisionist }
+}
+
+mk_can_condemn_revisionism = {
+	is_mk_country = yes
+	is_in_faction = yes
+	NOT = { has_country_flag = mk_condemned_revisionism }
+	any_other_country = {
+		has_idea = mk_idea_revisionist
+	}
+}
+
+mk_can_call_world_congress = {
+	is_mk_country = yes
+	check_variable = { mk_world_votes > 2 }
+	NOT = { has_global_flag = mk_congress_cooldown }
+	NOT = { has_global_flag = mk_congress_active }
+}
+
+mk_absurd_high = {
+	check_variable = { global.mk_absurd_temp > 59 }
+}
+
+mk_absurd_critical = {
+	check_variable = { global.mk_absurd_temp > 84 }
+}
+
+mk_great_turn_unlocked = {
+	OR = {
+		has_global_flag = mk_great_political_turn
+		check_variable = { global.mk_absurd_temp > 39 }
+		date > 1936.3.11
+	}
+}
+
+mk_can_use_npt = {
+	is_mk_country = yes
+	has_government = fascism
+}
+
+mk_can_form_npt_protocol = {
+	is_mk_country = yes
+	is_in_faction = no
+	is_subject = no
+	has_war = no
+	has_government = fascism
+	check_variable = { mk_npt > 4 }
+}
+
+mk_can_mediate = {
+	is_mk_country = yes
+	has_war = no
+	OR = {
+		original_tag = ADL
+		original_tag = KMS
+		check_variable = { mk_world_votes > 2 }
+	}
+}
+
+mk_era_forks = {
+	date > 1936.3.11
+}
+
+mk_era_blocs = {
+	date > 1936.7.29
+}
+
+mk_era_crises = {
+	date > 1937.2.25
+}
+
+mk_era_finale = {
+	date > 1938.1.1
+}
+
+mk_can_win_diplomatic = {
+	is_mk_country = yes
+	is_faction_leader = yes
+	num_faction_members > 5
+	NOT = { has_country_flag = mk_victory_claimed }
+}
+
+mk_can_win_ideological = {
+	is_mk_country = yes
+	NOT = { has_country_flag = mk_victory_claimed }
+	check_variable = { global.mk_same_ideology_count > 9 }
+}
+
+mk_can_win_economic = {
+	is_mk_country = yes
+	NOT = { has_country_flag = mk_victory_claimed }
+	num_of_factories > 39
+}
+
+mk_can_win_npt = {
+	is_mk_country = yes
+	has_government = fascism
+	NOT = { has_country_flag = mk_victory_claimed }
+	check_variable = { mk_npt > 7 }
+	check_variable = { global.mk_congress_count > 2 }
+	check_variable = { global.mk_absurd_temp > 49 }
+}
+
+mk_can_win_absurd = {
+	is_mk_country = yes
+	NOT = { has_country_flag = mk_victory_claimed }
+	mk_absurd_critical = yes
+	has_war = yes
+}
+
+mk_can_win_integration = {
+	is_mk_country = yes
+	NOT = { has_country_flag = mk_victory_claimed }
+	num_of_controlled_states > 14
+	has_war = no
+}

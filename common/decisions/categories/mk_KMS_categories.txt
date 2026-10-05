@@ -1,0 +1,6 @@
+mk_cat_KMS = {
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 110
+	allowed = { original_tag = KMS }
+	visible = { tag = KMS }
+}

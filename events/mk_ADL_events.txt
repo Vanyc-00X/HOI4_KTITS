@@ -1,0 +1,485 @@
+add_namespace = mk_adl
+
+country_event = {
+	id = mk_adl.1
+	title = mk_adl.1.t
+	desc = mk_adl.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.1.a
+		set_temp_variable = { mk_mech_delta = 10 }
+		mk_mech_add = yes
+		set_temp_variable = { mk_absurd_delta = 1 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.1.b
+		add_stability = 0.04
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+	}
+}
+
+country_event = {
+	id = mk_adl.2
+	title = mk_adl.2.t
+	desc = mk_adl.2.d
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.2.a
+		add_popularity = { ideology = democratic popularity = 0.05 }
+		add_political_power = 25
+		set_temp_variable = { mk_absurd_delta = 1 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.2.b
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		add_stability = 0.03
+	}
+}
+
+country_event = {
+	id = mk_adl.3
+	title = mk_adl.3.t
+	desc = mk_adl.3.d
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.3.a
+		add_popularity = { ideology = neutrality popularity = 0.05 }
+		add_political_power = 25
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.3.b
+		add_stability = 0.04
+		set_temp_variable = { mk_mech_delta = 5 }
+		mk_mech_sub = yes
+	}
+}
+
+country_event = {
+	id = mk_adl.4
+	title = mk_adl.4.t
+	desc = mk_adl.4.d
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.4.a
+		add_popularity = { ideology = fascism popularity = 0.05 }
+		add_political_power = 25
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.4.b
+		set_temp_variable = { mk_npt_delta = 1 }
+		mk_add_npt = yes
+		add_war_support = 0.04
+	}
+}
+
+country_event = {
+	id = mk_adl.5
+	title = mk_adl.5.t
+	desc = mk_adl.5.d
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.5.a
+		add_popularity = { ideology = communism popularity = 0.05 }
+		add_political_power = 25
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.5.b
+		every_neighbor_country = {
+			limit = { is_mk_country = yes }
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+}
+
+country_event = {
+	id = mk_adl.6
+	title = mk_adl.6.t
+	desc = mk_adl.6.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.6.a
+		if = {
+			limit = { has_government = fascism }
+			set_temp_variable = { mk_npt_delta = 2 }
+			mk_add_npt = yes
+		}
+		set_temp_variable = { mk_absurd_delta = 5 }
+		mk_add_absurd = yes
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+	}
+	option = {
+		name = mk_adl.6.b
+		add_tech_bonus = {
+			name = ADL_secret_ev_tech
+			bonus = 1.0
+			uses = 1
+			category = electronics
+		}
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = mk_adl.7
+	title = mk_adl.7.t
+	desc = mk_adl.7.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.7.a
+		add_political_power = 150
+		set_temp_variable = { mk_absurd_delta = 4 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.7.b
+		add_stability = 0.05
+		set_temp_variable = { mk_mech_delta = 10 }
+		mk_mech_sub = yes
+	}
+	option = {
+		name = mk_adl.7.c
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		add_political_power = -30
+	}
+}
+
+country_event = {
+	id = mk_adl.8
+	title = mk_adl.8.t
+	desc = mk_adl.8.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.8.a
+		add_stability = -0.05
+		set_temp_variable = { mk_mech_delta = 15 }
+		mk_mech_add = yes
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.8.b
+		add_political_power = -50
+		set_temp_variable = { mk_mech_delta = 10 }
+		mk_mech_add = yes
+	}
+	option = {
+		name = mk_adl.8.c
+		random_neighbor_country = {
+			limit = { is_mk_country = yes }
+			add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+		}
+		add_war_support = 0.03
+	}
+}
+
+country_event = {
+	id = mk_adl.9
+	title = mk_adl.9.t
+	desc = mk_adl.9.d
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.9.a
+		add_war_support = 0.08
+		set_temp_variable = { mk_absurd_delta = 3 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.9.b
+		set_temp_variable = { mk_mech_delta = 20 }
+		mk_mech_sub = yes
+		add_stability = 0.04
+	}
+	option = {
+		name = mk_adl.9.c
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		add_political_power = 40
+	}
+}
+
+country_event = {
+	id = mk_adl.10
+	title = mk_adl.10.t
+	desc = mk_adl.10.d
+	picture = GFX_news_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.10.a
+		capital_scope = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	option = {
+		name = mk_adl.10.b
+		add_tech_bonus = {
+			name = ADL_eco_ev_tech
+			bonus = 1.0
+			uses = 1
+			category = industry
+		}
+	}
+	option = {
+		name = mk_adl.10.c
+		capital_scope = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+		add_war_support = 0.02
+	}
+}
+
+country_event = {
+	id = mk_adl.11
+	title = mk_adl.11.t
+	desc = mk_adl.11.d
+	picture = GFX_report_event_generic_military_parade
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.11.a
+		random_neighbor_country = {
+			limit = {
+				is_mk_country = yes
+				NOT = { is_in_faction_with = ROOT }
+			}
+			ROOT = {
+				create_wargoal = { type = topple_government target = PREV }
+			}
+		}
+		set_temp_variable = { mk_absurd_delta = 5 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.11.b
+		add_manpower = 10000
+		add_stability = 0.02
+	}
+	option = {
+		name = mk_adl.11.c
+		army_experience = 20
+		add_war_support = 0.04
+	}
+}
+
+country_event = {
+	id = mk_adl.12
+	title = mk_adl.12.t
+	desc = mk_adl.12.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.12.a
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		add_political_power = 50
+	}
+	option = {
+		name = mk_adl.12.b
+		every_other_country = {
+			limit = { is_mk_country = yes }
+			add_opinion_modifier = { target = ROOT modifier = mk_kazual_goodwill }
+		}
+	}
+	option = {
+		name = mk_adl.12.c
+		if = {
+			limit = { is_in_faction = no }
+			mk_form_ideology_faction_effect = yes
+			else = {
+				add_political_power = 50
+			}
+		}
+	}
+}
+
+news_event = {
+	id = mk_adl.13
+	title = mk_adl.13.t
+	desc = mk_adl.13.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.13.a
+	}
+}
+
+country_event = {
+	id = mk_adl.14
+	title = mk_adl.14.t
+	desc = mk_adl.14.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.14.a
+		add_political_power = 30
+		add_stability = 0.02
+	}
+	option = {
+		name = mk_adl.14.b
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+}
+
+country_event = {
+	id = mk_adl.15
+	title = mk_adl.15.t
+	desc = mk_adl.15.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.15.a
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+		add_political_power = 20
+	}
+	option = {
+		name = mk_adl.15.b
+		add_stability = 0.03
+		set_temp_variable = { mk_mech_delta = 5 }
+		mk_mech_sub = yes
+	}
+	option = {
+		name = mk_adl.15.c
+		add_popularity = { ideology = democratic popularity = 0.03 }
+		set_temp_variable = { mk_absurd_delta = 3 }
+		mk_add_absurd = yes
+	}
+}
+
+country_event = {
+	id = mk_adl.16
+	title = mk_adl.16.t
+	desc = mk_adl.16.d
+	picture = GFX_report_event_generic_military_parade
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.16.a
+		random_neighbor_country = {
+			limit = { is_mk_country = yes NOT = { is_in_faction_with = ROOT } }
+			ROOT = { create_wargoal = { type = topple_government target = PREV } }
+		}
+		set_temp_variable = { mk_absurd_delta = 4 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.16.b
+		army_experience = 15
+		add_war_support = 0.05
+	}
+	option = {
+		name = mk_adl.16.c
+		add_stability = 0.02
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = mk_adl.17
+	title = mk_adl.17.t
+	desc = mk_adl.17.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.17.a
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		random_owned_controlled_state = {
+			add_resource = { type = steel amount = 5 }
+		}
+	}
+	option = {
+		name = mk_adl.17.b
+		add_political_power = 60
+		set_temp_variable = { mk_absurd_delta = 2 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.17.c
+		add_stability = 0.04
+	}
+}
+
+country_event = {
+	id = mk_adl.18
+	title = mk_adl.18.t
+	desc = mk_adl.18.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.18.a
+		if = {
+			limit = { has_government = fascism }
+			set_temp_variable = { mk_npt_delta = 1 }
+			mk_add_npt = yes
+		}
+		add_political_power = 40
+	}
+	option = {
+		name = mk_adl.18.b
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		set_temp_variable = { mk_absurd_delta = 3 }
+		mk_add_absurd = yes
+	}
+	option = {
+		name = mk_adl.18.c
+		random_neighbor_country = {
+			limit = { is_mk_country = yes }
+			add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+		}
+		add_war_support = 0.03
+	}
+}
+
+country_event = {
+	id = mk_adl.19
+	title = mk_adl.19.t
+	desc = mk_adl.19.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = mk_adl.19.a
+		if = {
+			limit = { is_in_faction = no has_war = no }
+			mk_form_ideology_faction_effect = yes
+		}
+	}
+	option = {
+		name = mk_adl.19.b
+		every_other_country = {
+			limit = { is_mk_country = yes has_government = ROOT }
+			add_opinion_modifier = { target = ROOT modifier = mk_ideological_kin }
+		}
+	}
+	option = {
+		name = mk_adl.19.c
+		set_temp_variable = { mk_votes_delta = 1 }
+		mk_grant_votes = yes
+		add_political_power = 40
+	}
+}

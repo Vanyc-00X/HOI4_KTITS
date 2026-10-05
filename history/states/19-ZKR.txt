@@ -1,0 +1,33 @@
+state={
+	id=19
+	name="STATE_19"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=13
+		oil=13
+		aluminium=11
+		rubber=4
+		tungsten=6
+		chromium=6
+	}
+	history={
+		owner = ZKR
+		victory_points = { 788 20 }
+		buildings = {
+			784 = { naval_base = 1 }
+			787 = { naval_base = 1 }
+			790 = { naval_base = 1 }
+			791 = { naval_base = 1 }
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = ZKR
+	}
+	provinces={
+		784 785 786 787 788 789 790 791
+	}
+	local_supplies=0.0
+}

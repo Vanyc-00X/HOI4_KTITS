@@ -1,0 +1,60 @@
+capital = 3
+
+oob = "BTR_1936"
+
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.45
+
+# Minimal techs until army pass
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+}
+
+set_convoys = 25
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	communism = 15
+	fascism = 65
+	neutrality = 15
+}
+
+add_ideas = {
+	BTR_dvoynaya_vlast
+}
+
+recruit_character = BTR_akhtyamov_kamil_nailevich
+
+# Party names (TZ local ideology labels via localisation)
+set_party_name = {
+	ideology = democratic
+	long_name = BTR_democratic_party_long
+	name = BTR_democratic_party
+}
+set_party_name = {
+	ideology = communism
+	long_name = BTR_communism_party_long
+	name = BTR_communism_party
+}
+set_party_name = {
+	ideology = fascism
+	long_name = BTR_fascism_party_long
+	name = BTR_fascism_party
+}
+set_party_name = {
+	ideology = neutrality
+	long_name = BTR_neutrality_party_long
+	name = BTR_neutrality_party
+}
+
+set_variable = { mk_boot = 1 }

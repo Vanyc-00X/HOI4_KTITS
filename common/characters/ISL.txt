@@ -1,0 +1,34 @@
+characters = {
+	ISL_gabdrakhmanov_redik_florovich = {
+		name = ISL_gabdrakhmanov_redik_florovich
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		country_leader = {
+			ideology = moderatism
+			expire = "2099.1.1"
+			id = -1
+			desc = ISL_gabdrakhmanov_redik_florovich_desc
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "2099.1.1"
+			id = -1
+			desc = ISL_gabdrakhmanov_redik_florovich_desc
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2099.1.1"
+			id = -1
+			desc = ISL_gabdrakhmanov_redik_florovich_desc
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			expire = "2099.1.1"
+			id = -1
+			desc = ISL_gabdrakhmanov_redik_florovich_desc
+		}
+	}
+}

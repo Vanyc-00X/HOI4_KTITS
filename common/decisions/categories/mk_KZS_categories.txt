@@ -1,0 +1,6 @@
+mk_cat_KZS = {
+	icon = GFX_decision_category_generic_political_actions
+	priority = 110
+	allowed = { original_tag = KZS }
+	visible = { tag = KZS }
+}

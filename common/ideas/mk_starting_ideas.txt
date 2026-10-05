@@ -1,0 +1,244 @@
+ideas = {
+	country = {
+		VCI_kazualnaya_byurokratiya = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		SOY_programmistskiy_klaster = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		BTR_dvoynaya_vlast = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		KRZ_revolyutsionnyy_eksport = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		KZS_kazachiy_krug = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		MUS_korona_i_parlament = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		TRF_kommunalnyy_konsensus = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ZLD_koalitsionnyy_kapital = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ISL_indeks_modernizatsii = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		CLB_tekhnokraticheskiy_apparat = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ADL_diplomaticheskiy_balans = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		DMK_integratsionnyy_kurs = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		FDP_parlamentskie_mandaty = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		CRE_indeks_mobilizatsii = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		SVA_nauchnye_sovety = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ART_grazhdanskaya_identichnost = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		KMS_set_partnerov = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ZNS_pan_regionalizm = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ZKR_kontraktnaya_ekonomika = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ZML_kommunalnyy_torg = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		NBL_risk_peregreva = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		ISG_kooperativnaya_ustoychivost = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		HRL_liga_ochki = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		SHF_federalnyy_risk = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+	}
+}

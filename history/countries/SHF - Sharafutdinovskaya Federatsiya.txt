@@ -1,0 +1,60 @@
+capital = 24
+
+oob = "SHF_1936"
+
+set_research_slots = 4
+set_stability = 0.55
+set_war_support = 0.45
+
+# Minimal techs until army pass
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+}
+
+set_convoys = 50
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 20
+	communism = 5
+	fascism = 10
+	neutrality = 65
+}
+
+add_ideas = {
+	SHF_federalnyy_risk
+}
+
+recruit_character = SHF_sharafutdinov_ranil_ramisovich
+
+# Party names (TZ local ideology labels via localisation)
+set_party_name = {
+	ideology = democratic
+	long_name = SHF_democratic_party_long
+	name = SHF_democratic_party
+}
+set_party_name = {
+	ideology = communism
+	long_name = SHF_communism_party_long
+	name = SHF_communism_party
+}
+set_party_name = {
+	ideology = fascism
+	long_name = SHF_fascism_party_long
+	name = SHF_fascism_party
+}
+set_party_name = {
+	ideology = neutrality
+	long_name = SHF_neutrality_party_long
+	name = SHF_neutrality_party
+}
+
+set_variable = { mk_boot = 1 }

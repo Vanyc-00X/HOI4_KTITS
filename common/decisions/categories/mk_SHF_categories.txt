@@ -1,0 +1,6 @@
+mk_cat_SHF = {
+	icon = GFX_decision_category_generic_crisis
+	priority = 110
+	allowed = { original_tag = SHF }
+	visible = { tag = SHF }
+}

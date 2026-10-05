@@ -1,0 +1,6 @@
+mk_cat_ADL = {
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 110
+	allowed = { original_tag = ADL }
+	visible = { tag = ADL }
+}

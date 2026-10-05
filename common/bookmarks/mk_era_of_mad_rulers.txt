@@ -1,0 +1,43 @@
+bookmarks = {
+	bookmark = {
+		name = "MK_BOOKMARK_NAME"
+		desc = "MK_BOOKMARK_DESC"
+		date = 1936.1.1
+		picture = "GFX_select_date_1936"
+		default_country = "VCI"
+		default = yes
+
+		VCI = { history = "MK_BOOKMARK_VCI_DESC" ideology = neutrality ideas = { VCI_kazualnaya_byurokratiya } }
+		SOY = { history = "MK_BOOKMARK_SOY_DESC" ideology = democratic ideas = { SOY_programmistskiy_klaster } }
+		BTR = { history = "MK_BOOKMARK_BTR_DESC" ideology = fascism ideas = { BTR_dvoynaya_vlast } }
+		KRZ = { history = "MK_BOOKMARK_KRZ_DESC" ideology = communism ideas = { KRZ_revolyutsionnyy_eksport } }
+		KZS = { history = "MK_BOOKMARK_KZS_DESC" ideology = neutrality ideas = { KZS_kazachiy_krug } }
+		MUS = { history = "MK_BOOKMARK_MUS_DESC" ideology = democratic ideas = { MUS_korona_i_parlament } }
+		TRF = { history = "MK_BOOKMARK_TRF_DESC" ideology = communism ideas = { TRF_kommunalnyy_konsensus } }
+		ZLD = { history = "MK_BOOKMARK_ZLD_DESC" ideology = democratic ideas = { ZLD_koalitsionnyy_kapital } }
+		ISL = { history = "MK_BOOKMARK_ISL_DESC" ideology = neutrality ideas = { ISL_indeks_modernizatsii } }
+		CLB = { history = "MK_BOOKMARK_CLB_DESC" ideology = neutrality ideas = { CLB_tekhnokraticheskiy_apparat } }
+		ADL = { history = "MK_BOOKMARK_ADL_DESC" ideology = democratic ideas = { ADL_diplomaticheskiy_balans } }
+		DMK = { history = "MK_BOOKMARK_DMK_DESC" ideology = fascism ideas = { DMK_integratsionnyy_kurs } }
+		FDP = { history = "MK_BOOKMARK_FDP_DESC" ideology = neutrality ideas = { FDP_parlamentskie_mandaty } }
+		CRE = { history = "MK_BOOKMARK_CRE_DESC" ideology = fascism ideas = { CRE_indeks_mobilizatsii } }
+		SVA = { history = "MK_BOOKMARK_SVA_DESC" ideology = democratic ideas = { SVA_nauchnye_sovety } }
+		ART = { history = "MK_BOOKMARK_ART_DESC" ideology = neutrality ideas = { ART_grazhdanskaya_identichnost } }
+		KMS = { history = "MK_BOOKMARK_KMS_DESC" ideology = democratic ideas = { KMS_set_partnerov } }
+		ZNS = { history = "MK_BOOKMARK_ZNS_DESC" ideology = neutrality ideas = { ZNS_pan_regionalizm } }
+		ZKR = { history = "MK_BOOKMARK_ZKR_DESC" ideology = democratic ideas = { ZKR_kontraktnaya_ekonomika } }
+		ZML = { history = "MK_BOOKMARK_ZML_DESC" ideology = communism ideas = { ZML_kommunalnyy_torg } }
+		NBL = { history = "MK_BOOKMARK_NBL_DESC" ideology = neutrality ideas = { NBL_risk_peregreva } }
+		ISG = { history = "MK_BOOKMARK_ISG_DESC" ideology = communism ideas = { ISG_kooperativnaya_ustoychivost } }
+		HRL = { history = "MK_BOOKMARK_HRL_DESC" ideology = democratic ideas = { HRL_liga_ochki } }
+		SHF = { history = "MK_BOOKMARK_SHF_DESC" ideology = neutrality ideas = { SHF_federalnyy_risk } }
+
+		"---" = {
+			history = "OTHER_MK_BOOKMARK_ENTRY_DESC"
+		}
+
+		effect = {
+			randomize_weather = 22345
+		}
+	}
+}

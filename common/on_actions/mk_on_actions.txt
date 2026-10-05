@@ -1,0 +1,69 @@
+# Mir Kazualnosti — on_actions (stages 4 + 9)
+# Full replace_path="common/on_actions" — only this file loads.
+
+on_actions = {
+	on_startup = {
+		# on_startup has no scope; the init needs a country scope
+		effect = {
+			VCI = {
+				mk_init_global_mechanics = yes
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			if = {
+				limit = { is_mk_country = yes }
+				mk_mech_monthly = yes
+				mk_refresh_faction_member_idea = yes
+			}
+			if = {
+				limit = { tag = VCI }
+				mk_monthly_absurd_tick = yes
+				mk_monthly_flavor_pulse = yes
+				if = {
+					limit = {
+						has_global_flag = mk_congress_cooldown
+						NOT = { has_global_flag = mk_congress_active }
+					}
+					if = {
+						limit = { check_variable = { global.mk_congress_cooldown_months > 0 } }
+						subtract_from_variable = { global.mk_congress_cooldown_months = 1 }
+						if = {
+							limit = { check_variable = { global.mk_congress_cooldown_months < 1 } }
+							clr_global_flag = mk_congress_cooldown
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = mk_great_political_turn }
+						date > 1936.3.11
+					}
+					mk_fire_great_turn = yes
+				}
+			}
+		}
+	}
+
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					is_mk_country = yes
+					has_government = fascism
+					check_variable = { mk_npt > 2 }
+				}
+				add_political_power = 1
+			}
+			if = {
+				limit = {
+					is_mk_country = yes
+					is_in_faction = yes
+				}
+				add_political_power = 1
+			}
+		}
+	}
+}

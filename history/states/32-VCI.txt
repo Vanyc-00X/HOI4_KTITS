@@ -1,0 +1,28 @@
+state={
+	id=32
+	name="STATE_32"
+	manpower = 1500000
+	state_category = large_town
+		resources={
+		steel=28
+		oil=10
+		aluminium=12
+		rubber=4
+		tungsten=6
+		chromium=6
+	}
+	history={
+		owner = VCI
+		victory_points = { 58 3 }
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+		}
+		add_core_of = VCI
+	}
+	provinces={
+		58
+	}
+	local_supplies=0.0
+}

@@ -1,0 +1,224 @@
+default = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+VCI = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+SOY = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+BTR = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+KRZ = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+KZS = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+MUS = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+TRF = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ZLD = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ISL = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+CLB = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ADL = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+DMK = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+FDP = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+CRE = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+SVA = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ART = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+KMS = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ZNS = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ZKR = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ZML = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+NBL = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+ISG = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+HRL = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+
+SHF = {
+	male = { names = { Ivan Petr Aleksei Dmitri Sergei Nikolai Andrei Mikhail Vladimir Yuri Oleg Roman Viktor Pavel Kirill Timur Ruslan Igor Boris Gleb Artem Lev Maksim Fedor } }
+	female = { names = { Anna Maria Elena Olga Natalia Irina Svetlana Tatiana Yulia Vera } }
+	surnames = { Ivanov Petrov Sidorov Kuznetsov Smirnov Popov Volkov Sokolov Lebedev Kozlov Novikov Morozov Pavlov Semenov Golubev Vinogradov Bogdanov Voronov Frolov Mikhailov }
+	callsigns = { Falcon Bear Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}

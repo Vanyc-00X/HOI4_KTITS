@@ -1,0 +1,30 @@
+state={
+	id=120
+	name="STATE_120"
+	manpower = 1500000
+	state_category = large_town
+		resources={
+		steel=16
+		oil=6
+		aluminium=5
+		rubber=4
+		tungsten=5
+		chromium=5
+	}
+	history={
+		owner = SHF
+		victory_points = { 939 3 }
+		buildings = {
+			951 = { naval_base = 1 }
+			952 = { naval_base = 1 }
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+		}
+		add_core_of = SHF
+	}
+	provinces={
+		939 940 941 942 943 944 945 946 947 948 949 950 951 952
+	}
+	local_supplies=0.0
+}

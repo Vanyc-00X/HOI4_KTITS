@@ -1,0 +1,36 @@
+state={
+	id=40
+	name="STATE_40"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=18
+		oil=25
+		aluminium=4
+		rubber=2
+		tungsten=13
+		chromium=11
+	}
+	history={
+		owner = BTR
+		victory_points = { 116 3 }
+		buildings = {
+			117 = { naval_base = 1 }
+			119 = { naval_base = 1 }
+			121 = { naval_base = 1 }
+			123 = { naval_base = 1 }
+			125 = { naval_base = 1 }
+			127 = { naval_base = 1 }
+			128 = { naval_base = 1 }
+			129 = { naval_base = 1 }
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = BTR
+	}
+	provinces={
+		116 117 118 119 120 121 122 123 124 125 126 127 128 129
+	}
+	local_supplies=0.0
+}

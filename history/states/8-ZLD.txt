@@ -1,0 +1,29 @@
+state={
+	id=8
+	name="STATE_8"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=6
+		oil=4
+		aluminium=9
+		rubber=5
+		tungsten=2
+		chromium=2
+	}
+	history={
+		owner = ZLD
+		victory_points = { 313 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = ZLD
+	}
+	provinces={
+		310 311 312 313 314 315 316
+	}
+	local_supplies=0.0
+}

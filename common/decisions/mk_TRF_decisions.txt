@@ -1,0 +1,150 @@
+mk_cat_TRF = {
+
+	TRF_dec_raise = {
+		icon = generic_political_discourse
+		cost = 25
+		fire_only_once = no
+		days_re_enable = 30
+		available = {
+			has_political_power > 24
+			check_variable = { mk_mech < 95 }
+		}
+		complete_effect = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_add = yes
+			custom_effect_tooltip = TRF_mech_up_tt
+			add_stability = -0.01
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	TRF_dec_lower = {
+		icon = generic_civil_support
+		cost = 25
+		fire_only_once = no
+		days_re_enable = 30
+		available = {
+			has_political_power > 24
+			check_variable = { mk_mech > 5 }
+		}
+		complete_effect = {
+			set_temp_variable = { mk_mech_delta = 10 }
+			mk_mech_sub = yes
+			custom_effect_tooltip = TRF_mech_down_tt
+			add_stability = 0.02
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	TRF_dec_exploit = {
+		icon = generic_industry
+		cost = 50
+		fire_only_once = no
+		days_re_enable = 90
+		available = {
+			has_political_power > 49
+			check_variable = { mk_mech > 69 }
+		}
+		complete_effect = {
+			set_temp_variable = { mk_mech_delta = 30 }
+			mk_mech_sub = yes
+			country_event = { id = mk_trf.7 days = 1 }
+		}
+		ai_will_do = { factor = 2 }
+	}
+
+	TRF_dec_crisis = {
+		icon = generic_break_treaty
+		cost = 40
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			check_variable = { mk_mech < 20 }
+		}
+		available = {
+			has_political_power > 39
+		}
+		complete_effect = {
+			set_temp_variable = { mk_mech_delta = 20 }
+			mk_mech_add = yes
+			add_stability = -0.02
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	TRF_dec_campaign_keep = {
+		icon = generic_nationalism
+		cost = 30
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			has_country_flag = TRF_branch_keep
+		}
+		available = {
+			has_political_power > 29
+		}
+		complete_effect = {
+			add_popularity = { ideology = communism popularity = 0.05 }
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	TRF_dec_campaign_a = {
+		icon = generic_nationalism
+		cost = 30
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			has_country_flag = TRF_branch_a
+		}
+		available = {
+			has_political_power > 29
+		}
+		complete_effect = {
+			add_popularity = { ideology = democratic popularity = 0.05 }
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_sub = yes
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	TRF_dec_campaign_b = {
+		icon = generic_nationalism
+		cost = 30
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			has_country_flag = TRF_branch_b
+		}
+		available = {
+			has_political_power > 29
+		}
+		complete_effect = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	TRF_dec_campaign_c = {
+		icon = generic_nationalism
+		cost = 30
+		fire_only_once = no
+		days_re_enable = 60
+		visible = {
+			has_country_flag = TRF_branch_c
+		}
+		available = {
+			has_political_power > 29
+		}
+		complete_effect = {
+			add_popularity = { ideology = neutrality popularity = 0.05 }
+			set_temp_variable = { mk_mech_delta = 5 }
+			mk_mech_add = yes
+		}
+		ai_will_do = { factor = 1 }
+	}
+}

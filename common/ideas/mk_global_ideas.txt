@@ -1,0 +1,285 @@
+# Mir Kazualnosti — global ideas (stage 4)
+
+ideas = {
+	country = {
+
+		mk_idea_world_vote = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.02
+				improve_relations_maintain_cost_factor = -0.1
+			}
+		}
+
+		mk_idea_vci_host = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				trade_opinion_factor = 0.15
+			}
+		}
+
+		mk_idea_npt_seed = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.03
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		mk_idea_npt_funding = {
+			picture = generic_exploit_mines
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		mk_idea_npt_network = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.08
+				industrial_capacity_factory = 0.05
+				political_power_factor = 0.05
+			}
+		}
+
+		mk_idea_absurd_calm = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.03
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		mk_idea_absurd_warm = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05
+				stability_weekly = -0.001
+			}
+		}
+
+		mk_idea_absurd_hot = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.08
+				stability_factor = -0.05
+				conscription_factor = 0.02
+			}
+		}
+
+		mk_idea_absurd_critical = {
+			picture = generic_purge
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.15
+				stability_factor = -0.12
+				army_org_factor = -0.05
+				political_power_factor = 0.1
+			}
+		}
+
+		mk_idea_accused_revisionist = {
+			picture = generic_secret_police
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.1
+				opinion_gain_monthly_factor = -0.25
+			}
+		}
+
+		mk_idea_expelled_revisionist = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				stability_factor = -0.05
+				generate_wargoal_tension = -0.2
+			}
+		}
+
+		# Accuser who left the alliance (TZ §5.1)
+		mk_idea_revisionist = {
+			picture = generic_secret_police
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.1
+				army_attack_factor = 0.08
+				war_support_factor = 0.1
+				stability_factor = -0.06
+				political_power_factor = 0.08
+				generate_wargoal_tension = -0.25
+			}
+		}
+
+		# Remaining members: penalty if they rush the leaver (90–120 days)
+		mk_idea_revision_hesitation = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.12
+				army_org_factor = -0.08
+				stability_factor = -0.04
+			}
+		}
+
+		mk_idea_condemn_revisionism = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = 0.03
+				army_defence_factor = 0.05
+			}
+		}
+
+		mk_idea_faction_member = {
+			picture = generic_flexible_foreign_policy
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+				research_speed_factor = 0.03
+				army_org_factor = 0.03
+				improve_relations_maintain_cost_factor = -0.2
+			}
+		}
+
+		mk_idea_npt_protocol = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+				political_power_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		mk_idea_victory_diplomatic = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.1
+				trade_opinion_factor = 0.25
+			}
+		}
+
+		mk_idea_victory_ideological = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.1
+				war_support_factor = 0.1
+				drift_defence_factor = 0.3
+			}
+		}
+
+		mk_idea_victory_economic = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.15
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		mk_idea_victory_npt = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.2
+				political_power_factor = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		mk_idea_victory_absurd = {
+			picture = generic_purge
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.15
+				war_support_factor = 0.2
+				stability_weekly = -0.003
+			}
+		}
+
+		mk_idea_victory_integration = {
+			picture = generic_build_infrastructure
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.08
+				local_resources_factor = 0.15
+				political_power_factor = 0.1
+			}
+		}
+
+		mk_idea_turn_reform = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				democratic_drift = 0.05
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+
+		mk_idea_turn_harden = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.03
+				communism_drift = 0.03
+				war_support_factor = 0.05
+				conscription_factor = 0.02
+			}
+		}
+
+		mk_idea_turn_chaos = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				army_attack_factor = 0.05
+				stability_weekly = -0.002
+			}
+		}
+	}
+}

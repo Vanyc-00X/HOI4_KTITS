@@ -1,0 +1,28 @@
+state={
+	id=53
+	name="STATE_53"
+	manpower = 750000
+	state_category = town
+		resources={
+		steel=8
+		oil=6
+		aluminium=10
+		rubber=8
+		tungsten=4
+		chromium=8
+	}
+	history={
+		owner = MUS
+		victory_points = { 234 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = MUS
+	}
+	provinces={
+		234 235 236 237 238 239 240 241 242
+	}
+	local_supplies=0.0
+}

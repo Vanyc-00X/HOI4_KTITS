@@ -1,0 +1,6 @@
+mk_cat_BTR = {
+	icon = GFX_decision_category_generic_fascism
+	priority = 110
+	allowed = { original_tag = BTR }
+	visible = { tag = BTR }
+}

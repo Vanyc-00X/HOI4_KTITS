@@ -1,0 +1,60 @@
+capital = 8
+
+oob = "ZLD_1936"
+
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.45
+
+# Minimal techs until army pass
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	tech_engineers = 1
+}
+
+set_convoys = 25
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 70
+	communism = 15
+	fascism = 5
+	neutrality = 10
+}
+
+add_ideas = {
+	ZLD_koalitsionnyy_kapital
+}
+
+recruit_character = ZLD_sabirova_alfiya_rasilevna
+
+# Party names (TZ local ideology labels via localisation)
+set_party_name = {
+	ideology = democratic
+	long_name = ZLD_democratic_party_long
+	name = ZLD_democratic_party
+}
+set_party_name = {
+	ideology = communism
+	long_name = ZLD_communism_party_long
+	name = ZLD_communism_party
+}
+set_party_name = {
+	ideology = fascism
+	long_name = ZLD_fascism_party_long
+	name = ZLD_fascism_party
+}
+set_party_name = {
+	ideology = neutrality
+	long_name = ZLD_neutrality_party_long
+	name = ZLD_neutrality_party
+}
+
+set_variable = { mk_boot = 1 }

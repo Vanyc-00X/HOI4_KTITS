@@ -1,0 +1,6 @@
+mk_cat_CLB = {
+	icon = GFX_decision_category_generic_industry
+	priority = 110
+	allowed = { original_tag = CLB }
+	visible = { tag = CLB }
+}

@@ -1,0 +1,6 @@
+mk_cat_ISG = {
+	icon = GFX_decision_category_generic_communist_revolution
+	priority = 110
+	allowed = { original_tag = ISG }
+	visible = { tag = ISG }
+}

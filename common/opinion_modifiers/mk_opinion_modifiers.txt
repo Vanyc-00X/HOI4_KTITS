@@ -1,0 +1,9 @@
+opinion_modifiers = {
+	mk_ideological_kin = {
+		value = 25
+	}
+	mk_kazual_goodwill = {
+		value = 15
+		decay = 0.1
+	}
+}

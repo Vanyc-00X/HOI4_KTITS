@@ -1,0 +1,26 @@
+# Цвета государств мода «Мир Казуальности» (RGB 0-255)
+
+VCI = { color = rgb { 180 140 60 } color_ui = rgb { 200 160 80 } }   # Великая Казуальная Империя
+SOY = { color = rgb { 120 200 140 } color_ui = rgb { 140 220 160 } }  # Соевая Республика
+BTR = { color = rgb { 40 40 40 } color_ui = rgb { 70 70 70 } }        # Чёрная Тартария
+KRZ = { color = rgb { 180 30 30 } color_ui = rgb { 200 50 50 } }      # Красная Земля
+KZS = { color = rgb { 90 70 40 } color_ui = rgb { 120 100 60 } }      # Казачьи штаты
+MUS = { color = rgb { 200 120 160 } color_ui = rgb { 220 140 180 } }  # Королевство Муси
+TRF = { color = rgb { 80 160 60 } color_ui = rgb { 100 180 80 } }     # Травинная Федерация
+ZLD = { color = rgb { 40 140 80 } color_ui = rgb { 60 160 100 } }     # Демократический Зеленодольск
+ISL = { color = rgb { 20 120 80 } color_ui = rgb { 40 140 100 } }     # Исламская Республика
+CLB = { color = rgb { 70 90 120 } color_ui = rgb { 90 110 140 } }     # Челяба
+ADL = { color = rgb { 160 160 180 } color_ui = rgb { 180 180 200 } }  # Айдалия
+DMK = { color = rgb { 120 80 40 } color_ui = rgb { 140 100 60 } }     # Дмитро-Княжество
+FDP = { color = rgb { 100 100 140 } color_ui = rgb { 120 120 160 } }  # Федерация Депутатов
+CRE = { color = rgb { 90 20 20 } color_ui = rgb { 110 40 40 } }       # Чёрная Республика
+SVA = { color = rgb { 100 160 200 } color_ui = rgb { 120 180 220 } }  # Северная Ассамблея
+ART = { color = rgb { 160 100 40 } color_ui = rgb { 180 120 60 } }    # Айратская Республика
+KMS = { color = rgb { 80 140 180 } color_ui = rgb { 100 160 200 } }   # Камильское Содружество
+ZNS = { color = rgb { 140 100 60 } color_ui = rgb { 160 120 80 } }    # Зайнутдиновский Союз
+ZKR = { color = rgb { 60 100 140 } color_ui = rgb { 80 120 160 } }    # Республика Закария
+ZML = { color = rgb { 120 160 80 } color_ui = rgb { 140 180 100 } }   # Земля Замалия
+NBL = { color = rgb { 180 80 40 } color_ui = rgb { 200 100 60 } }     # Новая Булатия
+ISG = { color = rgb { 160 40 60 } color_ui = rgb { 180 60 80 } }      # Республика Исмагил
+HRL = { color = rgb { 200 160 40 } color_ui = rgb { 220 180 60 } }    # Харитоновская Лига
+SHF = { color = rgb { 80 100 80 } color_ui = rgb { 100 120 100 } }    # Шарафутдиновская Федерация

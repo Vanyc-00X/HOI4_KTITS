@@ -1,0 +1,26 @@
+# OS / editor junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+*.bak
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local Paradox / share packs
+*.zip
+mod.zip
+*_share.zip
+
+# Logs / local secrets
+*.log
+.env
+.FAL_KEY
+
+# Large local-only dumps (keep out of git if reappear)
+ресурсы/

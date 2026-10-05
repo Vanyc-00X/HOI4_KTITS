@@ -1,0 +1,5 @@
+capital = 77
+set_research_slots = 2
+set_technology = { infantry_weapons = 1 }
+set_politics = { ruling_party = neutrality last_election = "1935.1.1" election_frequency = 48 elections_allowed = no }
+set_popularities = { democratic = 0 communism = 0 fascism = 0 neutrality = 100 }

@@ -1,0 +1,36 @@
+state={
+	id=15
+	name="STATE_15"
+	manpower = 975000
+	state_category = large_city
+		resources={
+		steel=5
+		oil=4
+		aluminium=9
+		rubber=6
+		tungsten=4
+		chromium=2
+	}
+	history={
+		owner = SVA
+		victory_points = { 560 20 }
+		buildings = {
+			552 = { naval_base = 1 }
+			553 = { naval_base = 1 }
+			554 = { naval_base = 1 }
+			555 = { naval_base = 1 }
+			556 = { naval_base = 1 }
+			560 = { naval_base = 1 }
+			564 = { naval_base = 1 }
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = SVA
+	}
+	provinces={
+		552 553 554 555 556 557 558 559 560 561 562 563 564 565 566 567
+	}
+	local_supplies=0.0
+}
