@@ -10,6 +10,7 @@ state={
 		rubber=8
 		tungsten=9
 		chromium=9
+		coal=16
 	}
 	history={
 		owner = DMK

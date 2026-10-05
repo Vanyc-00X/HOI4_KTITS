@@ -10,6 +10,7 @@ state={
 		rubber=6
 		tungsten=8
 		chromium=10
+		coal=35
 	}
 	history={
 		owner = BTR

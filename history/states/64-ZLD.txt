@@ -10,6 +10,7 @@ state={
 		rubber=5
 		tungsten=6
 		chromium=2
+		coal=24
 	}
 	history={
 		owner = ZLD

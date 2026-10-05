@@ -25,7 +25,7 @@ Repository: https://github.com/Vanyc-00X/HOI4_KTITS
    Example contents:
 
 ```text
-version="0.12.0"
+version="0.13.0"
 tags={
 	"Alternative History"
 	"Total Conversion"
@@ -86,9 +86,9 @@ Works if **all players**:
 - Mechanics: Absurd temperature, World Votes, NPT (fascism only), ideology blocs + revisionism
 - Cosmetic renames/flags on political courses
 - AI strategy plans / areas / theaters
-- Resources scattered on all states
+- Resources scattered on all states: steel / oil / aluminium / rubber / tungsten / chromium + **coal** (1.19 energy), also as focus rewards
 
-Version in `descriptor.mod` / `tools/register_mod.py`: **0.12.0**
+Version in `descriptor.mod` / `tools/register_mod.py`: **0.13.0**
 
 ## Rebuild tools (optional)
 
@@ -99,6 +99,7 @@ python tools/build_countries.py
 python tools/build_ai.py
 python tools/build_flags.py
 python tools/build_resources.py
+python tools/add_coal_focus_rewards.py
 python tools/check_refs.py
 python tools/validate_mod.py
 python tools/register_mod.py

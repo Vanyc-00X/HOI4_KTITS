@@ -408,6 +408,7 @@ focus_tree = {
 			}
 			country_event = { id = mk_clb.10 days = 1 }
 			random_owned_controlled_state = {
+				add_resource = { type = coal amount = 15 }
 				add_resource = { type = steel amount = 10 }
 			}
 		}
@@ -1068,6 +1069,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_resource = { type = coal amount = 12 }
 				add_resource = { type = steel amount = 8 }
 				add_resource = { type = oil amount = 4 }
 			}
@@ -1345,6 +1347,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_resource = { type = coal amount = 12 }
 				add_resource = { type = steel amount = 8 }
 				add_resource = { type = oil amount = 4 }
 			}
@@ -1631,6 +1634,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_resource = { type = coal amount = 12 }
 				add_resource = { type = steel amount = 8 }
 				add_resource = { type = oil amount = 4 }
 			}
@@ -1908,6 +1912,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
+				add_resource = { type = coal amount = 12 }
 				add_resource = { type = steel amount = 8 }
 				add_resource = { type = oil amount = 4 }
 			}

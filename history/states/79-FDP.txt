@@ -10,6 +10,7 @@ state={
 		rubber=4
 		tungsten=3
 		chromium=3
+		coal=21
 	}
 	history={
 		owner = FDP
