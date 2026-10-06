@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import struct
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -203,6 +204,15 @@ river_img = Image.open(MAP / "rivers.bmp")
 if river_img.size != (W, H) or river_img.mode not in ("P", "L"):
     bad(f"MAP rivers.bmp expected indexed {W}x{H}, got {river_img.mode} {river_img.size}")
 else:
+    with (MAP / "rivers.bmp").open("rb") as river_file:
+        header = river_file.read(54)
+    if len(header) == 54:
+        river_header = struct.unpack("<2sIHHIIiiHHIIiiii", header)
+        if river_header[14] != 0 or river_header[15] != 0:
+            bad(
+                "MAP rivers.bmp must set BMP biClrUsed and biClrImportant to 0 "
+                f"(got {river_header[14]} and {river_header[15]})"
+            )
     river_raster = np.asarray(river_img.convert("P"), dtype=np.uint8)
     river_mask = ~np.isin(river_raster, (254, 255))
     if int((river_mask & land_pixels).sum()) < 1000:

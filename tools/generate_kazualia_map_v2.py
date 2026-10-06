@@ -305,7 +305,13 @@ def save_bmp_rgb(path: Path, img: Image.Image) -> None:
     path.write_bytes(header + pixel_data)
 
 
-def save_bmp_indexed(path: Path, index_img: Image.Image, palette_rgb: list[int]) -> None:
+def save_bmp_indexed(
+    path: Path,
+    index_img: Image.Image,
+    palette_rgb: list[int],
+    colors_used: int = 256,
+    colors_important: int | None = None,
+) -> None:
     full_pal = (list(palette_rgb) + [0] * 768)[:768]
     data = list(index_img.convert("L").getdata())
     w, h = index_img.size
@@ -327,6 +333,9 @@ def save_bmp_indexed(path: Path, index_img: Image.Image, palette_rgb: list[int])
         off + len(pixel_bytes),
         0, 0, off, 40, w, h, 1, 8, 0, len(pixel_bytes), 2835, 2835, 256, 256,
     )
+    if colors_important is None:
+        colors_important = colors_used
+    header = header[:46] + struct.pack("<II", colors_used, colors_important) + header[54:]
     path.write_bytes(header + pal_bytes + pixel_bytes)
 
 
@@ -854,7 +863,12 @@ def main() -> None:
 
     save_bmp_indexed(map_dir / "terrain.bmp", Image.fromarray(terrain_idx, "L"), terrain_pal)
     save_bmp_indexed(map_dir / "heightmap.bmp", Image.fromarray(height, "L"), gray_pal)
-    save_bmp_indexed(map_dir / "rivers.bmp", Image.fromarray(rivers_idx, "L"), rivers_pal)
+    save_bmp_indexed(
+        map_dir / "rivers.bmp",
+        Image.fromarray(rivers_idx, "L"),
+        rivers_pal,
+        colors_used=0,
+    )
     save_bmp_indexed(map_dir / "cities.bmp", Image.fromarray(cities_idx, "L"), cities_pal)
     grad_y, grad_x = np.gradient(height.astype(np.float32))
     nx = -grad_x[::2, ::2] * 0.08
