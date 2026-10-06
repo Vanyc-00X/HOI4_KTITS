@@ -1,9 +1,8 @@
-##### ISG 1936 OOB #####
 division_template = {
-	name = "Infantry Division"
+	name = "ISG Field Division"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 	}
@@ -16,13 +15,13 @@ units = {
 	division = {
 		division_name = { is_name_ordered = yes name_order = 1 }
 		location = 868
-		division_template = "Infantry Division"
+		division_template = "ISG Field Division"
 		start_experience_factor = 0.2
 	}
 	division = {
 		division_name = { is_name_ordered = yes name_order = 2 }
 		location = 868
-		division_template = "Infantry Division"
+		division_template = "ISG Field Division"
 		start_experience_factor = 0.2
 	}
 }
@@ -30,4 +29,6 @@ units = {
 instant_effect = {
 	add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = ISG }
 	add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ISG }
+	add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 500 producer = ISG }
+	add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 500 producer = ISG }
 }

@@ -1,0 +1,29 @@
+state={
+	id=119
+	name="STATE_119"
+	manpower = 1600000
+	state_category = large_town
+	resources={
+		steel=9
+		oil=5
+		aluminium=4
+		rubber=3
+		tungsten=4
+		chromium=8
+		coal=38
+	}
+	history={
+		owner = SHF
+		victory_points = { 1521 3 }
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+		}
+		add_core_of = SHF
+	}
+	provinces={
+		1521 1522 1523 1524 1525 1526 1527 1528 1529 1530 1531 1532 1533 1534 1535 1536 1537 1538
+	}
+	local_supplies=0.0
+}

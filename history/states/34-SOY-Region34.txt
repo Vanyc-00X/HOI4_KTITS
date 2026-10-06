@@ -1,0 +1,29 @@
+state={
+	id=34
+	name="STATE_34"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=12
+		oil=7
+		aluminium=7
+		rubber=22
+		tungsten=9
+		chromium=5
+		coal=24
+	}
+	history={
+		owner = SOY
+		victory_points = { 152 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = SOY
+	}
+	provinces={
+		152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175
+	}
+	local_supplies=0.0
+}

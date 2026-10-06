@@ -35,6 +35,7 @@ add_ideas = {
 
 recruit_character = MUS_musina_alina_maratovna
 
+recruit_character = MUS_mk_general
 # Party names (TZ local ideology labels via localisation)
 set_party_name = {
 	ideology = democratic

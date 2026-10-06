@@ -1,4 +1,4 @@
-# Mir Kazualnosti — on_actions (stages 4 + 9)
+# Mir Kazualnosti — on_actions (stages 4 + 9 + 15)
 # Full replace_path="common/on_actions" — only this file loads.
 
 on_actions = {
@@ -47,6 +47,24 @@ on_actions = {
 		}
 	}
 
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = { is_mk_country = yes }
+				if = {
+					limit = { has_country_flag = mk_congress_mandated_war }
+					clr_country_flag = mk_congress_mandated_war
+				}
+				else = {
+					add_to_variable = { mk_misconduct = 1 }
+					clamp_variable = { var = mk_misconduct min = 0 max = 20 }
+					set_temp_variable = { mk_absurd_delta = 1 }
+					mk_add_absurd = yes
+				}
+			}
+		}
+	}
+
 	on_weekly = {
 		effect = {
 			if = {
@@ -66,4 +84,1643 @@ on_actions = {
 			}
 		}
 	}
+
+	# BEGIN generated ruler-capture actions
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = VCI
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_vci_democratic
+					remove_country_leader_trait = mk_ruler_vci_communism
+					remove_country_leader_trait = mk_ruler_vci_fascism
+					remove_country_leader_trait = mk_ruler_vci_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.1 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SOY
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_soy_democratic
+					remove_country_leader_trait = mk_ruler_soy_communism
+					remove_country_leader_trait = mk_ruler_soy_fascism
+					remove_country_leader_trait = mk_ruler_soy_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.2 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = BTR
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_btr_democratic
+					remove_country_leader_trait = mk_ruler_btr_communism
+					remove_country_leader_trait = mk_ruler_btr_fascism
+					remove_country_leader_trait = mk_ruler_btr_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.3 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KRZ
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_krz_democratic
+					remove_country_leader_trait = mk_ruler_krz_communism
+					remove_country_leader_trait = mk_ruler_krz_fascism
+					remove_country_leader_trait = mk_ruler_krz_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.4 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KZS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_kzs_democratic
+					remove_country_leader_trait = mk_ruler_kzs_communism
+					remove_country_leader_trait = mk_ruler_kzs_fascism
+					remove_country_leader_trait = mk_ruler_kzs_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.5 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = MUS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_mus_democratic
+					remove_country_leader_trait = mk_ruler_mus_communism
+					remove_country_leader_trait = mk_ruler_mus_fascism
+					remove_country_leader_trait = mk_ruler_mus_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.6 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = TRF
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_trf_democratic
+					remove_country_leader_trait = mk_ruler_trf_communism
+					remove_country_leader_trait = mk_ruler_trf_fascism
+					remove_country_leader_trait = mk_ruler_trf_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.7 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZLD
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_zld_democratic
+					remove_country_leader_trait = mk_ruler_zld_communism
+					remove_country_leader_trait = mk_ruler_zld_fascism
+					remove_country_leader_trait = mk_ruler_zld_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.8 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ISL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_isl_democratic
+					remove_country_leader_trait = mk_ruler_isl_communism
+					remove_country_leader_trait = mk_ruler_isl_fascism
+					remove_country_leader_trait = mk_ruler_isl_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.9 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CLB
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_clb_democratic
+					remove_country_leader_trait = mk_ruler_clb_communism
+					remove_country_leader_trait = mk_ruler_clb_fascism
+					remove_country_leader_trait = mk_ruler_clb_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.10 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ADL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_adl_democratic
+					remove_country_leader_trait = mk_ruler_adl_communism
+					remove_country_leader_trait = mk_ruler_adl_fascism
+					remove_country_leader_trait = mk_ruler_adl_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.11 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = DMK
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_dmk_democratic
+					remove_country_leader_trait = mk_ruler_dmk_communism
+					remove_country_leader_trait = mk_ruler_dmk_fascism
+					remove_country_leader_trait = mk_ruler_dmk_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.12 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FDP
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_fdp_democratic
+					remove_country_leader_trait = mk_ruler_fdp_communism
+					remove_country_leader_trait = mk_ruler_fdp_fascism
+					remove_country_leader_trait = mk_ruler_fdp_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.13 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_cre_democratic
+					remove_country_leader_trait = mk_ruler_cre_communism
+					remove_country_leader_trait = mk_ruler_cre_fascism
+					remove_country_leader_trait = mk_ruler_cre_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.14 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SVA
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_sva_democratic
+					remove_country_leader_trait = mk_ruler_sva_communism
+					remove_country_leader_trait = mk_ruler_sva_fascism
+					remove_country_leader_trait = mk_ruler_sva_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.15 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ART
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_art_democratic
+					remove_country_leader_trait = mk_ruler_art_communism
+					remove_country_leader_trait = mk_ruler_art_fascism
+					remove_country_leader_trait = mk_ruler_art_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.16 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KMS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_kms_democratic
+					remove_country_leader_trait = mk_ruler_kms_communism
+					remove_country_leader_trait = mk_ruler_kms_fascism
+					remove_country_leader_trait = mk_ruler_kms_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.17 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZNS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_zns_democratic
+					remove_country_leader_trait = mk_ruler_zns_communism
+					remove_country_leader_trait = mk_ruler_zns_fascism
+					remove_country_leader_trait = mk_ruler_zns_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.18 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZKR
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_zkr_democratic
+					remove_country_leader_trait = mk_ruler_zkr_communism
+					remove_country_leader_trait = mk_ruler_zkr_fascism
+					remove_country_leader_trait = mk_ruler_zkr_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.19 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZML
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_zml_democratic
+					remove_country_leader_trait = mk_ruler_zml_communism
+					remove_country_leader_trait = mk_ruler_zml_fascism
+					remove_country_leader_trait = mk_ruler_zml_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.20 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = NBL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_nbl_democratic
+					remove_country_leader_trait = mk_ruler_nbl_communism
+					remove_country_leader_trait = mk_ruler_nbl_fascism
+					remove_country_leader_trait = mk_ruler_nbl_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.21 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ISG
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_isg_democratic
+					remove_country_leader_trait = mk_ruler_isg_communism
+					remove_country_leader_trait = mk_ruler_isg_fascism
+					remove_country_leader_trait = mk_ruler_isg_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.22 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = HRL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_hrl_democratic
+					remove_country_leader_trait = mk_ruler_hrl_communism
+					remove_country_leader_trait = mk_ruler_hrl_fascism
+					remove_country_leader_trait = mk_ruler_hrl_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.23 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SHF
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_ruler_exiled }
+					}
+				}
+				ROOT = {
+					set_country_flag = mk_ruler_exiled
+					remove_country_leader_trait = mk_ruler_shf_democratic
+					remove_country_leader_trait = mk_ruler_shf_communism
+					remove_country_leader_trait = mk_ruler_shf_fascism
+					remove_country_leader_trait = mk_ruler_shf_neutrality
+				}
+				FROM = {
+					country_event = { id = mk_ruler.24 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = VCI
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.25 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SOY
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.26 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = BTR
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.27 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KRZ
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.28 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KZS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.29 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = MUS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.30 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = TRF
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.31 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZLD
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.32 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ISL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.33 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CLB
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.34 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ADL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.35 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = DMK
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.36 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FDP
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.37 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.38 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SVA
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.39 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ART
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.40 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = KMS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.41 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZNS
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.42 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZKR
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.43 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZML
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.44 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = NBL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.45 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ISG
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.46 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = HRL
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.47 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SHF
+						is_mk_country = yes
+						NOT = { has_country_flag = mk_general_exiled }
+					}
+				}
+				ROOT = { set_country_flag = mk_general_exiled }
+				FROM = {
+					country_event = { id = mk_ruler.48 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SOY
+						has_country_flag = mk_unlocked_character_soy_joe_biden_guest_diplomat
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_soy_joe_biden_guest_diplomat } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_soy_joe_biden_guest_diplomat
+					country_event = { id = mk_ruler.49 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = BTR
+						has_country_flag = mk_unlocked_character_btr_grandfather_akhtyamov
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_btr_grandfather_akhtyamov } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_btr_grandfather_akhtyamov
+					country_event = { id = mk_ruler.50 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ZLD
+						has_country_flag = mk_unlocked_character_zld_grigory_yavlinsky
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_zld_grigory_yavlinsky } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_zld_grigory_yavlinsky
+					country_event = { id = mk_ruler.51 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						has_country_flag = mk_unlocked_character_cre_adolf_hitler_guest_instructor
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_cre_adolf_hitler_guest_instructor } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_cre_adolf_hitler_guest_instructor
+					country_event = { id = mk_ruler.52 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						has_country_flag = mk_unlocked_character_cre_hermann_goering_guest_instructor
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_cre_hermann_goering_guest_instructor } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_cre_hermann_goering_guest_instructor
+					country_event = { id = mk_ruler.53 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						has_country_flag = mk_unlocked_character_cre_erwin_rommel_guest_instructor
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_cre_erwin_rommel_guest_instructor } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_cre_erwin_rommel_guest_instructor
+					country_event = { id = mk_ruler.54 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CRE
+						has_country_flag = mk_unlocked_character_cre_heinz_guderian_guest_instructor
+					}
+					FROM = { NOT = { has_country_flag = mk_captured_character_cre_heinz_guderian_guest_instructor } }
+				}
+				FROM = {
+					set_country_flag = mk_captured_character_cre_heinz_guderian_guest_instructor
+					country_event = { id = mk_ruler.55 days = 1 }
+				}
+			}
+		}
+	}
+
+	on_uncapitulation = {
+		effect = {
+				if = {
+					limit = {
+						original_tag = VCI
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_vci_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_vci_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_vci_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_vci_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = VCI
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SOY
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_soy_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_soy_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_soy_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_soy_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SOY
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = BTR
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_btr_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_btr_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_btr_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_btr_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = BTR
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KRZ
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_krz_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_krz_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_krz_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_krz_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KRZ
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KZS
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_kzs_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_kzs_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_kzs_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_kzs_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KZS
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = MUS
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_mus_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_mus_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_mus_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_mus_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = MUS
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = TRF
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_trf_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_trf_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_trf_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_trf_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = TRF
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZLD
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_zld_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_zld_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_zld_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_zld_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZLD
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ISL
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_isl_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_isl_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_isl_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_isl_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ISL
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = CLB
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_clb_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_clb_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_clb_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_clb_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = CLB
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ADL
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_adl_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_adl_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_adl_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_adl_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ADL
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = DMK
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_dmk_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_dmk_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_dmk_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_dmk_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = DMK
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = FDP
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_fdp_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_fdp_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_fdp_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_fdp_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = FDP
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = CRE
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_cre_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_cre_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_cre_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_cre_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = CRE
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SVA
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_sva_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_sva_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_sva_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_sva_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SVA
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ART
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_art_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_art_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_art_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_art_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ART
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KMS
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_kms_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_kms_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_kms_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_kms_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = KMS
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZNS
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_zns_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_zns_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_zns_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_zns_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZNS
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZKR
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_zkr_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_zkr_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_zkr_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_zkr_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZKR
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZML
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_zml_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_zml_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_zml_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_zml_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ZML
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = NBL
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_nbl_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_nbl_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_nbl_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_nbl_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = NBL
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ISG
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_isg_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_isg_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_isg_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_isg_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = ISG
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = HRL
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_hrl_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_hrl_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_hrl_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_hrl_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = HRL
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SHF
+						has_country_flag = mk_ruler_exiled
+					}
+					if = {
+						if = {
+							limit = { has_government = democratic }
+							add_country_leader_trait = mk_ruler_shf_democratic
+						}
+						else_if = {
+							limit = { has_government = communism }
+							add_country_leader_trait = mk_ruler_shf_communism
+						}
+						else_if = {
+							limit = { has_government = fascism }
+							add_country_leader_trait = mk_ruler_shf_fascism
+						}
+						else_if = {
+							limit = { has_government = neutrality }
+							add_country_leader_trait = mk_ruler_shf_neutrality
+						}
+					}
+					clr_country_flag = mk_ruler_exiled
+				}
+				if = {
+					limit = {
+						original_tag = SHF
+						has_country_flag = mk_general_exiled
+					}
+					clr_country_flag = mk_general_exiled
+				}
+		}
+	}
+	# END generated ruler-capture actions
 }

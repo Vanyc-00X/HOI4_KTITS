@@ -1,4 +1,4 @@
-# Mir Kazualnosti — global effects (stages 4 + 9)
+# Mir Kazualnosti — global effects (stages 4 + 9 + 15)
 
 mk_init_global_mechanics = {
 	if = {
@@ -8,6 +8,10 @@ mk_init_global_mechanics = {
 		set_variable = { global.mk_congress_count = 0 }
 		set_variable = { global.mk_revisionism_cases = 0 }
 		set_variable = { global.mk_condemn_votes = 0 }
+		set_variable = { global.mk_congress_yes_votes = 0 }
+		set_variable = { global.mk_congress_no_votes = 0 }
+		set_variable = { global.mk_congress_total_votes = 0 }
+		set_variable = { global.mk_congress_required_votes = 0 }
 		set_variable = { global.mk_same_ideology_count = 1 }
 		clr_global_flag = mk_congress_active
 		clr_global_flag = mk_congress_cooldown
@@ -74,6 +78,12 @@ mk_init_country_mechanics = {
 	set_variable = { mk_world_votes = 1 }
 	set_variable = { mk_npt = 0 }
 	set_variable = { mk_revisionism = 0 }
+	set_variable = { mk_misconduct = 0 }
+	clr_country_flag = mk_congress_vote_yes
+	clr_country_flag = mk_congress_vote_no
+	clr_country_flag = mk_congress_target
+	clr_country_flag = mk_congress_attacker
+	clr_country_flag = mk_ruler_exiled
 	clr_country_flag = mk_revisionist_cooldown
 	clr_country_flag = mk_npt_surge
 	clr_country_flag = mk_condemned_revisionism
@@ -85,6 +95,16 @@ mk_init_country_mechanics = {
 		set_variable = { mk_world_votes = 3 }
 		add_ideas = mk_idea_vci_host
 	}
+	# BTR and CRE begin with a modest misconduct record; declared wars increase it.
+	if = {
+		limit = {
+			OR = {
+				original_tag = BTR
+				original_tag = CRE
+			}
+		}
+		set_variable = { mk_misconduct = 1 }
+	}
 	# Stage 11: NPT seed only for fascist starting governments
 	if = {
 		limit = {
@@ -95,6 +115,57 @@ mk_init_country_mechanics = {
 		}
 		set_variable = { mk_npt = 2 }
 		add_ideas = mk_idea_npt_seed
+	}
+}
+
+# Start one weighted global vote. The sponsor's three (or two emergency) votes are committed up front.
+mk_start_congress_vote = {
+	every_country = {
+		clr_country_flag = mk_congress_target
+		clr_country_flag = mk_congress_vote_yes
+		clr_country_flag = mk_congress_vote_no
+	}
+	set_variable = { global.mk_congress_yes_votes = mk_congress_sponsor_weight }
+	set_variable = { global.mk_congress_no_votes = 0 }
+	set_variable = { global.mk_congress_total_votes = 0 }
+	set_variable = { global.mk_congress_required_votes = 0 }
+	save_global_event_target_as = mk_congress_caller
+	random_other_country = {
+		limit = {
+			is_mk_country = yes
+			is_subject = no
+			NOT = { has_capitulated = yes }
+			check_variable = { mk_misconduct > 0 }
+		}
+		set_country_flag = mk_congress_target
+		save_global_event_target_as = mk_congress_target
+	}
+	# Only sovereign, non-capitulated MK states vote; abstentions count toward the quorum.
+	every_country = {
+		limit = {
+			is_mk_country = yes
+			is_subject = no
+			NOT = { has_capitulated = yes }
+			NOT = { has_country_flag = mk_congress_target }
+		}
+		add_to_variable = { global.mk_congress_total_votes = mk_world_votes }
+	}
+	# The sponsor already spent these points to call the session; count its committed ballot once.
+	add_to_variable = { global.mk_congress_total_votes = mk_congress_sponsor_weight }
+	set_variable = { global.mk_congress_required_votes = global.mk_congress_total_votes }
+	divide_variable = { var = global.mk_congress_required_votes value = 2 }
+	set_country_flag = mk_congress_vote_yes
+	every_other_country = {
+		limit = {
+			is_mk_country = yes
+			is_subject = no
+			NOT = { has_capitulated = yes }
+			NOT = { has_country_flag = mk_congress_target }
+		}
+		country_event = { id = mk_global.10 hours = 1 random_hours = 8 }
+	}
+	event_target:mk_congress_caller = {
+		country_event = { id = mk_global.11 days = 7 }
 	}
 }
 
@@ -131,6 +202,24 @@ mk_sub_absurd = {
 		max = 100
 	}
 	mk_refresh_absurd_ideas = yes
+}
+
+mk_congress_deescalation_effect = {
+	set_temp_variable = { mk_votes_delta = 2 }
+	mk_spend_votes = yes
+	set_temp_variable = { mk_absurd_delta = 8 }
+	mk_sub_absurd = yes
+	add_to_variable = { global.mk_congress_count = 1 }
+	every_country = {
+		limit = { is_mk_country = yes }
+		add_stability = 0.01
+		add_timed_idea = { idea = mk_idea_congress_mandate days = 90 }
+		if = {
+			limit = { check_variable = { mk_misconduct > 0 } }
+			subtract_from_variable = { mk_misconduct = 1 }
+			clamp_variable = { var = mk_misconduct min = 0 max = 20 }
+		}
+	}
 }
 
 mk_refresh_absurd_ideas = {

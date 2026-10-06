@@ -1,0 +1,32 @@
+state={
+	id=51
+	name="STATE_51"
+	manpower = 400000
+	state_category = rural
+	resources={
+		steel=9
+		oil=11
+		aluminium=3
+		rubber=8
+		tungsten=4
+		chromium=3
+		coal=18
+	}
+	history={
+		owner = KZS
+		victory_points = { 368 3 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 0
+			371 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = KZS
+	}
+	provinces={
+		368 369 370 371
+	}
+	local_supplies=0.0
+}

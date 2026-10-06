@@ -56,6 +56,7 @@ def focus_ids(tag: str, sec: str, n: int) -> list[str]:
 def plan_focus_list(tag: str, sizes: dict, branch: str) -> str:
     parts = []
     parts += focus_ids(tag, "start", sizes["start"])
+    parts += focus_ids(tag, "absurd", sizes["absurd"])
     parts += focus_ids(tag, "eco", min(3, sizes["eco"]))
     parts += focus_ids(tag, branch, sizes[branch])
     parts += focus_ids(tag, "eco", sizes["eco"])[3:]
@@ -127,6 +128,10 @@ def write_strategy_plans(specs: dict) -> None:
 		{tag}_c_00 = 0.2
 		{tag}_secret_00 = 0.5
 		{tag}_eco_00 = 8
+		{tag}_absurd_00 = 10
+		{tag}_absurd_03 = 9
+		{tag}_absurd_04 = 11
+		{tag}_absurd_07 = 8
 		{tag}_diplo_00 = 7
 		{tag}_army_00 = 6
 	}}
@@ -191,6 +196,10 @@ def write_strategy_plans(specs: dict) -> None:
 		{tag}_keep_00 = 0.3
 		{tag}_secret_00 = 2.0
 		{tag}_army_00 = 10
+		{tag}_absurd_00 = 9
+		{tag}_absurd_02 = 8
+		{tag}_absurd_04 = 10
+		{tag}_absurd_07 = 10
 		{tag}_diplo_00 = 9
 		{tag}_eco_00 = 7
 	}}

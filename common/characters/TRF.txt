@@ -11,24 +11,47 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = TRF_chazov_georgiy_alekseevich_desc
+			traits = { mk_ruler_trf_communism }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = TRF_chazov_georgiy_alekseevich_desc
+			traits = { mk_ruler_trf_democratic }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = TRF_chazov_georgiy_alekseevich_desc
+			traits = { mk_ruler_trf_fascism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = TRF_chazov_georgiy_alekseevich_desc
+			traits = { mk_ruler_trf_neutrality }
+		}
+	}
+
+	TRF_mk_general = {
+		name = TRF_mk_general
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
 		}
 	}
 }

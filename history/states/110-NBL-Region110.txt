@@ -1,0 +1,29 @@
+state={
+	id=110
+	name="STATE_110"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=18
+		oil=11
+		aluminium=10
+		rubber=4
+		tungsten=9
+		chromium=9
+		coal=17
+	}
+	history={
+		owner = NBL
+		victory_points = { 1362 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = NBL
+	}
+	provinces={
+		1362 1363 1364 1365 1366 1367 1368 1369 1370 1371
+	}
+	local_supplies=0.0
+}

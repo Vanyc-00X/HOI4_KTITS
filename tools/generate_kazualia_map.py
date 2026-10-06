@@ -1,20 +1,23 @@
 # -*- coding: utf-8 -*-
-"""HOI4-valid rectangular map: 1 grid cell = 1 province (no X-cross / no scatter)."""
+"""Generate the fictional Kazualia map with varied biomes and a shaped coastline."""
 from __future__ import annotations
 
 import struct
 from collections import defaultdict
+from math import cos, exp, floor, sin
 from pathlib import Path
 
 from PIL import Image
+
+from build_resources import resources_block
 
 ROOT = Path(__file__).resolve().parents[1]
 VANILLA_MAP = Path(r"E:\SteamLibrary\steamapps\common\Hearts of Iron IV\map")
 
 WIDTH, HEIGHT = 2048, 1024
 NORMAL_W, NORMAL_H = WIDTH // 2, HEIGHT // 2
-LAND_X0, LAND_Y0 = 288, 160
-LAND_X1, LAND_Y1 = 1760, 864
+LAND_X0, LAND_Y0 = 192, 96
+LAND_X1, LAND_Y1 = 1856, 928
 CELL = 32
 
 COUNTRIES = [
@@ -54,6 +57,41 @@ BOARD = {
 }
 
 SIZE_STATES = {"large": 10, "medium": 5, "small": 3}
+TERRAIN_BMP_INDEX = {
+    "plains": 0,
+    "forest": 1,
+    "hills": 2,
+    "desert": 3,
+    "marsh": 9,
+    "mountain": 11,
+    "urban": 13,
+    "jungle": 22,
+}
+TREE_BIOME_INDEX = {
+    "forest": (3, 4),
+    "jungle": (7, 10),
+}
+UNIT_STACK_OFFSETS = (
+    (0, 0.0, 0.0),
+    (1, 0.5, -2.5),
+    (2, 3.0, -2.5),
+    (3, -2.0, 0.0),
+    (4, 4.0, -0.5),
+    (5, -3.0, 2.0),
+    (6, 2.5, 2.0),
+    (7, 0.0, 3.0),
+    (9, -1.5, -3.0),
+    (10, 1.5, -3.5),
+    (21, 5.0, 1.0),
+    (22, -5.0, 1.0),
+    (23, 3.5, 3.5),
+    (24, -3.5, 3.5),
+    (25, 0.5, 5.0),
+    (26, -0.5, -5.0),
+    (27, 6.0, -1.0),
+    (28, -6.0, -1.0),
+    (38, 0.0, -1.0),
+)
 
 WEATHER = """\tweather={
 \t\tperiod={
@@ -259,7 +297,13 @@ def save_bmp_rgb(path: Path, img: Image.Image) -> None:
     path.write_bytes(header + pixel_data)
 
 
-def save_bmp_indexed(path: Path, index_img: Image.Image, palette_rgb: list[int]) -> None:
+def save_bmp_indexed(
+    path: Path,
+    index_img: Image.Image,
+    palette_rgb: list[int],
+    colors_used: int = 256,
+    colors_important: int = 256,
+) -> None:
     full_pal = (list(palette_rgb) + [0] * 768)[:768]
     data = list(index_img.convert("L").getdata())
     w, h = index_img.size
@@ -291,8 +335,8 @@ def save_bmp_indexed(path: Path, index_img: Image.Image, palette_rgb: list[int])
         len(pixel_bytes),
         2835,
         2835,
-        256,
-        256,
+        colors_used,
+        colors_important,
     )
     path.write_bytes(header + pal_bytes + pixel_bytes)
 
@@ -310,9 +354,31 @@ def count_x_crossings(img: Image.Image) -> int:
         for x in range(w - 1):
             a, b = px[x, y], px[x + 1, y]
             c, d = px[x, y + 1], px[x + 1, y + 1]
-            if a != b and a != c and a == d and b == c:
+            if len({a, b, c, d}) == 4 or (a == d and b == c and a != b):
                 n += 1
     return n
+
+
+def repair_province_junctions(img: Image.Image) -> None:
+    px = img.load()
+    w, h = img.size
+    for _ in range(4):
+        fixed = 0
+        for y in range(h - 1):
+            for x in range(w - 1):
+                a, b = px[x, y], px[x + 1, y]
+                c, d = px[x, y + 1], px[x + 1, y + 1]
+                if len({a, b, c, d}) == 4 or (a == d and b == c and a != b):
+                    px[x + 1, y + 1] = c
+                    fixed += 1
+        for y in range(h - 1):
+            a, b = px[w - 1, y], px[0, y]
+            c, d = px[w - 1, y + 1], px[0, y + 1]
+            if len({a, b, c, d}) == 4 or (a == d and b == c and a != b):
+                px[0, y + 1] = b
+                fixed += 1
+        if not fixed:
+            break
 
 
 def nearest_board_tag(col: int, row: int) -> str:
@@ -322,6 +388,73 @@ def nearest_board_tag(col: int, row: int) -> str:
         if d < best_d:
             best, best_d = tag, d
     return best
+
+
+def land_shape(gx: float, gy: float, grid_cols: int, grid_rows: int) -> bool:
+    nx = (gx / grid_cols) * 2 - 1
+    ny = (gy / grid_rows) * 2 - 1
+    coast = (
+        1.24
+        + 0.075 * sin(nx * 7.1 + ny * 3.8)
+        + 0.045 * cos(ny * 8.3 - nx * 2.7)
+        + 0.025 * sin(nx * 14.0 + ny * 10.5)
+    )
+    return abs(nx) ** 4 + abs(ny) ** 4 <= coast
+
+
+def cell_at_pixel(x: int, y: int) -> tuple[int, int]:
+    local_x, local_y = x - LAND_X0, y - LAND_Y0
+    bend_x = 2.6 * sin(local_y * 0.017 + local_x * 0.003) + 1.0 * cos(local_y * 0.043)
+    bend_y = 2.2 * sin(local_x * 0.015 + local_y * 0.004) + 0.9 * cos(local_x * 0.039)
+    return floor((local_x + bend_x) / CELL), floor((local_y + bend_y) / CELL)
+
+
+def elevation_at(gx: float, gy: float) -> float:
+    main_ridge = 12.5 + gy * 0.48 + 1.5 * sin(gy * 0.31)
+    east_ridge = 35.5 - gy * 0.18 + 1.4 * cos(gy * 0.36)
+    main_peak = exp(-((gx - main_ridge) / 2.05) ** 2)
+    east_peak = exp(-((gx - east_ridge) / 1.8) ** 2)
+    broad_upland = 0.5 * exp(-((gx - (main_ridge - 4.2)) / 5.0) ** 2)
+    texture = 7 * sin(gx * 0.71 + gy * 0.42) + 4 * cos(gx * 0.37 - gy * 0.83)
+    basin = 12 * exp(-(((gx - 27) / 5.5) ** 2 + ((gy - 13) / 4.5) ** 2))
+    return max(34, min(238, 66 + 132 * main_peak + 76 * east_peak + 30 * broad_upland + texture - basin))
+
+
+def moisture_at(gx: float, gy: float, grid_cols: int, grid_rows: int) -> float:
+    main_ridge = 12.5 + gy * 0.48 + 1.5 * sin(gy * 0.31)
+    windward = 0.17 if gx < main_ridge else -0.14
+    broad_rain = 0.12 * cos((gy - 10) * 0.22) + 0.10 * sin(gx * 0.19 + gy * 0.13)
+    coastal = 0.12 * (
+        min(gx, grid_cols - 1 - gx, gy, grid_rows - 1 - gy) / 8
+    )
+    drought = 0.35 * exp(-(((gx - 40) / 6.0) ** 2 + ((gy - 18) / 5.0) ** 2))
+    rain_shadow = 0.16 * exp(-(((gx - (main_ridge + 5)) / 4.5) ** 2))
+    return max(0, min(1, 0.48 + windward + broad_rain + coastal - drought - rain_shadow))
+
+
+def terrain_for_cell(gx: int, gy: int, grid_cols: int, grid_rows: int) -> str:
+    center_x, center_y = gx + 0.5, gy + 0.5
+    elevation = elevation_at(center_x, center_y)
+    moisture = moisture_at(center_x, center_y, grid_cols, grid_rows)
+    main_ridge = 12.5 + center_y * 0.48 + 1.5 * sin(center_y * 0.31)
+    east_ridge = 35.5 - center_y * 0.18 + 1.4 * cos(center_y * 0.36)
+    if elevation >= 184:
+        return "mountain"
+    if elevation >= 132:
+        return "hills"
+    if gx >= 37 and gy >= 15 and moisture < 0.49:
+        return "desert"
+    if gx <= 9 and gy >= 16 and moisture < 0.43:
+        return "desert"
+    if 23 <= gx <= 30 and 10 <= gy <= 16 and elevation < 105 and moisture > 0.47:
+        return "marsh"
+    if gy >= 16 and gx <= main_ridge and moisture > 0.59:
+        return "jungle"
+    if moisture >= 0.57:
+        return "forest"
+    if abs(gx + 0.5 - east_ridge) < 4 and elevation >= 105:
+        return "hills"
+    return "plains"
 
 
 def main() -> None:
@@ -354,6 +487,8 @@ def main() -> None:
     tag_cells: dict[str, list[tuple[int, int]]] = defaultdict(list)
     for gy in range(grid_rows):
         for gx in range(grid_cols):
+            if not land_shape(gx + 0.5, gy + 0.5, grid_cols, grid_rows):
+                continue
             bcol = min(7, int(gx / grid_cols * 8))
             brow = 5 - min(5, int(gy / grid_rows * 6))
             tag = BOARD.get((bcol, brow)) or nearest_board_tag(bcol, brow)
@@ -366,6 +501,7 @@ def main() -> None:
     state_names: dict[int, str] = {}
     capital_province: dict[str, int] = {}
     next_pid = 1
+    land_cells = {cell for cells in tag_cells.values() for cell in cells}
 
     # Each cell is its own province; cells distributed into states by contiguous strips
     for tag, cap, size, ru_name in COUNTRIES:
@@ -402,13 +538,18 @@ def main() -> None:
                 color = unique_color(pid)
                 cx = LAND_X0 + gx * CELL + CELL / 2
                 cy = LAND_Y0 + gy * CELL + CELL / 2
-                coastal = gx == 0 or gy == 0 or gx == grid_cols - 1 or gy == grid_rows - 1
+                coastal = (
+                    gx == 0 or gy == 0 or gx == grid_cols - 1 or gy == grid_rows - 1
+                    or (gx - 1, gy) not in land_cells or (gx + 1, gy) not in land_cells
+                    or (gx, gy - 1) not in land_cells or (gx, gy + 1) not in land_cells
+                )
                 provinces[pid] = {
                     "id": pid,
                     "color": color,
                     "cx": cx,
                     "cy": cy,
                     "type": "land",
+                    "terrain": terrain_for_cell(gx, gy, grid_cols, grid_rows),
                     "coastal": coastal,
                     "gx": gx,
                     "gy": gy,
@@ -424,63 +565,155 @@ def main() -> None:
                     + (provinces[p]["cy"] - (LAND_Y0 + land_y1) / 2) ** 2,
                 )
 
-    # Paint land
+    # Paint the warped province grid through an irregular coast mask.
     prov_img = Image.new("RGB", (WIDTH, HEIGHT), (0, 0, 0))
     px = prov_img.load()
-    for (gx, gy), pid in cell_pid.items():
-        color = provinces[pid]["color"]
-        x0 = LAND_X0 + gx * CELL
-        y0 = LAND_Y0 + gy * CELL
-        for y in range(y0, y0 + CELL):
-            for x in range(x0, x0 + CELL):
-                px[x, y] = color
+    for y in range(LAND_Y0, land_y1):
+        for x in range(LAND_X0, land_x1):
+            gx, gy = cell_at_pixel(x, y)
+            if (gx, gy) in cell_pid and land_shape(
+                (x - LAND_X0 + 0.5) / CELL,
+                (y - LAND_Y0 + 0.5) / CELL,
+                grid_cols,
+                grid_rows,
+            ):
+                px[x, y] = provinces[cell_pid[(gx, gy)]]["color"]
 
-    # Seas: never span both left and right map edges (avoids TOO LARGE BOX)
+    # Keep the existing 32-pixel naval province grid and group it into 19 regions.
     print("Building seas...")
-    mid_x = WIDTH // 2
-    sea_defs = {
-        "nw": lambda x, y: y < LAND_Y0 and x < mid_x,
-        "ne": lambda x, y: y < LAND_Y0 and x >= mid_x,
-        "sw": lambda x, y: y >= land_y1 and x < mid_x,
-        "se": lambda x, y: y >= land_y1 and x >= mid_x,
-        "west": lambda x, y: LAND_Y0 <= y < land_y1 and x < LAND_X0,
-        "east": lambda x, y: LAND_Y0 <= y < land_y1 and x >= land_x1,
-    }
-    # mid belt between land and map sides already covered; gaps above/below handled by n/s
-    sea_ids = []
-    for key, pred in sea_defs.items():
-        pixels = []
-        for y in range(HEIGHT):
-            for x in range(WIDTH):
-                if LAND_X0 <= x < land_x1 and LAND_Y0 <= y < land_y1:
-                    continue
-                if pred(x, y):
-                    pixels.append((x, y))
-        if not pixels:
-            continue
-        pid = next_pid
-        next_pid += 1
-        color = unique_color(pid)
-        for x, y in pixels:
-            px[x, y] = color
-        provinces[pid] = {
-            "id": pid,
-            "color": color,
-            "cx": sum(a for a, _ in pixels) / len(pixels),
-            "cy": sum(b for _, b in pixels) / len(pixels),
-            "type": "sea",
-            "coastal": False,
-        }
-        sea_ids.append(pid)
-        print(f"  sea {key}: pid={pid} pixels={len(pixels)}")
+    world_cols, world_rows = WIDTH // CELL, HEIGHT // CELL
+    origin_x, origin_y = LAND_X0 // CELL, LAND_Y0 // CELL
+    sea_cell_ids: dict[tuple[int, int], int] = {}
+    sea_region_provinces: list[list[int]] = [[] for _ in range(19)]
 
-    # Fill any leftover sea pixels (shouldn't happen) into nearest sea
-    leftovers = [(x, y) for y in range(HEIGHT) for x in range(WIDTH) if px[x, y] == (0, 0, 0)]
-    if leftovers:
-        print(f"WARNING leftover pixels {len(leftovers)} — assigning to first sea")
-        fill = provinces[sea_ids[0]]["color"]
-        for x, y in leftovers:
-            px[x, y] = fill
+    def sea_region_index(world_x: int, world_y: int) -> int:
+        local_x, local_y = world_x - origin_x, world_y - origin_y
+
+        def segment(position: int, count: int, length: int) -> int:
+            return min(count - 1, max(0, position * count // length))
+
+        if world_y < origin_y:
+            return segment(world_x, 6, world_cols)
+        if world_y >= origin_y + grid_rows:
+            return 6 + segment(world_x, 6, world_cols)
+        if world_x < origin_x:
+            return 12 + segment(local_y, 4, grid_rows)
+        if world_x >= origin_x + grid_cols:
+            return 16 + segment(local_y, 3, grid_rows)
+        distances = {
+            "north": local_y,
+            "south": grid_rows - 1 - local_y,
+            "west": local_x,
+            "east": grid_cols - 1 - local_x,
+        }
+        side = min(distances, key=distances.get)
+        if side == "north":
+            return segment(world_x, 6, world_cols)
+        if side == "south":
+            return 6 + segment(world_x, 6, world_cols)
+        if side == "west":
+            return 12 + segment(local_y, 4, grid_rows)
+        return 16 + segment(local_y, 3, grid_rows)
+
+    for world_y in range(world_rows):
+        for world_x in range(world_cols):
+            local_cell = (world_x - origin_x, world_y - origin_y)
+            if local_cell in land_cells:
+                continue
+            pid = next_pid
+            next_pid += 1
+            color = unique_color(pid)
+            provinces[pid] = {
+                "id": pid,
+                "color": color,
+                "cx": world_x * CELL + CELL / 2,
+                "cy": world_y * CELL + CELL / 2,
+                "type": "sea",
+                "coastal": False,
+            }
+            sea_cell_ids[(world_x, world_y)] = pid
+            sea_region_provinces[sea_region_index(world_x, world_y)].append(pid)
+
+    if next_pid != world_cols * world_rows + 1:
+        raise RuntimeError(
+            f"Expected one province per 32px map cell, got {next_pid - 1} provinces"
+        )
+
+    sea_pixel_totals: dict[int, list[float]] = {
+        pid: [0.0, 0.0, 0.0] for pid in sea_cell_ids.values()
+    }
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            if px[x, y] != (0, 0, 0):
+                continue
+            key = (x // CELL, y // CELL)
+            pid = sea_cell_ids.get(key)
+            if pid is None:
+                for radius in (1, 2):
+                    candidates = [
+                        sea_cell_ids.get((key[0] + dx, key[1] + dy))
+                        for dx in range(-radius, radius + 1)
+                        for dy in range(-radius, radius + 1)
+                        if max(abs(dx), abs(dy)) == radius
+                    ]
+                    candidates = [candidate for candidate in candidates if candidate is not None]
+                    if candidates:
+                        pid = candidates[0]
+                        break
+            if pid is None:
+                raise RuntimeError(f"Could not assign sea pixel at {x},{y}")
+            px[x, y] = provinces[pid]["color"]
+            totals = sea_pixel_totals[pid]
+            totals[0] += x
+            totals[1] += y
+            totals[2] += 1
+
+    sea_ids = list(sea_cell_ids.values())
+    for pid, (sum_x, sum_y, count) in sea_pixel_totals.items():
+        if not count:
+            raise RuntimeError(f"Sea province {pid} has no raster pixels")
+        provinces[pid]["cx"] = sum_x / count
+        provinces[pid]["cy"] = sum_y / count
+    print(f"  sea provinces: {len(sea_ids)} across {len(sea_region_provinces)} regions")
+
+    repair_province_junctions(prov_img)
+    all_color_to_id = {p["color"]: pid for pid, p in provinces.items()}
+
+    def position_in_province(pid: int, x: float, y: float) -> tuple[float, float]:
+        color = provinces[pid]["color"]
+        ix, iy = int(x), int(y)
+        if 0 <= ix < WIDTH and 0 <= iy < HEIGHT and px[ix, iy] == color:
+            return x, y
+        for radius in range(1, CELL + 1):
+            candidates = []
+            for cy in range(max(0, iy - radius), min(HEIGHT, iy + radius + 1)):
+                for cx in range(max(0, ix - radius), min(WIDTH, ix + radius + 1)):
+                    if max(abs(cx - ix), abs(cy - iy)) == radius and px[cx, cy] == color:
+                        candidates.append(((cx - x) ** 2 + (cy - y) ** 2, cx, cy))
+            if candidates:
+                _, cx, cy = min(candidates)
+                return cx + 0.5, cy + 0.5
+        raise RuntimeError(f"Could not find an in-province position for province {pid}")
+
+    sea_ids_set = set(sea_ids)
+    for pid, province in provinces.items():
+        if province["type"] == "land":
+            province["coastal"] = False
+    coastal_sea_neighbor: dict[int, int] = {}
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            pid = all_color_to_id.get(px[x, y])
+            if pid is None:
+                raise RuntimeError(f"Unassigned province pixel at {x},{y}")
+            if provinces[pid]["type"] != "land":
+                continue
+            for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if 0 <= nx < WIDTH and 0 <= ny < HEIGHT:
+                    neighbor = all_color_to_id[px[nx, ny]]
+                    if neighbor in sea_ids_set:
+                        provinces[pid]["coastal"] = True
+                        coastal_sea_neighbor.setdefault(pid, neighbor)
+                        break
 
     xc = count_x_crossings(prov_img)
     print(f"X-crossings: {xc}")
@@ -496,33 +729,112 @@ def main() -> None:
     rivers_idx = Image.new("L", (WIDTH, HEIGHT), 254)
     cities_idx = Image.new("L", (WIDTH, HEIGHT), 0)
     tpx, hpx, cpx = terrain_idx.load(), height_idx.load(), cities_idx.load()
+    land_color_to_id = {
+        p["color"]: pid for pid, p in provinces.items() if p["type"] == "land"
+    }
+    capital_ids = set(capital_province.values())
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            pid = land_color_to_id.get(px[x, y])
+            if pid is None:
+                continue
+            province = provinces[pid]
+            terrain_name = "urban" if pid in capital_ids else province["terrain"]
+            tpx[x, y] = TERRAIN_BMP_INDEX[terrain_name]
+            geographic_x = (x - LAND_X0 + 0.5) / CELL
+            geographic_y = (y - LAND_Y0 + 0.5) / CELL
+            hpx[x, y] = int(elevation_at(geographic_x, geographic_y))
+
+    # Preserve the game's indexed river segments rather than drawing arbitrary colors.
+    vanilla_rivers = Image.open(VANILLA_MAP / "rivers.bmp").convert("P")
+    if vanilla_rivers.width < land_x1 - LAND_X0 or vanilla_rivers.height < land_y1 - LAND_Y0:
+        raise RuntimeError("Vanilla rivers.bmp is too small to provide a river network")
+    river_indices = Image.frombytes("L", vanilla_rivers.size, vanilla_rivers.tobytes())
+    river_patch = river_indices.crop((0, 0, land_x1 - LAND_X0, land_y1 - LAND_Y0))
+    rivers_idx.paste(river_patch, (LAND_X0, LAND_Y0))
+    rpx = rivers_idx.load()
+    river_pixels = 0
     for y in range(LAND_Y0, land_y1):
         for x in range(LAND_X0, land_x1):
-            tpx[x, y] = 0
-            hpx[x, y] = 120
-    for tag, pid in capital_province.items():
-        cx, cy = int(provinces[pid]["cx"]), int(provinces[pid]["cy"])
-        for dy in range(-2, 3):
-            for dx in range(-2, 3):
+            if px[x, y] not in land_color_to_id:
+                rpx[x, y] = 254
+            elif rpx[x, y] not in (254, 255):
+                river_pixels += 1
+    if river_pixels < 1000:
+        raise RuntimeError(f"River raster contains too few mapped river pixels: {river_pixels}")
+
+    city_centers: dict[int, tuple[int, int, int]] = {}
+    for sid, provs in state_provinces.items():
+        tag = state_owner[sid]
+        _, cap, size, _ = tag_meta[tag]
+        if sid == cap:
+            pid = capital_province[tag]
+            radius = {"large": 3, "medium": 2, "small": 1}[size]
+        else:
+            center_x = sum(provinces[province_id]["cx"] for province_id in provs) / len(provs)
+            center_y = sum(provinces[province_id]["cy"] for province_id in provs) / len(provs)
+            pid = min(
+                provs,
+                key=lambda candidate: (provinces[candidate]["cx"] - center_x) ** 2
+                + (provinces[candidate]["cy"] - center_y) ** 2,
+            )
+            radius = 1
+        city_centers[pid] = (
+            int(provinces[pid]["cx"]),
+            int(provinces[pid]["cy"]),
+            radius,
+        )
+    for cx, cy, radius in city_centers.values():
+        for dy in range(-radius, radius + 1):
+            for dx in range(-radius, radius + 1):
                 x, y = cx + dx, cy + dy
-                if LAND_X0 <= x < land_x1 and LAND_Y0 <= y < land_y1:
-                    tpx[x, y] = 7
+                if 0 <= x < WIDTH and 0 <= y < HEIGHT and px[x, y] in land_color_to_id:
                     cpx[x, y] = 15
 
     print("Writing BMPs...")
     save_bmp_rgb(map_dir / "provinces.bmp", prov_img)
     save_bmp_indexed(map_dir / "terrain.bmp", terrain_idx, terrain_pal)
-    # rivers: copy vanilla palette bytes via PIL from vanilla file, fill 254
-    save_bmp_indexed(map_dir / "rivers.bmp", rivers_idx, rivers_pal)
+    save_bmp_indexed(map_dir / "rivers.bmp", rivers_idx, rivers_pal, 0, 0)
     gray_pal = [v for i in range(256) for v in (i, i, i)]
     save_bmp_indexed(map_dir / "heightmap.bmp", height_idx, gray_pal)
     save_bmp_indexed(map_dir / "cities.bmp", cities_idx, cities_pal)
-    save_bmp_rgb(map_dir / "world_normal.bmp", Image.new("RGB", (NORMAL_W, NORMAL_H), (128, 128, 255)))
-    tw, th = max(64, WIDTH * 1650 // 5632), max(64, HEIGHT * 600 // 2048)
-    save_bmp_indexed(map_dir / "trees.bmp", Image.new("L", (tw, th), 0), load_vanilla_palette("trees.bmp"))
-
-    # Also overwrite rivers by resizing vanilla empty-ish: copy palette from file header directly
-    _copy_rivers_exact(map_dir / "rivers.bmp")
+    normal_map = Image.new("RGB", (NORMAL_W, NORMAL_H))
+    normal_pixels = normal_map.load()
+    for y in range(NORMAL_H):
+        y0, y1 = max(0, y * 2 - 2), min(HEIGHT - 1, y * 2 + 2)
+        for x in range(NORMAL_W):
+            x0, x1 = max(0, x * 2 - 2), min(WIDTH - 1, x * 2 + 2)
+            nx = -(hpx[x1, y * 2] - hpx[x0, y * 2]) * 0.06
+            ny = -(hpx[x * 2, y1] - hpx[x * 2, y0]) * 0.06
+            length = (nx * nx + ny * ny + 1) ** 0.5
+            normal_pixels[x, y] = (
+                int((nx / length + 1) * 127.5),
+                int((ny / length + 1) * 127.5),
+                int((1 / length + 1) * 127.5),
+            )
+    save_bmp_rgb(map_dir / "world_normal.bmp", normal_map)
+    trees_w, trees_h = max(64, WIDTH * 1650 // 5632), max(64, HEIGHT * 600 // 2048)
+    trees_idx = Image.new("L", (trees_w, trees_h), 0)
+    tree_pixels = trees_idx.load()
+    for y in range(trees_h):
+        for x in range(trees_w):
+            map_x = min(WIDTH - 1, int((x + 0.5) * WIDTH / trees_w))
+            map_y = min(HEIGHT - 1, int((y + 0.5) * HEIGHT / trees_h))
+            pid = land_color_to_id.get(px[map_x, map_y])
+            if pid is None:
+                continue
+            biome = provinces[pid]["terrain"]
+            tree_types = TREE_BIOME_INDEX.get(biome)
+            if not tree_types:
+                continue
+            canopy = (
+                sin(x * 0.071 + y * 0.037)
+                + cos(y * 0.089 - x * 0.021)
+                + 0.5 * sin((x + y) * 0.13)
+            )
+            if canopy > -0.28:
+                tree_pixels[x, y] = tree_types[(x + 3 * y) % len(tree_types)]
+    save_bmp_indexed(map_dir / "trees.bmp", trees_idx, load_vanilla_palette("trees.bmp"))
 
     lines = ["0;0;0;0;land;false;unknown;0"]
     for pid in sorted(provinces):
@@ -532,7 +844,7 @@ def main() -> None:
             lines.append(f"{pid};{r};{g};{b};sea;false;ocean;0")
         else:
             coastal = "true" if p["coastal"] else "false"
-            terr = "urban" if pid in capital_province.values() else "plains"
+            terr = "urban" if pid in capital_province.values() else p["terrain"]
             lines.append(f"{pid};{r};{g};{b};land;{coastal};{terr};1")
     (map_dir / "definition.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -562,35 +874,99 @@ tree = { 3 4 7 10 }
     )
     for fname in ("seasons.txt", "adjacency_rules.txt", "cities.txt"):
         src = VANILLA_MAP / fname
-        if src.exists():
+        if src.exists() and not (map_dir / fname).exists():
             (map_dir / fname).write_bytes(src.read_bytes())
     (map_dir / "ambient_object.txt").write_text(
         'type={\n\ttype="ambient_wind_entity"\n\tuse_animation=no\n\talways_visible=yes\n\tobject={\n\t\tname="ambient_wind"\n\t\tposition={ 0 0 0 }\n\t\trotation={ 0 0 0 }\n\t}\n}\n',
         encoding="utf-8",
     )
-    # weatherpositions: leave EMPTY file (valid) — non-empty wrong arity errors
-    (map_dir / "weatherpositions.txt").write_text("", encoding="utf-8")
-
     ustack, buildings, supply = [], [], []
     for pid, p in provinces.items():
-        if p["type"] != "land":
-            continue
-        ustack.append(f"{pid};0;{p['cx']:.2f};12.00;{p['cy']:.2f};0.00;0.50")
+        for slot, dx, dy in UNIT_STACK_OFFSETS:
+            x, y = position_in_province(pid, p["cx"] + dx, p["cy"] + dy)
+            ustack.append(
+                f"{pid};{slot};{x:.2f};12.00;{HEIGHT - y:.2f};0.00;0.50"
+            )
+        if p["type"] == "land" and p["coastal"]:
+            for slot, dx in ((19, -1.0), (20, 1.0)):
+                x, y = position_in_province(pid, p["cx"] + dx, p["cy"])
+                ustack.append(
+                    f"{pid};{slot};{x:.2f};12.00;{HEIGHT - y:.2f};0.00;0.50"
+                )
     (map_dir / "unitstacks.txt").write_text("\n".join(ustack) + "\n", encoding="utf-8")
+    province_to_state = {
+        pid: sid for sid, provs in state_provinces.items() for pid in provs
+    }
     for sid, provs in state_provinces.items():
         tag = state_owner[sid]
         cap = tag_meta[tag][1]
         pid = capital_province.get(tag, provs[0]) if sid == cap else provs[0]
         p = provinces[pid]
         x, y = p["cx"], p["cy"]
-        for btype, n in (("industrial_complex", 2), ("arms_factory", 1), ("infrastructure", 4)):
+        for btype, n in (("industrial_complex", 2), ("arms_factory", 1)):
             for i in range(n):
-                buildings.append(f"{sid};{btype};{x+i*0.3:.2f};12.00;{y+i*0.2:.2f};{i*0.4:.2f};0")
+                buildings.append(
+                    f"{sid};{btype};{x+i*0.3:.2f};12.00;"
+                    f"{HEIGHT - (y+i*0.2):.2f};{i*0.4:.2f};0"
+                )
         if sid == cap:
-            supply.append(f"1 {pid} ")
+            level = {"large": 3, "medium": 2, "small": 1}[size]
+            supply.append(f"{level} {pid}")
+    for pid, sea_pid in sorted(coastal_sea_neighbor.items()):
+        province = provinces[pid]
+        sid = province_to_state[pid]
+        buildings.append(
+            f"{sid};naval_base_spawn;{province['cx']:.2f};10.00;"
+            f"{HEIGHT - province['cy']:.2f};0.00;{sea_pid}"
+        )
     (map_dir / "buildings.txt").write_text("\n".join(buildings) + "\n", encoding="utf-8")
     (map_dir / "supply_nodes.txt").write_text("\n".join(supply) + "\n", encoding="utf-8")
-    (map_dir / "railways.txt").write_text("", encoding="utf-8")
+
+    land_neighbors: dict[int, set[int]] = defaultdict(set)
+    state_by_province = {
+        pid: sid for sid, provs in state_provinces.items() for pid in provs
+    }
+    country_by_province = {
+        pid: state_owner[sid] for pid, sid in state_by_province.items()
+    }
+    country_borders: set[tuple[str, str]] = set()
+    for (gx, gy), pid in cell_pid.items():
+        for neighbor_cell in ((gx + 1, gy), (gx, gy + 1)):
+            neighbor_pid = cell_pid.get(neighbor_cell)
+            if neighbor_pid is None:
+                continue
+            land_neighbors[pid].add(neighbor_pid)
+            land_neighbors[neighbor_pid].add(pid)
+            tag, neighbor_tag = country_by_province[pid], country_by_province[neighbor_pid]
+            if neighbor_tag is not None and neighbor_tag != tag:
+                country_borders.add(tuple(sorted((tag, neighbor_tag))))
+
+    capital_by_country = {
+        tag: capital_province[tag] for tag, _, _, _ in COUNTRIES
+    }
+    railways = []
+    for left, right in sorted(country_borders):
+        start, goal = capital_by_country[left], capital_by_country[right]
+        queue = [start]
+        previous = {start: None}
+        for current in queue:
+            if current == goal:
+                break
+            for neighbor in sorted(land_neighbors[current]):
+                if neighbor not in previous:
+                    previous[neighbor] = current
+                    queue.append(neighbor)
+        if goal not in previous:
+            raise RuntimeError(f"No land railway route between {left} and {right}")
+        path = []
+        current = goal
+        while current is not None:
+            path.append(current)
+            current = previous[current]
+        path.reverse()
+        level = 3 if left in {"VCI", "KRZ", "SHF"} or right in {"VCI", "KRZ", "SHF"} else 2
+        railways.append(f"{level} {len(path)} " + " ".join(map(str, path)))
+    (map_dir / "railways.txt").write_text("\n\n".join(railways) + "\n", encoding="utf-8")
 
     loc_states = ["l_russian:"]
     for sid in sorted(state_provinces):
@@ -616,14 +992,16 @@ tree = { 3 4 7 10 }
         vp_val = ({"large": 30, "medium": 20, "small": 12}[size] if is_cap else 3)
         name_key = f"STATE_{sid}"
         loc_states.append(f' {name_key}:0 "{state_names[sid]}"')
-        coastal_buildings = ""
-        if any(provinces[p]["coastal"] for p in provs):
-            cprov = next(p for p in provs if provinces[p]["coastal"])
-            coastal_buildings = f"\n\t\t\t{cprov} = {{\n\t\t\t\tnaval_base = 2\n\t\t\t}}"
+        coastal_buildings = "".join(
+            f"\n\t\t\t{province_id} = {{\n\t\t\t\tnaval_base = 1\n\t\t\t}}"
+            for province_id in provs
+            if provinces[province_id]["coastal"]
+        )
         air = "\n\t\t\tair_base = 1" if is_cap else ""
         content = f'''state={{
 \tid={sid}
 \tname="{name_key}"
+{resources_block(tag, sid)}
 \tmanpower = {manpower}
 \tstate_category = {cat}
 \thistory={{
@@ -642,27 +1020,39 @@ tree = { 3 4 7 10 }
 \tlocal_supplies=0.0
 }}
 '''
-        (states_dir / f"{sid}-{tag}-{'Capital' if is_cap else 'Region'+str(sid)}.txt").write_text(content, encoding="utf-8")
+        (states_dir / f"{sid}-{tag}.txt").write_text(content, encoding="utf-8")
 
     loc_sr = ["l_russian:"]
+    strategic_region_provinces = []
     sr_id = 1
     for tag, cap, size, ru_name in COUNTRIES:
         provs = []
         for sid in tag_states[tag]:
             provs.extend(state_provinces[sid])
+        strategic_region_provinces.append(provs)
         loc_sr.append(f' STRATEGICREGION_{sr_id}:0 "{ru_name}"')
         (sr_dir / f"{sr_id}-{tag}.txt").write_text(
             f'strategic_region={{\n\tid={sr_id}\n\tname="STRATEGICREGION_{sr_id}"\n\tprovinces={{\n\t\t{" ".join(map(str, provs))}\n\t}}\n{WEATHER}}}\n',
             encoding="utf-8",
         )
         sr_id += 1
-    for i, pid in enumerate(sea_ids, 1):
-        loc_sr.append(f' STRATEGICREGION_{sr_id}:0 "Sea {i}"')
+    for i, region_provinces in enumerate(sea_region_provinces):
+        strategic_region_provinces.append(region_provinces)
+        loc_sr.append(f' STRATEGICREGION_{sr_id}:0 "Sea {i + 1}"')
         (sr_dir / f"{sr_id}-Sea-{i}.txt").write_text(
-            f'strategic_region={{\n\tid={sr_id}\n\tname="STRATEGICREGION_{sr_id}"\n\tprovinces={{\n\t\t{pid}\n\t}}\n{WEATHER}}}\n',
+            f'strategic_region={{\n\tid={sr_id}\n\tname="STRATEGICREGION_{sr_id}"\n\tprovinces={{\n\t\t{" ".join(map(str, region_provinces))}\n\t}}\n{WEATHER}}}\n',
             encoding="utf-8",
         )
         sr_id += 1
+
+    weather_positions = []
+    for region_id, region_provinces in enumerate(strategic_region_provinces, 1):
+        x = sum(provinces[pid]["cx"] for pid in region_provinces) / len(region_provinces)
+        y = sum(provinces[pid]["cy"] for pid in region_provinces) / len(region_provinces)
+        weather_positions.append(f"{region_id};{x:.2f};10.00;{HEIGHT - y:.2f};small")
+    (map_dir / "weatherpositions.txt").write_text(
+        "\n".join(weather_positions) + "\n", encoding="utf-8"
+    )
 
     def write_yml(path: Path, rows: list[str]) -> None:
         path.write_bytes(b"\xef\xbb\xbf" + ("\n".join(rows) + "\n").encode("utf-8"))
@@ -675,45 +1065,6 @@ tree = { 3 4 7 10 }
     print(f"provinces={len(provinces)} land={sum(1 for p in provinces.values() if p['type']=='land')} sea={len(sea_ids)}")
     print(f"states={len(state_provinces)} sr={sr_id-1}")
     print("DONE")
-
-
-def _copy_rivers_exact(dest: Path) -> None:
-    """Build rivers.bmp with palette copied raw from vanilla BMP file."""
-    src = VANILLA_MAP / "rivers.bmp"
-    data = src.read_bytes()
-    # BMP palette starts at offset 54 for 8-bit with header 40
-    off = int.from_bytes(data[10:14], "little")
-    pal = data[54:54 + 1024]  # BGRX * 256
-    w, h = WIDTH, HEIGHT
-    row_stride = (w + 3) & ~3
-    # fill index 254
-    body = bytearray()
-    row = bytes([254] * w + [0] * (row_stride - w))
-    for _ in range(h):
-        body.extend(row)
-    # bottom-up already in loop order if we write first row as bottom: BMP is bottom-up so first stored row is y=h-1
-    # our fill is uniform so order irrelevant
-    header = struct.pack(
-        "<2sIHHIIiiHHIIiiii",
-        b"BM",
-        54 + 1024 + len(body),
-        0,
-        0,
-        54 + 1024,
-        40,
-        w,
-        h,
-        1,
-        8,
-        0,
-        len(body),
-        2835,
-        2835,
-        256,
-        256,
-    )
-    dest.write_bytes(header + pal + body)
-    print("rivers.bmp exact vanilla palette, fill=254")
 
 
 if __name__ == "__main__":

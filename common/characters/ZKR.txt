@@ -11,24 +11,47 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = ZKR_zakirov_ilnar_almazovich_desc
+			traits = { mk_ruler_zkr_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = ZKR_zakirov_ilnar_almazovich_desc
+			traits = { mk_ruler_zkr_communism }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = ZKR_zakirov_ilnar_almazovich_desc
+			traits = { mk_ruler_zkr_fascism }
 		}
 		country_leader = {
 			ideology = despotism
 			expire = "2099.1.1"
 			id = -1
 			desc = ZKR_zakirov_ilnar_almazovich_desc
+			traits = { mk_ruler_zkr_neutrality }
+		}
+	}
+
+	ZKR_mk_general = {
+		name = ZKR_mk_general
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
 		}
 	}
 }

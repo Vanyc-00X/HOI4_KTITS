@@ -1,0 +1,45 @@
+technologies = {
+	mk_kazual_rifle = {
+		enable_equipments = {
+			mk_kazual_rifle_equipment
+		}
+		path = {
+			leads_to_tech = mk_kazual_assault_rifles
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1938
+		folder = {
+			name = infantry_folder
+			position = { x = 5 y = 1938 }
+		}
+		categories = {
+			infantry_weapons
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	mk_kazual_assault_rifles = {
+		enable_equipments = {
+			mk_kazual_assault_rifle_equipment
+		}
+		research_cost = 3
+		start_year = 1941
+		folder = {
+			name = infantry_folder
+			position = { x = 5 y = 1941 }
+		}
+		categories = {
+			infantry_weapons
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+}

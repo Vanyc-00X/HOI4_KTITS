@@ -1,4 +1,4 @@
-# Mir Kazualnosti — global decisions (stages 4 + 9)
+# Mir Kazualnosti — global decisions (stages 4 + 9 + 15)
 
 mk_cat_absurd = {
 
@@ -96,14 +96,15 @@ mk_cat_congress = {
 		complete_effect = {
 			set_temp_variable = { mk_votes_delta = 3 }
 			mk_spend_votes = yes
+			set_temp_variable = { mk_congress_sponsor_weight = 3 }
 			set_global_flag = mk_congress_active
 			set_global_flag = mk_congress_cooldown
 			set_variable = { global.mk_congress_cooldown_months = 3 }
 			add_to_variable = { global.mk_congress_count = 1 }
 			set_temp_variable = { mk_absurd_delta = 3 }
 			mk_add_absurd = yes
+			mk_start_congress_vote = yes
 			news_event = { id = mk_global.2 hours = 2 }
-			country_event = { id = mk_global.10 hours = 8 }
 			custom_effect_tooltip = mk_tt_call_congress
 		}
 
@@ -112,6 +113,39 @@ mk_cat_congress = {
 			modifier = {
 				factor = 2
 				check_variable = { mk_world_votes > 4 }
+			}
+		}
+	}
+
+	mk_dec_congress_deescalation = {
+		icon = generic_political_discourse
+		cost = 50
+		fire_only_once = no
+		days_re_enable = 120
+		visible = {
+			is_mk_country = yes
+		}
+		available = {
+			is_mk_country = yes
+			is_subject = no
+			check_variable = { mk_world_votes > 1 }
+			check_variable = { global.mk_absurd_temp > 25 }
+			has_political_power > 49
+		}
+		complete_effect = {
+			mk_congress_deescalation_effect = yes
+			custom_effect_tooltip = mk_tt_congress_deescalation
+		}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 3
+				check_variable = { global.mk_absurd_temp > 59 }
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
 			}
 		}
 	}
@@ -150,19 +184,25 @@ mk_cat_congress = {
 			mk_absurd_critical = yes
 		}
 		available = {
+			is_mk_country = yes
+			is_subject = no
 			check_variable = { mk_world_votes > 1 }
 			NOT = { has_global_flag = mk_congress_active }
+			mk_has_congress_target = yes
 			has_political_power > 14
 		}
 		complete_effect = {
 			set_temp_variable = { mk_votes_delta = 2 }
 			mk_spend_votes = yes
+			set_temp_variable = { mk_congress_sponsor_weight = 2 }
 			set_global_flag = mk_congress_active
 			set_global_flag = mk_congress_cooldown
 			set_variable = { global.mk_congress_cooldown_months = 2 }
 			add_to_variable = { global.mk_congress_count = 1 }
+			set_temp_variable = { mk_absurd_delta = 4 }
+			mk_add_absurd = yes
+			mk_start_congress_vote = yes
 			news_event = { id = mk_global.2 hours = 2 }
-			country_event = { id = mk_global.10 hours = 6 }
 			custom_effect_tooltip = mk_tt_emergency_congress
 		}
 

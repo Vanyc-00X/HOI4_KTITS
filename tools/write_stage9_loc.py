@@ -251,6 +251,9 @@ factions = r'''l_russian:
 
 bom_write(ROOT / "localisation/russian/mk_events_l_russian.yml", events)
 bom_write(ROOT / "localisation/russian/mk_decisions_l_russian.yml", decisions)
+focus_loc = ROOT / "localisation/russian/mk_focus_l_russian.yml"
+if focus_loc.exists():
+    bom_write(focus_loc, focus_loc.read_text(encoding="utf-8-sig"))
 
 ideas_path = ROOT / "localisation/russian/mk_ideas_l_russian.yml"
 ideas = ideas_path.read_text(encoding="utf-8-sig")

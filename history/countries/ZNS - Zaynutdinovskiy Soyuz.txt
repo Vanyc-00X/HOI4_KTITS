@@ -35,6 +35,7 @@ add_ideas = {
 
 recruit_character = ZNS_zaynutdinov_artur_ravilevich
 
+recruit_character = ZNS_mk_general
 # Party names (TZ local ideology labels via localisation)
 set_party_name = {
 	ideology = democratic

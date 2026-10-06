@@ -1,4 +1,4 @@
-# Mir Kazualnosti — global events (stages 4 + 9)
+# Mir Kazualnosti — global events (stages 4 + 9 + 15)
 # Target: 20–30 global events (TZ §10)
 
 add_namespace = mk_global
@@ -68,45 +68,204 @@ news_event = {
 	}
 }
 
-# Congress session for caller
+# Every eligible country receives a weighted ballot on the Congress resolution.
 country_event = {
 	id = mk_global.10
 	title = mk_global.10.t
 	desc = mk_global.10.d
 	picture = GFX_report_event_generic_conference
 	is_triggered_only = yes
+	timeout_days = 5
+	trigger = {
+		has_global_flag = mk_congress_active
+		is_mk_country = yes
+		is_subject = no
+		NOT = { has_capitulated = yes }
+		NOT = { has_country_flag = mk_congress_target }
+	}
+	# Abstention is first so unattended human ballots do not default to war.
+	option = {
+		name = mk_global.10.c
+		add_stability = 0.01
+		ai_chance = { factor = 25 }
+	}
 	option = {
 		name = mk_global.10.a
-		set_temp_variable = { mk_absurd_delta = 4 }
-		mk_add_absurd = yes
-		set_temp_variable = { mk_votes_delta = 1 }
-		mk_grant_votes = yes
-		clr_global_flag = mk_congress_active
-		custom_effect_tooltip = mk_tt_congress_escalate
+		set_country_flag = mk_congress_vote_yes
+		add_to_variable = { global.mk_congress_yes_votes = mk_world_votes }
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 2
+				event_target:mk_congress_target = { has_idea = mk_idea_revisionist }
+			}
+			modifier = {
+				factor = 0.35
+				event_target:mk_congress_target = { is_in_faction_with = ROOT }
+			}
+		}
 	}
 	option = {
 		name = mk_global.10.b
-		set_temp_variable = { mk_absurd_delta = 5 }
+		set_country_flag = mk_congress_vote_no
+		add_to_variable = { global.mk_congress_no_votes = mk_world_votes }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				event_target:mk_congress_target = { is_in_faction_with = ROOT }
+			}
+		}
+	}
+}
+
+# The sponsoring country resolves the weighted ballot after a week of debate.
+country_event = {
+	id = mk_global.11
+	title = mk_global.11.t
+	desc = mk_global.11.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	timeout_days = 1
+	immediate = {
+		if = {
+			limit = {
+				AND = {
+					check_variable = { global.mk_congress_yes_votes > global.mk_congress_no_votes }
+					check_variable = { global.mk_congress_yes_votes > global.mk_congress_required_votes }
+					event_target:mk_congress_target = {
+						is_mk_country = yes
+						is_subject = no
+						NOT = { has_capitulated = yes }
+					}
+				}
+			}
+			set_global_flag = mk_congress_resolution_passed
+		}
+		else = {
+			clr_global_flag = mk_congress_resolution_passed
+		}
+	}
+	option = {
+		name = mk_global.11.a
+		if = {
+			limit = { has_global_flag = mk_congress_resolution_passed }
+			event_target:mk_congress_target = {
+				add_timed_idea = { idea = mk_idea_congress_condemned days = 365 }
+				subtract_from_variable = { mk_misconduct = 1 }
+				clamp_variable = { var = mk_misconduct min = 0 max = 20 }
+				country_event = { id = mk_global.14 hours = 2 }
+			}
+			every_country = {
+				if = {
+					limit = { has_country_flag = mk_congress_vote_yes is_mk_country = yes }
+					add_timed_idea = { idea = mk_idea_congress_mandate days = 180 }
+					add_opinion_modifier = { target = event_target:mk_congress_target modifier = mk_congress_condemnation }
+					set_country_flag = { flag = mk_congress_attacker days = 180 }
+					if = {
+						limit = {
+							is_subject = no
+							NOT = { is_in_faction_with = event_target:mk_congress_target }
+							NOT = { has_war_with = event_target:mk_congress_target }
+						}
+						set_country_flag = { flag = mk_congress_mandated_war days = 2 }
+						declare_war_on = { target = event_target:mk_congress_target type = topple_government }
+					}
+				}
+				if = {
+					limit = { has_country_flag = mk_congress_vote_no is_mk_country = yes }
+					add_timed_idea = { idea = mk_idea_congress_obstruction days = 120 }
+				}
+				clr_country_flag = mk_congress_vote_yes
+				clr_country_flag = mk_congress_vote_no
+				clr_country_flag = mk_congress_target
+			}
+			news_event = { id = mk_global.12 hours = 2 }
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_sub_absurd = yes
+		}
+		else = {
+			every_country = {
+				if = {
+					limit = { has_country_flag = mk_congress_vote_yes is_mk_country = yes }
+					add_stability = -0.02
+				}
+				if = {
+					limit = { has_country_flag = mk_congress_vote_no is_mk_country = yes }
+					add_timed_idea = { idea = mk_idea_congress_obstruction days = 90 }
+				}
+				clr_country_flag = mk_congress_vote_yes
+				clr_country_flag = mk_congress_vote_no
+				clr_country_flag = mk_congress_target
+			}
+			news_event = { id = mk_global.13 hours = 2 }
+			set_temp_variable = { mk_absurd_delta = 3 }
+			mk_add_absurd = yes
+		}
+		clr_global_flag = mk_congress_active
+		clr_global_flag = mk_congress_resolution_passed
+		custom_effect_tooltip = mk_tt_congress_outcome
+	}
+}
+
+news_event = {
+	id = mk_global.12
+	title = mk_global.12.t
+	desc = mk_global.12.d
+	picture = GFX_news_event_generic_military_parade
+	major = yes
+	is_triggered_only = yes
+	option = { name = mk_global.12.a }
+}
+
+news_event = {
+	id = mk_global.13
+	title = mk_global.13.t
+	desc = mk_global.13.d
+	picture = GFX_news_event_generic_parliament
+	major = yes
+	is_triggered_only = yes
+	option = { name = mk_global.13.a }
+}
+
+# The condemned country can choose between defiance and accepting the verdict.
+country_event = {
+	id = mk_global.14
+	title = mk_global.14.t
+	desc = mk_global.14.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	option = {
+		name = mk_global.14.a
+		add_war_support = 0.10
+		add_political_power = 50
+		add_to_variable = { mk_misconduct = 1 }
+		clamp_variable = { var = mk_misconduct min = 0 max = 20 }
+		every_country = { clr_country_flag = mk_congress_attacker }
+		set_temp_variable = { mk_absurd_delta = 4 }
+		mk_add_absurd = yes
+		ai_chance = { factor = 25 }
+	}
+	option = {
+		name = mk_global.14.b
+		remove_ideas = mk_idea_congress_condemned
+		add_stability = 0.05
+		add_political_power = -35
+		subtract_from_variable = { mk_misconduct = 1 }
+		clamp_variable = { var = mk_misconduct min = 0 max = 20 }
+		every_country = {
+			if = {
+				limit = {
+					has_country_flag = mk_congress_attacker
+					has_war_with = ROOT
+				}
+				white_peace = ROOT
+			}
+			clr_country_flag = mk_congress_attacker
+		}
+		set_temp_variable = { mk_absurd_delta = 3 }
 		mk_sub_absurd = yes
-		add_stability = 0.02
-		clr_global_flag = mk_congress_active
-		custom_effect_tooltip = mk_tt_congress_stabilize
-	}
-	option = {
-		name = mk_global.10.c
-		trigger = { has_government = fascism }
-		add_political_power = 30
-		set_temp_variable = { mk_npt_delta = 1 }
-		mk_add_npt = yes
-		clr_global_flag = mk_congress_active
-		custom_effect_tooltip = mk_tt_congress_npt
-	}
-	option = {
-		name = mk_global.10.d
-		trigger = { NOT = { has_government = fascism } }
-		add_political_power = 40
-		add_stability = 0.02
-		clr_global_flag = mk_congress_active
+		ai_chance = { factor = 75 }
 	}
 }
 

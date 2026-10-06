@@ -25,7 +25,7 @@ Repository: https://github.com/Vanyc-00X/HOI4_KTITS
    Example contents:
 
 ```text
-version="0.12.0"
+version="0.15.4"
 tags={
 	"Alternative History"
 	"Total Conversion"
@@ -82,13 +82,16 @@ Works if **all players**:
 ## What’s in the mod
 
 - 24 tags, custom map, bookmarks
-- National focuses (~76–88 per country), decisions, events, plot chain
-- Mechanics: Absurd temperature, World Votes, NPT (fascism only), ideology blocs + revisionism
+- National focuses (84–96 per country), decisions, events, plot chain
+- Mechanics: Degree of Absurdity, weighted World Congress ballots and collective war mandates, NPT (fascism only), ideology blocs + revisionism
+- 24 distinct ruler traits; captured rulers can return as political or high-command advisors
 - Cosmetic renames/flags on political courses
 - AI strategy plans / areas / theaters
-- Resources scattered on all states
+- Resources scattered on all states: steel / oil / aluminium / rubber / tungsten / chromium + **coal** (1.19 energy), also as focus rewards
+- Railway links and tiered supply hubs, plus artillery, cavalry and motorized national army templates with named commanders
+- 1939 **Border Crisis** bookmark with changed ownership and governments, active wars, and two new infantry weapon technologies
 
-Version in `descriptor.mod` / `tools/register_mod.py`: **0.12.0**
+Version in `descriptor.mod` / `tools/register_mod.py`: **0.15.4**
 
 ## Rebuild tools (optional)
 
@@ -96,9 +99,11 @@ Python helpers live in `tools/`:
 
 ```bash
 python tools/build_countries.py
+python tools/build_ruler_content.py
 python tools/build_ai.py
 python tools/build_flags.py
 python tools/build_resources.py
+python tools/add_coal_focus_rewards.py
 python tools/check_refs.py
 python tools/validate_mod.py
 python tools/register_mod.py

@@ -11,24 +11,47 @@ characters = {
 			expire = "2099.1.1"
 			id = -1
 			desc = CLB_ivanov_konstantin_alekseevich_desc
+			traits = { mk_ruler_clb_neutrality }
 		}
 		country_leader = {
 			ideology = liberalism
 			expire = "2099.1.1"
 			id = -1
 			desc = CLB_ivanov_konstantin_alekseevich_desc
+			traits = { mk_ruler_clb_democratic }
 		}
 		country_leader = {
 			ideology = marxism
 			expire = "2099.1.1"
 			id = -1
 			desc = CLB_ivanov_konstantin_alekseevich_desc
+			traits = { mk_ruler_clb_communism }
 		}
 		country_leader = {
 			ideology = fascism_ideology
 			expire = "2099.1.1"
 			id = -1
 			desc = CLB_ivanov_konstantin_alekseevich_desc
+			traits = { mk_ruler_clb_fascism }
+		}
+	}
+
+	CLB_mk_general = {
+		name = CLB_mk_general
+		portraits = {
+			army = {
+				large = "gfx/leaders/leader_unknown.dds"
+				small = "gfx/leaders/leader_unknown.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
 		}
 	}
 }

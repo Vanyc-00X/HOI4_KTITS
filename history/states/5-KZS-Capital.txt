@@ -1,0 +1,33 @@
+state={
+	id=5
+	name="STATE_5"
+	manpower = 520000
+	state_category = city
+	resources={
+		steel=13
+		oil=16
+		aluminium=4
+		rubber=6
+		tungsten=6
+		chromium=8
+		coal=21
+	}
+	history={
+		owner = KZS
+		victory_points = { 365 12 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 1
+			367 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = KZS
+	}
+	provinces={
+		364 365 366 367
+	}
+	local_supplies=0.0
+}

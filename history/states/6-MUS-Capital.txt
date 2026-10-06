@@ -1,0 +1,45 @@
+state={
+	id=6
+	name="STATE_6"
+	manpower = 1040000
+	state_category = large_city
+	resources={
+		steel=14
+		oil=7
+		aluminium=12
+		rubber=10
+		tungsten=5
+		chromium=5
+		coal=18
+	}
+	history={
+		owner = MUS
+		victory_points = { 380 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+			376 = {
+				naval_base = 2
+			}
+			377 = {
+				naval_base = 2
+			}
+			379 = {
+				naval_base = 2
+			}
+			382 = {
+				naval_base = 2
+			}
+			385 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = MUS
+	}
+	provinces={
+		376 377 378 379 380 381 382 383 384 385 386 387
+	}
+	local_supplies=0.0
+}

@@ -1,0 +1,41 @@
+state={
+	id=88
+	name="STATE_88"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=8
+		oil=6
+		aluminium=14
+		rubber=4
+		tungsten=10
+		chromium=4
+		coal=17
+	}
+	history={
+		owner = SVA
+		victory_points = { 1097 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			1097 = {
+				naval_base = 2
+			}
+			1098 = {
+				naval_base = 2
+			}
+			1099 = {
+				naval_base = 2
+			}
+			1100 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = SVA
+	}
+	provinces={
+		1097 1098 1099 1100 1101 1102 1103 1104 1105 1106
+	}
+	local_supplies=0.0
+}

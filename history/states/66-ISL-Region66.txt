@@ -1,0 +1,47 @@
+state={
+	id=66
+	name="STATE_66"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=11
+		oil=10
+		aluminium=3
+		rubber=5
+		tungsten=3
+		chromium=5
+		coal=14
+	}
+	history={
+		owner = ISL
+		victory_points = { 620 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			620 = {
+				naval_base = 2
+			}
+			621 = {
+				naval_base = 2
+			}
+			622 = {
+				naval_base = 2
+			}
+			637 = {
+				naval_base = 2
+			}
+			639 = {
+				naval_base = 2
+			}
+			640 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ISL
+	}
+	provinces={
+		620 621 622 623 624 625 626 627 628 629 630 631 632 633 634 635 636 637 638 639 640
+	}
+	local_supplies=0.0
+}

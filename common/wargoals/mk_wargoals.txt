@@ -3,8 +3,6 @@
 wargoal_types = {
 
 	mk_revisionist_aggression = {
-		name = mk_revisionist_aggression
-
 		take_states = {
 
 		}
@@ -20,6 +18,20 @@ wargoal_types = {
 
 		allowed = {
 			always = no
+		}
+	}
+
+	mk_border_revision = {
+		take_states = {
+		}
+		threat = 1.5
+		generate_base_cost = 50
+		generate_per_state_cost = 20
+		take_states_limit = -1
+		take_states_cost = -25
+		expire = 365
+		allowed = {
+			always = yes
 		}
 	}
 }

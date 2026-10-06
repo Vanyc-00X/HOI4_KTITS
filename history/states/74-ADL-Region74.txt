@@ -1,0 +1,29 @@
+state={
+	id=74
+	name="STATE_74"
+	manpower = 400000
+	state_category = rural
+	resources={
+		steel=8
+		oil=6
+		aluminium=10
+		rubber=6
+		tungsten=4
+		chromium=4
+		coal=19
+	}
+	history={
+		owner = ADL
+		victory_points = { 827 3 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 0
+		}
+		add_core_of = ADL
+	}
+	provinces={
+		827 828 829 830 831 832 833 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849 850
+	}
+	local_supplies=0.0
+}

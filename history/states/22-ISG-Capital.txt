@@ -1,0 +1,30 @@
+state={
+	id=22
+	name="STATE_22"
+	manpower = 520000
+	state_category = city
+	resources={
+		steel=6
+		oil=4
+		aluminium=5
+		rubber=5
+		tungsten=6
+		chromium=2
+		coal=22
+	}
+	history={
+		owner = ISG
+		victory_points = { 1390 12 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 1
+		}
+		add_core_of = ISG
+	}
+	provinces={
+		1383 1384 1385 1386 1387 1388 1389 1390 1391 1392 1393 1394 1395 1396 1397
+	}
+	local_supplies=0.0
+}

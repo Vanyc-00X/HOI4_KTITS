@@ -1,0 +1,32 @@
+state={
+	id=99
+	name="STATE_99"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=9
+		oil=5
+		aluminium=4
+		rubber=6
+		tungsten=5
+		chromium=4
+		coal=28
+	}
+	history={
+		owner = ZNS
+		victory_points = { 1187 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			1189 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ZNS
+	}
+	provinces={
+		1187 1188 1189 1190 1191 1192 1193 1194 1195 1196 1197 1198 1199 1200 1201
+	}
+	local_supplies=0.0
+}

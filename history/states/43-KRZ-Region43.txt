@@ -1,0 +1,29 @@
+state={
+	id=43
+	name="STATE_43"
+	manpower = 1600000
+	state_category = large_town
+	resources={
+		steel=13
+		oil=9
+		aluminium=4
+		rubber=2
+		tungsten=6
+		chromium=5
+		coal=35
+	}
+	history={
+		owner = KRZ
+		victory_points = { 261 3 }
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+		}
+		add_core_of = KRZ
+	}
+	provinces={
+		261 262 263 264 265 266 267 268 269 270
+	}
+	local_supplies=0.0
+}

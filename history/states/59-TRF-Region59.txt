@@ -1,0 +1,29 @@
+state={
+	id=59
+	name="STATE_59"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=5
+		oil=3
+		aluminium=7
+		rubber=14
+		tungsten=1
+		chromium=5
+		coal=17
+	}
+	history={
+		owner = TRF
+		victory_points = { 495 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = TRF
+	}
+	provinces={
+		495 496 497 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513 514
+	}
+	local_supplies=0.0
+}

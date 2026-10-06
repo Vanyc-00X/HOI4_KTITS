@@ -1,0 +1,29 @@
+state={
+	id=118
+	name="STATE_118"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=15
+		oil=10
+		aluminium=10
+		rubber=7
+		tungsten=11
+		chromium=7
+		coal=23
+	}
+	history={
+		owner = HRL
+		victory_points = { 1502 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = HRL
+	}
+	provinces={
+		1502
+	}
+	local_supplies=0.0
+}
