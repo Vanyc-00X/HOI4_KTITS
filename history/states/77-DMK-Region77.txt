@@ -1,0 +1,29 @@
+state={
+	id=77
+	name="STATE_77"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=7
+		oil=4
+		aluminium=3
+		rubber=2
+		tungsten=4
+		chromium=8
+		coal=23
+	}
+	history={
+		owner = DMK
+		victory_points = { 922 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = DMK
+	}
+	provinces={
+		922 923 924 925 926 927 928 929 930 931 932 933 934 935 936 937 938 939 940 941 942 943 944 945
+	}
+	local_supplies=0.0
+}

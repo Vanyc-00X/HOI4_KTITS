@@ -1,0 +1,29 @@
+state={
+	id=82
+	name="STATE_82"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=11
+		oil=6
+		aluminium=9
+		rubber=6
+		tungsten=8
+		chromium=4
+		coal=16
+	}
+	history={
+		owner = FDP
+		victory_points = { 994 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = FDP
+	}
+	provinces={
+		994
+	}
+	local_supplies=0.0
+}

@@ -1,0 +1,29 @@
+state={
+	id=97
+	name="STATE_97"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=12
+		oil=16
+		aluminium=7
+		rubber=10
+		tungsten=5
+		chromium=5
+		coal=16
+	}
+	history={
+		owner = KMS
+		victory_points = { 1166 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = KMS
+	}
+	provinces={
+		1166 1167 1168 1169 1170
+	}
+	local_supplies=0.0
+}

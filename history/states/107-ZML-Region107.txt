@@ -1,0 +1,29 @@
+state={
+	id=107
+	name="STATE_107"
+	manpower = 400000
+	state_category = rural
+	resources={
+		steel=6
+		oil=4
+		aluminium=3
+		rubber=7
+		tungsten=3
+		chromium=7
+		coal=14
+	}
+	history={
+		owner = ZML
+		victory_points = { 1318 3 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 0
+		}
+		add_core_of = ZML
+	}
+	provinces={
+		1318 1319 1320 1321 1322 1323 1324 1325 1326 1327 1328 1329 1330 1331 1332
+	}
+	local_supplies=0.0
+}

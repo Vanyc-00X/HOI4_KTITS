@@ -1,0 +1,41 @@
+state={
+	id=85
+	name="STATE_85"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=12
+		oil=14
+		aluminium=2
+		rubber=1
+		tungsten=6
+		chromium=8
+		coal=20
+	}
+	history={
+		owner = CRE
+		victory_points = { 1066 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			1083 = {
+				naval_base = 2
+			}
+			1084 = {
+				naval_base = 2
+			}
+			1085 = {
+				naval_base = 2
+			}
+			1086 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = CRE
+	}
+	provinces={
+		1066 1067 1068 1069 1070 1071 1072 1073 1074 1075 1076 1077 1078 1079 1080 1081 1082 1083 1084 1085 1086
+	}
+	local_supplies=0.0
+}

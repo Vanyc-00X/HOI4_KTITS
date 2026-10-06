@@ -1,0 +1,39 @@
+state={
+	id=16
+	name="STATE_16"
+	manpower = 1040000
+	state_category = large_city
+	resources={
+		steel=9
+		oil=6
+		aluminium=4
+		rubber=4
+		tungsten=10
+		chromium=4
+		coal=23
+	}
+	history={
+		owner = ART
+		victory_points = { 1126 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+			1122 = {
+				naval_base = 2
+			}
+			1123 = {
+				naval_base = 2
+			}
+			1124 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ART
+	}
+	provinces={
+		1122 1123 1124 1125 1126 1127 1128 1129 1130
+	}
+	local_supplies=0.0
+}

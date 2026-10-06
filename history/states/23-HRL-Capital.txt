@@ -1,0 +1,30 @@
+state={
+	id=23
+	name="STATE_23"
+	manpower = 1040000
+	state_category = large_city
+	resources={
+		steel=9
+		oil=6
+		aluminium=6
+		rubber=4
+		tungsten=4
+		chromium=8
+		coal=29
+	}
+	history={
+		owner = HRL
+		victory_points = { 1432 20 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = HRL
+	}
+	provinces={
+		1423 1424 1425 1426 1427 1428 1429 1430 1431 1432 1433 1434 1435 1436 1437 1438 1439 1440 1441
+	}
+	local_supplies=0.0
+}

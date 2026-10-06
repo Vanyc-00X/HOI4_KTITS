@@ -1,0 +1,29 @@
+state={
+	id=79
+	name="STATE_79"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=7
+		oil=8
+		aluminium=6
+		rubber=4
+		tungsten=3
+		chromium=3
+		coal=21
+	}
+	history={
+		owner = FDP
+		victory_points = { 958 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		add_core_of = FDP
+	}
+	provinces={
+		958 959 960 961 962 963 964 965 966 967 968 969
+	}
+	local_supplies=0.0
+}

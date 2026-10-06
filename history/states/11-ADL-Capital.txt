@@ -1,0 +1,54 @@
+state={
+	id=11
+	name="STATE_11"
+	manpower = 520000
+	state_category = city
+	resources={
+		steel=8
+		oil=6
+		aluminium=6
+		rubber=6
+		tungsten=4
+		chromium=8
+		coal=18
+	}
+	history={
+		owner = ADL
+		victory_points = { 754 12 }
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 1
+			769 = {
+				naval_base = 2
+			}
+			770 = {
+				naval_base = 2
+			}
+			775 = {
+				naval_base = 2
+			}
+			776 = {
+				naval_base = 2
+			}
+			777 = {
+				naval_base = 2
+			}
+			780 = {
+				naval_base = 2
+			}
+			781 = {
+				naval_base = 2
+			}
+			782 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ADL
+	}
+	provinces={
+		727 728 729 730 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748 749 750 751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782
+	}
+	local_supplies=0.0
+}

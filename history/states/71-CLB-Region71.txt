@@ -1,0 +1,47 @@
+state={
+	id=71
+	name="STATE_71"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=16
+		oil=5
+		aluminium=8
+		rubber=1
+		tungsten=6
+		chromium=9
+		coal=30
+	}
+	history={
+		owner = CLB
+		victory_points = { 709 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			709 = {
+				naval_base = 2
+			}
+			710 = {
+				naval_base = 2
+			}
+			711 = {
+				naval_base = 2
+			}
+			712 = {
+				naval_base = 2
+			}
+			713 = {
+				naval_base = 2
+			}
+			717 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = CLB
+	}
+	provinces={
+		709 710 711 712 713 714 715 716 717 718 719 720 721 722 723 724 725
+	}
+	local_supplies=0.0
+}

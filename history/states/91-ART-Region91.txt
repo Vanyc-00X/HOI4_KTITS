@@ -1,0 +1,41 @@
+state={
+	id=91
+	name="STATE_91"
+	manpower = 800000
+	state_category = town
+	resources={
+		steel=6
+		oil=8
+		aluminium=3
+		rubber=3
+		tungsten=4
+		chromium=3
+		coal=17
+	}
+	history={
+		owner = ART
+		victory_points = { 1131 3 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			1131 = {
+				naval_base = 2
+			}
+			1132 = {
+				naval_base = 2
+			}
+			1133 = {
+				naval_base = 2
+			}
+			1134 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ART
+	}
+	provinces={
+		1131 1132 1133 1134 1135 1136 1137
+	}
+	local_supplies=0.0
+}
