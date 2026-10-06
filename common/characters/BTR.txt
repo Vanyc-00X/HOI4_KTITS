@@ -64,6 +64,9 @@ characters = {
 			}
 		}
 		field_marshal = {
+			available = {
+				has_country_flag = mk_unlocked_character_btr_grandfather_akhtyamov
+			}
 			traits = { infantry_officer }
 			skill = 8
 			attack_skill = 8

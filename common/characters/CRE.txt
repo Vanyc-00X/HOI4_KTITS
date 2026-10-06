@@ -64,6 +64,9 @@ characters = {
 			}
 		}
 		corps_commander = {
+			available = {
+				has_country_flag = mk_unlocked_character_cre_adolf_hitler_guest_instructor
+			}
 			traits = { infantry_officer }
 			skill = 1
 			attack_skill = 1
@@ -83,6 +86,9 @@ characters = {
 			}
 		}
 		corps_commander = {
+			available = {
+				has_country_flag = mk_unlocked_character_cre_hermann_goering_guest_instructor
+			}
 			traits = { infantry_officer }
 			skill = 2
 			attack_skill = 2
@@ -102,6 +108,9 @@ characters = {
 			}
 		}
 		corps_commander = {
+			available = {
+				has_country_flag = mk_unlocked_character_cre_erwin_rommel_guest_instructor
+			}
 			traits = { infantry_officer }
 			skill = 5
 			attack_skill = 5
@@ -121,6 +130,9 @@ characters = {
 			}
 		}
 		corps_commander = {
+			available = {
+				has_country_flag = mk_unlocked_character_cre_heinz_guderian_guest_instructor
+			}
 			traits = { infantry_officer }
 			skill = 5
 			attack_skill = 5

@@ -1,4 +1,4 @@
-mk_cat_border_crises_category = {
+mk_cat_absurd = {
 	mk_dec_border_crisis = {
 		icon = generic_claim_state
 		cost = 50

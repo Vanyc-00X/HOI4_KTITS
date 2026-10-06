@@ -796,12 +796,10 @@ class Country:
                 21: "CRE_erwin_rommel_guest_instructor",
                 23: "CRE_heinz_guderian_guest_instructor",
             }[i]
-            return (f"recruit_character = {character}\n"
-                    f"set_country_flag = {character_unlock_flag(character)}\n"
+            return (f"set_country_flag = {character_unlock_flag(character)}\n"
                     "army_experience = 15\nadd_war_support = 0.02")
         if t == "BTR" and i == 18:
-            return ("recruit_character = BTR_grandfather_akhtyamov\n"
-                    f"set_country_flag = {character_unlock_flag('BTR_grandfather_akhtyamov')}\n"
+            return (f"set_country_flag = {character_unlock_flag('BTR_grandfather_akhtyamov')}\n"
                     "army_experience = 25\nadd_manpower = 12000\nadd_war_support = 0.05")
         if t == "BTR" and i == 20:
             return "army_experience = 20\nadd_manpower = 10000\nadd_stability = 0.03"
@@ -863,12 +861,10 @@ class Country:
         t = self.tag
         if t == "SOY" and i == 18:
             character = "SOY_joe_biden_guest_diplomat"
-            return (f"recruit_character = {character}\n"
-                    f"set_country_flag = {character_unlock_flag(character)}\n"
+            return (f"set_country_flag = {character_unlock_flag(character)}\n"
                     "add_political_power = 50\nadd_stability = 0.03\n" + votes(1))
         if t == "ZLD" and i == 18:
             return ("set_politics = { ruling_party = democratic elections_allowed = yes }\n"
-                    "recruit_character = ZLD_grigory_yavlinsky\n"
                     f"set_country_flag = {character_unlock_flag('ZLD_grigory_yavlinsky')}\n"
                     "add_stability = 0.05\nadd_political_power = 75\n" + votes(1))
         if i == n - 1:

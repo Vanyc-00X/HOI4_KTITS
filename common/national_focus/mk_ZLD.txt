@@ -2055,7 +2055,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_politics = { ruling_party = democratic elections_allowed = yes }
-			recruit_character = ZLD_grigory_yavlinsky
 			set_country_flag = mk_unlocked_character_zld_grigory_yavlinsky
 			add_stability = 0.05
 			add_political_power = 75

@@ -1598,7 +1598,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			recruit_character = CRE_adolf_hitler_guest_instructor
 			set_country_flag = mk_unlocked_character_cre_adolf_hitler_guest_instructor
 			army_experience = 15
 			add_war_support = 0.02
@@ -1644,7 +1643,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			recruit_character = CRE_hermann_goering_guest_instructor
 			set_country_flag = mk_unlocked_character_cre_hermann_goering_guest_instructor
 			army_experience = 15
 			add_war_support = 0.02
@@ -1688,7 +1686,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			recruit_character = CRE_erwin_rommel_guest_instructor
 			set_country_flag = mk_unlocked_character_cre_erwin_rommel_guest_instructor
 			army_experience = 15
 			add_war_support = 0.02
@@ -1736,7 +1733,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			recruit_character = CRE_heinz_guderian_guest_instructor
 			set_country_flag = mk_unlocked_character_cre_heinz_guderian_guest_instructor
 			army_experience = 15
 			add_war_support = 0.02

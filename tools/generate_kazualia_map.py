@@ -678,6 +678,23 @@ def main() -> None:
 
     repair_province_junctions(prov_img)
     all_color_to_id = {p["color"]: pid for pid, p in provinces.items()}
+
+    def position_in_province(pid: int, x: float, y: float) -> tuple[float, float]:
+        color = provinces[pid]["color"]
+        ix, iy = int(x), int(y)
+        if 0 <= ix < WIDTH and 0 <= iy < HEIGHT and px[ix, iy] == color:
+            return x, y
+        for radius in range(1, CELL + 1):
+            candidates = []
+            for cy in range(max(0, iy - radius), min(HEIGHT, iy + radius + 1)):
+                for cx in range(max(0, ix - radius), min(WIDTH, ix + radius + 1)):
+                    if max(abs(cx - ix), abs(cy - iy)) == radius and px[cx, cy] == color:
+                        candidates.append(((cx - x) ** 2 + (cy - y) ** 2, cx, cy))
+            if candidates:
+                _, cx, cy = min(candidates)
+                return cx + 0.5, cy + 0.5
+        raise RuntimeError(f"Could not find an in-province position for province {pid}")
+
     sea_ids_set = set(sea_ids)
     for pid, province in provinces.items():
         if province["type"] == "land":
@@ -866,9 +883,16 @@ tree = { 3 4 7 10 }
     ustack, buildings, supply = [], [], []
     for pid, p in provinces.items():
         for slot, dx, dy in UNIT_STACK_OFFSETS:
+            x, y = position_in_province(pid, p["cx"] + dx, p["cy"] + dy)
             ustack.append(
-                f"{pid};{slot};{p['cx'] + dx:.2f};12.00;{p['cy'] + dy:.2f};0.00;0.50"
+                f"{pid};{slot};{x:.2f};12.00;{HEIGHT - y:.2f};0.00;0.50"
             )
+        if p["type"] == "land" and p["coastal"]:
+            for slot, dx in ((19, -1.0), (20, 1.0)):
+                x, y = position_in_province(pid, p["cx"] + dx, p["cy"])
+                ustack.append(
+                    f"{pid};{slot};{x:.2f};12.00;{HEIGHT - y:.2f};0.00;0.50"
+                )
     (map_dir / "unitstacks.txt").write_text("\n".join(ustack) + "\n", encoding="utf-8")
     province_to_state = {
         pid: sid for sid, provs in state_provinces.items() for pid in provs
@@ -881,7 +905,10 @@ tree = { 3 4 7 10 }
         x, y = p["cx"], p["cy"]
         for btype, n in (("industrial_complex", 2), ("arms_factory", 1)):
             for i in range(n):
-                buildings.append(f"{sid};{btype};{x+i*0.3:.2f};12.00;{y+i*0.2:.2f};{i*0.4:.2f};0")
+                buildings.append(
+                    f"{sid};{btype};{x+i*0.3:.2f};12.00;"
+                    f"{HEIGHT - (y+i*0.2):.2f};{i*0.4:.2f};0"
+                )
         if sid == cap:
             level = {"large": 3, "medium": 2, "small": 1}[size]
             supply.append(f"{level} {pid}")
@@ -890,7 +917,7 @@ tree = { 3 4 7 10 }
         sid = province_to_state[pid]
         buildings.append(
             f"{sid};naval_base_spawn;{province['cx']:.2f};10.00;"
-            f"{province['cy']:.2f};0.00;{sea_pid}"
+            f"{HEIGHT - province['cy']:.2f};0.00;{sea_pid}"
         )
     (map_dir / "buildings.txt").write_text("\n".join(buildings) + "\n", encoding="utf-8")
     (map_dir / "supply_nodes.txt").write_text("\n".join(supply) + "\n", encoding="utf-8")
@@ -1022,7 +1049,7 @@ tree = { 3 4 7 10 }
     for region_id, region_provinces in enumerate(strategic_region_provinces, 1):
         x = sum(provinces[pid]["cx"] for pid in region_provinces) / len(region_provinces)
         y = sum(provinces[pid]["cy"] for pid in region_provinces) / len(region_provinces)
-        weather_positions.append(f"{region_id};{x:.2f};10.00;{y:.2f};small")
+        weather_positions.append(f"{region_id};{x:.2f};10.00;{HEIGHT - y:.2f};small")
     (map_dir / "weatherpositions.txt").write_text(
         "\n".join(weather_positions) + "\n", encoding="utf-8"
     )

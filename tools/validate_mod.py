@@ -417,6 +417,10 @@ for ln, line in enumerate(read(MAP / "weatherpositions.txt").splitlines(), 1):
     weather_region_ids.add(rid)
     if not 0 <= x < W or not 0 <= y < H:
         bad(f"WEATHER line {ln}: position ({x}, {y}) outside {W}x{H} map")
+    else:
+        pid = int(idmap[min(H - 1, int(H - y)), int(x)])
+        if sr_of.get(pid) != rid:
+            bad(f"WEATHER line {ln}: position resolves to province {pid}, not strategic region {rid}")
     if not fields[4]:
         bad(f"WEATHER line {ln}: missing size")
 if weather_region_ids != strategic_region_ids:
@@ -433,6 +437,20 @@ for ln, line in enumerate(read(MAP / "buildings.txt").splitlines(), 1):
     sid, btype = int(f[0]), f[1]
     if sid not in state_ids:
         bad(f"BUILDINGS line {ln}: state {sid} unknown")
+    try:
+        x, y = float(f[2]), float(f[4])
+    except ValueError:
+        bad(f"BUILDINGS line {ln}: invalid coordinates")
+        continue
+    if not 0 <= x < W or not 0 <= y < H:
+        bad(f"BUILDINGS line {ln}: position ({x}, {y}) outside {W}x{H} map")
+    else:
+        province = int(idmap[min(H - 1, int(H - y)), int(x)])
+        if state_of.get(province) != sid:
+            bad(
+                f"BUILDINGS line {ln}: position resolves to province {province} "
+                f"in state {state_of.get(province)}, not state {sid}"
+            )
     if btype == "infrastructure":
         bad(f"BUILDINGS line {ln}: infrastructure has no map building mesh")
     if btype == "naval_base_spawn":
@@ -470,13 +488,23 @@ for ln, line in enumerate(read(MAP / "unitstacks.txt").splitlines(), 1):
     unitstack_slots[pid].add(slot)
     if not 0 <= x < W or not 0 <= y < H:
         bad(f"UNITSTACKS line {ln}: position ({x}, {y}) outside {W}x{H} map")
+    else:
+        map_province = int(idmap[min(H - 1, int(H - y)), int(x)])
+        if map_province != pid:
+            bad(f"UNITSTACKS line {ln}: position resolves to province {map_province}, not {pid}")
 expected_slots = {0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 21, 22, 23, 24, 25, 26, 27, 28, 38}
 for pid in ids:
     if pid == 0:
         continue
     slots = unitstack_slots.get(pid, set())
-    if slots != expected_slots:
-        bad(f"UNITSTACKS province {pid} has slots {len(slots)}, expected 19 formation slots")
+    expected_province_slots = expected_slots | (
+        {19, 20} if defs[pid]["type"] == "land" and defs[pid]["coastal"] == "true" else set()
+    )
+    if slots != expected_province_slots:
+        bad(
+            f"UNITSTACKS province {pid} has {len(slots)} slots, "
+            f"expected {len(expected_province_slots)}"
+        )
 
 # ---------- countries ----------
 hist_files = {p.name[:3]: p for p in (ROOT / "history/countries").glob("*.txt")}
@@ -563,9 +591,9 @@ for tag, characters in FOCUS_UNLOCKED_CHARACTERS.items():
         focus = focus_by_id.get(focus_id, "")
         if not focus:
             bad(f"CHARACTER {character_id} unlock focus {focus_id} missing")
-        elif (f"recruit_character = {character_id}" not in focus
+        elif (f"recruit_character = {character_id}" in focus
               or f"set_country_flag = {unlock_flag}" not in focus):
-            bad(f"CHARACTER {character_id} focus {focus_id} must recruit it and set {unlock_flag}")
+            bad(f"CHARACTER {character_id} focus {focus_id} must set {unlock_flag} without recruit_character")
         matching_hooks = [
             hook for hook in script_blocks(capture_actions, "if")
             if f"original_tag = {tag}" in hook
@@ -583,6 +611,12 @@ for tag, characters in FOCUS_UNLOCKED_CHARACTERS.items():
             advisor = block(character, "advisor")
             field_marshal = block(character, "field_marshal")
             corps_commander = block(character, "corps_commander")
+            role_blocks = [role for role in (advisor, field_marshal, corps_commander) if role]
+            if not any(
+                f"has_country_flag = {unlock_flag}" in (block(role, "available") or "")
+                for role in role_blocks
+            ):
+                bad(f"CHARACTER {character_id} role must be gated by {unlock_flag}")
             if not event:
                 bad(f"CHARACTER {character_id} capture hook must reference an existing ruler event")
             elif "generate_character = {" not in event:
@@ -607,6 +641,16 @@ for p in (ROOT / "common/characters").glob("*.txt"):
     brace_balance(p)
 
 # ---------- every mod script file ----------
+decision_category_ids = {
+    category
+    for p in (ROOT / "common/decisions/categories").glob("*.txt")
+    for category in re.findall(r"^([A-Za-z0-9_]+)\s*=\s*\{", strip_comments(read(p)), re.M)
+}
+for p in (ROOT / "common/decisions").glob("*.txt"):
+    for category in re.findall(r"^([A-Za-z0-9_]+)\s*=\s*\{", strip_comments(read(p)), re.M):
+        if category not in decision_category_ids:
+            bad(f"DECISION {p.name} uses undefined category {category}")
+
 for sub in ("common", "events", "history/units", "map/strategicregions"):
     for p in (ROOT / sub).rglob("*.txt"):
         if "characters" in p.parts or p.parent.name in ("states",):

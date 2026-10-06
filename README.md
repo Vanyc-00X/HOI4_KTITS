@@ -25,7 +25,7 @@ Repository: https://github.com/Vanyc-00X/HOI4_KTITS
    Example contents:
 
 ```text
-version="0.15.2"
+version="0.15.3"
 tags={
 	"Alternative History"
 	"Total Conversion"
@@ -91,7 +91,7 @@ Works if **all players**:
 - Railway links and tiered supply hubs, plus artillery, cavalry and motorized national army templates with named commanders
 - 1939 **Border Crisis** bookmark with changed ownership and governments, active wars, and two new infantry weapon technologies
 
-Version in `descriptor.mod` / `tools/register_mod.py`: **0.15.2**
+Version in `descriptor.mod` / `tools/register_mod.py`: **0.15.3**
 
 ## Rebuild tools (optional)
 

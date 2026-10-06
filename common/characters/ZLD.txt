@@ -67,6 +67,9 @@ characters = {
 		}
 		advisor = {
 			slot = political_advisor
+			available = {
+				has_country_flag = mk_unlocked_character_zld_grigory_yavlinsky
+			}
 			idea_token = ZLD_grigory_yavlinsky
 			allowed = {
 				original_tag = ZLD
