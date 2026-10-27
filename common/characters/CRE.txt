@@ -1,9 +1,124 @@
 characters = {
+	CRE_adolf_hitler = {
+		name = CRE_adolf_hitler
+		portraits = {
+			civilian = {
+				large = GFX_portrait_GER_adolf_hitler
+				small = GFX_idea_CRE_adolf_hitler
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = CRE_adolf_hitler
+			allowed = {
+				original_tag = CRE
+			}
+			visible = {
+				has_completed_focus = CRE_he_is_back
+			}
+			available = {
+				has_completed_focus = CRE_he_is_back
+			}
+			traits = {
+				CRE_returned_fuhrer
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 20
+			}
+		}
+	}
+
+	# Виктор Баринов (ex Iron Marshal / army chief)
+	CRE_iron_marshal = {
+		name = CRE_viktor_barinov
+		portraits = {
+			army = {
+				large = GFX_portrait_CRE_barinov
+				small = GFX_idea_CRE_barinov
+			}
+			civilian = {
+				large = GFX_portrait_CRE_barinov
+				small = GFX_idea_CRE_barinov
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = CRE_iron_marshal
+			allowed = { original_tag = CRE }
+			visible = { has_completed_focus = CRE_advisor_iron_marshal }
+			available = { has_completed_focus = CRE_advisor_iron_marshal }
+			traits = { CRE_iron_marshal_trait }
+			cost = 100
+			ai_will_do = { factor = 15 }
+		}
+	}
+
+	CRE_war_scientist = {
+		name = CRE_war_scientist
+		portraits = {
+			army = {
+				small = GFX_idea_generic_political_advisor_europe_2
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = CRE_war_scientist
+			ledger = army
+			allowed = { original_tag = CRE }
+			visible = { has_completed_focus = CRE_advisor_war_scientist }
+			available = { has_completed_focus = CRE_advisor_war_scientist }
+			traits = { CRE_war_scientist_trait }
+			cost = 100
+			ai_will_do = { factor = 12 }
+		}
+	}
+
+	# Николай Петрович (ex Voice of Reich / political advisor)
+	CRE_voice_of_reich = {
+		name = CRE_nikolay_petrovich
+		portraits = {
+			civilian = {
+				large = GFX_portrait_CRE_petrovich
+				small = GFX_idea_CRE_petrovich
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = CRE_voice_of_reich
+			allowed = { original_tag = CRE }
+			visible = { has_completed_focus = CRE_advisor_voice_of_reich }
+			available = { has_completed_focus = CRE_advisor_voice_of_reich }
+			traits = { CRE_voice_of_reich_trait }
+			cost = 100
+			ai_will_do = { factor = 12 }
+		}
+	}
+
+	CRE_sky_hunter = {
+		name = CRE_sky_hunter
+		portraits = {
+			army = {
+				small = GFX_idea_generic_air_europe_1
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = CRE_sky_hunter
+			allowed = { original_tag = CRE }
+			visible = { has_completed_focus = CRE_advisor_sky_hunter }
+			available = { has_completed_focus = CRE_advisor_sky_hunter }
+			traits = { CRE_sky_hunter_trait }
+			cost = 100
+			ai_will_do = { factor = 10 }
+		}
+	}
+
 	CRE_khasanov_damir_yurevich = {
 		name = CRE_khasanov_damir_yurevich
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/leader_unknown.dds"
+				large = GFX_portrait_CRE_khasanov
 			}
 		}
 		country_leader = {

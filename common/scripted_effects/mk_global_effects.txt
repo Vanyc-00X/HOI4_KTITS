@@ -80,6 +80,7 @@ mk_init_country_mechanics = {
 	clr_country_flag = mk_victory_claimed
 	add_ideas = mk_idea_world_vote
 	mk_mech_init = yes
+	mk_grant_starting_techs = yes
 	if = {
 		limit = { original_tag = VCI }
 		set_variable = { mk_world_votes = 3 }
@@ -95,6 +96,44 @@ mk_init_country_mechanics = {
 		}
 		set_variable = { mk_npt = 2 }
 		add_ideas = mk_idea_npt_seed
+	}
+}
+
+# Starting army/air/armor techs (DLC-aware). Infantry/arty/trucks also set in history.
+mk_grant_starting_techs = {
+	# No Step Back armor designer
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		set_technology = {
+			gwtank_chassis = 1
+			basic_light_tank_chassis = 1
+		}
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+	# By Blood Alone aviation (1933 / interwar column)
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		set_technology = {
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			iw_large_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+			aa_lmg = 1
+			bba_early_transport_plane = 1
+		}
+	}
+	else = {
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			early_transport_plane = 1
+		}
 	}
 }
 

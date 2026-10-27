@@ -1,8 +1,7 @@
-version="0.12.0"
+version="0.13.0-vanilla-map"
 tags={
 	"Alternative History"
 	"Total Conversion"
-	"Map"
 	"National Focuses"
 	"Gameplay"
 }
@@ -13,7 +12,6 @@ replace_path="history/units"
 replace_path="history/diplomacy"
 replace_path="history/general"
 replace_path="common/bookmarks"
-replace_path="map/strategicregions"
 replace_path="common/ai_strategy_plans"
 replace_path="common/ai_strategy"
 replace_path="common/ai_areas"

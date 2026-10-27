@@ -1,0 +1,22 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_portrait_CRE_khasanov"
+		texturefile = "gfx/leaders/CRE/Portrait_CRE_khasanov.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_CRE_barinov"
+		texturefile = "gfx/leaders/CRE/Portrait_CRE_barinov.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_CRE_petrovich"
+		texturefile = "gfx/leaders/CRE/Portrait_CRE_petrovich.png"
+	}
+	spriteType = {
+		name = "GFX_idea_CRE_barinov"
+		texturefile = "gfx/interface/ideas/idea_CRE_barinov.png"
+	}
+	spriteType = {
+		name = "GFX_idea_CRE_petrovich"
+		texturefile = "gfx/interface/ideas/idea_CRE_petrovich.png"
+	}
+}

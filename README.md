@@ -1,7 +1,9 @@
 # Mir Kazualnosti (HOI4)
 
 Total conversion for **Hearts of Iron IV 1.19.\***  
-«Мир Казуальности: Эпоха Сходящих с Ума Правителей» — 24 кастомных страны, своя карта, фокусы, сюжет, НПТ, альянсы и AI.
+«Мир Казуальности: Эпоха Сходящих с Ума Правителей» — 24 кастомных страны на **ванильной карте мира**, фокусы, сюжет, НПТ, альянсы и AI.
+
+С v0.13: кастомная карта отключена; страны мода владеют всем миром (см. `docs/VANILLA_WORLD_REMAP.md`). **KRZ** = СССР, **CRE** (Чёрная Республика) = Третий рейх.
 
 Repository: https://github.com/Vanyc-00X/HOI4_KTITS
 
@@ -40,7 +42,6 @@ replace_path="history/units"
 replace_path="history/diplomacy"
 replace_path="history/general"
 replace_path="common/bookmarks"
-replace_path="map/strategicregions"
 replace_path="common/ai_strategy_plans"
 replace_path="common/ai_strategy"
 replace_path="common/ai_areas"
@@ -60,7 +61,7 @@ path="mod/Mir_Kazualnosti"
    and put the mod files in that ASCII folder. Paradox often fails to load mods from Greek/Cyrillic paths.
 
 5. Launcher → enable only this mod → Play.  
-   You must see **VCI / SOY / BTR / …**, not Germany/USSR.
+   You must see **VCI / KRZ / CRE / …** on the **vanilla world map** (not Kazualia). Germany/USSR tags are replaced by CRE/KRZ.
 
 ### OneDrive / Greek Documents fix
 
@@ -81,14 +82,13 @@ Works if **all players**:
 
 ## What’s in the mod
 
-- 24 tags, custom map, bookmarks
+- 24 tags on vanilla world map, bookmarks
 - National focuses (~76–88 per country), decisions, events, plot chain
 - Mechanics: Absurd temperature, World Votes, NPT (fascism only), ideology blocs + revisionism
 - Cosmetic renames/flags on political courses
 - AI strategy plans / areas / theaters
-- Resources scattered on all states
 
-Version in `descriptor.mod` / `tools/register_mod.py`: **0.12.0**
+Version in `descriptor.mod`: **0.13.0-vanilla-map**
 
 ## Rebuild tools (optional)
 

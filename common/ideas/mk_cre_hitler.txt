@@ -1,0 +1,148 @@
+ideas = {
+	country = {
+		CRE_idea_blitz_spirit = {
+			name = CRE_idea_blitz_spirit
+			picture = generic_armor
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_armor_speed_factor = 0.10
+				army_armor_attack_factor = 0.05
+				motorized_attack_factor = 0.05
+			}
+		}
+
+		CRE_idea_total_mobilization = {
+			name = CRE_idea_total_mobilization
+			picture = generic_production_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.10
+				conscription = 0.02
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		CRE_idea_new_order = {
+			name = CRE_idea_new_order
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.05
+				justify_war_goal_time = -0.25
+				war_support_weekly = 0.002
+				generate_wargoal_tension = -0.20
+			}
+		}
+
+		CRE_idea_army_reforged = {
+			name = CRE_idea_army_reforged
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				training_time_factor = -0.15
+				army_org_regain = 0.10
+				land_reinforce_rate = 0.05
+				minimum_training_level = -0.1
+			}
+		}
+
+		CRE_idea_steel_legions = {
+			name = CRE_idea_steel_legions
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_infantry_attack_factor = 0.10
+				army_infantry_defence_factor = 0.10
+				breakthrough_factor = 0.08
+				supply_consumption_factor = -0.10
+			}
+		}
+
+		CRE_idea_phoenix_labs = {
+			name = CRE_idea_phoenix_labs
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.08
+			}
+			research_bonus = {
+				air_equipment = 0.10
+				electronics = 0.10
+			}
+		}
+
+		CRE_idea_secret_weapons = {
+			name = CRE_idea_secret_weapons
+			picture = generic_artillery_regiments
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				special_project_speed_factor = 0.10
+			}
+			research_bonus = {
+				rocketry = 0.15
+				nuclear = 0.10
+			}
+		}
+
+		CRE_idea_finish_the_job = {
+			name = CRE_idea_finish_the_job
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				army_speed_factor = 0.05
+				invasion_preparation = -0.25
+				no_supply_grace = 48
+			}
+		}
+
+		CRE_idea_future_tanks = {
+			name = CRE_idea_future_tanks
+			picture = generic_armor
+			allowed = { always = no }
+			removal_cost = -1
+			equipment_bonus = {
+				armor = {
+					soft_attack = 0.35
+					hard_attack = 0.35
+					defense = 0.15
+					instant = yes
+				}
+			}
+		}
+
+		CRE_idea_future_infantry = {
+			name = CRE_idea_future_infantry
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			equipment_bonus = {
+				infantry_equipment = {
+					soft_attack = 0.25
+					hard_attack = 0.20
+					defense = 0.15
+					instant = yes
+				}
+				motorized_rocket_equipment = {
+					soft_attack = 0.40
+					hard_attack = 0.25
+					instant = yes
+				}
+				rocket_artillery_equipment = {
+					soft_attack = 0.30
+					hard_attack = 0.15
+					instant = yes
+				}
+			}
+		}
+	}
+}

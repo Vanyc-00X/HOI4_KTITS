@@ -24,3 +24,8 @@ mod.zip
 
 # Large local-only dumps (keep out of git if reappear)
 ресурсы/
+
+# Local archives (custom map backup)
+_archive_custom_map/
+_archive_unique_focus/
+

@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_CRE_he_is_back"
+		texturefile = "gfx/interface/goals/focus_CRE_he_is_back.png"
+	}
+	spriteType = {
+		name = "GFX_focus_CRE_blitz_renaissance"
+		texturefile = "gfx/interface/goals/focus_CRE_he_is_back.png"
+	}
+	spriteType = {
+		name = "GFX_focus_CRE_total_mobilization"
+		texturefile = "gfx/interface/goals/focus_CRE_he_is_back.png"
+	}
+	spriteType = {
+		name = "GFX_focus_CRE_new_order"
+		texturefile = "gfx/interface/goals/focus_CRE_he_is_back.png"
+	}
+	spriteType = {
+		name = "GFX_idea_CRE_adolf_hitler"
+		texturefile = "gfx/interface/ideas/idea_CRE_adolf_hitler.png"
+	}
+	spriteType = {
+		name = "GFX_focus_CRE_black_division"
+		texturefile = "gfx/interface/goals/focus_CRE_black_division.png"
+	}
+}
